@@ -1,3 +1,5 @@
 update servReqs
-  set status = $2
-  where id = $1
+  set servReqs.status = $2,
+  servReq_notes.note = $3
+  from servReq_notes
+  where servReqs.id = $1
