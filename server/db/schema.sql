@@ -19,6 +19,8 @@ create table apartments
     city varchar(50) not null,
     state char(2),
     zipcode varchar(10) not null,
+    female_only_housing boolean,
+    male_only_housing boolean,
     squareft varchar(10),
     bedrooms int not null,
     baths int not null,
@@ -95,6 +97,7 @@ create table renters
     hometown text not null,
     phone int not null,
     email varchar(255),
+    private_room boolean,
     carMake text,
     carModel text,
     carYear date,
@@ -135,7 +138,8 @@ create table servReqs
     type text,
     permissions text,
     status text,
-    renterId integer references renters
+    renterId integer references renters,
+    aptId integer references apartments
   )
 
 create table servReq_notes
