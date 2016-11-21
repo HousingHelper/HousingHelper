@@ -15,22 +15,27 @@ create table apartments
     id serial primary key,
     title varchar(255),
     address varchar(255) not null,
+    apt_num varchar(10),
     city varchar(50) not null,
     state char(2),
     zipcode varchar(10) not null,
     squareft varchar(10),
     bedrooms int not null,
-    baths int not null
+    baths int not null,
     parkingspace text,
     currentOcc int,
     totalOcc int,
+    wifiname text,
     wifipwd varchar(255),
-    emergency text,
-    grocery text,
-    restaurants text,
     trashDay text,
-    notes text,
     owner integer references aptOwners
+  )
+
+create table apt_notes
+  (
+    id serial primary key,
+    note text,
+    aptId integer references apartments
   )
 
 create table rooms
@@ -50,8 +55,14 @@ create table aptOwners
     lastName varchar(50) not null,
     phone int not null,
     email varchar(255),
-    notes text,
     aptId integer references apartments
+  )
+
+create table aptOwn_notes
+  (
+    id serial primary key,
+    note text,
+    aptOwnId integer references aptOwners
   )
 
 create table aptContractors
@@ -62,8 +73,14 @@ create table aptContractors
     occupation varchar(50) not null,
     phone int not null,
     email varchar(255),
-    notes text,
     aptId integer references apartments
+  )
+
+create table aptContr_notes
+  (
+    id serial primary key,
+    note text,
+    aptContrId integer references aptContractors
   )
 
 create table renters
@@ -88,10 +105,16 @@ create table renters
     monthPaid date,
     checkInTime time,
     checkOutTime time,
-    notes text,
     aptId integer references apartments,
     roomId integer references rooms,
     groupId integer references groups
+  )
+
+create table renter_notes
+  (
+    id serial primary key,
+    note text,
+    renterId integer references renters
   )
 
 create table groups
@@ -104,7 +127,7 @@ create table groups
     checkOutDate date
   )
 
-create table ServReq
+create table servReqs
   (
     id serial primary key,
     submitted date,
@@ -112,8 +135,14 @@ create table ServReq
     type text,
     permissions text,
     status text,
-    notes text,
     renterId integer references renters
+  )
+
+create table servReq_notes
+  (
+    id serial primary key,
+    note text,
+    servReqId integer references servReqs
   )
 
 create table faqs
@@ -122,3 +151,21 @@ create table faqs
     question text,
     answer text
   )
+
+-- create table nearby
+--   (
+--     id serial primary key,
+--     grocery1_name text,
+--     grocery1_address text,
+--     grocery2_name text,
+--     grocery2_address text,
+--     grocery3_name text,
+--     grocery3_address text,
+--     grocery4_name text,
+--     grocery4_address text,
+--     gym_name text,
+--     gym_address text,
+--     other_name text,
+--     other_address text,
+--     aptId integer references apartments
+--   )
