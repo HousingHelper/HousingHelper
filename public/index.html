@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='housinghelper'>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS Bundle -->
+    <link rel="stylesheet" href="./app/styles/reset.css">
+    <link rel="stylesheet" href="./styles.css">
+
+
     <title>Housing Helper</title>
   </head>
+
   <body>
+
+    <!-- UI Views -->
+    <ui-view></ui-view>
+
+
+
+
+
+
+
+    <!-- CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src ='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+    <!-- Script Bundle -->
+    <script src="./bundle.js"></script>
 
   </body>
 </html>
