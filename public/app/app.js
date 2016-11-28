@@ -54,6 +54,11 @@ angular.module('housinghelper', ['ui.router'])
       url: '/unassignedRenters',
       templateUrl: './app/views/unassignedRenters/unassignedRenters.html',
       controller: 'unassignedRentersCtrl'
+    })
+    .state('founders',{
+      url:'/founders',
+      templateUrl:'./app/views/founders/founders.html',
+      controller:'foundersCtrl'
     });
 
 

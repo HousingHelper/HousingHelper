@@ -52,6 +52,10 @@ angular.module('housinghelper', ['ui.router']).config(["$stateProvider", "$urlRo
     url: '/unassignedRenters',
     templateUrl: './app/views/unassignedRenters/unassignedRenters.html',
     controller: 'unassignedRentersCtrl'
+  }).state('founders', {
+    url: '/founders',
+    templateUrl: './app/views/founders/founders.html',
+    controller: 'foundersCtrl'
   });
 }]);
 // INITILIZE CONTROLLER
@@ -92,12 +96,21 @@ angular.module("housinghelper").controller("createEditRentersCtrl", ["$scope", f
 }]);
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("homeCtrl", ["$scope", function ($scope) {
+angular.module("housinghelper").controller("foundersCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
   $scope.test = "testerino";
   // FUNCTIONS
   // ============================================================
+}]);
+// INITILIZE CONTROLLER
+// ============================================================
+angular.module("housinghelper").controller("homeCtrl", ["$scope", function ($scope) {
+  // VARIABLES
+  // ============================================================
+  $scope.test = "testerino";
+  // FUNCTIONS
+  // ===========================================================
 }]);
 // INITILIZE CONTROLLER
 // ============================================================
