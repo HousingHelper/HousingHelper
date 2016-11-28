@@ -1,35 +1,50 @@
+#topDivider
+  border-top: solid black
 .box
   background-color: blue
   height: 200px
   width: 100%
-  position: fixed
-  z-index: 1
 
 .founderBox
   position: relative
   width: 100%
-  height: 500px
-  border: solid black
-  text-align: center
-.founderInfo
-  position: absolute
-  z-index: -99
-  top: 50%
-  left: 50%
-  height: 250px
-  width: 80%
-  margin-top: -125px
-  margin-left: -40%
-  p
-    float: left
-    top: 50%
-    margin-left: 100px
-    margin-top: 75px
-    height: 125px
-  img
-    float: left
-    margin-left: 50px
-    height: 200px
 
-#firstFounder
-  margin-top: 200px
+
+  text-align: center
+  display: flex
+  justify-content: center
+  align-content: space-between
+.displayer
+  border: solid black
+  border-radius: 15px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-top: 50px
+  height: 250px
+  width: 70%
+  .imgBox
+    height: 100%
+    img
+      border-top-left-radius: 10px
+      border-bottom-left-radius: 10px
+
+
+  .founderInfo
+    h1
+      color: black
+      margin-top: 50px
+      font-size: 30px
+      font-family: cursive
+    p
+
+    text-align: center
+    height: 100%
+
+    display: flex
+    flex-flow: column
+    width: 100%
+
+  img
+
+    height: 100%
