@@ -69,7 +69,7 @@ angular.module("housinghelper").controller("adminMainCtrl", ["$scope", function 
 }]);
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createApartmentCtrl", ["$scope", function ($scope) {
+angular.module("housinghelper").controller("apartmentsCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
   $scope.test = 'testerino';
@@ -78,7 +78,7 @@ angular.module("housinghelper").controller("createApartmentCtrl", ["$scope", fun
 }]);
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("apartmentsCtrl", ["$scope", function ($scope) {
+angular.module("housinghelper").controller("createApartmentCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
   $scope.test = 'testerino';
