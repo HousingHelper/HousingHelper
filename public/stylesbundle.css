@@ -81,3 +81,27 @@
         .sideNavWrapper nav ul li:hover {
           font-weight: bold;
           cursor: pointer; }
+
+.adminMain {
+  background: blue; }
+
+.apartments {
+  background: orange; }
+
+.createEditRenters {
+  background: yellow; }
+
+.createApartment {
+  background: green; }
+
+.createEditRenters {
+  background: purple; }
+
+.serviceRequests {
+  background: black; }
+
+.toDoList {
+  background: yellow; }
+
+.unassignedRenters {
+  background: grey; }
