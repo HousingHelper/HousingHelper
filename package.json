@@ -1,0 +1,37 @@
+{
+  "name": "housinghelper",
+  "version": "1.0.0",
+  "description": "An App to help Renters manage Rental Units and allows users to pay rent, submit and track service requests, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HousingHelper/HousingHelper.git"
+  },
+  "author": "Michael Hanks, Jacob Hill, Erin Yanoshita, Daniel Tobar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HousingHelper/HousingHelper/issues"
+  },
+  "homepage": "https://github.com/HousingHelper/HousingHelper#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-watch": "^4.3.11",
+    "massive": "^2.5.0",
+    "nodemailer": "^2.6.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}
