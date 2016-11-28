@@ -1,2 +1,26 @@
 h1 {
   color: red; }
+
+.adminMain {
+  background: blue; }
+
+.apartments {
+  background: orange; }
+
+.createApartment {
+  background: green; }
+
+.createEditRenters {
+  background: yellow; }
+
+.createEditRenters {
+  background: purple; }
+
+.serviceRequests {
+  background: black; }
+
+.toDoList {
+  background: yellow; }
+
+.unassignedRenters {
+  background: grey; }
