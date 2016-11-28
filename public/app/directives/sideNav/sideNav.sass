@@ -1,0 +1,26 @@
+$letterspacing: 2px
+$lineheight: 25px
+
+
+.sideNavWrapper
+  position: fixed
+  border: 1px solid black
+  width: 20%
+  left: 10px
+  margin-top: 25vh
+  nav
+    width: 100%
+    ul
+      display: flex
+      flex-direction: column
+      justify-content: center
+      text-align: left
+      margin-left: 15px
+      line-height: $lineheight
+      letter-spacing: $letterspacing
+      padding: 10px 0
+      li
+        margin: 5px
+        &:hover
+          font-weight: bold
+          cursor: pointer
