@@ -35,7 +35,7 @@ gulp.task('js', function() {
 gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass())
-    .pipe(concat('styles.css'))
+    .pipe(concat('stylesbundle.css'))
     .pipe(gulp.dest('./public'));
 });
 
