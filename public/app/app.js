@@ -55,6 +55,12 @@ angular.module('housinghelper', ['ui.router'])
       templateUrl: './app/views/unassignedRenters/unassignedRenters.html',
       controller: 'unassignedRentersCtrl'
     })
+    // founders state
+    .state('founders',{
+      url:'/founders',
+      templateUrl:'./app/views/founders/founders.html',
+      controller:'foundersCtrl'
+    })
     // Group List STATE
     .state('groupList', {
       url: '/groupList',
@@ -73,9 +79,6 @@ angular.module('housinghelper', ['ui.router'])
       templateUrl: './app/views/faq/faq.html',
       controller: 'faqCtrl'
     })
-
-
-
 
 
 
