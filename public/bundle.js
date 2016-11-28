@@ -74,24 +74,6 @@ angular.module('housinghelper', ['ui.router']).config(["$stateProvider", "$urlRo
 }]);
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("footerCtrl", ["$scope", function ($scope) {
-  // VARIABLES
-  // ============================================================
-
-  // FUNCTIONS
-  // ============================================================
-}]);
-// INITILIZE DIRECTIVE
-// ============================================================
-angular.module("housinghelper").directive('footerDirective', function () {
-  return {
-    restrict: 'EA',
-    templateUrl: './app/directives/footer/footerTmpl.html',
-    controller: 'footerCtrl'
-  };
-});
-// INITILIZE CONTROLLER
-// ============================================================
 angular.module("housinghelper").controller("headerCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
@@ -106,6 +88,24 @@ angular.module("housinghelper").directive('headerDirective', function () {
     restrict: 'EA',
     templateUrl: './app/directives/header/headerTmpl.html',
     controller: 'headerCtrl'
+  };
+});
+// INITILIZE CONTROLLER
+// ============================================================
+angular.module("housinghelper").controller("footerCtrl", ["$scope", function ($scope) {
+  // VARIABLES
+  // ============================================================
+
+  // FUNCTIONS
+  // ============================================================
+}]);
+// INITILIZE DIRECTIVE
+// ============================================================
+angular.module("housinghelper").directive('footerDirective', function () {
+  return {
+    restrict: 'EA',
+    templateUrl: './app/directives/footer/footerTmpl.html',
+    controller: 'footerCtrl'
   };
 });
 // INITILIZE CONTROLLER
@@ -128,15 +128,6 @@ angular.module("housinghelper").directive('sideNavDirective', function () {
 });
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("adminMainCtrl", ["$scope", function ($scope) {
-  // VARIABLES
-  // ============================================================
-  $scope.test = 'testerino';
-  // FUNCTIONS
-  // ============================================================
-}]);
-// INITILIZE CONTROLLER
-// ============================================================
 angular.module("housinghelper").controller("apartmentsCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
@@ -146,7 +137,7 @@ angular.module("housinghelper").controller("apartmentsCtrl", ["$scope", function
 }]);
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createEditRentersCtrl", ["$scope", function ($scope) {
+angular.module("housinghelper").controller("adminMainCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
   $scope.test = 'testerino';
@@ -156,6 +147,15 @@ angular.module("housinghelper").controller("createEditRentersCtrl", ["$scope", f
 // INITILIZE CONTROLLER
 // ============================================================
 angular.module("housinghelper").controller("createApartmentCtrl", ["$scope", function ($scope) {
+  // VARIABLES
+  // ============================================================
+  $scope.test = 'testerino';
+  // FUNCTIONS
+  // ============================================================
+}]);
+// INITILIZE CONTROLLER
+// ============================================================
+angular.module("housinghelper").controller("createEditRentersCtrl", ["$scope", function ($scope) {
   // VARIABLES
   // ============================================================
   $scope.test = 'testerino';

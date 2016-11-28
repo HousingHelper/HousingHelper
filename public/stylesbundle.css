@@ -1,28 +1,4 @@
 
-.footerWrapper {
-  position: fixed;
-  width: 100%;
-  height: 15vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  bottom: 0; }
-  .footerWrapper div h1 {
-    font-size: 25px;
-    letter-spacing: 2px;
-    border: 1px solid black;
-    border-radius: 15px;
-    padding: 10px;
-    font-weight: bold;
-    cursor: pointer; }
-  .footerWrapper div ul {
-    flex-direction: row; }
-    .footerWrapper div ul i {
-      margin: 15px;
-      font-size: 25px; }
-      .footerWrapper div ul i:hover {
-        cursor: pointer; }
-
 .headerWrapper {
   position: fixed;
   width: 100vw;
@@ -58,6 +34,30 @@
       line-height: 25px;
       letter-spacing: 2px; }
 
+.footerWrapper {
+  position: fixed;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  bottom: 0; }
+  .footerWrapper div h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer; }
+  .footerWrapper div ul {
+    flex-direction: row; }
+    .footerWrapper div ul i {
+      margin: 15px;
+      font-size: 25px; }
+      .footerWrapper div ul i:hover {
+        cursor: pointer; }
+
 .sideNavWrapper {
   position: fixed;
   border: 1px solid black;
@@ -82,17 +82,17 @@
           font-weight: bold;
           cursor: pointer; }
 
-.adminMain {
-  background: blue; }
-
 .apartments {
   background: orange; }
 
-.createEditRenters {
-  background: yellow; }
+.adminMain {
+  background: blue; }
 
 .createApartment {
   background: green; }
+
+.createEditRenters {
+  background: yellow; }
 
 .createEditRenters {
   background: purple; }
