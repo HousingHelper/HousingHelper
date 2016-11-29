@@ -1,6 +1,6 @@
 
 <div class="home">
-  <div class="login">
+  <div class="login" id="existingLogin">
     <div class="loginHolder">
       <div class="loginTitle">
         <h1>Login</h1>
@@ -13,8 +13,29 @@
           <input class="lBoxes" type="text" placeholder="Enter Password">
         </div>
         <div class="BtnHolder">
-          <div class="lBtns">Cancel</div>
+          <div id="cancelL" class="lBtns" ng-click="show= false">Cancel</div>
           <div class="lBtns">Login</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="hideAdmin" class="login">
+    <div class="loginHolder" id="createAdmin">
+      <div class="loginTitle">
+        <h1>Login</h1>
+      </div>
+      <div class="loginInputs">
+        <div class="iBoxHolder">
+          <h1>Create Username</h1>
+          <input class="lBoxes" type="text" placeholder="Choose Username">
+          <h1>Create Password</h1>
+          <input class="lBoxes" type="text" placeholder="Enter New Password">
+          <h1>Verify Password</h1>
+          <input class="lBoxes" type="text" placeholder="Verify New Password">
+        </div>
+        <div class="BtnHolder">
+          <div id="cancelR" class="lBtns" ng-click="hide= false">Cancel</div>
+          <div class="lBtns">Register</div>
         </div>
       </div>
     </div>
@@ -28,7 +49,7 @@
         <h1 id="link3" class="linkTxt">Founders</h1>
       </div>
       <div class="navBtnHolder">
-        <div class="navBtn">Login</div>
+        <div id="loginBtn" class="navBtn">Login</div>
       </div>
     </div>
   </nav>
@@ -48,16 +69,17 @@
       <div class="userAdminHolder">
         <div class="userHolder uAH">
           <p class="uAText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-          <div class="uABtn">I'm an User</div>
+          <div class="uABtn" id="userBtn">I'm an User</div>
         </div>
         <!-- <div class="centerBar"></div> -->
         <div class="adminHolder uAH">
           <p class="uAText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-          <div class="uABtn">I'm an Admin</div>
+          <div class="uABtn" id="adminBtn">I'm an Admin</div>
         </div>
       </div>
     </div>
   </div>
   <div id="part-three" class="footerDirCon">
+    <footer-directive></footer-directive>
   </div>
 </div>

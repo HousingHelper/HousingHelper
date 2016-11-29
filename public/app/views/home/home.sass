@@ -13,13 +13,14 @@
     align-items: center
     .loginHolder
       width: 270px
-      height: 270px
+      height: 280px
       opacity: 1
       background: blue
       display: flex
       flex-direction: column
       justify-content: space-between
       align-items: center
+      margin-top: -100px
       .loginTitle
         font-size: 40px
         font-weight: bold
@@ -50,8 +51,11 @@
             display: flex
             justify-content: center
             align-items: center
+            &:hover
+            cursor: pointer
   // ((((((((((((((((((((((((((register))))))))))))))))))))))))))
-
+  #createAdmin
+    height: 345px
   // ((((((((((((((((((((((((((jumbo))))))))))))))))))))))))))
   .jumboTron
     height: 400px
@@ -97,6 +101,8 @@
         .linkTxt
           font-weight: bold
           font-size: 20px
+          &:hover
+          cursor: pointer
 
       .navBtnHolder
         .navBtn
@@ -110,6 +116,10 @@
           display: flex
           justify-content: center
           align-items: center
+          &:hover
+          cursor: pointer
+  #link2
+    margin-right: -30px
   // ((((((((((((((((((((((((((Titles))))))))))))))))))))))))))
   .homeTitles
     font-size: 60px
@@ -141,8 +151,8 @@
       .aboutTxtHolder
         margin-top: 50px
         max-width: 600px
-
         .aboutTxt
+          text-align: center
   // ((((((((((((((((((((((((((Get Started))))))))))))))))))))))))))
   .getStartedCon
     width: 100%
@@ -167,7 +177,7 @@
         align-content: space-around
         flex-wrap: wrap
         .uAText
-
+          text-align: center
         .uABtn
           height: 40px
           width: 100px
@@ -176,6 +186,8 @@
           display: flex
           justify-content: center
           align-items: center
+          &:hover
+          cursor: pointer
         .centerBar
           width: 10px
           height: 240px
@@ -195,5 +207,6 @@
   // ((((((((((((((((((((((((((footer))))))))))))))))))))))))))
   .footerDirCon
     width: 100%
-    height: 100px
-    background: black
+    min-width: 750px
+    height: 70px
+    background: blue
