@@ -25,7 +25,9 @@ app.set('db', massiveServer)// MUST come after app = express()
 var db = app.get('db')
 
 // CONTROLLERS //
-
+var adminCtrl = require('./controllers/adminCtrl')
+var renterCtrl = require('./controllers/renterCtrl')
+var serviceRequestCtrl = require('./controllers/serviceRequestCtrl')
 
 
 
@@ -36,10 +38,16 @@ var db = app.get('db')
 
 
 // ENDPOINTS //
+app.get('/apartments/', adminCtrl.getAllApartments)
+app.get('/faq',adminCtrl.getAllFaqs)
+app.get('/adminMain/:id', adminCtrl.getAptsByAdminId)
+// app.get('/apartments/:id', adminCtrl.getRenterByAptId)
+// app.get('/adminMain', adminCtrl.getAdmin)
+// app.get('/renter', renterCtrl.getOneRenter)
 
-
-
-
+// app.get('/serviceRequests', serviceRequestCtrl.getAllServiceRequests)
+// app.get('/unassignedRenters', adminCtrl.getAllUnassignedRenters)
+// app.get('/renters', renterCtrl.getAllRenters)
 
 
 // LISTEN //
