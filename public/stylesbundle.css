@@ -1,15 +1,175 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  min-width: 950px;
+  display: flex;
+  flex-direction: column; }
+  .main .headerDirCon {
+    height: 25vh;
+    width: 100vw; }
+  .main .mainCon {
+    background: blue;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    .main .mainCon .sNavDirCon {
+      background: red;
+      width: 20%;
+      height: 80vh; }
+    .main .mainCon .pageContent {
+      width: 80%;
+      height: 80vh;
+      background: yellow; }
 
-.apartments {
+.footerWrapper {
+  position: fixed;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  bottom: 0; }
+  .footerWrapper div h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer; }
+  .footerWrapper div ul {
+    flex-direction: row; }
+    .footerWrapper div ul i {
+      margin: 15px;
+      font-size: 25px; }
+      .footerWrapper div ul i:hover {
+        cursor: pointer; }
+
+.headerWrapper {
+  position: fixed;
+  width: 100vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .headerWrapper .jumbotron {
+    background-color: green;
+    width: 100%;
+    height: 100%; }
+  .headerWrapper .headerMain {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background: black; }
+    .headerWrapper .headerMain .headerHamContainer {
+      color: white; }
+      .headerWrapper .headerMain .headerHamContainer i:hover {
+        cursor: pointer;
+        font-size: 15px; }
+    .headerWrapper .headerMain .headerWelcome {
+      line-height: 25px;
+      letter-spacing: 2px;
+      color: white; }
+    .headerWrapper .headerMain .headerLogout button {
+      line-height: 25px;
+      letter-spacing: 2px; }
+
+.sideNavWrapper {
+  position: fixed;
+  border: 1px solid black;
+  width: 20%; }
+  .sideNavWrapper nav {
+    width: 100%;
+    height: 80vh; }
+    .sideNavWrapper nav ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      line-height: 25px;
+      letter-spacing: 2px; }
+      .sideNavWrapper nav ul li {
+        margin: 5px; }
+        .sideNavWrapper nav ul li:hover {
+          font-weight: bold;
+          cursor: pointer; }
+
+.adminMainView {
+  width: 100%;
+  height: 100%;
   background: orange; }
 
-.adminMain {
+.apartmentsView {
+  width: 100%;
+  height: 100%;
   background: blue; }
 
-.createEditRenters {
-  background: yellow; }
+.createApartmentView {
+  width: 100%;
+  height: 100%;
+  background: brown; }
 
-.createApartment {
-  background: green; }
+.createEditRentersView {
+  width: 100%;
+  height: 100%;
+  background: grey; }
+
+.faqView {
+  width: 100%;
+  height: 100%;
+  background: teal; }
+
+#firstFounder {
+  margin-top: 190px; }
+
+.founderBox {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: space-between; }
+
+.displayer {
+  border: solid black;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  height: 250px;
+  width: 70%; }
+  .displayer .imgBox {
+    height: 100%; }
+    .displayer .imgBox img {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      height: 100%; }
+  .displayer .founderInfo {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    width: 100%; }
+    .displayer .founderInfo h1 {
+      color: black;
+      margin-top: 50px;
+      font-size: 30px;
+      font-family: cursive; }
+    .displayer .founderInfo .founderSocials i {
+      margin: 10px; }
+
+.groupListView {
+  width: 100%;
+  height: 100%;
+  background: #7f3abd; }
 
 .home .login {
   position: fixed;
@@ -187,11 +347,21 @@
   height: 100px;
   background: black; }
 
-.serviceRequests {
-  background: black; }
+.renterView {
+  width: 100%;
+  height: 100%; }
 
-.toDoList {
-  background: yellow; }
+.serviceRequestsView {
+  width: 100%;
+  height: 100%;
+  background: #c94b9f; }
 
-.unassignedRenters {
-  background: grey; }
+.toDoListView {
+  width: 100%;
+  height: 100%;
+  background: #13f4f4; }
+
+.unnassignedRentersView {
+  width: 100%;
+  height: 100%;
+  background: rgba(99, 113, 2, 0.62); }
