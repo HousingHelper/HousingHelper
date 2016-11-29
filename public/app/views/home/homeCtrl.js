@@ -73,4 +73,30 @@ angular.module("housinghelper").controller("homeCtrl", function($scope) {
 
             // console.log(scrollLo);
           })
+// fading in the login and register
+// ============================================================
+$(function() {
+  $( "#existingLogin" ).hide();
+  $("#loginBtn").click(function() {
+    $( "#existingLogin" ).fadeIn( "slow" );
+  });
+  $("#userBtn").click(function() {
+    $( "#existingLogin" ).fadeIn( "slow" );
+  });
+  $("#cancelL").click(function() {
+    $( "#existingLogin" ).fadeOut( "slow" );
+  });
+
+  // hide admin creator ((((((((((((((()))))))))))))))
+  $( "#hideAdmin" ).hide();
+  $("#adminBtn").click(function() {
+    $( "#hideAdmin" ).fadeIn( "slow" );
+  });
+  $("#cancelR").click(function() {
+    $( "#hideAdmin" ).fadeOut( "slow" );
+  });
+
+  return false;
+  });
+
 });
