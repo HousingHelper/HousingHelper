@@ -1,13 +1,13 @@
 create table admin
   (
     id serial primary key,
-    username varchar(255) not null,
+    username varchar(255) unique,
     password varchar(255),
-    firstName varchar(50) not null,
-    lastName varchar(50) not null,
+    firstName varchar(50),
+    lastName varchar(50),
     startDate date,
     phone int,
-    email varchar(255) not null
+    email varchar(255)
   )
 
 create table apartments
@@ -29,8 +29,7 @@ create table apartments
     totalOcc int,
     wifiname text,
     wifipwd varchar(255),
-    trashDay text,
-    owner integer references aptOwners
+    trashDay text
   )
 
 create table apt_notes
@@ -88,15 +87,15 @@ create table aptContr_notes
 create table renters
   (
     id serial primary key,
-    username varchar(255) not null,
+    username varchar(255) unique,
     password varchar(255),
+    email varchar(255),
     firstName varchar(50) not null,
     lastName varchar(50) not null,
     gender varchar(1) not null,
     DOB date not null,
-    hometown text not null,
+    hometown text,
     phone int not null,
-    email varchar(255),
     private_room boolean,
     carMake text,
     carModel text,
@@ -105,12 +104,13 @@ create table renters
     leaseEnd date,
     payDate date,
     rentAmt decimal(10, 2),
-    monthPaid date,
+    monthPaid boolean,
     checkInTime time,
     checkOutTime time,
     aptId integer references apartments,
     roomId integer references rooms,
-    groupId integer references groups
+    groupId integer references groups,
+    adminId integer references admin
   )
 
 create table renter_notes
@@ -138,8 +138,10 @@ create table servReqs
     type text,
     permissions text,
     status text,
+    newNotification boolean,
     renterId integer references renters,
-    aptId integer references apartments
+    aptId integer references apartments,
+    adminId integer references admin
   )
 
 create table servReq_notes
@@ -153,7 +155,8 @@ create table faqs
   (
     id serial primary key,
     question text,
-    answer text
+    answer text,
+    adminId integer references admin
   )
 
 -- create table nearby

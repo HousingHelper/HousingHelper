@@ -1,0 +1,38 @@
+$letterspacing: 2px
+$lineheight: 25px
+
+.headerWrapper
+  position: fixed
+  width: 100vw
+  height: 25vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  .jumbotron
+    background-color: green
+    width: 100%
+    height: 100%
+  .headerMain
+    border: 1px solid black
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 10px
+    background: black
+    .headerHamContainer
+      color: white
+      i
+        &:hover
+          cursor: pointer
+          font-size: 15px
+    .headerWelcome
+      line-height: $lineheight
+      letter-spacing: $letterspacing
+      color: white
+    .headerLogout
+      button
+        line-height: $lineheight
+        letter-spacing: $letterspacing
