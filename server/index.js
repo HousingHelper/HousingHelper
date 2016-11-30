@@ -27,7 +27,7 @@ var db = app.get('db')
 // CONTROLLERS //
 var adminCtrl = require('./controllers/adminCtrl')
 var renterCtrl = require('./controllers/renterCtrl')
-var serviceRequestCtrl = require('./controllers/serviceRequestCtrl')
+var serviceRequestsCtrl = require('./controllers/serviceRequestsCtrl')
 
 
 
@@ -38,16 +38,18 @@ var serviceRequestCtrl = require('./controllers/serviceRequestCtrl')
 
 
 // ENDPOINTS //
-app.get('/apartments/', adminCtrl.getAllApartments)
-app.get('/faq',adminCtrl.getAllFaqs)
-app.get('/adminMain/:id', adminCtrl.getAptsByAdminId)
-// app.get('/apartments/:id', adminCtrl.getRenterByAptId)
-// app.get('/adminMain', adminCtrl.getAdmin)
-// app.get('/renter', renterCtrl.getOneRenter)
+app.get('/faq/:adminId',adminCtrl.getAllFaqs)
+app.get('/adminMain/:adminId', adminCtrl.getAptsByAdminId)
+app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
+app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
+app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)
+app.get('/availableRooms/:adminId', adminCtrl.getAvailableRooms)
+app.get('/renter/:id', renterCtrl.getRenterById)
+app.get('/renterapt/:id', renterCtrl.getRentersApt)
+app.get('/renterServReq/:id', renterCtrl.getRentersServReq)
+app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
+app.get('/serviceRequests/:adminId', adminCtrl.getAllServiceRequests)
 
-// app.get('/serviceRequests', serviceRequestCtrl.getAllServiceRequests)
-// app.get('/unassignedRenters', adminCtrl.getAllUnassignedRenters)
-// app.get('/renters', renterCtrl.getAllRenters)
 
 
 // LISTEN //

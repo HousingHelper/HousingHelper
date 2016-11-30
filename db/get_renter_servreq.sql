@@ -1,4 +1,4 @@
-select * from servReq
+select servreqs.* from servreqs
 join renters
-on servReq.renterId = renters.id
+on servreqs.renterId = renters.id
 where renters.id = $1;
