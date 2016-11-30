@@ -30,9 +30,18 @@ angular.module('housinghelper', ['ui.router'])
     })
     // Apartments STATE
     .state('apartments', {
-      url: '/apartments',
+      url: '/apartments/:id',
       templateUrl: './app/views/apartments/apartments.html',
-      controller: 'apartmentsCtrl'
+      controller: 'apartmentsCtrl',
+      resolve: {
+        apts: function (apartmentsServ, $stateParams) {
+          return apartmentsServ.getAptsById($stateParams.id)
+            .then(function(response) {
+              console.log(response);
+              return response.data;
+          });
+        }
+      }
     })
     // // adminRenters STATE
     .state('adminRenters', {
@@ -84,9 +93,18 @@ angular.module('housinghelper', ['ui.router'])
     })
     // FAQ STATE
     .state('faq', {
-      url: '/faqs',
+      url: '/faqs/:id',
       templateUrl: './app/views/faqs/faq.html',
-      controller: 'faqCtrl'
+      controller: 'faqCtrl',
+      resolve: {
+        faqs: function (faqServ, $stateParams) {
+          return faqServ.getFaqsById($stateParams.id)
+            .then(function(response) {
+              console.log(response);
+              return response.data;
+          });
+        }
+      }
     })
 
 

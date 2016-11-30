@@ -17,7 +17,7 @@ module.exports = {
       res.send("error: ", err)
     }
       res.status(200).json(faqs)
-    });
+    })
   },
 
   getAptsByAdminId: function (req, res) {
@@ -32,6 +32,9 @@ module.exports = {
   getRenterByAptId: function (req,res) {
     var apartment = req.params
     db.get_one_apt_renters([apartment.aptId], function (err, renters) {
+      if(err){
+        res.send("error: ", err)
+      }
       res.status(200).json(renters)
     })
   },
