@@ -4,12 +4,13 @@ $lineheight: 25px
 
 .sideNavWrapper
   position: fixed
-  border: 1px solid black
-  width: 20%
+  width: 15%
+  min-width: 226px
   nav
     width: 100%
     height: 80vh
     ul
+      margin-top: 20px
       display: flex
       flex-direction: column
       justify-content: center
@@ -17,7 +18,20 @@ $lineheight: 25px
       line-height: $lineheight
       letter-spacing: $letterspacing
       li
-        margin: 5px
-        &:hover
+        font-size: 20px
+        margin: 5px 5px 5px 15px
+        display: flex
+        flex-direction: row
+      li:hover
           font-weight: bold
           cursor: pointer
+          .icons
+            font-size: 25px
+      .icons
+        font-size: 20px
+        width: 25px
+        display: block
+        margin-right: 5px
+        display: flex
+        justify-content: center
+        align-items: center
