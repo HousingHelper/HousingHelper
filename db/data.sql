@@ -1,48 +1,12 @@
-insert into renters
+insert into servreq_notes
   (
-    email,
-    firstName,
-    lastName,
-    gender,
-    DOB,
-    hometown,
-    phone,
-    private_room,
-    carMake,
-    carModel,
-    carYear,
-    leaseStart,
-    leaseEnd,
-    payDate,
-    rentAmt,
-    monthPaid,
-    checkInTime,
-    checkOutTime,
-    aptId,
-    roomId,
-    groupId
+    note,
+    servreqid,
+    date_time
   )
 values
   (
-    'gs@gmail.com',
-    'g',
-    's',
-    'F',
-    '01/13/85',
-    'Portland, OR',
-    654983568,
-    false,
-    'Chevy',
-    'Malibu',
-    '01/01/07',
-    '11/31/16',
-    '02/03/17',
-    '10/01/16',
-    650.00,
-    true,
-    '10:00:00',
-    '16:30:00',
-    15,
-    30,
-    3
+    'Will stop by tomorrow',
+    1,
+    current_timestamp
   )
