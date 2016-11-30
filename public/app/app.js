@@ -15,9 +15,18 @@ angular.module('housinghelper', ['ui.router'])
     })
     // adminMain STATE
     .state('adminMain', {
-      url: '/adminMain',
+      url: '/adminMain/:id',
       templateUrl: './app/views/adminMain/adminMain.html',
-      controller: 'adminMainCtrl'
+      controller: 'adminMainCtrl',
+      resolve: {
+        apartments: function (adminMainServ, $stateParams) {
+          return adminMainServ.getInfoByAdminId($stateParams.id)
+            .then(function(response) {
+              console.log(response);
+              return response.data;
+          });
+        }
+      }
     })
     // Apartments STATE
     .state('apartments', {
