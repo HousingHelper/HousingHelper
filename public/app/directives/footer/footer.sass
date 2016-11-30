@@ -1,25 +1,45 @@
 .footerWrapper
-  position: fixed
   width: 100%
-  height: 15vh
+  min-width: 750px
+  height: 60px
   display: flex
   align-items: center
-  justify-content: space-around
-  bottom: 0
+  justify-content: space-between
+  background: lightGrey
+  .icons
+    font-size: 40px
+    &:hover
+    cursor: pointer
+  .gitHubLink
+    margin-left: 6vw
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    // background: yellow
+    h1
+      margin-left: 5px
+      font-size: 16px
+  .foundersLink
+    display: flex
+    justify-content: center
+    align-items: center
+    // background: yellow
+    margin-left: 10px
+    border: 1px solid black
+    border-radius: 15px
+    padding: 7px
+    &:hover
+    cursor: pointer
+  .externalLinks
+    // background: yellow
+    margin-right: 5vw
   div
     h1
       font-size: 25px
       letter-spacing: 2px
-      border: 1px solid black
-      border-radius: 15px
-      padding: 10px
-      &:hover
-      font-weight: bold
-      cursor: pointer
     ul
       flex-direction: row
       i
-        margin: 15px
+        margin: 0 15px
         font-size: 25px
-        &:hover
-          cursor: pointer
