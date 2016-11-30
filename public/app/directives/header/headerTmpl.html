@@ -1,14 +1,18 @@
 <section class="headerWrapper">
-  <div class="jumbotron"></div>
+  <div class="jumbotron">
+    <div id="logo"></div>
+  </div>
   <div class="headerMain">
-    <div class="headerHamContainer">
-      <i class="fa fa-bars headerHam" aria-hidden="true"></i>
+    <div class="headerFaq">
+    <!-- <div class="headerHamContainer"> -->
+      <div ui-sref="faq" class="headerBtns" id="hideFaq">FAQ</div>
+      <!-- <i class="fa fa-bars headerHam" aria-hidden="true"></i> -->
     </div>
     <div class="headerWelcome">
-      <h1>Welcome {{admin.username}}!</h1>
+      <h1>Welcome {{admin.username}}Bri/renter!</h1>
     </div>
     <div class="headerLogOut">
-      <button> Logout</button>
+      <div ui-sref="home" class="headerBtns">Logout</div>
     </div>
   </div>
 </section>

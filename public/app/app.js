@@ -9,7 +9,7 @@ angular.module('housinghelper', ['ui.router'])
   $stateProvider
     //Home STATE
     .state('home', {
-      templateUrl: './app/views/home/home.html',
+      templateUrl: './app/views/landingPage/home.html',
       controller: 'homeCtrl',
       url: '/'
     })
@@ -25,18 +25,18 @@ angular.module('housinghelper', ['ui.router'])
       templateUrl: './app/views/apartments/apartments.html',
       controller: 'apartmentsCtrl'
     })
-    // createApartment STATE
-    .state('createApartment', {
-      url: '/createApartment',
-      templateUrl: './app/views/createApartment/createApartment.html',
-      controller: 'createApartmentCtrl'
-    })
-    // createEditRenters STATE
-    .state('createEditRenters', {
-      url: '/createEditRenters',
-      templateUrl: './app/views/createEditRenters/createEditRenters.html',
+    // // adminRenters STATE
+    .state('adminRenters', {
+      url: '/adminRenters',
+      templateUrl: './app/views/adminRenters/createEditRenters.html',
       controller: 'createEditRentersCtrl'
     })
+    // createEditRenters STATE
+    // .state('createEditRenters', {
+    //   url: '/createEditRenters',
+    //   templateUrl: './app/views/createEditRenters/createEditRenters.html',
+    //   controller: 'createEditRentersCtrl'
+    // })
     // serviceRequests STATE
     .state('serviceRequests', {
       url: '/serviceRequests',
@@ -44,11 +44,11 @@ angular.module('housinghelper', ['ui.router'])
       controller: 'serviceRequestsCtrl'
     })
     // toDoList STATE
-    .state('toDoList', {
-      url: '/toDoList',
-      templateUrl: './app/views/toDoList/toDoList.html',
-      controller: 'toDoListCtrl'
-    })
+    // .state('toDoList', {
+    //   url: '/toDoList',
+    //   templateUrl: './app/views/toDoList/toDoList.html',
+    //   controller: 'toDoListCtrl'
+    // })
     // unassignedRenters STATE
     .state('unassignedRenters', {
       url: '/unassignedRenters',
@@ -63,20 +63,20 @@ angular.module('housinghelper', ['ui.router'])
     })
     // Group List STATE
     .state('groupList', {
-      url: '/groupList',
-      templateUrl: './app/views/groupList/groupList.html',
+      url: '/groups',
+      templateUrl: './app/views/groups/groupList.html',
       controller: 'groupListCtrl'
     })
     // Renter STATE
     .state('renter', {
-      url: '/renter',
-      templateUrl: './app/views/renter/renter.html',
+      url: '/account',
+      templateUrl: './app/views/renterAccount/renter.html',
       controller: 'renterCtrl'
     })
     // FAQ STATE
     .state('faq', {
-      url: '/faq',
-      templateUrl: './app/views/faq/faq.html',
+      url: '/faqs',
+      templateUrl: './app/views/faqs/faq.html',
       controller: 'faqCtrl'
     })
 

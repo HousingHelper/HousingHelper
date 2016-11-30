@@ -3,36 +3,50 @@ $lineheight: 25px
 
 .headerWrapper
   position: fixed
-  width: 100vw
-  height: 25vh
+  width: 100%
+  min-width: 960px
+  height: 200px
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
   .jumbotron
-    background-color: green
+    background-image: url('https://s3.amazonaws.com/devmountain/www/img/dm_class.jpg')
+    background-position: center
     width: 100%
     height: 100%
+    #logo
+      height: 50px
+      width: 50px
   .headerMain
-    border: 1px solid black
+    border: 1px solid #2A2A2A
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: center
     width: 100%
-    padding: 10px
-    background: black
-    .headerHamContainer
-      color: white
-      i
-        &:hover
-          cursor: pointer
-          font-size: 15px
+    height: 42px
+    padding: 0 10px
+    background: #2A2A2A
+    // .headerHamContainer
+    //   color: white
+    //   i
+    //     &:hover
+    //       cursor: pointer
+    //       font-size: 15px
     .headerWelcome
       line-height: $lineheight
       letter-spacing: $letterspacing
       color: white
     .headerLogout
-      button
-        line-height: $lineheight
-        letter-spacing: $letterspacing
+      // button
+      //   line-height: $lineheight
+      //   letter-spacing: $letterspacing
+    .headerBtns
+      width: 60px
+      background: white
+      padding: 5px
+      border-radius: 2px
+      text-align: center
+      &:hover
+      cursor: pointer
