@@ -1,12 +1,26 @@
 // INITILIZE SERVICE
 // ============================================================
-angular.module("housinghelper").service("apartmentsServ", function($http) {
+angular.module("housinghelper").service("renterServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
-  this.getAptsById = function(adminid, aptid) {
+  this.getRenterAccById = function(id) {
     return $http({
       method: 'GET',
-      url: '/apartments/' + adminid + '/' + aptid
+      url: '/renterAcc/' + id
+    })
+  };
+
+  this.getRenterAccAptById = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/renterAccApt/' + id
+    })
+  };
+
+  this.getRenterServReqById = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/renterAccServReq/' + id
     })
   };
   // this.createCollection = function(collection) {

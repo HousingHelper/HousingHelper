@@ -22,7 +22,6 @@ angular.module('housinghelper', ['ui.router'])
         apartments: function (adminMainServ, $stateParams) {
           return adminMainServ.getInfoByAdminId($stateParams.id)
             .then(function(response) {
-              console.log(response);
               return response.data;
           });
         }
@@ -30,14 +29,13 @@ angular.module('housinghelper', ['ui.router'])
     })
     // Apartments STATE
     .state('apartments', {
-      url: '/apartments/:id',
+      url: '/apartments/:adminid/:aptid',
       templateUrl: './app/views/apartments/apartments.html',
       controller: 'apartmentsCtrl',
       resolve: {
         apts: function (apartmentsServ, $stateParams) {
-          return apartmentsServ.getAptsById($stateParams.id)
+          return apartmentsServ.getAptsById($stateParams.adminid, $stateParams.aptid)
             .then(function(response) {
-              console.log(response);
               return response.data;
           });
         }
@@ -87,9 +85,29 @@ angular.module('housinghelper', ['ui.router'])
     })
     // Renter STATE
     .state('renter', {
-      url: '/account',
+      url: '/account/:id',
       templateUrl: './app/views/renterAccount/renter.html',
-      controller: 'renterCtrl'
+      controller: 'renterCtrl',
+      resolve: {
+        acc: function (renterServ, $stateParams) {
+          return renterServ.getRenterAccById($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        },
+        apt: function (renterServ, $stateParams) {
+          return renterServ.getRenterAccAptById($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        },
+        servReq: function (renterServ, $stateParams) {
+          return renterServ.getRenterServReqById($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        }
+      }
     })
     // FAQ STATE
     .state('faq', {
