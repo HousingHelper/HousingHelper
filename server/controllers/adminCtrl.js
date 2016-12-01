@@ -63,11 +63,24 @@ module.exports = {
     db.get_all_serv_reqs([req.params.adminId], function (err, servReqs) {
       res.status(200).json(servReqs)
     })
+  },
+
+  createFaq: function(req, res) {
+    db.faqs.insert({
+      question: req.body.question,
+      answer: req.body.answer,
+      adminid: req.params.adminid
+    }, function(err, faq) {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      res.status(200).send(faq)
+    });
+  },
+
+  createGroup: function(req, res) {
+    
   }
-
-
-
-
 
 
 
