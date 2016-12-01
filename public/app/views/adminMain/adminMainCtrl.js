@@ -1,9 +1,11 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("adminMainCtrl", function($scope) {
+angular.module("housinghelper").controller("adminMainCtrl", function($scope, apartments) {
   // VARIABLES
   // ============================================================
-  $scope.test = 'testerino'
+  $scope.testwers = 'testerino';
+  console.log('Ctrl: ', apartments);
+  $scope.apts = apartments;
   // FUNCTIONS
   // ============================================================
 });

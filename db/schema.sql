@@ -159,6 +159,26 @@ create table faqs
     adminId integer references admin
   )
 
+create table organizations
+  (
+    id serial primary key,
+    org_name text,
+    org_address text,
+    org_city text,
+    org_state text,
+    org_zipcode integer,
+    org_phone integer,
+    org_website text
+  )
+
+create table cities
+  (
+    id serial primary key,
+    city text,
+    orgid integer references organizations
+  )
+
+
 -- create table nearby
 --   (
 --     id serial primary key,

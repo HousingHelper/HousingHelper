@@ -13,19 +13,28 @@ module.exports = {
   getAllFaqs: function (req,res) {
     var admin = req.params
     db.faqs.where("adminid=$1", [req.params.adminId], function (err, faqs) {
+      if (err){
+      res.send("error: ", err)
+    }
       res.status(200).json(faqs)
     })
   },
 
   getAptsByAdminId: function (req, res) {
     db.apartments.where("admin_id=$1", [req.params.adminId], function (err,apartments) {
-      res.status(200).json(apartments)
+      if(err){
+        res.send("error: ", err)
+      }
+      res.status(200).send(apartments)
     })
   },
 
   getRenterByAptId: function (req,res) {
     var apartment = req.params
     db.get_one_apt_renters([apartment.aptId], function (err, renters) {
+      if(err){
+        res.send("error: ", err)
+      }
       res.status(200).json(renters)
     })
   },
@@ -54,11 +63,24 @@ module.exports = {
     db.get_all_serv_reqs([req.params.adminId], function (err, servReqs) {
       res.status(200).json(servReqs)
     })
+  },
+
+  createFaq: function(req, res) {
+    db.faqs.insert({
+      question: req.body.question,
+      answer: req.body.answer,
+      adminid: req.params.adminid
+    }, function(err, faq) {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      res.status(200).send(faq)
+    });
+  },
+
+  createGroup: function(req, res) {
+    
   }
-
-
-
-
 
 
 
