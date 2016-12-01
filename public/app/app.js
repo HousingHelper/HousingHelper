@@ -15,15 +15,31 @@ angular.module('housinghelper', ['ui.router'])
     })
     // adminMain STATE
     .state('adminMain', {
-      url: '/adminMain',
+      url: '/adminMain/:id',
       templateUrl: './app/views/adminMain/adminMain.html',
-      controller: 'adminMainCtrl'
+      controller: 'adminMainCtrl',
+      resolve: {
+        apartments: function (adminMainServ, $stateParams) {
+          return adminMainServ.getInfoByAdminId($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        }
+      }
     })
     // Apartments STATE
     .state('apartments', {
-      url: '/apartments',
+      url: '/apartments/:adminid/:aptid',
       templateUrl: './app/views/apartments/apartments.html',
-      controller: 'apartmentsCtrl'
+      controller: 'apartmentsCtrl',
+      resolve: {
+        apts: function (apartmentsServ, $stateParams) {
+          return apartmentsServ.getAptsById($stateParams.adminid, $stateParams.aptid)
+            .then(function(response) {
+              return response.data;
+          });
+        }
+      }
     })
     // // adminRenters STATE
     .state('adminRenters', {
@@ -69,15 +85,44 @@ angular.module('housinghelper', ['ui.router'])
     })
     // Renter STATE
     .state('renter', {
-      url: '/account',
+      url: '/account/:id',
       templateUrl: './app/views/renterAccount/renter.html',
-      controller: 'renterCtrl'
+      controller: 'renterCtrl',
+      resolve: {
+        acc: function (renterServ, $stateParams) {
+          return renterServ.getRenterAccById($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        },
+        apt: function (renterServ, $stateParams) {
+          return renterServ.getRenterAccAptById($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        },
+        servReq: function (renterServ, $stateParams) {
+          return renterServ.getRenterServReqById($stateParams.id)
+            .then(function(response) {
+              return response.data;
+          });
+        }
+      }
     })
     // FAQ STATE
     .state('faq', {
-      url: '/faqs',
+      url: '/faqs/:id',
       templateUrl: './app/views/faqs/faq.html',
-      controller: 'faqCtrl'
+      controller: 'faqCtrl',
+      resolve: {
+        faqs: function (faqServ, $stateParams) {
+          return faqServ.getFaqsById($stateParams.id)
+            .then(function(response) {
+              console.log(response);
+              return response.data;
+          });
+        }
+      }
     })
 
 
