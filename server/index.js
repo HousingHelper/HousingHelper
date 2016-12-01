@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
-const passport = require('passport')
 
 // CONFIG //
 const config = require('./config');
@@ -27,16 +26,39 @@ var db = app.get('db')
 
 // CONTROLLERS //
 var adminCtrl = require('./controllers/adminCtrl')
-var renterCtrl = require('./controllers/renterCtrl')
+var userCtrl = require('./controllers/userCtrl')
 var serviceRequestsCtrl = require('./controllers/serviceRequestsCtrl')
 
+// SERVICES //
+var passport = require('./services/passport');
+
+// POLICIES //
 var isAuthed = function(req, res, next) {
 	if (!req.isAuthenticated()) return res.status(401)
 		.send();
 	return next();
 };
+
+var isAdmin = function(req, res, next) {
+	if (req.user.isadmin) {
+		next();
+	} else {
+		return res.status(401)
+			.send();
+	}
+};
+
+var isSuperUser = function(req, res, next) {
+	if (req.user.issuperuser) {
+		next();
+	} else {
+		return res.status(401)
+			.send();
+	}
+};
+
+
 // Session and passport //
-var LocalStrategy = require('passport-local').Strategy
 app.use(session({
   secret: config.SESSION_SECRET,
   saveUninitialized: true,
@@ -44,6 +66,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 // Passport Endpoints //
 app.post('/api/login',passport.authenticate('local', {
 	successRedirect: '/api/me'
@@ -55,25 +79,8 @@ app.get('/api/logout', function(req, res, next) {
 });
 
 
-// SERVICES //
-var passport = require('./services/passport');
-//
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Passport Endpoints //
-app.post('/login', passport.authenticate('local', {
-	successRedirect: '/me'
-}));
-app.get('/logout', function(req, res, next) {
-	req.logout();
-	return res.status(200)
-		.send('logged out');
-});
-
-
-
 // ENDPOINTS //
+app.get('/api/me', isAuthed, userCtrl.me);
 app.get('/faq/:adminId',adminCtrl.getAllFaqs)
 app.get('/adminMain/:adminId', adminCtrl.getAptsByAdminId)
 app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
