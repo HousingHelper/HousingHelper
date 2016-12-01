@@ -50,6 +50,9 @@ app.get('/renterServReq/:id', renterCtrl.getRentersServReq)
 app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
 app.get('/serviceRequests/:adminId', adminCtrl.getAllServiceRequests)
 
+// POST//
+app.post('/createfaq/:adminid', adminCtrl.createFaq)
+app.post('/creategroup/:adminid', adminCtrl.createGroup)
 
 
 // LISTEN //

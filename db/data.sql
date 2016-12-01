@@ -1,12 +1,12 @@
-insert into servreq_notes
+insert into locations
   (
-    note,
-    servreqid,
-    date_time
+    city,
+    state,
+    orgid
   )
 values
   (
-    'Will stop by tomorrow',
-    1,
-    current_timestamp
+    'Provo',
+    'UT',
+    2
   )
