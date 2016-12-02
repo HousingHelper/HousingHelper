@@ -1,6 +1,6 @@
 var app = require('./../index')
 var db = app.get('db')
-const bcrypt = require('bcrypt.js')
+const bcrypt = require('bcryptjs')
 
 // HASH PASSWORD //
 function hashPassword(password) {
@@ -12,33 +12,6 @@ function hashPassword(password) {
 module.exports = {
 
   // REGISTER //
-  // register: function(req, res, next) {
-  //   var user = req.body.user;
-  //
-  //   user.password = hashPassword(user.password);
-  //
-  //   user.email = user.email.toLowerCase();
-  //
-  //
-  //
-  //   db.user_register([user.email, user.password, user.isadmin, user.issuperuser], function(err, newUser) {
-  //     if (err) {
-  //       console.log("Registration err: ", err);
-  //       return res.status(401).send(err);
-  //     }
-  //     if(user.issuperuser) {
-  //         var org = req.body.org;
-  //         db.organizations({org_name: org.name, org_address: org.address}, function (err, newOrg) {
-  //           res.status(200).send(newUser, newOrg);
-  //         })
-  //     }
-  //     else{
-  //       res.status(200).send(newUser);
-  //     }
-  //
-  //   })
-  // }
-
   register: function(req, res, next) {
     var user = req.body.user;
 
@@ -48,9 +21,8 @@ module.exports = {
 
       if(user.issuperuser) { //via checkboxes on front end
           var org = req.body.org;
-          db.organizations.insert({org_name: org.name, org_address: org.address, org_city:org.city, org_state: org.state, org_zipcode: org.zipcode, org_phone: org.phone, org_website: org.website}, function (err, newOrg) {
-            console.log(newOrg); //newOrg.id may have to be be newOrg[0].id
-            db.user_register([user.email, user.password, user.isadmin, user.issuperuser, newOrg.id], function(err, newUser) {
+          db.create_organization([org.org_name, org.org_address, org.org_city, org.org_state, org.org_zipcode, org.org_phone, org.org_website], function (err, newOrg) {
+            db.user_register([user.email, user.password, user.isadmin, user.issuperuser, newOrg[0].id], function(err, newUser) {
               if (err) {
                 console.log("Registration err: ", err);
                 return res.status(401).send(err);
@@ -59,13 +31,14 @@ module.exports = {
           })
         })
       }else{
-        var admin = req.user
-        db.user_register([user.email, user.password, user.isadmin, user.issuperuser, admin.orgid], function(err, newUser) {
-          if (err) {
+        var admin = req.body.user
+        db.user_register([user.password, user.email, user.isadmin, user.orgid, user.issuperuser], function(err, newUser) {
+					console.log(newUser);
+					if (err) {
             console.log("Registration err: ", err);
             return res.status(401).send(err);
           }
-      res.status(200).send('New user created successfully!', newUser);
+      res.status(200).send(newUser);
       })
     }
   },
@@ -74,7 +47,7 @@ module.exports = {
     if (!req.user) {
       res.status(401).send('User is not logged in');
     }
-    var user = req.user;
+    var user = req.user[0];
     delete user.password;
     res.status(200).send(user);
   },

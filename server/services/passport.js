@@ -17,16 +17,19 @@ function verifyPassword(submitedPass, userPass) {
 
 // RUN WHEN LOGGING IN //
 passport.use(new LocalStrategy({
-	emailField: 'email',
+	usernameField: 'email',
 	passwordField: 'password'
 },
  function(email, password, done) {
-	 email= email.toLowerCase();
+	 email = email.toLowerCase();
 	db.user_search_email([email], function(err, user) {
 		user = user[0];
 
 		// If err, return err
-		if (err) done(err);
+		if (err) {
+			console.log(err);
+			done(err)
+		}
 
 		// If no user if found, return false
 		if (!user) return done(null, false);
@@ -35,7 +38,7 @@ passport.use(new LocalStrategy({
 		if (verifyPassword(password, user.password)) return done(null, user);
 
 		// If no match, return false
-		return done(null, false);
+		return done(null, false, {message: 'unable to login'});
 	});
 }));
 
