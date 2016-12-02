@@ -1,4 +1,5 @@
 .home
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
   // background: purple
   // ((((((((((((((((((((((((((login))))))))))))))))))))))))))
   .login
@@ -6,7 +7,7 @@
     top: 0
     width: 100%
     height: 100vh
-    background: rgba(0, 0, 0, 0.6)
+    background: rgba(0, 0, 0, 0.8)
     z-index: 20
     display: flex
     justify-content: center
@@ -15,7 +16,8 @@
       width: 270px
       height: 280px
       opacity: 1
-      background: blue
+      background: white
+      border-radius: 5px
       display: flex
       flex-direction: column
       justify-content: space-between
@@ -25,7 +27,7 @@
         font-size: 40px
         font-weight: bold
         margin-top: 20px
-        color: white
+        color: grey
 
       .loginInputs
         width: 250px
@@ -34,9 +36,14 @@
         align-items: center
         .iBoxHolder
           margin-bottom: 10px
+          .formTxt
+            color: grey
+            font-size: 20px
           .lBoxes
             width: 225px
             height: 30px
+            border: 2px solid #1B75BB
+            border-radius: 5px
             margin: 10px 0 10px
         .BtnHolder
           width: 250px
@@ -44,15 +51,20 @@
           flex-direction: row
           justify-content: space-around
           .lBtns
+            font-size: 20px
+            color: white
             width: 100px
             height: 40px
-            background: grey
+            background: #2AABE2
+            border: 1px solid #1B75BB
+            border-radius: 5px
             margin-bottom: 20px
             display: flex
             justify-content: center
             align-items: center
             &:hover
             cursor: pointer
+            background: #11a5e5
   // ((((((((((((((((((((((((((register))))))))))))))))))))))))))
   #createAdmin
     height: 345px
