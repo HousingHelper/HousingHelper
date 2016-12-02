@@ -1,11 +1,24 @@
 <section class="headerWrapper">
   <div class="jumbotron">
-    <div id="logo">
-      <img src="./img/MattSucksWht.svg" alt="Logo" />
-    </div>
-    <div id="logoTxtCon">
-      <h1 id="logoTxt">Housing Helper</h1>
-    </div>
+    <span class="logoHolder1" ng-show="!show">
+      <div class="logo">
+        <img src="./img/MattSucksWhiteBlue.svg" alt="Logo" />
+      </div>
+      <div class="logoTxtCon">
+        <h1 class="logoTxt">Housing <span class="logoTxtB">Helper</span></h1>
+      </div>
+    </span>
+    <span class="logoHolder2" ng-show="hide">
+      <div class="logoTxtCon2">
+        <h1 class="logoTxt2">Housing</h1>
+      </div>
+      <div class="logo">
+        <img src="./img/MattSucksWhiteBlue.svg" alt="Logo" />
+      </div>
+      <div class="logoTxtCon2">
+        <h1 class="logoTxt2 logoTxtB">Helper</h1>
+      </div>
+    </span>
   </div>
   <div class="headerMain">
     <div class="headerFaq">
