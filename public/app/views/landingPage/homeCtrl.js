@@ -36,7 +36,7 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
     } else if(response.isAdmin){
       $state.go('adminMain')
     } else if(!response.isAdmin) {
-      $stae.go('renter')
+      $state.go('renter')
     }
     }).catch(function(err) {
       console.log(err);
