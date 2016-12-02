@@ -1,12 +1,12 @@
 // DEPENDENCIES //
-var express = require('express');
-var cors = require('cors');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var massive = require('massive');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const massive = require('massive');
 
 // CONFIG //
-var config = require('./config');
+const config = require('./config');
 
 // EXPRESS //
 var app = module.exports = express();
@@ -26,33 +26,77 @@ var db = app.get('db')
 
 // CONTROLLERS //
 var adminCtrl = require('./controllers/adminCtrl')
-var renterCtrl = require('./controllers/renterCtrl')
+var userCtrl = require('./controllers/userCtrl')
 var serviceRequestsCtrl = require('./controllers/serviceRequestsCtrl')
 
-
-
 // SERVICES //
-// var passport = require('./services/passport');
+var passport = require('./services/passport');
+
+// POLICIES //
+var isAuthed = function(req, res, next) {
+	if (!req.isAuthenticated()) return res.status(401)
+		.send();
+	return next();
+};
+
+var isAdmin = function(req, res, next) {
+	if (req.user.isadmin) {
+		next();
+	} else {
+		return res.status(401)
+			.send();
+	}
+};
+
+var isSuperUser = function(req, res, next) {
+	if (req.user.issuperuser) {
+		next();
+	} else {
+		return res.status(401)
+			.send();
+	}
+};
 
 
+// Session and passport //
+app.use(session({
+  secret: config.SESSION_SECRET,
+  saveUninitialized: true,
+  resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// Passport Endpoints //
+app.post('/api/login',passport.authenticate('local', {
+	successRedirect: '/api/me'
+}));
+app.get('/api/logout', function(req, res, next) {
+	req.logout();
+	return res.status(200)
+		.send('logged out');
+});
 
 
 // ENDPOINTS //
-app.get('/faq/:adminId',adminCtrl.getAllFaqs)
-app.get('/adminMain/:adminId', adminCtrl.getAptsByAdminId)
-app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
-app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
-app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)
-app.get('/availableRooms/:adminId', adminCtrl.getAvailableRooms)
-app.get('/renterAcc/:id', renterCtrl.getRenterAccById)
-app.get('/renterAccApt/:id', renterCtrl.getRentersAccApt)
-app.get('/renterAccServReq/:id', renterCtrl.getRentersAccServReq)
-app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
-app.get('/serviceRequests/:adminId', adminCtrl.getAllServiceRequests)
+app.post('/api/register', userCtrl.register);
+app.get('/api/me', isAuthed, userCtrl.me);
+// app.get('/faq/:adminId',adminCtrl.getAllFaqs)
+// app.get('/adminMain/:adminId', adminCtrl.getAptsByAdminId)
+// app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
+// app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
+// app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)
+// app.get('/availableRooms/:adminId', adminCtrl.getAvailableRooms)
+// app.get('/renterAcc/:id', renterCtrl.getRenterAccById)
+// app.get('/renterAccApt/:id', renterCtrl.getRentersAccApt)
+// app.get('/renterAccServReq/:id', renterCtrl.getRentersAccServReq)
+// app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
+// app.get('/serviceRequests/:adminId', adminCtrl.getAllServiceRequests)
 
 // POST//
-app.post('/createfaq/:adminid', adminCtrl.createFaq)
-app.post('/creategroup/:adminid', adminCtrl.createGroup)
+// app.post('/createfaq/:adminid', adminCtrl.createFaq)
+// app.post('/creategroup/:adminid', adminCtrl.createGroup)
 
 
 // LISTEN //
