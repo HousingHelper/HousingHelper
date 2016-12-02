@@ -29,24 +29,31 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
   $scope.login = function(user) {
     loginServ.login(user)
     .then(function(response) {
-      console.log('response: ', response.data);
       if (!response.data) {
         $scope.user.password = "";
       return alert('user could not be logged in');
-    } else if(response.isAdmin){
-      $state.go('adminMain')
-    } else if(!response.isAdmin) {
-      $state.go('renter')
     }
-    }).catch(function(err) {
-      console.log(err);
-      $scope.user.password = "";
-      alert('ljkasdg;ljahsdlguser could not be logged in');
-    });
+
+      if(response.data){
+        console.log("USER: ", response);
+        if(response.data.isadmin){
+          console.log('admin');
+         $state.go('adminMain')
+        } else {
+          console.log('renter');
+         $state.go('renter')
+        }
+      }
+      }).catch(function(err) {
+        console.log(err);
+        $scope.user.password = "";
+        alert('user could not be logged in');
+      });
   };
 
+
   $(function() {
-        // Select link by id and add click event
+        // Select link by id and add click event`
         $('#link1').click(function() {
 
           // Animate Scroll to #bottom

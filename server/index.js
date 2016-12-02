@@ -34,9 +34,13 @@ var passport = require('./services/passport');
 
 // POLICIES //
 var isAuthed = function(req, res, next) {
-	if (!req.isAuthenticated()) return res.status(401)
-		.send();
-	return next();
+	if (!req.isAuthenticated()) {
+    console.log('not authed');
+    return res.status(401).send();
+  }else{
+    console.log('authed');
+    return next();
+  }
 };
 
 var isAdmin = function(req, res, next) {

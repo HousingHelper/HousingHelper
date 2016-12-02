@@ -17,15 +17,19 @@ angular.module('housinghelper', ['ui.router'])
     .state('adminMain', {
       url: '/adminMain',
       templateUrl: './app/views/adminMain/adminMain.html',
-      controller: 'adminMainCtrl'
-      // resolve: {
-        // apartments: function (adminMainServ, $stateParams) {
-        //   return adminMainServ.getInfoByAdminId($stateParams.id)
-        //     .then(function(response) {
-        //       return response.data;
-        //   });
-        // }
-      // }
+      controller: 'adminMainCtrl',
+      resolve: {
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        }
+      }
     })
     // Apartments STATE
     .state('apartments', {
@@ -87,7 +91,19 @@ angular.module('housinghelper', ['ui.router'])
     .state('renter', {
       url: '/account',
       templateUrl: './app/views/renterAccount/renter.html',
-      controller: 'renterCtrl'
+      controller: 'renterCtrl',
+      resolve: {
+        user: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        }
+      }
       // resolve: {
       //   acc: function (renterServ, $stateParams) {
       //     return renterServ.getRenterAccById($stateParams.id)
