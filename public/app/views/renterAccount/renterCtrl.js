@@ -4,7 +4,6 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, user,r
   // VARIABLES
   // ============================================================
 
-    $scope.hide = true
     $scope.show = true
     $scope.user = user;
 

@@ -36,14 +36,14 @@ angular.module('housinghelper', ['ui.router'])
       url: '/apartments/:adminid/:aptid',
       templateUrl: './app/views/apartments/apartments.html',
       controller: 'apartmentsCtrl',
-      resolve: {
-        apts: function (apartmentsServ, $stateParams) {
-          return apartmentsServ.getAptsById($stateParams.adminid, $stateParams.aptid)
-            .then(function(response) {
-              return response.data;
-          });
-        }
-      }
+      // resolve: {
+      //   apts: function (apartmentsServ, $stateParams) {
+      //     return apartmentsServ.getAptsById($stateParams.adminid, $stateParams.aptid)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   }
+      // }
     })
     // // adminRenters STATE
     .state('adminRenters', {
