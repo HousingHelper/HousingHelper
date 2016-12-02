@@ -28,6 +28,7 @@ var db = app.get('db')
 var adminCtrl = require('./controllers/adminCtrl')
 var userCtrl = require('./controllers/userCtrl')
 var serviceRequestsCtrl = require('./controllers/serviceRequestsCtrl')
+var renterCtrl = require('./controllers/renterCtrl')
 
 // SERVICES //
 var passport = require('./services/passport');
@@ -94,9 +95,9 @@ app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
 // app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
 // app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)
 // app.get('/availableRooms/:adminId', adminCtrl.getAvailableRooms)
-// app.get('/renterAcc/:id', renterCtrl.getRenterAccById)
-// app.get('/renterAccApt/:id', renterCtrl.getRentersAccApt)
-// app.get('/renterAccServReq/:id', renterCtrl.getRentersAccServReq)
+app.get('/renterAcc', renterCtrl.getRenterAccById)
+app.get('/renterAccApt', renterCtrl.getRentersAccApt)
+app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
 // app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
 // app.get('/serviceRequests/:adminId', adminCtrl.getAllServiceRequests)
 
