@@ -1,14 +1,12 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("renterCtrl", function($scope) {
+angular.module("housinghelper").controller("renterCtrl", function($scope, user) {
   // VARIABLES
   // ============================================================
 
     $scope.hide = true
     $scope.show = true
-    $scope.acc = acc;
-    $scope.apt = apt;
-    $scope.servReq = servReq;
+    $scope.user = user;
 
   // FUNCTIONS
   // ============================================================

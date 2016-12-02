@@ -20,14 +20,14 @@ angular.module("housinghelper").service("loginServ", function($http) {
   //     return response;
   //   });
   // };
-  // this.getCurrentUser = function() {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/me'
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.getCurrentUser = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/me'
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.registerUser = function(user) {
   //   return $http({
   //     method: 'POST',
