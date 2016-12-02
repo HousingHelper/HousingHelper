@@ -15,17 +15,17 @@ angular.module('housinghelper', ['ui.router'])
     })
     // adminMain STATE
     .state('adminMain', {
-      url: '/adminMain/:id',
+      url: '/adminMain',
       templateUrl: './app/views/adminMain/adminMain.html',
-      controller: 'adminMainCtrl',
-      resolve: {
-        apartments: function (adminMainServ, $stateParams) {
-          return adminMainServ.getInfoByAdminId($stateParams.id)
-            .then(function(response) {
-              return response.data;
-          });
-        }
-      }
+      controller: 'adminMainCtrl'
+      // resolve: {
+        // apartments: function (adminMainServ, $stateParams) {
+        //   return adminMainServ.getInfoByAdminId($stateParams.id)
+        //     .then(function(response) {
+        //       return response.data;
+        //   });
+        // }
+      // }
     })
     // Apartments STATE
     .state('apartments', {
@@ -85,29 +85,29 @@ angular.module('housinghelper', ['ui.router'])
     })
     // Renter STATE
     .state('renter', {
-      url: '/account/:id',
+      url: '/account',
       templateUrl: './app/views/renterAccount/renter.html',
-      controller: 'renterCtrl',
-      resolve: {
-        acc: function (renterServ, $stateParams) {
-          return renterServ.getRenterAccById($stateParams.id)
-            .then(function(response) {
-              return response.data;
-          });
-        },
-        apt: function (renterServ, $stateParams) {
-          return renterServ.getRenterAccAptById($stateParams.id)
-            .then(function(response) {
-              return response.data;
-          });
-        },
-        servReq: function (renterServ, $stateParams) {
-          return renterServ.getRenterServReqById($stateParams.id)
-            .then(function(response) {
-              return response.data;
-          });
-        }
-      }
+      controller: 'renterCtrl'
+      // resolve: {
+      //   acc: function (renterServ, $stateParams) {
+      //     return renterServ.getRenterAccById($stateParams.id)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   },
+      //   apt: function (renterServ, $stateParams) {
+      //     return renterServ.getRenterAccAptById($stateParams.id)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   },
+      //   servReq: function (renterServ, $stateParams) {
+      //     return renterServ.getRenterServReqById($stateParams.id)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   }
+      // }
     })
     // FAQ STATE
     .state('faq', {

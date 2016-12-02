@@ -3,6 +3,7 @@
 angular.module("housinghelper").controller("createEditRentersCtrl", function($scope) {
   // VARIABLES
   // ============================================================
+  $scope.hide = false
   $scope.test = 'testerino'
   // FUNCTIONS
   // ============================================================

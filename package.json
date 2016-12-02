@@ -18,6 +18,7 @@
   "homepage": "https://github.com/HousingHelper/HousingHelper#readme",
   "dependencies": {
     "bcrypt": "^0.8.7",
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
