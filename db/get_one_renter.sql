@@ -1,2 +1,2 @@
-select * from renters
+select * from users
 where id = $1

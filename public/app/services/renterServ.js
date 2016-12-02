@@ -3,24 +3,24 @@
 angular.module("housinghelper").service("renterServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
-  this.getRenterAccById = function(id) {
+  this.getRenterAccById = function() {
     return $http({
       method: 'GET',
-      url: '/renterAcc/' + id
+      url: '/renterAcc'
     })
   };
 
-  this.getRenterAccAptById = function(id) {
+  this.getRenterAccAptById = function() {
     return $http({
       method: 'GET',
-      url: '/renterAccApt/' + id
+      url: '/renterAccApt'
     })
   };
 
-  this.getRenterServReqById = function(id) {
+  this.getRenterServReqById = function() {
     return $http({
       method: 'GET',
-      url: '/renterAccServReq/' + id
+      url: '/renterAccServReq'
     })
   };
   // this.createCollection = function(user, org) {
