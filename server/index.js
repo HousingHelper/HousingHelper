@@ -34,9 +34,13 @@ var passport = require('./services/passport');
 
 // POLICIES //
 var isAuthed = function(req, res, next) {
-	if (!req.isAuthenticated()) return res.status(401)
-		.send();
-	return next();
+	if (!req.isAuthenticated()) {
+    console.log('not authed');
+    return res.status(401).send();
+  }else{
+    console.log('authed');
+    return next();
+  }
 };
 
 var isAdmin = function(req, res, next) {
@@ -83,7 +87,9 @@ app.get('/api/logout', function(req, res, next) {
 app.post('/api/register', userCtrl.register);
 app.get('/api/me', isAuthed, userCtrl.me);
 // app.get('/faq/:adminId',adminCtrl.getAllFaqs)
-// app.get('/adminMain/:adminId', adminCtrl.getAptsByAdminId)
+app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
+app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
+
 // app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
 // app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
 // app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)

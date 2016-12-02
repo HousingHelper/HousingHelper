@@ -31,8 +31,8 @@ module.exports = {
           })
         })
       }else{
-        var admin = req.body.user
-        db.user_register([user.password, user.email, user.isadmin, user.orgid, user.issuperuser], function(err, newUser) {
+        var admin = req.user //req.user admin.orgid
+        db.user_register([user.password, user.email, user.isadmin, admin.orgid, user.issuperuser], function(err, newUser) {
 					console.log(newUser);
 					if (err) {
             console.log("Registration err: ", err);

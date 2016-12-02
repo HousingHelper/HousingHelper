@@ -3,12 +3,26 @@
 angular.module("housinghelper").service("adminMainServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
-  this.getInfoByAdminId = function(id) {
+  this.getInfoByAdmin = function() {
     return $http({
       method: 'GET',
-      url: '/adminMain/' + id
+      url: '/adminMain'
     })
   };
+
+  this.getSuperUserInfo = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/superuser/adminMain'
+    })
+  };
+
+  this.getAdminInfo = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/admin/adminMain'
+    })
+  }
 
   // this.createCollection = function(collection) {
   //   return $http({
