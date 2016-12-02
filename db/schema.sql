@@ -87,15 +87,14 @@ create table aptContr_notes
 create table renters
   (
     id serial primary key,
-    username varchar(255) unique,
     password varchar(255),
     email varchar(255),
-    firstName varchar(50) not null,
-    lastName varchar(50) not null,
-    gender varchar(1) not null,
-    DOB date not null,
+    firstName varchar(50),
+    lastName varchar(50),
+    gender varchar(1),
+    DOB date,
     hometown text,
-    phone int not null,
+    phone int,
     private_room boolean,
     carMake text,
     carModel text,
@@ -158,6 +157,26 @@ create table faqs
     answer text,
     adminId integer references admin
   )
+
+create table organizations
+  (
+    id serial primary key,
+    org_name text,
+    org_address text,
+    org_city text,
+    org_state text,
+    org_zipcode integer,
+    org_phone integer,
+    org_website text
+  )
+
+create table cities
+  (
+    id serial primary key,
+    city text,
+    orgid integer references organizations
+  )
+
 
 -- create table nearby
 --   (

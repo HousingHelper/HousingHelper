@@ -17,13 +17,33 @@ angular.module('housinghelper', ['ui.router'])
     .state('adminMain', {
       url: '/adminMain',
       templateUrl: './app/views/adminMain/adminMain.html',
-      controller: 'adminMainCtrl'
+      controller: 'adminMainCtrl',
+      resolve: {
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        }
+      }
     })
     // Apartments STATE
     .state('apartments', {
-      url: '/apartments',
+      url: '/apartments/:adminid/:aptid',
       templateUrl: './app/views/apartments/apartments.html',
-      controller: 'apartmentsCtrl'
+      controller: 'apartmentsCtrl',
+      // resolve: {
+      //   apts: function (apartmentsServ, $stateParams) {
+      //     return apartmentsServ.getAptsById($stateParams.adminid, $stateParams.aptid)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   }
+      // }
     })
     // // adminRenters STATE
     .state('adminRenters', {
@@ -71,13 +91,54 @@ angular.module('housinghelper', ['ui.router'])
     .state('renter', {
       url: '/account',
       templateUrl: './app/views/renterAccount/renter.html',
-      controller: 'renterCtrl'
+      controller: 'renterCtrl',
+      resolve: {
+        user: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        }
+      }
+      // resolve: {
+      //   acc: function (renterServ, $stateParams) {
+      //     return renterServ.getRenterAccById($stateParams.id)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   },
+      //   apt: function (renterServ, $stateParams) {
+      //     return renterServ.getRenterAccAptById($stateParams.id)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   },
+      //   servReq: function (renterServ, $stateParams) {
+      //     return renterServ.getRenterServReqById($stateParams.id)
+      //       .then(function(response) {
+      //         return response.data;
+      //     });
+      //   }
+      // }
     })
     // FAQ STATE
     .state('faq', {
-      url: '/faqs',
+      url: '/faqs/:id',
       templateUrl: './app/views/faqs/faq.html',
-      controller: 'faqCtrl'
+      controller: 'faqCtrl',
+      resolve: {
+        faqs: function (faqServ, $stateParams) {
+          return faqServ.getFaqsById($stateParams.id)
+            .then(function(response) {
+              console.log(response);
+              return response.data;
+          });
+        }
+      }
     })
 
 

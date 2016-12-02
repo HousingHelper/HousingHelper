@@ -1,17 +1,33 @@
 <section class="headerWrapper">
   <div class="jumbotron">
-    <div id="logo"></div>
+    <span class="logoHolder1" ng-show="!show">
+      <div class="logo">
+        <img src="./img/MattSucksWhiteBlue.svg" alt="Logo" />
+      </div>
+      <div class="logoTxtCon">
+        <h1 class="logoTxt">Housing <span class="logoTxtB">Helper</span></h1>
+      </div>
+    </span>
+    <span class="logoHolder2" ng-hide="!show">
+      <div class="logoTxtCon2">
+        <h1 class="logoTxt2">Housing</h1>
+      </div>
+      <div class="logo">
+        <img src="./img/MattSucksWhiteBlue.svg" alt="Logo" />
+      </div>
+      <div class="logoTxtCon2">
+        <h1 class="logoTxt2 logoTxtB">Helper</h1>
+      </div>
+    </span>
   </div>
   <div class="headerMain">
     <div class="headerFaq">
-    <!-- <div class="headerHamContainer"> -->
       <div ui-sref="faq" class="headerBtns" id="hideFaq">FAQ</div>
-      <!-- <i class="fa fa-bars headerHam" aria-hidden="true"></i> -->
     </div>
     <div class="headerWelcome">
       <h1>Welcome {{admin.username}}Bri/renter!</h1>
     </div>
-    <div class="headerLogOut">
+    <div id="headerLogOut">
       <div ui-sref="home" class="headerBtns">Logout</div>
     </div>
   </div>

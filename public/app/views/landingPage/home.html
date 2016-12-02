@@ -5,18 +5,18 @@
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
-      <div class="loginInputs">
+      <form ng-submit='login(user)' class="loginInputs">
         <div class="iBoxHolder">
-          <h1>Username</h1>
-          <input class="lBoxes" type="text" placeholder="Enter User Name">
+          <h1>Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
           <h1>Password</h1>
-          <input class="lBoxes" type="text" placeholder="Enter Password">
+          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
         </div>
         <div class="BtnHolder">
           <div id="cancelL" class="lBtns" ng-click="show= false">Cancel</div>
-          <div class="lBtns">Login</div>
+          <button type="submit" class="lBtns">Login</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <div id="hideAdmin" class="login">
@@ -24,23 +24,30 @@
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
-      <div class="loginInputs">
-        <div class="iBoxHolder">
-          <h1>Create Username</h1>
-          <input class="lBoxes" type="text" placeholder="Choose Username">
-          <h1>Create Password</h1>
-          <input class="lBoxes" type="text" placeholder="Enter New Password">
-          <h1>Verify Password</h1>
-          <input class="lBoxes" type="text" placeholder="Verify New Password">
+      <form class="loginInputs">
+        <div ng-submit='login(user)' class="iBoxHolder">
+          <h1>Email:</h1>
+          <input ng-model="user.email" class="lBoxes" type="text" placeholder="Enter Email">
+          <h1>Create Password:</h1>
+          <input ng-model="user.password" class="lBoxes" type="text" placeholder="Enter New Password">
+          <h1>Verify Password:</h1>
+          <input ng-model="user.password2"class="lBoxes" type="text" placeholder="Verify New Password">
         </div>
         <div class="BtnHolder">
           <div id="cancelR" class="lBtns" ng-click="hide= false">Cancel</div>
-          <div class="lBtns">Register</div>
+          <button type='submit' class="lBtns">Register</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
-  <div class="jumboTron"></div>
+  <section class="jumboTron">
+    <div class="brandContainer">
+      <div class="logoHolderL">
+        <img src="./img/MattSucksWhiteBlue.svg" alt="Logo" />
+      </div>
+      <h1 class="logoTxt">Housing <span class="logoTxt logoTxtBlue">Helper</span></h1>
+    </div>
+  </section>
   <nav id="nav1">
     <div class="navLinkHolder">
       <div class="navLinks">
@@ -55,7 +62,8 @@
   </nav>
   <div id="part-one" class="aboutCon">
     <div class="aboutHolder">
-      <h1 id="aboutTitle" class="homeTitles">About</h1>
+      <img class="aboutPic" src="https://devmountain.com/img/location-housing.jpg" alt="house picture" />
+      <h1 id="aboutTitle" class="homeTitles">About Our Site</h1>
       <div class="aboutTxtHolder">
         <p class="aboutTxt">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -68,13 +76,15 @@
       <h1 class="homeTitles">Get Started</h1>
       <div class="userAdminHolder">
         <div class="userHolder uAH">
-          <p class="uAText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-          <div class="uABtn" id="userBtn">I'm an User</div>
+          <h2 class="uATitle">Invited To Use</h2>
+          <p class="uAText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <div class="uABtn" id="userBtn">Login</div>
         </div>
-        <!-- <div class="centerBar"></div> -->
+        <div class="centerBar"></div>
         <div class="adminHolder uAH">
-          <p class="uAText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-          <div class="uABtn" id="adminBtn">I'm an Admin</div>
+          <h2 class="uATitle">Have An Organization</h2>
+          <p class="uAText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <div class="uABtn" id="adminBtn">Create Admin</div>
         </div>
       </div>
     </div>

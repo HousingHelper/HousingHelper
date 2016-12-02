@@ -1,4 +1,113 @@
+$devblue: #2AABE2
+$devbluehover: #11a5e5
+$devblueborder: #1B75BB
+.rentersMV
+  #hideFaq
+    display: none
+  .headerWelcome
+    margin-right: -290px
+//this is where the view actually starts
 .createEditRentersView
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+  position: relative
   width: 100%
-  height: 100%
-  background: grey
+  min-height: 100%
+  background: #D8D8D8
+  // background: white
+  display: flex
+  flex-direction: column
+  align-items: center
+  border-left: 1px solid #1B75BB
+  border-right: 1px solid #1B75BB
+  //button holder ~~~~~~~~~~~~~~~~~~~~~~~~~
+  .addBtnHolder
+    position: fixed
+    width: 85%
+    height: 35px
+    // background: blue
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 10px
+    z-index: 10
+    .addBtn
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+      width: 220px
+      padding: 1px
+      border-radius: 5px
+      text-align: center
+      font-size: 24px
+
+      background: #2AABE2
+      border: 1px solid #1B75BB
+      color: white
+      &:hover
+        background: #11a5e5
+        cursor: pointer
+  //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
+  // .dataHolder
+  //   margin-top: 60px
+  //   width: 95%
+  //   display: flex
+  //   justify-content: space-around
+  //   align-items: center
+  //   flex-direction: row
+  //   flex-wrap: wrap
+  //   //where we are using the ng-repeat ~~~~~~~~~~~~~~~~~~~~~~~~~
+  //   .showData
+  //     margin-top: 5px
+  //     margin-bottom: 20px
+  //     height: 250px
+  //     width: 485px
+  //     // background: yellow
+  //     display: flex
+  //     flex-direction: row
+  //     .mainData
+  //       height: 250px
+  //       width: 455px
+  //       border: 1px solid #1B75BB
+  //       border-right: none
+  //       border-top-left-radius: 10px
+  //       border-bottom-left-radius: 10px
+  //       background: white
+  //     .btnHolder
+  //       height: 250px
+  //       width: 30px
+  //       // background: green
+  //       display: flex
+  //       flex-direction: column
+  //       align-items: center
+  //       // margin-left: 1px
+  //       .dataBtns
+  //         width: 30px
+  //         display: flex
+  //         justify-content: center
+  //         align-items: center
+  //       #delete
+  //         border: 1px solid black
+  //         height: 30px
+  //         color: red
+  //         background: #2A2A2A
+  //         border-top-right-radius: 10px
+  //         &:hover
+  //           cursor: pointer
+  //           background: red
+  //           color: #2A2A2A
+  //         .trashCan
+  //           font-size: 20px
+  //       #edit
+  //         border: 1px solid #1B75BB
+  //         height: 220px
+  //         border-bottom-right-radius: 10px
+  //         background: #2AABE2
+  //         &:hover
+  //           // background: #1ebafd
+  //           background: #11a5e5
+  //           cursor: pointer
+  //         .btnTxt
+  //           color: white
+  //           text-align: center
+  //           font-size: 16px
+  //           font-weight: bold
+  //           line-height: 1
+  //           text-transform: uppercase
