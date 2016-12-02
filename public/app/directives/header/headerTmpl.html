@@ -8,7 +8,7 @@
         <h1 class="logoTxt">Housing <span class="logoTxtB">Helper</span></h1>
       </div>
     </span>
-    <span class="logoHolder2" ng-show="hide">
+    <span class="logoHolder2" ng-hide="!show">
       <div class="logoTxtCon2">
         <h1 class="logoTxt2">Housing</h1>
       </div>
@@ -27,7 +27,7 @@
     <div class="headerWelcome">
       <h1>Welcome {{admin.username}}Bri/renter!</h1>
     </div>
-    <div class="headerLogOut">
+    <div id="headerLogOut">
       <div ui-sref="home" class="headerBtns">Logout</div>
     </div>
   </div>
