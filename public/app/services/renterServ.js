@@ -23,11 +23,14 @@ angular.module("housinghelper").service("renterServ", function($http) {
       url: '/renterAccServReq/' + id
     })
   };
-  // this.createCollection = function(collection) {
+  // this.createCollection = function(user, org) {
   //   return $http({
   //     method: 'POST',
   //     url: '/collection',
-  //     data: collection
+  //     data: {
+  //       user: user,
+  //       org: org
+  //     }
   //   }).then(function(response) {
   //     return response;
   //   });
