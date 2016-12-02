@@ -79,7 +79,23 @@ module.exports = {
   },
 
   createGroup: function(req, res) {
-    
+
+  },
+
+  getSuperUserInfo: function (req, res, next) {
+    var superuser = req.user[0]
+    console.log(superuser);
+    db.get_all_superuser_apts([superuser.id], function (err, apts) {
+      // console.log('server: ', apts);
+      res.status(200).send(apts)
+    })
+  },
+
+  getAdminInfo: function (req, res, next) {
+    var admin = req.user[0]
+    db.get_all_admin_apts([admin.id], function (err, apts) {
+      res.status(200).send(apts)
+    })
   }
 
 

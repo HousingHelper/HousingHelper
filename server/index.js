@@ -87,7 +87,9 @@ app.get('/api/logout', function(req, res, next) {
 app.post('/api/register', userCtrl.register);
 app.get('/api/me', isAuthed, userCtrl.me);
 // app.get('/faq/:adminId',adminCtrl.getAllFaqs)
-// app.get('/adminMain/:adminId', adminCtrl.getAptsByAdminId)
+app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
+app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
+
 // app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
 // app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
 // app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)

@@ -29,7 +29,13 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
   $scope.login = function(user) {
     loginServ.login(user)
     .then(function(response) {
-      if (!response.data) {
+      if (!response.data)
+
+
+
+
+
+       {
         $scope.user.password = "";
       return alert('user could not be logged in');
     }
