@@ -5,18 +5,18 @@
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
-      <div class="loginInputs">
+      <form ng-submit='login(user)' class="loginInputs">
         <div class="iBoxHolder">
-          <h1>Username</h1>
-          <input class="lBoxes" type="text" placeholder="Enter User Name">
+          <h1>Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
           <h1>Password</h1>
-          <input class="lBoxes" type="text" placeholder="Enter Password">
+          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
         </div>
         <div class="BtnHolder">
           <div id="cancelL" class="lBtns" ng-click="show= false">Cancel</div>
-          <div class="lBtns">Login</div>
+          <button type="submit" class="lBtns">Login</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <div id="hideAdmin" class="login">
@@ -24,20 +24,20 @@
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
-      <div class="loginInputs">
-        <div class="iBoxHolder">
-          <h1>Create Username</h1>
-          <input class="lBoxes" type="text" placeholder="Choose Username">
-          <h1>Create Password</h1>
-          <input class="lBoxes" type="text" placeholder="Enter New Password">
-          <h1>Verify Password</h1>
-          <input class="lBoxes" type="text" placeholder="Verify New Password">
+      <form class="loginInputs">
+        <div ng-submit='login(user)' class="iBoxHolder">
+          <h1>Email:</h1>
+          <input ng-model="user.email" class="lBoxes" type="text" placeholder="Enter Email">
+          <h1>Create Password:</h1>
+          <input ng-model="user.password" class="lBoxes" type="text" placeholder="Enter New Password">
+          <h1>Verify Password:</h1>
+          <input ng-model="user.password2"class="lBoxes" type="text" placeholder="Verify New Password">
         </div>
         <div class="BtnHolder">
           <div id="cancelR" class="lBtns" ng-click="hide= false">Cancel</div>
-          <div class="lBtns">Register</div>
+          <button type='submit' class="lBtns">Register</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <section class="jumboTron">
