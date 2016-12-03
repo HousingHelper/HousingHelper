@@ -7,13 +7,13 @@
       </div>
       <form ng-submit='login(user)' class="loginInputs">
         <div class="iBoxHolder">
-          <h1>Email</h1>
+          <h1 class="formTxt">Email</h1>
           <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1>Password</h1>
+          <h1 class="formTxt">Password</h1>
           <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
         </div>
         <div class="BtnHolder">
-          <div id="cancelL" class="lBtns" ng-click="show= false">Cancel</div>
+          <button id="cancelL" class="lBtns" ng-click="show= false">Cancel</button>
           <button type="submit" class="lBtns">Login</button>
         </div>
       </form>
@@ -26,15 +26,15 @@
       </div>
       <form class="loginInputs">
         <div ng-submit='login(user)' class="iBoxHolder">
-          <h1>Email:</h1>
+          <h1 class="formTxt">Email:</h1>
           <input ng-model="user.email" class="lBoxes" type="text" placeholder="Enter Email">
-          <h1>Create Password:</h1>
+          <h1 class="formTxt">Create Password:</h1>
           <input ng-model="user.password" class="lBoxes" type="text" placeholder="Enter New Password">
-          <h1>Verify Password:</h1>
+          <h1 class="formTxt">Verify Password:</h1>
           <input ng-model="user.password2"class="lBoxes" type="text" placeholder="Verify New Password">
         </div>
         <div class="BtnHolder">
-          <div id="cancelR" class="lBtns" ng-click="hide= false">Cancel</div>
+          <button id="cancelR" class="lBtns" ng-click="hide= false">Cancel</button>
           <button type='submit' class="lBtns">Register</button>
         </div>
       </form>
