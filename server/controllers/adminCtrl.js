@@ -11,8 +11,9 @@ module.exports = {
   },
 
   getAllFaqs: function (req,res) {
-    var admin = req.params
-    db.faqs.where("adminid=$1", [req.params.adminId], function (err, faqs) {
+    var user = req.user[0]
+    console.log('this is your user',user);
+    db.get_all_faqs([user.id], function (err, faqs) {
       if (err){
       res.send("error: ", err)
     }
