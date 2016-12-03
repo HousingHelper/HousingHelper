@@ -1,4 +1,4 @@
 select apartments.* from apartments
-join renters
-on renters.aptId = apartments.id
-where renters.id = $1;
+join users
+on users.aptid = apartments.id
+where users.id = $1;
