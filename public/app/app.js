@@ -1,6 +1,6 @@
 // INITILIZE APP
 // ============================================================
-angular.module('housinghelper', ['ui.router'])
+angular.module('housinghelper', ['ui.router', 'angular.filter'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
@@ -134,7 +134,6 @@ angular.module('housinghelper', ['ui.router'])
         faqs: function (faqServ, $stateParams) {
           return faqServ.getFaqsById($stateParams.id)
             .then(function(response) {
-              console.log(response);
               return response.data;
           });
         }

@@ -5,7 +5,6 @@ module.exports = {
 
   getAllApartments: function (req, res) {
     db.get_all_apts(function (err, response) {
-      console.log(response);
       res.status(200).json(response)
     })
   },
@@ -84,9 +83,7 @@ module.exports = {
 
   getSuperUserInfo: function (req, res, next) {
     var superuser = req.user[0]
-    console.log(superuser);
-    db.get_all_superuser_apts([superuser.id], function (err, apts) {
-      // console.log('server: ', apts);
+    db.get_all_superuser_apts([superuser.orgid], function (err, apts) {
       res.status(200).send(apts)
     })
   },

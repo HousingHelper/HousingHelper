@@ -13,8 +13,22 @@
           <div class="addBtn">Add New Appartment</div>
         </div>
         <div class="dataHolder">
-          <div class="showData">
-            <div class="mainData"></div>
+          <div ng-repeat='apt in apts | orderBy: apt.title' class="showData">
+            <div class="mainData">
+              <h1>{{apt.title}}</h1>
+              <div>
+                <h5>Address: {{apt.address}} {{apt.city}}, {{apt.state}} {{apt.zipcode}}</h5>
+                  <br><hr>
+                <h5>Occupancy: {{apt.currentocc}} / {{apt.totalocc}}</h5>
+                  <br><hr>
+                  <h5>Renters:</h5>
+                  <ul>
+                    <li ng-options='apt.title for apt in apts | unique:' ng-repeat='renter in apts | filter:filter'>
+                      {{renter.firstname}} {{renter.lastname}} {{renter.email}}
+                    </li>
+                  </ul>
+              </div>
+            </div>
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>

@@ -6,47 +6,19 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
 
   // FUNCTIONS
   // ============================================================
-  // $scope.login = function (user) {
-  //     loginServ.login(user)
-  //     .then(function(response) {
-  //       console.log(response.data);
-  //       if (!response.data) {
-  //         $scope.user.password = "";
-  //         return alert('user could not be logged in');
-  //       }
-  //       if(response.data.user.isAdmin){
-  //         $state.go('adminMain')
-  //       }
-  //       if(!response.data.user.isadmin){
-  //         $state.go('renter')
-  //       }
-  //       }).catch(function(err) {
-  //         $scope.user.password = "";
-  //         alert('user could not be logged in');
-  //     });
-  // };
+
 
   $scope.login = function(user) {
     loginServ.login(user)
     .then(function(response) {
-      if (!response.data)
-
-
-
-
-
-       {
+      if (!response.data){
         $scope.user.password = "";
       return alert('user could not be logged in');
-    }
-
+      }
       if(response.data){
-        console.log("USER: ", response);
         if(response.data.isadmin){
-          console.log('admin');
          $state.go('adminMain')
         } else {
-          console.log('renter');
          $state.go('renter')
         }
       }
@@ -123,7 +95,6 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
                 });
               }
 
-            // console.log(scrollLo);
           })
 // fading in the login and register
 // ============================================================
