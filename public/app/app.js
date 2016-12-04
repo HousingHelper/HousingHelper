@@ -62,6 +62,11 @@ angular.module('housinghelper', ['ui.router'])
       url: '/serviceRequests',
       templateUrl: './app/views/serviceRequests/serviceRequests.html',
       controller: 'serviceRequestsCtrl'
+      , resolve: {
+        servreqs: function(adminMainServ) {
+          return adminMainServ.getAllServReqs();
+        }
+      }
     })
     // toDoList STATE
     // .state('toDoList', {

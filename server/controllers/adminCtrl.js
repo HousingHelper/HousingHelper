@@ -3,16 +3,16 @@ var db = app.get('db')
 
 module.exports = {
 
-  getAllApartments: function (req, res) {
-    db.get_all_apts(function (err, response) {
-      console.log(response);
-      res.status(200).json(response)
-    })
-  },
+  // getAllApartments: function (req, res) {
+  //   db.get_all_apts(function (err, response) {
+  //     console.log(response);
+  //     res.status(200).json(response)
+  //   })
+  // },
 
   getAllFaqs: function (req,res) {
-    var admin = req.params
-    db.faqs.where("adminid=$1", [req.params.adminId], function (err, faqs) {
+    // var user = req.user[0]
+    db.get_all_faqs([88], function (err, faqs) {
       if (err){
       res.send("error: ", err)
     }
@@ -29,7 +29,7 @@ module.exports = {
     })
   },
 
-  getRenterByAptId: function (req,res) {
+  getRentersByAptId: function (req,res) {
     var apartment = req.params
     db.get_one_apt_renters([apartment.aptId], function (err, renters) {
       if(err){
@@ -60,7 +60,8 @@ module.exports = {
   },
 
   getAllServiceRequests: function (req, res) {
-    db.get_all_serv_reqs([req.params.adminId], function (err, servReqs) {
+    var admin = req.user[0]
+    db.get_all_serv_reqs([admin.id], function (err, servReqs) {
       res.status(200).json(servReqs)
     })
   },

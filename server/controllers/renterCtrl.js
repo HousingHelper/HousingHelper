@@ -3,7 +3,8 @@ var db = app.get('db')
 
 module.exports = {
 
-  getRenterAccById: function (req, res) {  var user = req.user[0]
+  getRenterAccById: function (req, res) {
+    var user = req.user[0]
 
     db.get_one_renter([user.id], function(err, account) {
       res.status(200).json(account)
