@@ -3,10 +3,17 @@
 angular.module("housinghelper").service("apartmentsServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
-  this.getAptsById = function(adminid, aptid) {
+  this.getAptsById = function(id) {
     return $http({
       method: 'GET',
-      url: '/apartments/' + adminid + '/' + aptid
+      url: '/apartments/' + id
+    })
+  };
+
+  this.getAptsServReqs = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/apartments/serviceRequests/' + id
     })
   };
   // this.createCollection = function(collection) {

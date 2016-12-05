@@ -3,12 +3,13 @@ var db = app.get('db')
 
 module.exports = {
 
-  // getAllApartments: function (req, res) {
-  //   db.get_all_apts(function (err, response) {
-  //     console.log(response);
-  //     res.status(200).json(response)
-  //   })
-  // },
+  getAllApartments: function (req, res) {
+    var admin = req.user[0]
+    db.get_all_admin_apts([admin.id], function (err, response) {
+      console.log(response);
+      res.status(200).json(response)
+    })
+  },
 
   getAllFaqs: function (req,res) {
     // var user = req.user[0]
@@ -31,24 +32,22 @@ module.exports = {
 
   getRentersByAptId: function (req,res) {
     var apartment = req.params
-    db.get_one_apt_renters([apartment.aptId], function (err, renters) {
-      if(err){
-        res.send("error: ", err)
-      }
-      res.status(200).json(renters)
+    var admin = req.user[0]
+    db.get_one_apt_renters([admin.id, apartment.id], function (err, renters) {
+      res.status(200).send(renters)
     })
   },
 
   getAllUnassignedRenters: function (req, res) {
-    var admin = req.params
-    db.get_all_unassigned_renters([admin.adminId], function (err, renters) {
-      res.status(200).json(renters)
+    var admin = req.user[0]
+    db.get_all_unassigned_renters([admin.id], function (err, renters) {
+      res.status(200).send(renters)
     })
   },
 
   getAvailableRooms: function (req, res) {
-    var admin = req.params
-    db.get_all_available_housing([admin.adminId], function (err, rooms) {
+    var admin = req.user[0]
+    db.get_all_available_housing([admin.id], function (err, rooms) {
       res.status(200).json(rooms)
     })
   },
