@@ -29,6 +29,13 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       method: 'GET',
       url: '/serviceRequests'
     })
+  };
+
+  this.getAllGroups = function() {
+    return $http({
+      method: 'GET',
+      url: '/allgroups'
+    })
   }
 
   // this.createCollection = function(collection) {

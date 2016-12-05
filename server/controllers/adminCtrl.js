@@ -54,7 +54,8 @@ module.exports = {
   },
 
   getAllGroups: function (req, res) {
-    db.get_all_groups([req.params.adminId], function (err, groups) {
+    var admin = req.user[0]
+    db.get_all_groups([admin.id], function (err, groups) {
       res.status(200).json(groups)
     })
   },

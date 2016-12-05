@@ -98,7 +98,7 @@ app.get('/availableRooms', adminCtrl.getAvailableRooms)
 app.get('/renterAcc', renterCtrl.getRenterAccById)
 app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
-// app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
+app.get('/allgroups', adminCtrl.getAllGroups)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 
 // POST//
