@@ -1,12 +1,12 @@
 // INITILIZE SERVICE
 // ============================================================
-angular.module("housinghelper").service("faqServ", function($http) {
+angular.module("housinghelper").service("faqServ", function($http ) {
   // CRUD FUNCTIONS
   // ============================================================
   this.getFaqsById = function(id) {
     return $http({
       method: 'GET',
-      url: '/faq/' + id
+      url: '/api/faq'
     })
   };
   // this.createCollection = function(collection) {

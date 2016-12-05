@@ -16,8 +16,9 @@ module.exports = {
   },
 
   getAllFaqs: function (req,res) {
-    // var user = req.user[0]
-    db.get_all_faqs([88], function (err, faqs) {
+    var user = req.user[0]
+    console.log('this is your user',user);
+    db.get_all_faqs([user.id], function (err, faqs) {
       if (err){
       res.send("error: ", err)
     }

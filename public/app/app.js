@@ -140,14 +140,18 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     })
     // FAQ STATE
     .state('faq', {
-      url: '/faqs/:id',
+      url: '/faqs',
       templateUrl: './app/views/faqs/faq.html',
       controller: 'faqCtrl',
       resolve: {
-        faqs: function (faqServ, $stateParams) {
-          return faqServ.getFaqsById($stateParams.id)
+        user: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
             .then(function(response) {
-              return response.data;
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
           });
         }
       }

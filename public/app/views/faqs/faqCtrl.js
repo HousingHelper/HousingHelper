@@ -1,9 +1,18 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("faqCtrl", function($scope, faqs) {
+angular.module("housinghelper").controller("faqCtrl", function($scope,faqServ, user) {
   // VARIABLES
   // ============================================================
-    $scope.faqs = faqs;
-  // FUNCTIONS
-  // ============================================================
+
+      $scope.show = true
+      $scope.user = user;
+
+    // FUNCTIONS
+    // ============================================================
+    $scope.getfaqInfo = function (user){
+      faqServ.getFaqsById()
+      .then(function(response){
+        $scope.faqs = response.data
+      })
+    }  (user);
 });

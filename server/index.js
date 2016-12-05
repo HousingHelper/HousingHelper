@@ -85,9 +85,9 @@ app.get('/api/logout', function(req, res, next) {
 // ENDPOINTS //
 // GET //
 app.get('/api/me', isAuthed, userCtrl.me);
+app.get('/api/faq',adminCtrl.getAllFaqs)
 app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
-app.get('/faq',adminCtrl.getAllFaqs)
 app.get('/apartments', adminCtrl.getAllApartments)
 app.get('/apartments/:id', adminCtrl.getRentersByAptId)
 app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
