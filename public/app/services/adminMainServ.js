@@ -22,6 +22,13 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       method: 'GET',
       url: '/api/admin/adminMain'
     })
+  };
+
+  this.getAllServReqs = function() {
+    return $http({
+      method: 'GET',
+      url: '/serviceRequests'
+    })
   }
 
   // this.createCollection = function(collection) {

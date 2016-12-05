@@ -85,23 +85,24 @@ app.get('/api/logout', function(req, res, next) {
 
 
 // ENDPOINTS //
-app.post('/api/register', userCtrl.register);
+// GET //
 app.get('/api/me', isAuthed, userCtrl.me);
 app.get('/api/faq',adminCtrl.getAllFaqs)
 app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
-
-// app.get('/apartments/:aptId', adminCtrl.getRenterByAptId)
-// app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
-// app.get('/unassignedRenters/:adminId', adminCtrl.getAllUnassignedRenters)
-// app.get('/availableRooms/:adminId', adminCtrl.getAvailableRooms)
+app.get('/apartments', adminCtrl.getAllApartments)
+app.get('/apartments/:id', adminCtrl.getRentersByAptId)
+app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
+app.get('/unassignedRenters', adminCtrl.getAllUnassignedRenters)
+app.get('/availableRooms', adminCtrl.getAvailableRooms)
 app.get('/renterAcc', renterCtrl.getRenterAccById)
 app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
 // app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
-// app.get('/serviceRequests/:adminId', adminCtrl.getAllServiceRequests)
+app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 
 // POST//
+app.post('/api/register', userCtrl.register);
 // app.post('/createfaq/:adminid', adminCtrl.createFaq)
 // app.post('/creategroup/:adminid', adminCtrl.createGroup)
 
