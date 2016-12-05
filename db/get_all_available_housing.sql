@@ -8,4 +8,10 @@ apartments.male_only_housing
 from apartments
 join rooms
 on rooms.aptid = apartments.id
-where (rooms.currentocc < rooms.totalocc) and admin_id = $1
+join locations
+on apartments.citiesid = locations.id
+join organizations
+on locations.orgid = organizations.id
+join users
+on users.orgid = organizations.id
+where (rooms.currentocc < rooms.totalocc) and users.id = $1

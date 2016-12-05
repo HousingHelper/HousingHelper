@@ -139,8 +139,7 @@ create table servReqs
     status text,
     newNotification boolean,
     renterId integer references renters,
-    aptId integer references apartments,
-    adminId integer references admin
+    aptId integer references apartments
   )
 
 create table servReq_notes
