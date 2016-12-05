@@ -1,4 +1,4 @@
-select distinct users.email, users.firstname, users.lastname,
+select distinct users.email, users.firstname, users.lastname, users.aptid,
   apartments.title, apartments.address, apartments.city, apartments.state, apartments.zipcode
 from apartments
 join locations

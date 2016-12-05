@@ -4,14 +4,20 @@ var db = app.get('db')
 module.exports = {
 
   getAllApartments: function (req, res) {
+<<<<<<< HEAD
     db.get_all_apts(function (err, response) {
+=======
+    var admin = req.user[0]
+    db.get_all_admin_apts([admin.id], function (err, response) {
+      console.log(response);
+>>>>>>> 732bb7e051b262134ea3ac64043762d1232cc358
       res.status(200).json(response)
     })
   },
 
   getAllFaqs: function (req,res) {
-    var admin = req.params
-    db.faqs.where("adminid=$1", [req.params.adminId], function (err, faqs) {
+    // var user = req.user[0]
+    db.get_all_faqs([88], function (err, faqs) {
       if (err){
       res.send("error: ", err)
     }
@@ -28,26 +34,24 @@ module.exports = {
     })
   },
 
-  getRenterByAptId: function (req,res) {
+  getRentersByAptId: function (req,res) {
     var apartment = req.params
-    db.get_one_apt_renters([apartment.aptId], function (err, renters) {
-      if(err){
-        res.send("error: ", err)
-      }
-      res.status(200).json(renters)
+    var admin = req.user[0]
+    db.get_one_apt_renters([admin.id, apartment.id], function (err, renters) {
+      res.status(200).send(renters)
     })
   },
 
   getAllUnassignedRenters: function (req, res) {
-    var admin = req.params
-    db.get_all_unassigned_renters([admin.adminId], function (err, renters) {
-      res.status(200).json(renters)
+    var admin = req.user[0]
+    db.get_all_unassigned_renters([admin.id], function (err, renters) {
+      res.status(200).send(renters)
     })
   },
 
   getAvailableRooms: function (req, res) {
-    var admin = req.params
-    db.get_all_available_housing([admin.adminId], function (err, rooms) {
+    var admin = req.user[0]
+    db.get_all_available_housing([admin.id], function (err, rooms) {
       res.status(200).json(rooms)
     })
   },
@@ -59,7 +63,8 @@ module.exports = {
   },
 
   getAllServiceRequests: function (req, res) {
-    db.get_all_serv_reqs([req.params.adminId], function (err, servReqs) {
+    var admin = req.user[0]
+    db.get_all_serv_reqs([admin.id], function (err, servReqs) {
       res.status(200).json(servReqs)
     })
   },

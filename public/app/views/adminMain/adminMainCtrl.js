@@ -6,6 +6,8 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, adm
   $scope.admin = admin;
   console.log('admin: ', admin);
 
+  // admin.citiesid = apts.citiesid
+
 
   // FUNCTIONS
   // ============================================================

@@ -33,17 +33,17 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     })
     // Apartments STATE
     .state('apartments', {
-      url: '/apartments/:adminid/:aptid',
+      url: '/apartments/:id',
       templateUrl: './app/views/apartments/apartments.html',
-      controller: 'apartmentsCtrl',
-      // resolve: {
-      //   apts: function (apartmentsServ, $stateParams) {
-      //     return apartmentsServ.getAptsById($stateParams.adminid, $stateParams.aptid)
-      //       .then(function(response) {
-      //         return response.data;
-      //     });
-      //   }
-      // }
+      controller: 'apartmentsCtrl'
+      , resolve: {
+        apts: function (apartmentsServ, $stateParams) {
+          return apartmentsServ.getAptsById($stateParams.id)
+        },
+        servreqs: function (apartmentsServ, $stateParams) {
+          return apartmentsServ.getAptsServReqs($stateParams.id)
+        }
+      }
     })
     // // adminRenters STATE
     .state('adminRenters', {
@@ -62,6 +62,11 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       url: '/serviceRequests',
       templateUrl: './app/views/serviceRequests/serviceRequests.html',
       controller: 'serviceRequestsCtrl'
+      , resolve: {
+        servreqs: function(adminMainServ) {
+          return adminMainServ.getAllServReqs();
+        }
+      }
     })
     // toDoList STATE
     // .state('toDoList', {
@@ -74,6 +79,14 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       url: '/unassignedRenters',
       templateUrl: './app/views/unassignedRenters/unassignedRenters.html',
       controller: 'unassignedRentersCtrl'
+      , resolve: {
+        unassignedRenters: function(renterServ) {
+          return renterServ.getUnassignedRenters();
+        },
+        availableRooms: function(renterServ) {
+          return renterServ.getAvailableRooms();
+        }
+      }
     })
     // founders state
     .state('founders',{

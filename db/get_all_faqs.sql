@@ -1,1 +1,2 @@
-select * from faqs;
+select * from faqs
+where ;

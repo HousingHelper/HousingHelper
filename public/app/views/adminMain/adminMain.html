@@ -13,7 +13,7 @@
           <div class="addBtn">Add New Appartment</div>
         </div>
         <div class="dataHolder">
-          <div ng-repeat='apt in apts | orderBy: apt.title' class="showData">
+          <div ng-repeat='apt in apts | unique:"title"' class="showData">
             <div class="mainData">
               <h1>{{apt.title}}</h1>
               <div>
@@ -23,8 +23,10 @@
                   <br><hr>
                   <h5>Renters:</h5>
                   <ul>
-                    <li ng-options='apt.title for apt in apts | unique:' ng-repeat='renter in apts | filter:filter'>
-                      {{renter.firstname}} {{renter.lastname}} {{renter.email}}
+                    <li ng-repeat='renter in apts | unique: "title"'> 
+                      <h5>Name:{{renter.firstname}} {{renter.lastname}} {{renter.title}}</h5>
+                      <br>
+                      <h5>Email: {{renter.email}}</h5>
                     </li>
                   </ul>
               </div>
