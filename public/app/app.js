@@ -1,6 +1,6 @@
 // INITILIZE APP
 // ============================================================
-angular.module('housinghelper', ['ui.router'])
+angular.module('housinghelper', ['ui.router', 'angular.filter'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
@@ -28,15 +28,18 @@ angular.module('housinghelper', ['ui.router'])
           }).catch(function(err) {
             $state.go('home')
           });
-        }
-      }
-    })
+        },
+    locations: function (apartmentsServ) {
+      return apartmentsServ.getAllLocations()
+    }
+  }
+  })
     // Apartments STATE
     .state('apartments', {
       url: '/apartments/:id',
       templateUrl: './app/views/apartments/apartments.html',
-      controller: 'apartmentsCtrl'
-      , resolve: {
+      controller: 'apartmentsCtrl',
+      resolve: {
         apts: function (apartmentsServ, $stateParams) {
           return apartmentsServ.getAptsById($stateParams.id)
         },
@@ -98,7 +101,12 @@ angular.module('housinghelper', ['ui.router'])
     .state('groupList', {
       url: '/groups',
       templateUrl: './app/views/groups/groupList.html',
-      controller: 'groupListCtrl'
+      controller: 'groupListCtrl',
+      resolve: {
+        groups: function(adminMainServ) {
+          return adminMainServ.getAllGroups();
+        }
+      }
     })
     // Renter STATE
     .state('renter', {

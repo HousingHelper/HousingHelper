@@ -16,6 +16,20 @@ angular.module("housinghelper").service("apartmentsServ", function($http) {
       url: '/apartments/serviceRequests/' + id
     })
   };
+
+  this.getAllApartmentsWithRenters = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/adminMain/renters'
+    })
+  };
+
+  this.getAllLocations = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/adminMain/locations'
+    })
+  }
   // this.createCollection = function(collection) {
   //   return $http({
   //     method: 'POST',
