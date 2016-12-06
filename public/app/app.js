@@ -101,7 +101,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('groupList', {
       url: '/groups',
       templateUrl: './app/views/groups/groupList.html',
-      controller: 'groupListCtrl'
+      controller: 'groupListCtrl',
+      resolve: {
+        groups: function(adminMainServ) {
+          return adminMainServ.getAllGroups();
+        }
+      }
     })
     // Renter STATE
     .state('renter', {
