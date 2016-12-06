@@ -1,4 +1,41 @@
 <div class="main groupsMV">
+
+  <div class="login" id="Create">
+    <div class="loginHolder">
+      <section ng-hide="!spin" class="LoggingIn">
+        <h1>Logging In...</h1>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </section>
+      <div class="loginTitle">
+        <h1>Create New Group</h1>
+      </div>
+      <form ng-submit='login(###)' class="loginInputs">
+        <div class="iBoxHolder">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Password</h1>
+          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
+
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+
+        </div>
+        <div class="BtnHolder">
+          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button type="submit" class="lBtns">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="headerDirCon">
     <header-directive></header-directive>
   </div>
@@ -10,7 +47,7 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="groupListView">
         <div class="addBtnHolder">
-          <div class="addBtn">Add New Group</div>
+          <div id="addData" class="addBtn">Add New Group</div>
         </div>
         <div class="dataHolder">
           <div class="showData">
