@@ -67,6 +67,13 @@ module.exports = {
     })
   },
 
+  getAllUsers: function(req, res) {
+    var admin = req.user[0]
+    db.get_all_users([admin.id], function(err, users) {
+      res.status(200).send(users)
+    })
+  },
+
   createFaq: function(req, res) {
     db.faqs.insert({
       question: req.body.question,

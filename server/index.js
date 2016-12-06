@@ -100,6 +100,7 @@ app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
 app.get('/allgroups', adminCtrl.getAllGroups)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
+app.get('/users', adminCtrl.getAllUsers)
 
 // POST//
 app.post('/api/register', userCtrl.register);

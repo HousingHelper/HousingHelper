@@ -49,7 +49,15 @@ angular.module('housinghelper', ['ui.router'])
     .state('adminRenters', {
       url: '/adminRenters',
       templateUrl: './app/views/adminRenters/createEditRenters.html',
-      controller: 'createEditRentersCtrl'
+      controller: 'createEditRentersCtrl',
+      resolve: {
+        users: function(adminMainServ) {
+          return adminMainServ.getAllUsers()
+        },
+        groups: function(adminMainServ) {
+          return adminMainServ.getAllGroups()
+        }
+      }
     })
     // createEditRenters STATE
     // .state('createEditRenters', {

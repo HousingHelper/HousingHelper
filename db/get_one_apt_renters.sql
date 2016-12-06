@@ -6,10 +6,6 @@ join apartments
 on apartments.id = users.aptid
 join rooms
 on users.roomid = rooms.id
-where users.id != (
-  select id
-  from users
-  where id = $1
-)
+where users.id != $1
 and apartments.id = $2
 order by leaseStart;
