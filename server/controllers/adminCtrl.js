@@ -126,19 +126,6 @@ module.exports = {
     })
   },
 
-  createFaq: function(req, res) {
-    db.faqs.insert({
-      question: req.body.question,
-      answer: req.body.answer,
-      adminid: req.params.adminid
-    }, function(err, faq) {
-      if (err) {
-        return res.status(500).send(err);
-      }
-      res.status(200).send(faq)
-    });
-  },
-
   createGroup: function(req, res) {
 
   },
@@ -157,7 +144,7 @@ module.exports = {
     db.get_all_admin_apts([admin.id], function (err, apts) {
       res.status(200).send(apts)
     })
-  }
+  },
     // getAllApartmentsWithRenters: function (req, res, next) {
     //   // var admin = req.user[0]
     //   db.please_work([86], function (err, renters) {
@@ -226,11 +213,8 @@ module.exports = {
     },
 
     createFaq: function(req, res) {
-        db.faqs.insert({
-            question: req.body.question,
-            answer: req.body.answer,
-            adminid: req.params.adminid
-        }, function(err, faq) {
+      // var admin = req.user[0]
+        db.create_faq([req.body.question,req.body.answer, 1,1], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }
