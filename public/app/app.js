@@ -31,6 +31,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
     locations: function (apartmentsServ) {
       return apartmentsServ.getAllLocations()
+    },
+    apartments: function (adminMainServ) {
+      return adminMainServ.getAllApts()
+    },
+    users: function(adminMainServ) {
+      return adminMainServ.getAllUsersByLoggedInUser()
     }
   }
   })

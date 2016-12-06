@@ -7,6 +7,7 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
   // $scope.servreqs = servreqs
   // FUNCTIONS
   // ============================================================
+  // this is scrolling the add button
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();
     if(winScroll < 45){
@@ -14,6 +15,17 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
     }else if (winScroll > 45) {
       $(".addBtnHolder").css({"margin-top":"-35px"});
     }
-    // console.log(winScroll);
   });
+  // this is the function for the add button model fade
+  $(function() {
+    $( "#Create" ).hide();
+    $("#addData").click(function() {
+      $( "#Create" ).fadeIn( "slow" );
+    });
+    $("#cancelBtn").click(function() {
+      $( "#Create" ).fadeOut( "slow" );
+    });
+
+    return false;
+    });
 });

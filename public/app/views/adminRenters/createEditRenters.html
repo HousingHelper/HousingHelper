@@ -1,4 +1,41 @@
 <div class="main rentersMV">
+
+  <div class="login" id="Create">
+    <div class="loginHolder">
+      <section ng-hide="!spin" class="LoggingIn">
+        <h1>Logging In...</h1>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </section>
+      <div class="loginTitle">
+        <h1>Create New Renter</h1>
+      </div>
+      <form ng-submit='login(###)' class="loginInputs">
+        <div class="iBoxHolder">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Password</h1>
+          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
+
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+
+        </div>
+        <div class="BtnHolder">
+          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button type="submit" class="lBtns">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="headerDirCon">
     <header-directive></header-directive>
   </div>
@@ -10,28 +47,30 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="createEditRentersView">
         <div class="addBtnHolder">
-          <div class="addBtn">Add New User</div>
+          <div id="addData" class="addBtn">Add New User</div>
         </div>
         <div class="dataHolder">
-          <!-- <div ng-repeat='group in groups | unique: "group.title"'>
-           <div>
-             {{group.title}}
-           </div>
-           <hr> -->
-          <div ng-repeat="renter in users | filter: {group: group.title}" class="showData">
-            <div class="mainData">
-              First name: {{renter.firstname}}
-              Last name: {{renter.lastname}}
-              DOB: {{renter.dob}}
-              Gender: {{renter.gender}}
-              Phone: {{renter.phone}}
-              Group: {{renter.groupid}}
+
+          <!-- the ng-repeat for groups will go in the spot below -->
+          <div class="grpupNGR">
+            <div class="groupTitle">
+              <h1>Dm-14</h1>
             </div>
-            <div class="btnHolder">
-              <div id="delete" class="dataBtns">
-                <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
-              <div id="edit" class="dataBtns">
-                <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1></div>
+            <div ng-repeat="renter in users | filter: {group: group.title}" class="showData">
+              <div class="mainData">
+                First name: {{renter.firstname}}
+                Last name: {{renter.lastname}}
+                DOB: {{renter.dob}}
+                Gender: {{renter.gender}}
+                Phone: {{renter.phone}}
+                Group: {{renter.groupid}}
+              </div>
+              <div class="btnHolder">
+                <div id="delete" class="dataBtns">
+                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
+                <div id="edit" class="dataBtns">
+                  <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1></div>
+              </div>
             </div>
           </div>
         </div>

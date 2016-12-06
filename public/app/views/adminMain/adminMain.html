@@ -1,4 +1,41 @@
 <div class="main adminMV">
+
+  <div class="login" id="Create">
+    <div class="loginHolder">
+      <section ng-hide="!spin" class="LoggingIn">
+        <h1>Logging In...</h1>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </section>
+      <div class="loginTitle">
+        <h1>Create New Appartment</h1>
+      </div>
+      <form ng-submit='login(###)' class="loginInputs">
+        <div class="iBoxHolder">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Password</h1>
+          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
+
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+
+        </div>
+        <div class="BtnHolder">
+          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button type="submit" class="lBtns">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="headerDirCon">
     <header-directive></header-directive>
   </div>
@@ -10,15 +47,16 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="adminMainView">
         <div class="addBtnHolder">
-          <div class="addBtn">Add New Apartment</div>
+          <div id="addData" class="addBtn">Add New Apartment</div>
         </div>
         <div class="dataHolder">
-          <div ng-repeat='location in locations | unique: "location.city"'>
-            <div>
-              {{location.city}}
+
+          <div class="locationNGR" ng-repeat='location in locations | unique: "location.city"'>
+            <div class="cityTitle">
+              <h1>{{location.city}}</h1>
             </div>
             <hr>
-          <div ng-repeat='apt in apts | filter: {city: location.city}' class="showData">
+          <div ng-repeat='apt in apartments | filter: {city: location.city}' class="showData">
             <div class="mainData">
 
               <h1>{{apt.title}}, {{apt.apt_num}}</h1>
@@ -28,7 +66,7 @@
                   <hr>
                   <h5>Renters:</h5>
                   <ul>
-                    <li ng-repeat='renter in apt.renters'>
+                    <li ng-repeat='renter in users | filter: {aptid: apt.id}'>
                       <h5>Name:{{renter.firstname}} {{renter.lastname}} {{renter.title}}</h5>
                       <h5>Email: {{renter.email}}</h5>
                       <br>

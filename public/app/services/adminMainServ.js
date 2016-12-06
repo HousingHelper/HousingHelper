@@ -43,7 +43,21 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       method: 'GET',
       url: '/users'
     })
-  }
+  };
+
+  this.getAllApts = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/adminMain/apts'
+    })
+  };
+
+  this.getAllUsersByLoggedInUser = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/adminMain/users'
+    })
+  };
 
   // this.createCollection = function(collection) {
   //   return $http({

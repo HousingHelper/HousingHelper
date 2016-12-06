@@ -3,7 +3,87 @@
     display: none
   .headerWelcome
     margin-right: -330px
-//this is where the view actually starts
+  // ((((((((((((((((((((((((((login))))))))))))))))))))))))))
+  .login
+    position: fixed
+    top: 0
+    width: 100%
+    height: 100vh
+    background: rgba(0, 0, 0, 0.8)
+    z-index: 20
+    display: flex
+    justify-content: center
+    align-items: center
+    .loginHolder
+      width: 360px
+      // height: 280px
+      background: white
+      border-radius: 5px
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: center
+      margin-top: 0px
+      .LoggingIn
+        position: fixed
+        width: 270px
+        height: 280px
+        background: white
+        color: grey
+        font-size: 25px
+        border-radius: 5px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        z-index: 10
+        h1
+          margin-bottom: 10px
+      .loginTitle
+        font-size: 30px
+        font-weight: bold
+        margin-top: 20px
+        margin-bottom: 10px
+        color: grey
+        display: flex
+        justify-content: space-around
+      .loginInputs
+        width: 250px
+        display: flex
+        flex-direction: column
+        align-items: center
+        .iBoxHolder
+          margin-bottom: 10px
+          .formTxt
+            color: grey
+            font-size: 20px
+          .lBoxes
+            width: 225px
+            height: 30px
+            border: 2px solid #1B75BB
+            border-radius: 5px
+            margin: 10px 0 10px
+        .BtnHolder
+          width: 250px
+          display: flex
+          flex-direction: row
+          justify-content: space-around
+          .lBtns
+            font-size: 20px
+            color: white
+            width: 100px
+            height: 40px
+            background: #2AABE2
+            border: 1px solid #1B75BB
+            border-radius: 5px
+            margin-bottom: 20px
+            display: flex
+            justify-content: center
+            align-items: center
+            &:hover
+            cursor: pointer
+            background: #11a5e5
+//((((((((((((this is where the view actually starts))))))))))))
 .adminMainView
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
   position: relative
@@ -41,6 +121,23 @@
       &:hover
         background: #11a5e5
         cursor: pointer
+  .locationNGR
+    width: 100%
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-direction: row
+    flex-wrap: wrap
+    // background: yellow
+    .cityTitle
+      color: grey
+      font-size: 40px
+      font-weight: bold
+      border-bottom: 2px solid grey
+      width: 95%
+      // background: red
+      display: flex
+      justify-content: center
   //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
   .showData
     height: 280px !important
