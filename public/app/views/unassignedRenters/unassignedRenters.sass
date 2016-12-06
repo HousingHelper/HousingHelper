@@ -1,4 +1,125 @@
-.unnassignedRentersView
+.uarMV
+  #hideFaq
+    display: none
+  .headerWelcome
+    margin-right: -330px
+//this is where the view actually starts
+.unassignedRentersView
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+  position: relative
   width: 100%
-  height: 100%
-  background: rgba(99, 113, 2, 0.62)
+  min-height: 100%
+  background: #D8D8D8
+  // background: white
+  display: flex
+  flex-direction: column
+  align-items: center
+  border-left: 1px solid #1B75BB
+  border-right: 1px solid #1B75BB
+  //button holder ~~~~~~~~~~~~~~~~~~~~~~~~~
+  .addBtnHolder
+    position: fixed
+    width: 85%
+    height: 35px
+    // background: blue
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 10px
+    z-index: 10
+    .addBtn
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+      width: 250px
+      padding: 1px
+      border-radius: 5px
+      text-align: center
+      font-size: 24px
+
+      background: #2AABE2
+      border: 1px solid #1B75BB
+      color: white
+      &:hover
+        background: #11a5e5
+        cursor: pointer
+  //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
+  // .showData
+  //   height: 280px !important
+  //   .mainData
+  //     height: 280px !important
+  //   .btnHolder
+  //     height: 280px !important
+  //     #edit
+  //       height: 250px !important
+  .urDataHolder
+    width: 640px
+    min-height: 400px
+    background: blue
+    border: 1px solid #1B75BB
+    border-radius: 10px
+    background: white
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    .you
+      display: flex
+      flex-direction: column
+      align-items: center
+      // background: red
+      width: 300px
+      .youBox
+        color: #292c2f
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 50px
+        width: 150px
+        border: 1px solid #1B75BB
+        // // padding: 10px
+        margin: 2px
+        border-radius: 5px
+        span
+          // margin-bottom: 5px
+    .me
+      display: flex
+      flex-direction: column
+      align-items: center
+      // background: green
+      width: 300px
+
+      .roomBox
+          color: #292c2f
+          border: 1px solid #1B75BB
+          padding: 10px
+          margin: 5px 0px
+          border-radius: 5px
+          display: flex
+          flex-direction: column
+          .roomBoxInput
+            height: 50px
+            width: 150px
+            border: 1px solid #1B75BB
+            border-radius: 5px
+            margin: 5px 0px
+          .sBtn
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+            width: 70px
+            padding: 5px
+            border-radius: 5px
+            text-align: center
+            background: #2AABE2
+            border: 1px solid #1B75BB
+            color: white
+    .horizontalBar
+      width: 5px
+      // height: 300px
+      background: #2AABE2
+      border-radius: 5px
+      margin: 10px 0px
+    .titles
+      font-size: 30px
+      color: grey
+      margin-top: 15px
+    .titlesH2
+      font-size: 16px
+      color: grey
+      margin-bottom: 5px
