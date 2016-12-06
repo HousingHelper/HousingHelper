@@ -1,0 +1,54 @@
+<div class="main adminMV">
+  <div class="headerDirCon">
+    <header-directive></header-directive>
+  </div>
+  <div class="mainCon">
+    <div class="sNavDirCon">
+      <side-nav-directive></side-nav-directive>
+    </div>
+    <div class="pageContent">
+      <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
+      <section class="adminMainView">
+        <div class="addBtnHolder">
+          <div class="addBtn">Add New Apartment</div>
+        </div>
+        <div class="dataHolder">
+          <div class="locationNGR" ng-repeat='location in locations | unique: "location.city"'>
+            <div class="cityTitle">
+              <h1>{{location.city}}</h1>
+            </div>
+          <div ng-repeat='apt in apts | filter: {city: location.city}' class="showData">
+            <div class="mainData">
+
+              <h1>{{apt.title}}, {{apt.apt_num}}</h1>
+              <div>
+                <h5>Address: {{apt.address}} {{apt.city}}, {{apt.state}} {{apt.zipcode}}</h5>
+                  <h5>Occupancy: {{apt.currentocc}} / {{apt.totalocc}}</h5>
+                  <hr>
+                  <h5>Renters:</h5>
+                  <ul>
+                    <li ng-repeat='renter in apt.renters'>
+                      <h5>Name:{{renter.firstname}} {{renter.lastname}} {{renter.title}}</h5>
+                      <h5>Email: {{renter.email}}</h5>
+                      <br>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+            <div class="btnHolder">
+              <div id="delete" class="dataBtns">
+                <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
+              <div id="edit" class="dataBtns">
+                <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>a<br>p<br>a<br>r<br>t<br>m<br>e<br>n<br>t</h1></div>
+            </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </section>
+      <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
+    </div>
+  </div>
+</div>
