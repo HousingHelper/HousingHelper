@@ -63,5 +63,15 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, adm
     }
   });
 
+  $(function() {
+    $( "#Create" ).hide();
+    $("#addData").click(function() {
+      $( "#Create" ).fadeIn( "slow" );
+    });
+    $("#cancelBtn").click(function() {
+      $( "#Create" ).fadeOut( "slow" );
+    });
 
+    return false;
+    });
 });
