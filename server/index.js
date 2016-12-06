@@ -36,10 +36,8 @@ var passport = require('./services/passport');
 // POLICIES //
 var isAuthed = function(req, res, next) {
 	if (!req.isAuthenticated()) {
-    console.log('not authed');
     return res.status(401).send();
   }else{
-    console.log('authed');
     return next();
   }
 };
@@ -90,6 +88,8 @@ app.get('/api/me', isAuthed, userCtrl.me);
 app.get('/api/faq',adminCtrl.getAllFaqs)
 app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
+app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
+app.get('/api/adminMain/locations', adminCtrl.getAllLocations)
 app.get('/apartments', adminCtrl.getAllApartments)
 app.get('/apartments/:id', adminCtrl.getRentersByAptId)
 app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
@@ -98,7 +98,7 @@ app.get('/availableRooms', adminCtrl.getAvailableRooms)
 app.get('/renterAcc', renterCtrl.getRenterAccById)
 app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
-// app.get('/allgroups/:adminId', adminCtrl.getAllGroups)
+app.get('/allgroups', adminCtrl.getAllGroups)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 
 // POST//
