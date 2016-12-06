@@ -140,6 +140,7 @@ module.exports = {
       res.status(200).send(apts)
     })
   },
+<<<<<<< HEAD
     // getAllApartmentsWithRenters: function (req, res, next) {
     //   // var admin = req.user[0]
     //   db.please_work([86], function (err, renters) {
@@ -149,28 +150,39 @@ module.exports = {
     //     res.status(200).json(renters)
     //   })
     // },
+=======
+    getAllApartmentsWithRenters: function (req, res, next) {
+      // var admin = req.user[0]
+      db.please_work([86], function (err, renters) {
+        if (err){
+        res.send("error: ", err)
+      }
+        res.status(200).json(renters)
+      })
+    },
+>>>>>>> master
 
 
 
     getAllFaqs: function(req, res) {
         var user = req.user[0]
-        console.log('this is your user', user);
+        // console.log('this is your user', user);
         db.get_all_faqs([user.id], function(err, faqs) {
             if (err) {
                 res.send("error: ", err)
             }
-            res.status(200).json(faqs)
+            res.status(200).send(faqs)
         })
     },
 
-    getAptsByAdminId: function(req, res) {
-        db.apartments.where("admin_id=$1", [req.params.adminId], function(err, apartments) {
-            if (err) {
-                res.send("error: ", err)
-            }
-            res.status(200).send(apartments)
-        })
-    },
+    // getAptsByAdminId: function(req, res) {
+    //     db.apartments.where("admin_id=$1", [req.params.adminId], function(err, apartments) {
+    //         if (err) {
+    //             res.send("error: ", err)
+    //         }
+    //         res.status(200).send(apartments)
+    //     })
+    // },
 
     getRentersByAptId: function(req, res) {
         var apartment = req.params

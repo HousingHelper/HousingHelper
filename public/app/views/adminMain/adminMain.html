@@ -13,11 +13,10 @@
           <div class="addBtn">Add New Apartment</div>
         </div>
         <div class="dataHolder">
-          <div ng-repeat='location in locations | unique: "location.city"'>
-            <div>
-              {{location.city}}
+          <div class="locationNGR" ng-repeat='location in locations | unique: "location.city"'>
+            <div class="cityTitle">
+              <h1>{{location.city}}</h1>
             </div>
-            <hr>
           <div ng-repeat='apt in apts | filter: {city: location.city}' class="showData">
             <div class="mainData">
 
