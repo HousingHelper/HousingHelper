@@ -146,12 +146,12 @@ module.exports = {
     })
   },
 
-  getAllGroups: function (req, res) {
-    var admin = req.user[0]
-    db.get_all_groups([admin.id], function (err, groups) {
-      res.status(200).json(groups)
-    })
-  },
+  // getAllGroups: function (req, res) {
+  //   var admin = req.user[0]
+  //   db.get_all_groups([admin.id], function (err, groups) {
+  //     res.status(200).json(groups)
+  //   })
+  // },
 
   getAllServiceRequests: function (req, res) {
     var admin = req.user[0]

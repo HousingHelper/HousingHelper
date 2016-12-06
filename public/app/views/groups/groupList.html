@@ -50,8 +50,29 @@
           <div id="addData" class="addBtn">Add New Group</div>
         </div>
         <div class="dataHolder">
-          <div class="showData">
-            <div class="mainData"></div>
+          <!-- Location > Groups > Users -->
+          <div ng-repeat='location in locations | unique: "location.city"'>
+            <div class="cityTitle">
+              <h1>{{location.city}}</h1>
+            </div>
+            <hr>
+            <div ng-repeat="group in groups | filter: {citiesid:location.id}" class="showData">
+              <div class="mainData">
+                <h1>{{group.title}}</h1>
+                <div>
+                  <h5>Start Date: {{group.startdate}}</h5>
+                  <h5>End Date: {{group.enddate}}</h5>
+                  <h5>Check-In: {{group.checkindate}}</h5>
+                  <h5>Check-Out: {{group.checkoutdate}}</h5>
+                  <h5>Members</h5>
+                  <ul>
+                    <li ng-repeat='member in users | filter: {groupid: group.id}'>
+                      <h5>Name: {{member.firstname}}{{member.lastname}}</h5>
+                      <hr>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
@@ -59,6 +80,7 @@
                 <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>g<br>r<br>o<br>u<br>p</h1></div>
             </div>
           </div>
+        </div>
 
 
 
