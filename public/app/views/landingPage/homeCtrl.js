@@ -9,6 +9,7 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
 
 
   $scope.login = function(user) {
+    $scope.spin = true
     loginServ.login(user)
     .then(function(response) {
       if (!response.data){
@@ -23,6 +24,7 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
         }
       }
       }).catch(function(err) {
+        $scope.spin = false
         console.log(err);
         $scope.user.password = "";
         alert('user could not be logged in');

@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main uarMV">
   <div class="headerDirCon">
     <header-directive></header-directive>
   </div>
@@ -9,12 +9,41 @@
     <div class="pageContent">
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="unassignedRentersView">
-        <h1>Unassigned Renters</h1>
-        {{unassignedRenters}}
-        <br>
-        <br>
-        <h1>Available Rooms</h1>
-        {{availableRooms}}
+        <div class="addBtnHolder">
+          <div class="addBtn">Unassigned Renters</div>
+        </div>
+        <div class="dataHolder">
+          <section class="urDataHolder">
+              <!-- <div > -->
+                <div class="you">
+                  <h1 class="titles">Renters Name</h1>
+                  <h2 class="titlesH2">Drag To Avalible Room</h2>
+                  <!-- put the ng-repeat on youBox -->
+                  <div class="youBox">
+                    <span>
+                      <h1>{renter.name}</h1>
+                      <h1>{group.name}</h1>
+                    </span>
+                  </div>
+
+                </div>
+                <div class="horizontalBar"></div>
+                <div class="me">
+                  <h1 class="titles">Rooms Avalibale</h1>
+                  <h2 class="titlesH2">drop name in text area</h2>
+                  <!-- put the ng-repeat on roomBox -->
+                  <form class="roomBox">
+                    <h1>Carson Corner</h1>
+                    <h2>room#: 2</h2>
+                    <input class="roomBoxInput" type="text" name="name">
+                    <button class="sBtn" type="submit">Submit</button>
+                  </form>
+
+
+                </div>
+              <!-- </div> -->
+          </section>
+        </div>
       </section>
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
     </div>

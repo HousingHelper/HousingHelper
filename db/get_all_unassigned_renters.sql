@@ -16,9 +16,5 @@
 
 select id, firstName, lastName, gender, DOB, private_room
 from users
-where id != (
-  select id
-  from users
-  where id = $1
-)
+where id != $1
 and (aptId is null or roomId is null);

@@ -119,6 +119,45 @@ module.exports = {
     })
   },
 
+  getAllUsers: function(req, res) {
+    var admin = req.user[0]
+    db.get_all_users([admin.id], function(err, users) {
+      res.status(200).send(users)
+    })
+  },
+
+  createFaq: function(req, res) {
+    db.faqs.insert({
+      question: req.body.question,
+      answer: req.body.answer,
+      adminid: req.params.adminid
+    }, function(err, faq) {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      res.status(200).send(faq)
+    });
+  },
+
+  createGroup: function(req, res) {
+
+  },
+
+  getSuperUserInfo: function (req, res, next) {
+    var superuser = req.user[0]
+    console.log(superuser);
+    db.get_all_superuser_apts([superuser.id], function (err, apts) {
+      // console.log('server: ', apts);
+      res.status(200).send(apts)
+    })
+  },
+
+  getAdminInfo: function (req, res, next) {
+    var admin = req.user[0]
+    db.get_all_admin_apts([admin.id], function (err, apts) {
+      res.status(200).send(apts)
+    })
+  }
     // getAllApartmentsWithRenters: function (req, res, next) {
     //   // var admin = req.user[0]
     //   db.please_work([86], function (err, renters) {

@@ -13,8 +13,20 @@
           <div class="addBtn">Add New User</div>
         </div>
         <div class="dataHolder">
-          <div class="showData">
-            <div class="mainData"></div>
+          <!-- <div ng-repeat='group in groups | unique: "group.title"'>
+           <div>
+             {{group.title}}
+           </div>
+           <hr> -->
+          <div ng-repeat="renter in users | filter: {group: group.title}" class="showData">
+            <div class="mainData">
+              First name: {{renter.firstname}}
+              Last name: {{renter.lastname}}
+              DOB: {{renter.dob}}
+              Gender: {{renter.gender}}
+              Phone: {{renter.phone}}
+              Group: {{renter.groupid}}
+            </div>
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
@@ -22,10 +34,6 @@
                 <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1></div>
             </div>
           </div>
-
-          
-
-
         </div>
       </section>
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->

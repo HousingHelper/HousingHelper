@@ -2,6 +2,10 @@
 <div class="home">
   <div class="login" id="existingLogin">
     <div class="loginHolder">
+      <section ng-hide="!spin" class="LoggingIn">
+        <h1>Logging In...</h1>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </section>
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
@@ -21,6 +25,10 @@
   </div>
   <div id="hideAdmin" class="login">
     <div class="loginHolder" id="createAdmin">
+      <section ng-hide="!spin" class="LoggingIn">
+        <h1>Creating User...</h1>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </section>
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
