@@ -1,10 +1,13 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createEditRentersCtrl", function($scope) {
+angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, users, groups) {
   // VARIABLES
   // ============================================================
   $scope.hide = false
-  $scope.test = 'testerino'
+  $scope.users = users.data
+  // $scope.groups = groups
+  console.log('users: ', $scope.users);
+
   // FUNCTIONS
   // ============================================================
   $(window).scroll(function(){
