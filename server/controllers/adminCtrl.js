@@ -11,45 +11,73 @@ module.exports = {
         })
     },
 
-    getAllApartmentsWithRenters: function(req, res) {
-        var admin = req.user[0];
-        var result;
-        if (admin.issuperuser) {
-            db.test3([admin.orgid], function(err, response) {
-                result = response;
-
-                loopFunc(0);
-            })
-
-        } else if (admin.isadmin) {
-            db.test1([admin.id], function(err, response) {
-                result = response;
-
-                // console.log(result);
-                loopFunc(0);
-            })
-        }
-
-        function loopFunc(i) {
-            if (i >= result.length) {
-                return fin()
-            }
-
-            // console.log(result[i].id);
-            db.please_work([result[i].id], function(error, renters) {
-                // console.log("RENTERS: ", renters);
-                for (var j = 0; j < renters.length; j++) {
-                    delete renters[j].password
-                }
-                result[i].renters = renters;
-                loopFunc(i + 1);
-            })
-        }
-
-        function fin() {
-            res.status(200).json(result);
-        }
+    getAllApartmentsByLoggedInUser: function (req,res) {
+      var admin = req.user[0]
+      if (admin.issuperuser) {
+        db.get_all_apts_by_superuser([admin.orgid], function (err, apartments) {
+          res.status(200).send(apartments)
+        })
+      } else if (admin.isadmin) {
+        db.get_all_apts_by_admin([admin.id], function (err, apartments) {
+          res.status(200).send(apartments)
+        })
+      }
     },
+
+    getAllUsersByLoggedInUser: function (req, res) {
+      var admin = req.user[0]
+      if (admin.issuperuser) {
+        db.get_all_users_by_superuser([admin.orgid], function (err, users) {
+          res.status(200).send(users)
+        })
+      }
+      else if (admin.isadmin) {
+        db.get_all_users_by_admin([admin.id], function (err, users) {
+          res.status(200).send(users)
+        })
+      }
+    },
+
+
+    // getAllApartmentsWithRenters: function(req, res) {
+    //     var admin = req.user[0];
+    //     var result;
+    //     if (admin.issuperuser) {
+    //         db.get_all_apts_by_superuser([admin.orgid], function(err, response) {
+    //             result = response;
+    //
+    //             loopFunc(0);
+    //         })
+    //
+    //     } else if (admin.isadmin) {
+    //         db.get_all_apts_by_admin([admin.id], function(err, response) {
+    //             result = response;
+    //
+    //             // console.log(result);
+    //             loopFunc(0);
+    //         })
+    //     }
+    //
+    //     function loopFunc(i) {
+    //         if (i >= result.length) {
+    //             return fin()
+    //         }
+    //
+    //         // console.log(result[i].id);
+    //         db.get_all_users_by_aptid([result[i].id], function(error, renters) {
+    //             // console.log("RENTERS: ", renters);
+    //             for (var j = 0; j < renters.length; j++) {
+    //                 delete renters[j].password
+    //             }
+    //             result[i].renters = renters;
+    //             loopFunc(i + 1);
+    //         })
+    //     }
+    //
+    //     function fin() {
+    //         res.status(200).json(result);
+    //     }
+    // },
 
     getAllLocations: function (req, res, next) {
       admin = req.user[0]
@@ -158,17 +186,16 @@ module.exports = {
       res.status(200).send(apts)
     })
   },
-    getAllApartmentsWithRenters: function (req, res, next) {
-      // var admin = req.user[0]
-      db.please_work([86], function (err, renters) {
-        if (err){
-        res.send("error: ", err)
-      }
-        res.status(200).json(renters)
-      })
-    },
 
-
+    // getAllApartmentsWithRenters: function (req, res, next) {
+    //   // var admin = req.user[0]
+    //   db.please_work([86], function (err, renters) {
+    //     if (err){
+    //     res.send("error: ", err)
+    //   }
+    //     res.status(200).json(renters)
+    //   })
+    // },
 
     getAllFaqs: function(req, res) {
         var user = req.user[0]
