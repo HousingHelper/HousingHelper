@@ -140,17 +140,7 @@ module.exports = {
       res.status(200).send(apts)
     })
   },
-<<<<<<< HEAD
-    // getAllApartmentsWithRenters: function (req, res, next) {
-    //   // var admin = req.user[0]
-    //   db.please_work([86], function (err, renters) {
-    //     if (err){
-    //     res.send("error: ", err)
-    //   }
-    //     res.status(200).json(renters)
-    //   })
-    // },
-=======
+
     getAllApartmentsWithRenters: function (req, res, next) {
       // var admin = req.user[0]
       db.please_work([86], function (err, renters) {
@@ -160,10 +150,6 @@ module.exports = {
         res.status(200).json(renters)
       })
     },
->>>>>>> master
-
-
-
     getAllFaqs: function(req, res) {
         var user = req.user[0]
         // console.log('this is your user', user);
