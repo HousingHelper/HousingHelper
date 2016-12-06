@@ -38,6 +38,19 @@ module.exports = {
       }
     },
 
+    getAllGroupsByLoggedInUser: function (req, res) {
+      var admin = req.user[0]
+      if (admin.issuperuser) {
+        db.get_all_groups_by_superuser([admin.orgid], function (err, users) {
+          res.status(200).send(users)
+        })
+      }
+      else if (admin.isadmin) {
+        db.get_all_groups_by_admin([admin.id], function (err, users) {
+          res.status(200).send(users)
+        })
+      }
+    },
 
     // getAllApartmentsWithRenters: function(req, res) {
     //     var admin = req.user[0];

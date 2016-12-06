@@ -52,11 +52,12 @@
         <div class="dataHolder">
 
           <!-- the ng-repeat for groups will go in the spot below -->
-          <div class="grpupNGR">
+          <div class="grpupNGR" ng-repeat='group in groups | unique: "group.title"'>
             <div class="groupTitle">
-              <h1>Dm-14</h1>
+              <h1>{{group.title}}</h1>
             </div>
-            <div ng-repeat="renter in users | filter: {group: group.title}" class="showData">
+            <hr>
+            <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
               <div class="mainData">
                 First name: {{renter.firstname}}
                 Last name: {{renter.lastname}}

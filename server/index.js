@@ -103,7 +103,8 @@ app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
 app.get('/allgroups', adminCtrl.getAllGroups)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
-app.get('/users', adminCtrl.getAllUsers)
+app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
+app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
 
 // POST//
 app.post('/api/register', userCtrl.register);
