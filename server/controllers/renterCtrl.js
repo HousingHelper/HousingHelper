@@ -24,12 +24,15 @@ module.exports = {
     db.get_renter_servreq([user.id], function(err, servreq) {
       res.status(200).json(servreq)
     })
+  },
+
+  CreateServiceRequest: function(req, res ){
+    // var user = req.user[0];
+    var currenttime = new Date().toLocaleDateString();
+
+    db.create_serviceRequest([ currenttime, req.body.request ,req.body.type,req.body.permissions,req.body.status,1, 1 ],
+      function(err, servreq) {
+        res.status(200).json(err)
+    })
   }
-
-
-
-
-
-
-
 }

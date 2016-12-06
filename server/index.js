@@ -109,7 +109,7 @@ app.get('/users', adminCtrl.getAllUsers)
 app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
-
+app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
 
 // LISTEN //
 var port = config.PORT
