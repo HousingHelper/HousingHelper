@@ -30,12 +30,14 @@ angular.module("housinghelper").service("renterServ", function($http) {
       url: '/unassignedRenters'
     })
   };
+
   this.getAvailableRooms = function() {
     return $http({
       method: 'GET',
       url: '/availableRooms'
     })
   };
+
   // this.createCollection = function(user, org) {
   //   return $http({
   //     method: 'POST',

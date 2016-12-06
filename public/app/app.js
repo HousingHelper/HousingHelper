@@ -61,10 +61,10 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'createEditRentersCtrl',
       resolve: {
         users: function(adminMainServ) {
-          return adminMainServ.getAllUsers()
+          return adminMainServ.sortUsersbyGroups()
         },
         groups: function(adminMainServ) {
-          return adminMainServ.getAllGroups()
+          return adminMainServ.getAllGroupsByLoggedInUser()
         }
       }
     })
