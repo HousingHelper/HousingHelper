@@ -26,11 +26,11 @@ module.exports = {
     })
   },
 
-  CreateServiceRequest: function(req, res ){
-    // var user = req.user[0];
+  CreateServiceRequest: function(req, res, next ){
+    var user = req.user[0];
     var currenttime = new Date().toLocaleDateString();
 
-    db.create_serviceRequest([ currenttime, req.body.request ,req.body.type,req.body.permissions,req.body.status,1, 1 ],
+    db.create_serviceRequest([ currenttime, req.body.request ,req.body.type,req.body.permissions,req.body.status,user.orgid, req.body.aptid ],
       function(err, servreq) {
         res.status(200).json(err)
     })

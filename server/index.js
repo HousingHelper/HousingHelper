@@ -110,7 +110,7 @@ app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
 app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
-
+app.post('/api/apartments', adminCtrl.createApt)
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {

@@ -269,8 +269,18 @@ module.exports = {
     getAptsByAptId: function(req, res, next) {
         var admin = req.user[0]
         db.get_all_apts_by_aptid([admin.id])
-    }
+    },
+    createApt: function(req,res,next){
+      var user = req.user[0];
 
+      db.create_apt([req.body.title, req.body.address, req.body.apt_num, req.body.city
+        ,req.body.state, req.body.zipcode, req.body.female_only_housing, req.body.male_only_housing, req.body.squareft
+        , req.body.bedrooms, req.body.baths, req.body.parkingspace, req.body.currentocc
+        , req.body.totalocc, req.body.wifiname, req.body.wifipwd, req.body.trashday, req.body.citiesid, user.orgid ],
+        function(err, servreq) {
+          res.status(200).json(err)
+      })
+    }
 
 
 }
