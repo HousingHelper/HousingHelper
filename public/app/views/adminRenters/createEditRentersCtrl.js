@@ -17,6 +17,5 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     }else if (winScroll > 45) {
       $(".addBtnHolder").css({"margin-top":"-35px"});
     }
-    // console.log(winScroll);
   });
 });
