@@ -125,11 +125,6 @@ module.exports = {
       res.status(200).send(users)
     })
   },
-
-  createGroup: function(req, res) {
-
-  },
-
   getSuperUserInfo: function (req, res, next) {
     var superuser = req.user[0]
     console.log(superuser);
@@ -213,8 +208,8 @@ module.exports = {
     },
 
     createFaq: function(req, res) {
-      // var admin = req.user[0]
-        db.create_faq([req.body.question,req.body.answer, 1,1], function(err, faq) {
+      var admin = req.user[0]
+        db.create_faq([req.body.question,req.body.answer, admin.orgid,admin.aptid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }
@@ -223,7 +218,13 @@ module.exports = {
     },
 
     createGroup: function(req, res) {
-
+      // var admin = req.user[0]
+        db.create_group([req.body.tittle,req.body.startDate,req.body.endDate,req.body.checkInDate,req.body.checkOutDate, 1,req.body.citiesid], function(err, faq) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.status(200).send(faq)
+        });
     },
 
     getSuperUserInfo: function(req, res, next) {

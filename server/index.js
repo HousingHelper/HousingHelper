@@ -105,7 +105,7 @@ app.get('/users', adminCtrl.getAllUsers)
 // POST//
 app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
-// app.post('/creategroup/:adminid', adminCtrl.createGroup)
+app.post('/api/creategroup', adminCtrl.createGroup)
 
 
 // LISTEN //
