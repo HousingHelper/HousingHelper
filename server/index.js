@@ -88,6 +88,8 @@ app.get('/api/me', isAuthed, userCtrl.me);
 app.get('/api/faq',adminCtrl.getAllFaqs)
 app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
+app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
+app.get('/api/adminMain/locations', adminCtrl.getAllLocations)
 app.get('/apartments', adminCtrl.getAllApartments)
 app.get('/apartments/:id', adminCtrl.getRentersByAptId)
 app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)

@@ -28,15 +28,18 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
           }).catch(function(err) {
             $state.go('home')
           });
-        }
-      }
-    })
+        },
+    locations: function (apartmentsServ) {
+      return apartmentsServ.getAllLocations()
+    }
+  }
+  })
     // Apartments STATE
     .state('apartments', {
       url: '/apartments/:id',
       templateUrl: './app/views/apartments/apartments.html',
-      controller: 'apartmentsCtrl'
-      , resolve: {
+      controller: 'apartmentsCtrl',
+      resolve: {
         apts: function (apartmentsServ, $stateParams) {
           return apartmentsServ.getAptsById($stateParams.id)
         },
