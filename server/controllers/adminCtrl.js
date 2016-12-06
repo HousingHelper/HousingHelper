@@ -166,24 +166,6 @@ module.exports = {
       res.status(200).send(users)
     })
   },
-
-  createFaq: function(req, res) {
-    db.faqs.insert({
-      question: req.body.question,
-      answer: req.body.answer,
-      adminid: req.params.adminid
-    }, function(err, faq) {
-      if (err) {
-        return res.status(500).send(err);
-      }
-      res.status(200).send(faq)
-    });
-  },
-
-  createGroup: function(req, res) {
-
-  },
-
   getSuperUserInfo: function (req, res, next) {
     var superuser = req.user[0]
     console.log(superuser);
@@ -199,17 +181,15 @@ module.exports = {
       res.status(200).send(apts)
     })
   },
-
-    // getAllApartmentsWithRenters: function (req, res, next) {
-    //   // var admin = req.user[0]
-    //   db.please_work([86], function (err, renters) {
-    //     if (err){
-    //     res.send("error: ", err)
-    //   }
-    //     res.status(200).json(renters)
-    //   })
-    // },
-
+    getAllApartmentsWithRenters: function (req, res, next) {
+      // var admin = req.user[0]
+      db.please_work([86], function (err, renters) {
+        if (err){
+        res.send("error: ", err)
+      }
+        res.status(200).json(renters)
+      })
+    },
     getAllFaqs: function(req, res) {
         var user = req.user[0]
         // console.log('this is your user', user);
@@ -266,11 +246,8 @@ module.exports = {
     },
 
     createFaq: function(req, res) {
-        db.faqs.insert({
-            question: req.body.question,
-            answer: req.body.answer,
-            adminid: req.params.adminid
-        }, function(err, faq) {
+      var admin = req.user[0]
+        db.create_faq([req.body.question,req.body.answer, admin.orgid,admin.aptid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }
@@ -279,7 +256,13 @@ module.exports = {
     },
 
     createGroup: function(req, res) {
-
+      // var admin = req.user[0]
+        db.create_group([req.body.tittle,req.body.startDate,req.body.endDate,req.body.checkInDate,req.body.checkOutDate, 1,req.body.citiesid], function(err, faq) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.status(200).send(faq)
+        });
     },
 
     getSuperUserInfo: function(req, res, next) {
@@ -299,8 +282,18 @@ module.exports = {
     getAptsByAptId: function(req, res, next) {
         var admin = req.user[0]
         db.get_all_apts_by_aptid([admin.id])
-    }
+    },
+    createApt: function(req,res,next){
+      var user = req.user[0];
 
+      db.create_apt([req.body.title, req.body.address, req.body.apt_num, req.body.city
+        ,req.body.state, req.body.zipcode, req.body.female_only_housing, req.body.male_only_housing, req.body.squareft
+        , req.body.bedrooms, req.body.baths, req.body.parkingspace, req.body.currentocc
+        , req.body.totalocc, req.body.wifiname, req.body.wifipwd, req.body.trashday, req.body.citiesid, user.orgid ],
+        function(err, servreq) {
+          res.status(200).json(err)
+      })
+    }
 
 
 }

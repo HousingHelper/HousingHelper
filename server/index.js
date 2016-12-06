@@ -108,10 +108,10 @@ app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
 
 // POST//
 app.post('/api/register', userCtrl.register);
-// app.post('/createfaq/:adminid', adminCtrl.createFaq)
-// app.post('/creategroup/:adminid', adminCtrl.createGroup)
-
-
+app.post('/api/createfaq', adminCtrl.createFaq)
+app.post('/api/creategroup', adminCtrl.createGroup)
+app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
+app.post('/api/apartments', adminCtrl.createApt)
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {
