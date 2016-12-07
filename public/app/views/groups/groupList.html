@@ -11,26 +11,24 @@
       </div>
       <form ng-submit='login(###)' class="loginInputs">
         <div class="iBoxHolder">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Password</h1>
-          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
+          <h1 class="formTxt">Group Title</h1>
+          <input ng-model='group.title'class="lBoxes" type="text" placeholder="Enter a group's title">
+          <h1 class="formTxt">Start date</h1>
+          <input ng-model='group.startdate' class="lBoxes" type="text" placeholder="Enter start date">
 
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">End date</h1>
+          <input ng-model='group.enddate'class="lBoxes" type="text" placeholder="Enter end date">
+          <h1 class="formTxt">Check-In Date</h1>
+          <input ng-model='group.checkindate'class="lBoxes" type="text" placeholder="Enter check-in date">
+          <h1 class="formTxt">Check-Out Date</h1>
+          <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="Enter check-out date">
+          <h1 class="formTxt">Which City?</h1>
+          <input ng-model='group.citiesid'class="lBoxes" type="text" placeholder="Enter city">
 
         </div>
         <div class="BtnHolder">
           <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
-          <button type="submit" class="lBtns">Create</button>
+          <button type="submit" class="lBtns" ng-click="submitGroup(group)">Create</button>
         </div>
       </form>
     </div>
