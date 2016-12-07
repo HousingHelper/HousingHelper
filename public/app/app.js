@@ -119,6 +119,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       resolve: {
         groups: function(adminMainServ) {
           return adminMainServ.getAllGroups();
+        },
+        locations: function(adminMainServ) {
+          return adminMainServ.getAllGroupsLocations();
+        },
+        users: function(adminMainServ) {
+          return adminMainServ.getAllGroupsUsers();
         }
       }
     })
