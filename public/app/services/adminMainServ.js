@@ -80,6 +80,20 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
+
+  // CREATE //
+
+  this.createApartment = function (apt) {
+    return $http({
+      method: 'POST',
+      url:'/api/apartments',
+      data: apt
+    })
+    .then(function(response) {
+      alert('Apartment Successfully Created!')
+    });
+  }
+
   // this.createCollection = function(collection) {
   //   return $http({
   //     method: 'POST',

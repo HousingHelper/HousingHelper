@@ -8,6 +8,8 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
   // $scope.servreqs = servreqs
   // FUNCTIONS
   // ============================================================
+  
+
   // this is scrolling the add button
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();

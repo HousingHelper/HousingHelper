@@ -6,7 +6,6 @@ module.exports = {
     getAllApartments: function(req, res) {
         var admin = req.user[0]
         db.get_all_admin_apts([admin.id], function(err, response) {
-            console.log(response);
             res.status(200).json(response)
         })
     },
@@ -95,18 +94,14 @@ module.exports = {
     getAllLocations: function (req, res, next) {
       admin = req.user[0]
       if(admin.issuperuser){
-        console.log("upper");
         db.get_all_locations([admin.orgid], function (err, locations) {
-          console.log("locations: ", locations);
           if (err){
               res.send("error: ", err)
             }
               res.status(200).json(locations)
             })
       } else if (admin.isadmin) {
-        console.log('Lower');
         db.get_all_locations_by_user([admin.citiesid, admin.orgid], function (err, locations) {
-          console.log("locations: ", locations);
           if (err){
               res.send("error: ", err)
             }
@@ -168,7 +163,6 @@ module.exports = {
   },
   getSuperUserInfo: function (req, res, next) {
     var superuser = req.user[0]
-    console.log(superuser);
     db.get_all_superuser_apts([superuser.id], function (err, apts) {
       // console.log('server: ', apts);
       res.status(200).send(apts)
@@ -283,16 +277,20 @@ module.exports = {
         var admin = req.user[0]
         db.get_all_apts_by_aptid([admin.id])
     },
-    createApt: function(req,res,next){
-      var user = req.user[0];
 
-      db.create_apt([req.body.title, req.body.address, req.body.apt_num, req.body.city
-        ,req.body.state, req.body.zipcode, req.body.female_only_housing, req.body.male_only_housing, req.body.squareft
+    createApt: function(req,res,next){
+      console.log('REQ.BODY: ', req.body);
+      var user = req.user[0];
+      db.create_apt([req.body.title, req.body.apt_num, req.body.address, req.body.city,
+        req.body.state, req.body.zipcode, /*req.body.female_only_housing, req.body.male_only_housing, req.body.squareft
         , req.body.bedrooms, req.body.baths, req.body.parkingspace, req.body.currentocc
-        , req.body.totalocc, req.body.wifiname, req.body.wifipwd, req.body.trashday, req.body.citiesid, user.orgid ],
-        function(err, servreq) {
-          res.status(200).json(err)
-      })
+        , req.body.totalocc, req.body.wifiname, req.body.wifipwd, req.body.trashday, */req.body.citiesid, user.orgid],
+        function(err, apt) {
+          if (err) {
+              return res.status(500).send(err);
+          }
+          res.status(200).send(apt)
+      });
     }
 
 
