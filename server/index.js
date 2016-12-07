@@ -91,7 +91,6 @@ app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
 // app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
 app.get('/api/adminMain/apts', adminCtrl.getAllApartmentsByLoggedInUser)
 app.get('/api/adminMain/users', adminCtrl.getAllUsersByLoggedInUser)
-
 app.get('/api/adminMain/locations', adminCtrl.getAllLocations)
 app.get('/apartments', adminCtrl.getAllApartments)
 app.get('/apartments/:id', adminCtrl.getRentersByAptId)
@@ -107,6 +106,9 @@ app.get('/allgroupsusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
+// PUT//
+app.put('put', adminCtrl.updateFaq)
+
 
 // POST//
 app.post('/api/register', userCtrl.register);
