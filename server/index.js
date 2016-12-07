@@ -107,9 +107,11 @@ app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
 // PUT//
-app.put('put', adminCtrl.updateFaq)
-
-
+app.put('/api/putfaq', adminCtrl.updatefaq)
+app.put('/api/putuser', renterCtrl.updateUser)
+app.put('/api/groups', adminCtrl.updategroups)
+app.put('/api/servRequest', renterCtrl.updateServRequest)
+app.put('/api/apartments', adminCtrl.updateApartment)
 // POST//
 app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
