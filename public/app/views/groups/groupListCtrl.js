@@ -4,6 +4,7 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, gro
   // VARIABLES
   // ============================================================
   $scope.groups = groups
+  $( "#Create" ).hide();
 
   // FUNCTIONS
   // ============================================================

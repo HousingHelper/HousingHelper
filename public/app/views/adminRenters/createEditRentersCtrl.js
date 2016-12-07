@@ -3,8 +3,9 @@
 angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, users, groups) {
   // VARIABLES
   // ============================================================
-  $scope.hide = false
-  $scope.users = users.data
+  $scope.hide = false;
+  $( "#Create" ).hide();
+  $scope.users = users.data;
   // $scope.groups = groups
   console.log('users: ', $scope.users);
 
