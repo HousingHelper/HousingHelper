@@ -107,7 +107,7 @@ app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
 // PUT//
-app.put('put', adminCtrl.updateFaq)
+app.put('/put', adminCtrl.updateFaq)
 
 
 // POST//
