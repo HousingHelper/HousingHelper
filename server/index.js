@@ -118,6 +118,7 @@ app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
 
 
 // PUT //
+
 app.put('/api/putfaq', adminCtrl.updatefaq)
 app.put('/api/putuser', renterCtrl.updateUser)
 app.put('/api/groups', adminCtrl.updategroups)
