@@ -34,5 +34,31 @@ module.exports = {
       function(err, servreq) {
         res.status(200).json(err)
     })
+  },
+  updateUser : function(req,res,next){
+    var update = req.body;
+    var key={};
+   key.id =  update.id;
+    db.users.save(key,update, function(err, faq){
+      if (err){
+        console.log("createapt error",err);
+        return res.status(401).send(err);
+      }
+      // delete admin.password;
+      res.status(200).json(faq);
+    });
+  },
+  updateServRequest: function(req, res , next){
+    var update = req.body;
+    var key={};
+   key.id =  update.id;
+    db.servreqs.save(key,update, function(err, faq){
+      if (err){
+        console.log("createapt error",err);
+        return res.status(401).send(err);
+      }
+      // delete admin.password;
+      res.status(200).json(faq);
+    });
   }
 }

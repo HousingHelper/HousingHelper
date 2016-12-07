@@ -1,20 +1,21 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("groupListCtrl", function($scope, groups, locations, users) {
+angular.module("housinghelper").controller("groupListCtrl", function($scope, groups, locations, users, adminMainServ) {
   // VARIABLES
   // ============================================================
   $( "#Create" ).hide();
 
-  $scope.groups = groups.data
-  $scope.locations = locations.data
-  $scope.users = users.data
-  console.log('groups: ', $scope.groups);
-  console.log('locations: ', $scope.locations);
-  console.log('users: ', $scope.users);
-
+  $scope.groups = groups.data;
+  $scope.locations = locations.data;
+  $scope.users = users.data;
+  $scope.myDate = new Date();
 
   // FUNCTIONS
   // ============================================================
+  $scope.submitGroup = function(group) {
+    adminMainServ.submitGroup(group);
+  };
+
   // this is scrolling the add button
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();

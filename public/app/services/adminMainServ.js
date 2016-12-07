@@ -81,6 +81,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
   };
 
 
+
   // CREATE //
 
   this.createApartment = function (apt) {
@@ -94,15 +95,18 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     });
   }
 
-  // this.createCollection = function(collection) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/collection',
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+
+  this.submitGroup = function(group) {
+    return $http({
+      method: 'POST',
+      url: '/???',
+      data: group
+    }).then(function(response) {
+      return response;
+    });
+  };
+
+
   // this.editCollection = function(id, collection) {
   //   return $http({
   //     method: 'PUT',
