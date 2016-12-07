@@ -2,15 +2,18 @@
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
   width: 100%
   height: 1000px
+  background: #D8D8D8
   display: flex
   flex-direction: column
   align-items: center
   justify-content: space-around
+  // (((((((titles css)))))))
   .boxTitles
     font-size: 20px
     font-weight: bold
-    color: white
-    margin-top: 10px
+    color: grey
+    margin: 10px 0px
+    // (((((((top boxes start css)))))))
   .topBoxesCon
     width: 90%
     height: 300px
@@ -18,30 +21,43 @@
     display: flex
     flex-direction: row
     justify-content: space-around
-    .actInfo
-    .payment
   .topBoxes
     width: 40%
     height: 300px
-    background: red
-    border-radius: 18px
-    border: 1px solid black
+    background: white
+    border-radius: 10px
+    border: 1px solid #1B75BB
     display: flex
-    justify-content: center
-  .aptInfo
+    flex-direction: column
+    align-items: center
+    .Data
+      height: 255px
+      width: 99%
+      background: lightyellow
+  // (((((((bottom boxes start css)))))))
+  .BottomBoxes
     width: 81%
     height: 300px
-    background: green
-    border-radius: 18px
-    border: 1px solid black
+    background: white
+    border-radius: 10px
+    border: 1px solid #1B75BB
     display: flex
-    justify-content: center
-  .serviceReq
-    width: 81%
-    height: 300px
-    background: grey
-    border-radius: 18px
-    border: 1px solid black
-    margin-bottom: 10px
-    display: flex
-    justify-content: center
+    flex-direction: column
+    align-items: center
+    .BottomData
+      height: 255px
+      width: 99%
+      background: lightyellow
+  // (((((((((this is where you edit the styling inside the boxes)))))))))
+  .accountInfo
+    h1
+      color: green
+  .payment
+    h1
+      color: red
+  .ApartmentInfo
+    h1
+      color: blue
+  .serviceReqs
+    h1
+      color: purple

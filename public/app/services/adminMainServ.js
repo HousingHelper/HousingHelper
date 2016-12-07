@@ -38,12 +38,19 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
-  // this.getAllUsers = function() {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/users'
-  //   })
-  // };
+  this.getAllGroupsLocations = function() {
+    return $http({
+      method: 'GET',
+      url: '/allgroupsinalllocations'
+    })
+  };
+
+  this.getAllGroupsUsers = function() {
+    return $http({
+      method: 'GET',
+      url: '/allgroupsusers'
+    })
+  };
 
   this.getAllApts = function () {
     return $http({
@@ -71,17 +78,17 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       method: 'GET',
       url: '/allusers'
     })
-  }
+  };
 
-  // this.createCollection = function(collection) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/collection',
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.submitGroup = function(group) {
+    return $http({
+      method: 'POST',
+      url: '/???',
+      data: group
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.editCollection = function(id, collection) {
   //   return $http({
   //     method: 'PUT',

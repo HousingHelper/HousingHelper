@@ -4,6 +4,7 @@ angular.module("housinghelper").controller("unassignedRentersCtrl", function($sc
   // VARIABLES
   // ============================================================
   $scope.unassignedRenters = unassignedRenters
+  $( "#Create" ).hide();
   $scope.availableRooms = availableRooms
   // FUNCTIONS
   // ============================================================

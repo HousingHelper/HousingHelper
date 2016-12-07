@@ -1,6 +1,7 @@
 // INITILIZE CONTROLLER
 // ============================================================
 angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs) {
+  $( "#Create" ).hide();
   // VARIABLES
   // ============================================================
   // $scope.test1 = 'servreqs'

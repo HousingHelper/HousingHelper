@@ -3,7 +3,8 @@
 angular.module("housinghelper").controller("homeCtrl", function($scope, loginServ, $state) {
   // VARIABLES
   // ============================================================
-
+  $( "#existingLogin" ).hide();
+  $( "#hideAdmin" ).hide();
   // FUNCTIONS
   // ============================================================
 

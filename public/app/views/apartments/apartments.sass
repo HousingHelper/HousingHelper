@@ -1,9 +1,133 @@
+//((((((((((((reset for the directive))))))))))))
 .apartmentMV
   #hideFaq
     display: none
   .headerWelcome
-    // margin-right: -300px
+    margin-right: -330px
+//((((((((((((this is where the view actually starts))))))))))))
 .apartmentsView
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+  position: relative
   width: 100%
-  height: 100%
-  background: blue
+  min-height: 100%
+  background: #D8D8D8
+  display: flex
+  flex-direction: column
+  align-items: center
+  border-left: 1px solid #1B75BB
+  border-right: 1px solid #1B75BB
+  .aptTitleCon
+    width: 95%
+    text-align: center
+    // background: red
+    margin-top: 20px
+    .aptTitle
+      font-size: 40px
+      font-weight: bold
+      color: #2AABE2
+  .dataHolder
+    margin-top: 10px
+  //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
+  .apartmentData
+    width: 100%
+    min-width: 600px
+    // background: blue
+    //((((((((((((this is where you get the borders))))))))))))
+    .containers
+      display: flex
+      flex-direction: column
+      align-items: center
+      border: 1px solid #1B75BB
+      border-radius: 10px
+      background: white
+      margin-bottom: 10px
+      //((((((((((((div's main titles))))))))))))
+      .subTitles
+        color: balck
+        font-size: 20px
+        margin: 10px 0px 5px 0px
+    .serviceReqCon
+      margin-top: 10px
+      //((((((((((((the first ng-repeat inside a border))))))))))))
+      .serviceReqNGR
+        width: 98%
+        border: 1px solid red
+        border-radius: 5px
+        margin-bottom: 10px
+        display: flex
+        flex-direction: row
+        justify-content: space-around
+        .sReqBoxes
+          width: 150px
+          padding: 5px
+          // background: purple
+          display: flex
+          flex-direction: column
+          align-items: center
+          .sReqh1
+            font-size: 20px
+            font-weight: normal
+            color: black
+            border-bottom: 2px solid black
+            margin-bottom: 5px
+          .sReqh2
+            font-size: 18px
+            font-weight: normal
+            color: #4c4c4c
+        .apartment
+        .summary
+          width: 250px
+          .sReqP
+            text-align: center
+            font-size: 14px
+        .submitted
+        .date
+          width: 100px
+        .status
+    //((((((((((((the second bordered box starts here))))))))))))
+    .currentRentersCon
+      h2
+        color: balck
+        font-size: 18px
+        margin-bottom: 5px
+        //((((((((((((holds the titles that are fixed))))))))))))
+      .titleHolder
+        width: 98%
+        border: 1px solid black
+        border-radius: 5px
+        margin-bottom: 10px
+        background: #acacac
+        display: flex
+        flex-direction: column
+        align-items: center
+        .infoBoxes
+          // background: purple
+          width: 100%
+          display: flex
+          flex-direction: row
+          justify-content: space-around
+          .titleData
+            margin: 10px 0px
+            // background: blue
+            text-align: center
+            height: 25px
+            h1
+              font-size: 25px
+              border-bottom: 2px solid black
+              // font-weight: bold
+              color: black
+        //((((((((((((the ng-repeat for the renters starts here))))))))))))
+        .CurrentRentersNGR
+          .CurrentRenters
+            margin-bottom: 10px
+            text-align: center
+            // background: green
+            h1
+              font-size: 20px
+              color: #4c4c4c
+        .tcBoxes
+          width: 100px
+        .renterName
+          width: 180px
+        .renterCar
+          width: 180px

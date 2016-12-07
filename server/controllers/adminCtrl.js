@@ -92,26 +92,26 @@ module.exports = {
     //     }
     // },
 
-    getAllLocations: function (req, res, next) {
-      admin = req.user[0]
-      if(admin.issuperuser){
-        console.log("upper");
-        db.get_all_locations([admin.orgid], function (err, locations) {
-          console.log("locations: ", locations);
-          if (err){
-              res.send("error: ", err)
-            }
-              res.status(200).json(locations)
-            })
-      } else if (admin.isadmin) {
-        console.log('Lower');
-        db.get_all_locations_by_user([admin.citiesid, admin.orgid], function (err, locations) {
-          console.log("locations: ", locations);
-          if (err){
-              res.send("error: ", err)
-            }
-              res.status(200).json(locations)
-            })
+getAllLocations: function (req, res, next) {
+  admin = req.user[0]
+  if(admin.issuperuser){
+    console.log("upper");
+    db.get_all_locations([admin.orgid], function (err, locations) {
+      console.log("locations: ", locations);
+      if (err){
+          res.send("error: ", err)
+        }
+          res.status(200).json(locations)
+        })
+  } else if (admin.isadmin) {
+    console.log('Lower');
+    db.get_all_locations_by_user([admin.citiesid, admin.orgid], function (err, locations) {
+      console.log("locations: ", locations);
+      if (err){
+          res.send("error: ", err)
+        }
+          res.status(200).json(locations)
+        })
     }
   },
 
@@ -146,12 +146,12 @@ module.exports = {
     })
   },
 
-  getAllGroups: function (req, res) {
-    var admin = req.user[0]
-    db.get_all_groups([admin.id], function (err, groups) {
-      res.status(200).json(groups)
-    })
-  },
+  // getAllGroups: function (req, res) {
+  //   var admin = req.user[0]
+  //   db.get_all_groups([admin.id], function (err, groups) {
+  //     res.status(200).json(groups)
+  //   })
+  // },
 
   getAllServiceRequests: function (req, res) {
     var admin = req.user[0]
@@ -166,6 +166,7 @@ module.exports = {
       res.status(200).send(users)
     })
   },
+
   getSuperUserInfo: function (req, res, next) {
     var superuser = req.user[0]
     console.log(superuser);
@@ -181,25 +182,27 @@ module.exports = {
       res.status(200).send(apts)
     })
   },
-    getAllApartmentsWithRenters: function (req, res, next) {
-      // var admin = req.user[0]
-      db.please_work([86], function (err, renters) {
-        if (err){
-        res.send("error: ", err)
-      }
-        res.status(200).json(renters)
+
+  getAllApartmentsWithRenters: function (req, res, next) {
+    // var admin = req.user[0]
+    db.please_work([86], function (err, renters) {
+      if (err){
+      res.send("error: ", err)
+    }
+      res.status(200).json(renters)
+    })
+  },
+
+  getAllFaqs: function(req, res) {
+      var user = req.user[0]
+      // console.log('this is your user', user);
+      db.get_all_faqs([user.id], function(err, faqs) {
+          if (err) {
+              res.send("error: ", err)
+          }
+          res.status(200).send(faqs)
       })
-    },
-    getAllFaqs: function(req, res) {
-        var user = req.user[0]
-        // console.log('this is your user', user);
-        db.get_all_faqs([user.id], function(err, faqs) {
-            if (err) {
-                res.send("error: ", err)
-            }
-            res.status(200).send(faqs)
-        })
-    },
+  },
 
     // getAptsByAdminId: function(req, res) {
     //     db.apartments.where("admin_id=$1", [req.params.adminId], function(err, apartments) {
@@ -256,8 +259,8 @@ module.exports = {
     },
 
     createGroup: function(req, res) {
-      // var admin = req.user[0]
-        db.create_group([req.body.tittle,req.body.startDate,req.body.endDate,req.body.checkInDate,req.body.checkOutDate, 1,req.body.citiesid], function(err, faq) {
+      var admin = req.user[0]
+        db.create_group([req.body.title, req.body.startDate, req.body.endDate, req.body.checkInDate, req.body.checkOutDate, admin.orgid, req.body.citiesid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }
