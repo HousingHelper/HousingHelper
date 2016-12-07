@@ -1,11 +1,12 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs) {
+angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs, notes) {
   $( "#Create" ).hide();
   // VARIABLES
   // ============================================================
-  // $scope.test1 = 'servreqs'
-  // $scope.servreqs = servreqs
+  $scope.servreqs = servreqs.data
+  $scope.notes = notes.data
+
   // FUNCTIONS
   // ============================================================
   // this is scrolling the add button

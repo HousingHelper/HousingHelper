@@ -83,7 +83,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
   this.submitGroup = function(group) {
     return $http({
       method: 'POST',
-      url: '/???',
+      url: '/api/creategroup',
       data: group
     }).then(function(response) {
       return response;
