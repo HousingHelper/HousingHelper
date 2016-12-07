@@ -38,12 +38,47 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
-  this.getAllUsers = function() {
+  this.getAllGroupsLocations = function() {
     return $http({
       method: 'GET',
-      url: '/users'
+      url: '/allgroupsinalllocations'
     })
-  }
+  };
+
+  this.getAllGroupsUsers = function() {
+    return $http({
+      method: 'GET',
+      url: '/allgroupsusers'
+    })
+  };
+
+  this.getAllApts = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/adminMain/apts'
+    })
+  };
+
+  this.getAllUsersByLoggedInUser = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/adminMain/users'
+    })
+  };
+
+  this.getAllGroupsByLoggedInUser = function() {
+    return $http({
+      method: 'GET',
+      url: '/allusersinallgroups'
+    })
+  };
+
+  this.sortUsersbyGroups = function() {
+    return $http({
+      method: 'GET',
+      url: '/allusers'
+    })
+  };
 
   // this.createCollection = function(collection) {
   //   return $http({

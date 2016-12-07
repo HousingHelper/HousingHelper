@@ -1,10 +1,17 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("groupListCtrl", function($scope, groups) {
+angular.module("housinghelper").controller("groupListCtrl", function($scope, groups, locations, users) {
   // VARIABLES
   // ============================================================
-  $scope.groups = groups
   $( "#Create" ).hide();
+
+  $scope.groups = groups.data
+  $scope.locations = locations.data
+  $scope.users = users.data
+  console.log('groups: ', $scope.groups);
+  console.log('locations: ', $scope.locations);
+  console.log('users: ', $scope.users);
+
 
   // FUNCTIONS
   // ============================================================

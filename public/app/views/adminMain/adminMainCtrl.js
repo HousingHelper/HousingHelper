@@ -1,29 +1,27 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("adminMainCtrl", function($scope, admin, adminMainServ, apartmentsServ, locations) {
+angular.module("housinghelper").controller("adminMainCtrl", function($scope, admin, apartments, users, adminMainServ, apartmentsServ, locations) {
   // VARIABLES
   // ============================================================
   $scope.admin = admin;
   $( "#Create" ).hide();
   $scope.locations = locations.data;
-  console.log('LOCATIONS: ', locations.data);
-  console.log('admin: ', admin);
-  console.log('renter: ', $scope.renters);
-  // admin.citiesid = apts.citiesid
+  $scope.users = users.data;
+  $scope.apartments = apartments.data;
 
 
   // FUNCTIONS
   // ============================================================
 
-  $scope.renters = function () {
-    return apartmentsServ.getAllApartmentsWithRenters()
-    .then(function(response) {
-      $scope.apts = response.data
-      console.log('RENTERS: ',response.data);
-      }).catch(function(err) {
-        console.log(err);
-    });
-  }()
+  // $scope.renters = function () {
+  //   return apartmentsServ.getAllApartmentsWithRenters()
+  //   .then(function(response) {
+  //     $scope.apts = response.data
+  //     console.log('RENTERS: ',response.data);
+  //     }).catch(function(err) {
+  //       console.log(err);
+  //   });
+  // }()
 
   // $scope.locations = function () {
   //   return apartmentsServ.getAllLocations()

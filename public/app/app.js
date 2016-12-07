@@ -31,6 +31,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
     locations: function (apartmentsServ) {
       return apartmentsServ.getAllLocations()
+    },
+    apartments: function (adminMainServ) {
+      return adminMainServ.getAllApts()
+    },
+    users: function(adminMainServ) {
+      return adminMainServ.getAllUsersByLoggedInUser()
     }
   }
   })
@@ -55,10 +61,10 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'createEditRentersCtrl',
       resolve: {
         users: function(adminMainServ) {
-          return adminMainServ.getAllUsers()
+          return adminMainServ.sortUsersbyGroups()
         },
         groups: function(adminMainServ) {
-          return adminMainServ.getAllGroups()
+          return adminMainServ.getAllGroupsByLoggedInUser()
         }
       }
     })
@@ -113,6 +119,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       resolve: {
         groups: function(adminMainServ) {
           return adminMainServ.getAllGroups();
+        },
+        locations: function(adminMainServ) {
+          return adminMainServ.getAllGroupsLocations();
+        },
+        users: function(adminMainServ) {
+          return adminMainServ.getAllGroupsUsers();
         }
       }
     })

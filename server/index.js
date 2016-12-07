@@ -88,7 +88,9 @@ app.get('/api/me', isAuthed, userCtrl.me);
 app.get('/api/faq',adminCtrl.getAllFaqs)
 app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
-app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
+// app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
+app.get('/api/adminMain/apts', adminCtrl.getAllApartmentsByLoggedInUser)
+app.get('/api/adminMain/users', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/api/adminMain/locations', adminCtrl.getAllLocations)
 app.get('/apartments', adminCtrl.getAllApartments)
 app.get('/apartments/:id', adminCtrl.getRentersByAptId)
@@ -98,16 +100,22 @@ app.get('/availableRooms', adminCtrl.getAvailableRooms)
 app.get('/renterAcc', renterCtrl.getRenterAccById)
 app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
-app.get('/allgroups', adminCtrl.getAllGroups)
+app.get('/allgroups', adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/allgroupsinalllocations', adminCtrl.getAllLocations)
+app.get('/allgroupsusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
-app.get('/users', adminCtrl.getAllUsers)
+app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
+app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
+// PUT//
+app.put('put', adminCtrl.updateFaq)
+
 
 // POST//
 app.post('/api/register', userCtrl.register);
-// app.post('/createfaq/:adminid', adminCtrl.createFaq)
-// app.post('/creategroup/:adminid', adminCtrl.createGroup)
-
-
+app.post('/api/createfaq', adminCtrl.createFaq)
+app.post('/api/creategroup', adminCtrl.createGroup)
+app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
+app.post('/api/apartments', adminCtrl.createApt)
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {

@@ -4,6 +4,8 @@ insert into groups
     startDate,
     endDate,
     checkInDate,
-    checkOutDate
+    checkOutDate,
+    orgid,
+    citiesid
   )
-  values ($1, $2, $3, $4, $5)
+  values ($1, $2, $3, $4, $5,$6,$7)

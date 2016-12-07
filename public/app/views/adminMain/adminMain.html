@@ -55,7 +55,8 @@
             <div class="cityTitle">
               <h1>{{location.city}}</h1>
             </div>
-          <div ng-repeat='apt in apts | filter: {city: location.city}' class="showData">
+            <hr>
+          <div ng-repeat='apt in apartments | filter: {city: location.city}' class="showData">
             <div class="mainData">
 
               <h1>{{apt.title}}, {{apt.apt_num}}</h1>
@@ -65,7 +66,7 @@
                   <hr>
                   <h5>Renters:</h5>
                   <ul>
-                    <li ng-repeat='renter in apt.renters'>
+                    <li ng-repeat='renter in users | filter: {aptid: apt.id}'>
                       <h5>Name:{{renter.firstname}} {{renter.lastname}} {{renter.title}}</h5>
                       <h5>Email: {{renter.email}}</h5>
                       <br>
