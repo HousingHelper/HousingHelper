@@ -22,9 +22,10 @@
           <input ng-model='group.checkindate'class="lBoxes" type="text" placeholder="Enter check-in date">
           <h1 class="formTxt">Check-Out Date</h1>
           <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="Enter check-out date">
-          <h1 class="formTxt">Which City?</h1>
-          <input ng-model='group.citiesid'class="lBoxes" type="text" placeholder="Enter city">
-
+          <!-- <h1 class="formTxt">Choose City</h1> -->
+          <select ng-model='group.citiesid' ng-options="location.id as location.city for location in locations" required>
+            <option value="">Choose City</option>
+          </select>
         </div>
         <div class="BtnHolder">
           <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
