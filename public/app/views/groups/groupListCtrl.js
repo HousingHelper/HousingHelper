@@ -5,19 +5,15 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, gro
   // ============================================================
   $( "#Create" ).hide();
 
-  $scope.groups = groups.data
-  $scope.locations = locations.data
-  $scope.users = users.data
+  $scope.groups = groups.data;
+  $scope.locations = locations.data;
+  $scope.users = users.data;
+  $scope.myDate = new Date();
 
   // FUNCTIONS
   // ============================================================
   $scope.submitGroup = function(group) {
-    for(var city in $scope.locations) {
-      if (group.citiesid.toLowerCase() === city.toLowerCase()) {
-        group.citiesid = $scope.locations.id
-        adminMainServ.submitGroup(group);
-      }
-    }
+    adminMainServ.submitGroup(group);
   };
 
   // this is scrolling the add button

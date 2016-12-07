@@ -296,7 +296,45 @@ getAllLocations: function (req, res, next) {
         function(err, servreq) {
           res.status(200).json(err)
       })
+    },
+    updatefaq: function(req, res, next){
+      var update = req.body;
+       var key={};
+     key.id =  update.id;
+      db.faqs.save(key,update, function(err, faq){
+        if (err){
+          console.log("createapt error",err);
+          return res.status(401).send(err);
+        }
+        // delete admin.password;
+        res.status(200).json(faq);
+      });
+    },
+    updategroups: function(req,res,next){
+      var update = req.body;
+       var key={};
+     key.id =  update.id;
+      db.groups.save(key,update, function(err, faq){
+        if (err){
+          console.log("createapt error",err);
+          return res.status(401).send(err);
+        }
+        // delete admin.password;
+        res.status(200).json(faq);
+      });
+    },
+    updateApartment: function(req, res, next){
+      var update = req.body;
+       var key={};
+     key.id =  update.id;
+      db.apartments.save(key,update, function(err, faq){
+        if (err){
+          console.log("createapt error",err);
+          return res.status(401).send(err);
+        }
+        // delete admin.password;
+        res.status(200).json(faq);
+      });
     }
-
 
 }
