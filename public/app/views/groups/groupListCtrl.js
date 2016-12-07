@@ -3,6 +3,8 @@
 angular.module("housinghelper").controller("groupListCtrl", function($scope, groups, locations, users) {
   // VARIABLES
   // ============================================================
+  $( "#Create" ).hide();
+
   $scope.groups = groups.data
   $scope.locations = locations.data
   $scope.users = users.data

@@ -9,8 +9,90 @@
     <div class="pageContent">
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="apartmentsView">
-        {{apts}}
-        {{servreqs}}
+        <div class="aptTitleCon">
+          <div class="aptTitle">{Appartment Name}</div>
+        </div>
+        <div class="dataHolder">
+          <section class="apartmentData">
+            <div class="containers serviceReqCon">
+              <h1 class="subTitles">History Of Service Requests</h1>
+              <!-- this is where you will ng-repeat over stuff -->
+              <div class="serviceReqNGR">
+                <div class="sReqBoxes apartment">
+                  <h1 class="sReqh1">{hacker House}</h1>
+                  <h2 class="sReqh2">{201}</h2>
+                </div>
+                <div class="sReqBoxes summary">
+                  <h1 class="sReqh1">Summary</h1>
+                  <p class="sReqP sReqh2">the thing is i'm not really sure exactly what is happening the thing is i'm not really sure exactly what is happening</p>
+                </div>
+                <div class="sReqBoxes submitted">
+                  <h1 class="sReqh1">Submitted By:</h1>
+                  <h2 class="sReqh2">{Jacob Hill}</h2>
+                </div>
+                <div class="sReqBoxes date">
+                  <h1 class="sReqh1">Date:</h1>
+                  <h2 class="sReqh2">{10/24/87}</h2>
+                </div>
+                <div class="sReqBoxes status">
+                  <h1 class="sReqh1">Current Status</h1>
+                  <h2 class="sReqh2">{In Progress}</h2>
+                </div>
+              </div>
+
+
+
+            </div>
+            <div class="containers currentRentersCon">
+              <h1 class="subTitles">Current Occupants Information</h1>
+              <h2>Max Occupancy {1/4}</h2>
+              <section class="titleHolder">
+                <div class="infoBoxes">
+                  <div class="tcBoxes titleData">
+                    <h1>Room</h1>
+                  </div>
+                  <div class="tcBoxes titleData renterName">
+                    <h1>Renter</h1>
+                  </div>
+                  <div class="tcBoxes titleData">
+                    <h1>Group</h1>
+                  </div>
+                  <div class="tcBoxes titleData">
+                    <h1>Gender</h1>
+                  </div>
+                  <div class="tcBoxes titleData">
+                    <h1>Age</h1>
+                  </div>
+                  <div class="tcBoxes titleData renterCar">
+                    <h1>Car</h1>
+                  </div>
+                </div>
+                <!-- this is where you will ng-repeat over stuff -->
+                <div class="infoBoxes CurrentRentersNGR">
+                  <div class="tcBoxes CurrentRenters">
+                    <h1>{1}</h1>
+                  </div>
+                  <div class="tcBoxes CurrentRenters renterName">
+                    <h1>{Katy Perry}</h1>
+                  </div>
+                  <div class="tcBoxes CurrentRenters">
+                    <h1>{DM-14}</h1>
+                  </div>
+                  <div class="tcBoxes CurrentRenters">
+                    <h1>{female}</h1>
+                  </div>
+                  <div class="tcBoxes CurrentRenters">
+                    <h1>{25}</h1>
+                  </div>
+                  <div class="tcBoxes CurrentRenters renterCar">
+                    <h1>{honda civic blue}</h1>
+                  </div>
+                </div>
+
+              </section>
+            </div>
+          </section>
+        </div>
       </section>
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
     </div>

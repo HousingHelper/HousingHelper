@@ -121,12 +121,100 @@
       &:hover
         background: #11a5e5
         cursor: pointer
+  .dataHolder
+    align-items: flex-start
   //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
-  // .showData
-  //   height: 280px !important
-  //   .mainData
-  //     height: 280px !important
-  //   .btnHolder
-  //     height: 280px !important
-  //     #edit
-  //       height: 250px !important
+  .showGroupData
+    margin-top: 5px
+    margin-bottom: 20px
+    min-height: 250px
+    width: 300px
+    background: white
+    border: 1px solid #1B75BB
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+    // ((((((((((((((((((((((((((group title))))))))))))))))))))))))))
+    .groupTitle
+      color: grey
+      font-size: 25px
+      font-weight: bold
+      margin: 5px 0px
+    // ((((((((((((((((((((((((((this is the border that wraps the main content))))))))))))))))))))))))))
+    .groupDataHolder
+      width: 98%
+      // background: green
+      display: flex
+      flex-direction: column
+      align-items: center
+      .groupBtnHolder
+        display: flex
+        flex-direction: row
+        .dataGroupBtns
+          height: 30px
+          border: 1px solid black
+          display: flex
+          justify-content: center
+          align-items: center
+        // ((((((((((((((((((((((((((delete button))))))))))))))))))))))))))
+        #delete
+          width: 30px
+          color: red
+          background: #2A2A2A
+          border-top-left-radius: 10px
+          &:hover
+            cursor: pointer
+            background: red
+            color: #2A2A2A
+          .trashCan
+            font-size: 20px
+        // ((((((((((((((((((((((((((edit button))))))))))))))))))))))))))
+        #edit
+          border-left: none
+          border-top-right-radius: 10px
+          width: 262px
+          background: #2AABE2
+          &:hover
+            background: #11a5e5
+            cursor: pointer
+          .btnTxt
+            letter-spacing: 6px
+            color: white
+            font-size: 18px
+            font-weight: bold
+            text-transform: uppercase
+      // ((((((((((((((((((((((((((main information subtitles and ng-repeat are below))))))))))))))))))))))))))
+      .mainGroupData
+        width: 100%
+        min-height: 175px
+        padding-bottom: 5px
+        margin-bottom: 10px
+        background: #acacac
+        border: 1px solid black
+        border-top: none
+        border-bottom-left-radius: 10px
+        border-bottom-right-radius: 10px
+        .groupInfo
+          width: 95px
+          .baseTxt
+            color: black
+            font-size: 20px
+            text-align: center
+            margin: 5px 0px
+        .subTitleHolder
+          // background: yellow
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          .titleTxt
+            color: black
+            // background: blue
+        .groupMemberNGR
+          // background: blue
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          .memberTxt
+            color: #4c4c4c
+            // background: green

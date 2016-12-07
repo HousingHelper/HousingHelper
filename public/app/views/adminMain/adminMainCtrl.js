@@ -4,6 +4,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, adm
   // VARIABLES
   // ============================================================
   $scope.admin = admin;
+  $( "#Create" ).hide();
   $scope.locations = locations.data;
   $scope.users = users.data;
   $scope.apartments = apartments.data;
