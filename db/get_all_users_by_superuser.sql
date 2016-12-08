@@ -1,2 +1,4 @@
 select * from users
-where orgid = $1
+join apartments
+on users.aptid = apartments.id
+where users.orgid = $1

@@ -9,20 +9,20 @@
       <div class="loginTitle">
         <h1>Create New Group</h1>
       </div>
-      <form ng-submit='login(###)' class="loginInputs">
+      <form ng-submit='' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Group Title</h1>
           <input ng-model='group.title'class="lBoxes" type="text" placeholder="Enter a group's title">
           <h1 class="formTxt">Start date</h1>
-          <input ng-model='group.startdate' class="lBoxes" type="text" placeholder="Enter start date">
+          <input ng-model='group.startdate' class="lBoxes" type="text" placeholder="YYYY-MM-DD">
 
           <h1 class="formTxt">End date</h1>
-          <input ng-model='group.enddate'class="lBoxes" type="text" placeholder="Enter end date">
+          <input ng-model='group.enddate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
           <h1 class="formTxt">Check-In Date</h1>
-          <input ng-model='group.checkindate'class="lBoxes" type="text" placeholder="Enter check-in date">
+          <input ng-model='group.checkindate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
           <h1 class="formTxt">Check-Out Date</h1>
-          <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="Enter check-out date">
-          <!-- <h1 class="formTxt">Choose City</h1> -->
+          <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
+          <h1 class="formTxt">Choose City</h1>
           <select ng-model='group.citiesid' ng-options="location.id as location.city for location in locations" required>
             <option value="">Choose City</option>
           </select>
@@ -51,8 +51,13 @@
 
         <div class="dataHolder">
           <!-- ((((((((((((((((the ng-repeat goes in showGroupData)))))))))))))))) -->
-          <section class="showGroupData">
-            <h1 class="groupTitle">{DM-14}</h1>
+          <div class="locationNGR" ng-repeat='location in locations | unique: "location.city"'>
+            <div class="cityTitle">
+              <h1>{{location.city}}</h1>
+            </div>
+            <hr>
+          <section ng-repeat="group in groups | filter: {citiesid: location.id}" class="showGroupData">
+            <h1 class="groupTitle">{{group.title}}</h1>
             <div class="groupDataHolder">
               <div class="groupBtnHolder">
                 <div id="delete" class="dataGroupBtns">
@@ -65,531 +70,39 @@
               <div class="mainGroupData">
                 <section class="subTitleHolder">
                   <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Name</h1>
+                    <h1 class="baseTxt titleTxt">First</h1>
                   </div>
                   <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Apartment</h1>
+                    <h1 class="baseTxt titleTxt">Last</h1>
                   </div>
                   <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Gender</h1>
-                  </div>
-                </section>
-                <!-- ((((((((((((the ng-repeat goes in groupMemberNGR)))))))))))) -->
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
+                    <h1 class="baseTxt titleTxt">Apt Name</h1>
                   </div>
                   <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered below))))))))))))) -->
-
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered above))))))))))))) -->
-
-              </div>
-            </div>
-          </section>
-
-          <!-- (((((((((((((test data is being entered below))))))))))))) -->
-          <section class="showGroupData">
-            <h1 class="groupTitle">{DM-14}</h1>
-            <div class="groupDataHolder">
-              <div class="groupBtnHolder">
-                <div id="delete" class="dataGroupBtns">
-                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
-                </div>
-                <div id="edit" class="dataGroupBtns">
-                  <h1 class="btnTxt">edit group</h1>
-                </div>
-              </div>
-              <div class="mainGroupData">
-                <section class="subTitleHolder">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Name</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Apartment</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Gender</h1>
+                    <h1 class="baseTxt titleTxt">Apt Num</h1>
                   </div>
                 </section>
                 <!-- ((((((((((((the ng-repeat goes in groupMemberNGR)))))))))))) -->
-                <section class="groupMemberNGR">
+                <section class="groupMemberNGR" ng-repeat="member in users | filter: {groupid: group.id}">
                   <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
+                    <h1 class="baseTxt memberTxt">{{member.firstname}}</h1>
                   </div>
                   <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
+                    <h1 class="baseTxt memberTxt">{{member.lastname}}</h1>
                   </div>
                   <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered below))))))))))))) -->
-
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
+                    <h1 class="baseTxt memberTxt">{{member.title}} </h1>
                   </div>
                   <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
+                    <h1 class="baseTxt memberTxt">{{member.apt_num}}</h1>
                   </div>
                 </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered above))))))))))))) -->
-
               </div>
             </div>
           </section>
-          <section class="showGroupData">
-            <h1 class="groupTitle">{DM-14}</h1>
-            <div class="groupDataHolder">
-              <div class="groupBtnHolder">
-                <div id="delete" class="dataGroupBtns">
-                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
-                </div>
-                <div id="edit" class="dataGroupBtns">
-                  <h1 class="btnTxt">edit group</h1>
-                </div>
-              </div>
-              <div class="mainGroupData">
-                <section class="subTitleHolder">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Name</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Apartment</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Gender</h1>
-                  </div>
-                </section>
-                <!-- ((((((((((((the ng-repeat goes in groupMemberNGR)))))))))))) -->
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered below))))))))))))) -->
-
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered above))))))))))))) -->
-
-              </div>
-            </div>
-          </section>
-          <section class="showGroupData">
-            <h1 class="groupTitle">{DM-14}</h1>
-            <div class="groupDataHolder">
-              <div class="groupBtnHolder">
-                <div id="delete" class="dataGroupBtns">
-                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
-                </div>
-                <div id="edit" class="dataGroupBtns">
-                  <h1 class="btnTxt">edit group</h1>
-                </div>
-              </div>
-              <div class="mainGroupData">
-                <section class="subTitleHolder">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Name</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Apartment</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt titleTxt">Gender</h1>
-                  </div>
-                </section>
-                <!-- ((((((((((((the ng-repeat goes in groupMemberNGR)))))))))))) -->
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered below))))))))))))) -->
-
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <section class="groupMemberNGR">
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{Name}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{210}</h1>
-                  </div>
-                  <div class="groupInfo">
-                    <h1 class="baseTxt memberTxt">{male}</h1>
-                  </div>
-                </section>
-                <!-- (((((((((((((test data is being entered above))))))))))))) -->
-
-              </div>
-            </div>
-          </section>
-          <!-- (((((((((((((test data is being entered above))))))))))))) -->
-
         </div>
-      </section>
+      </div>
+    </section>
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
     </div>
   </div>

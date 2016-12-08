@@ -8,7 +8,6 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, gro
   $scope.groups = groups.data;
   $scope.locations = locations.data;
   $scope.users = users.data;
-  $scope.myDate = new Date();
 
   // FUNCTIONS
   // ============================================================
