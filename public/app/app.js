@@ -192,6 +192,11 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'adminFaq',
       url: '/adminFaq'
     })
+    .state('soloUser', {
+      templateUrl: './app/views/soloUserView/soloUserView.html',
+      controller: 'soloUser',
+      url: '/soloUser'
+    })
     //Update All~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     .state('update', {
       templateUrl: './app/views/updateAll/updateView.html',

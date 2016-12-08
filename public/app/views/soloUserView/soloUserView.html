@@ -1,0 +1,162 @@
+<div class="main soloUserMV">
+  <div class="headerDirCon">
+    <header-directive></header-directive>
+  </div>
+  <div class="mainCon">
+    <div class="sNavDirCon">
+      <side-nav-directive></side-nav-directive>
+    </div>
+    <div class="pageContent">
+      <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
+      <section class="soloUserView">
+        <div class="userTitleCon">
+          <div class="userTitle">{Syden Hill}</div>
+        </div>
+        <div class="dataHolder">
+          <section class="userData">
+            <div class="containers userInfoCon">
+              <h1 class="subTitles">About User</h1>
+              <section class="contentBoxHolder userInfoHolder">
+
+                <div class="content contentLeft">
+                  <!-- {{{{{{{{{{{{{{{{{this is where we start putting inputs left side}}}}}}}}}}}}}}}}} -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Status:</h1>
+                    <h1 class="currentInfo">{Renter}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Email:</h1>
+                    <h1 class="currentInfo">{Current Email}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Password:</h1>
+                    <h1 class="currentInfo">{Current password}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">First Name:</h1>
+                    <h1 class="currentInfo">{First Name}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Last Name:</h1>
+                    <h1 class="currentInfo">{Last Name}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Gender:</h1>
+                    <h1 class="currentInfo">{Gender}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Birth Date:</h1>
+                    <h1 class="currentInfo">{Birth Date}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">HomeTown:</h1>
+                    <h1 class="currentInfo">{HomeTown}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Phone Number:</h1>
+                    <h1 class="currentInfo">#{Phone}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Private Room:</h1>
+                    <h1 class="currentInfo">{Yes}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Career:</h1>
+                    <h1 class="currentInfo">{Web Dev}</h1>
+                  </div>
+                  <!-- {{{{{{{{{{{{{{{{{{{{this is where we end putting inputs left side}}}}}}}}}}}}}}}}}}}} -->
+                </div>
+                <div class="centerBar"></div>
+                <div class="content contentRight">
+                  <!-- {{{{{{{{{{{{{{{{{{{{{this is where we start putting inputs right side}}}}}}}}}}}}}}}}}}}}} -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Apartment Number:</h1>
+                    <h1 class="currentInfo">{201}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Group:</h1>
+                    <h1 class="currentInfo">{DM-14}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Room Number:</h1>
+                    <h1 class="currentInfo">#{3}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Lease Start:</h1>
+                    <h1 class="currentInfo">{10/24/87}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Lease End:</h1>
+                    <h1 class="currentInfo">{10/24/87}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">PayDate:</h1>
+                    <h1 class="currentInfo">{1st}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Rent Amount:</h1>
+                    <h1 class="currentInfo">${450}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Check In date:</h1>
+                    <h1 class="currentInfo">{10/24/87}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Check Out Date:</h1>
+                    <h1 class="currentInfo">{10/24/87}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Car Make:</h1>
+                    <h1 class="currentInfo">{Honda}</h1>
+                  </div>
+                  <!-- new input -->
+                  <div class="inputTitlesHolder">
+                    <h1 class="inputTitle">Car Model:</h1>
+                    <h1 class="currentInfo">{Civic}</h1>
+                  </div>
+                  <!-- {{{{{{{{{{{{{{{{{{{this is where we end putting inputs right side}}}}}}}}}}}}}}}}}}} -->
+                </div>
+
+              </section>
+            </div>
+            <div class="containers userCommentsCon">
+              <h1 class="subTitles">Notes About User</h1>
+              <div class="addNoteCommentBtn" ng-click="toggle=!toggle; change()">{{happy}}</div>
+              <form ng-show="toggle" class="hideTxtArea">
+                <textarea class="hiddenTxtBox" name="name" rows="4" cols="80" placeholder="Enter New Note For User"></textarea>
+                <button class="addNoteBtn" type="submit" name="button">Post</button>
+              </form>
+              <!-- this is where you will use the ng-repeat inside contentBoxHolder -->
+              <section class="contentBoxHolder">
+                <div class="noteHolder">
+                  <p>{text}</p>
+                </div>
+              </section>
+
+            </div>
+          </section>
+        </div>
+      </section>
+      <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
+    </div>
+  </div>
+</div>
