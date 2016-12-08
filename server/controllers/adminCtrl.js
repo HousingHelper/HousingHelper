@@ -293,7 +293,7 @@ module.exports = {
               return res.status(500).send(err);
           }
           res.status(200).send(apt)
-      })  
+      })
     },
     updatefaq: function(req, res, next){
       var update = req.body;
@@ -330,9 +330,29 @@ module.exports = {
           console.log("createapt error",err);
           return res.status(401).send(err);
         }
-        // delete admin.password;
         res.status(200).json(faq);
       });
+    },
+
+    getAllRoomsByLoggedInUser: function (req,res,next) {
+      var admin = req.user[0]
+      if (admin.issuperuser) {
+        db.get_all_rooms_by_superuser([admin.orgid], function (err, rooms) {
+          if (err){
+            console.log("getrooms error",err);
+            return res.status(401).send(err);
+          }
+          res.status(200).send(rooms)
+        })
+      } else if (admin.isadmin) {
+        db.get_all_rooms_by_admin([admin.id], function (err, rooms) {
+          if (err){
+            console.log("getrooms error",err);
+            return res.status(401).send(err);
+          }
+          res.status(200).send(rooms)
+        })
+      }
     }
 
 }

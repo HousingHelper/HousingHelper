@@ -9,23 +9,59 @@
       <div class="loginTitle">
         <h1>Create New Renter</h1>
       </div>
-      <form ng-submit='login(###)' class="loginInputs">
+      <form ng-submit='createRenter(renter)' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Password</h1>
-          <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password">
+          <input ng-model='renter.email'class="lBoxes" type="text" placeholder="Enter Renter's Email" required>
+          <h1 class="formTxt">Temporary Password</h1>
+          <input ng-model='renter.password' class="lBoxes" type="text" placeholder="Enter Temporary Password" required>
 
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Email</h1>
-          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">First Name</h1>
+          <input ng-model='renter.firstname'class="lBoxes" type="text" placeholder="Enter Renter's First Name" required>
+          <h1 class="formTxt">Last Name</h1>
+          <input ng-model='renter.lastname'class="lBoxes" type="text" placeholder="Enter Renter's Last Name" require>
+          <h1 class="formTxt">Birth Day</h1>
+          <input ng-model='renter.dob'class="lBoxes" type="date">
+          <h1 class="formTxt">Gender</h1>
+            <section ng-model='renter.gender'>
+              <input  type="radio" name="gender" value="male" checked>Male
+              <input  type="radio" name="gender" value="female">Female
+              <input  type="radio" name="gender" value="other">Other
+            </section>
+          <h1 class="formTxt">Phone</h1>
+          <input ng-model='renter.phone'class="lBoxes" type="text" placeholder="Enter Renter's Phone Number">
+          <h1 class="formTxt">HomeTown</h1>
+          <input ng-model='renter.hometown' class="lBoxes" type="text" placeholder="Enter Renter's Hometown">
+          <h1 class="formTxt">Private Room?</h1>
+          <section>
+            <input ng-model='renter.private_room' type="checkbox">
+          </section>
+            <h1 class="formTxt">Enter Renter's Car Information?</h1><input type="checkbox" ng-model="checked"><br/>
+            <div>
+              <div ng-show="checked">
+                <h1 class="formTxt">Car Make</h1>
+                <input ng-model='renter.carmake'class="lBoxes" type="text" placeholder="Enter Car's Make">
+                <h1 class="formTxt">Car Model</h1>
+                <input ng-model='renter.carmodel'class="lBoxes" type="text" placeholder="Enter Car's Model">
+                <h1 class="formTxt">Car Year</h1>
+                <input ng-model='renter.caryear'class="lBoxes" type="text" id='datepicker' placeholder="Enter Car's Year">
+                <!-- <h1 class="formTxt">Car Liscence Plate</h1>
+                <input ng-model='renter.carliscenceplate'class="lBoxes" type="text" placeholder="Enter Renter's Car Number"> -->
+              </div>
+            </div>
+          </section>
+          <h1 class="formTxt">Lease Start</h1>
+          <input ng-model='renter.leasestart'class="lBoxes" type="date" placeholder="Enter Renter's Lease Start Date">
+          <h1 class="formTxt">Lease End</h1>
+          <input ng-model='renter.leaseend'class="lBoxes" type="date" placeholder="Enter Renter's Lease End Date">
+          <h1 class="formTxt">Rent Amount</h1>
+          <input ng-model='renter.rentamt'class="lBoxes" type="date" placeholder="Enter Monthly Rent Ammount">
+          <h1 class="formTxt">Check In Time</h1>
+          <input ng-model='renter.checkintime'class="lBoxes" type="datetime-local" placeholder="Enter Renter's Check-In Time">
+          <h1 class="formTxt">Check Out Time</h1>
+          <input ng-model='renter.checkouttime'class="lBoxes" type="datetime-local" placeholder="Enter Renter's Check-Out Time">
+          <!-- <h1 class="formTxt">Lease End</h1>
+          <input ng-model='renter.leaseend'class="lBoxes" type="date" placeholder="Enter Renter's Lease End Date"> -->
 
         </div>
         <div class="BtnHolder">
@@ -47,7 +83,7 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="createEditRentersView">
         <div class="addBtnHolder">
-          <div id="addData" class="addBtn">Add New User</div>
+          <div id="addData" class="addBtn">Create New Renter</div>
         </div>
         <div class="dataHolder">
 

@@ -65,6 +65,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
         groups: function(adminMainServ) {
           return adminMainServ.getAllGroupsByLoggedInUser()
+        },
+        rooms: function (adminMainServ) {
+          return adminMainServ.getAllRoomsByLoggedInUser()
         }
       }
     })

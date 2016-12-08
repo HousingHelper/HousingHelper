@@ -1,5 +1,13 @@
 var app = require('./../index')
 var db = app.get('db')
+const bcrypt = require('bcryptjs')
+
+// HASH PASSWORD //
+function hashPassword(password) {
+	var salt = bcrypt.genSaltSync(10);
+	var hash = bcrypt.hashSync(password, salt);
+	return hash;
+}
 
 module.exports = {
 
@@ -44,7 +52,6 @@ module.exports = {
         console.log("createapt error",err);
         return res.status(401).send(err);
       }
-      // delete admin.password;
       res.status(200).json(faq);
     });
   },
@@ -57,8 +64,27 @@ module.exports = {
         console.log("createapt error",err);
         return res.status(401).send(err);
       }
-      // delete admin.password;
       res.status(200).json(faq);
     });
+  },
+
+  createRenter: function (res, req, next) {
+    var renter = req.body
+    var user = req.user[0]
+    renter.password = hashPassword(renter.password)
+
+    db.create_renter([renter.email, renter.password, renter,firstname, renter.lastname, renter.dob,
+      renter.gender, renter.phone, renter.hometown, renter.private_room, renter.carmake, renter.carmodel,
+      renter.caryear, renter.leasestart, renter.leaseed, renter.rentamt, renter.checkintime, renter.checkouttime,
+      renter.aptid, renter.roomid, user.orgid], function (err, result) {
+        if (err){
+          console.log("createRenter error",err);
+          return res.status(401).send(err);
+        }
+        delete result.password
+        res.status(200).json(result);
+      })
   }
+
+
 }

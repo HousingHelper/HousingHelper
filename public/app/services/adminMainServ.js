@@ -80,6 +80,13 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
+  this.getAllRoomsByLoggedInUser = function () {
+    return $http({
+      method: "GET",
+      url: '/api/rooms'
+    })
+  }
+
 
 
   // CREATE //
@@ -105,6 +112,8 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       return response;
     });
   };
+
+
 
 
   // this.editCollection = function(id, collection) {

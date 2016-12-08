@@ -106,6 +106,7 @@ app.get('/allgroupsusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
 app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/api/rooms', adminCtrl.getAllRoomsByLoggedInUser)
 
 // PUT//
 // app.put('put', adminCtrl.updateFaq)
@@ -123,6 +124,7 @@ app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
 app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', adminCtrl.createApt)
+app.post('/api/renter', renterCtrl.createRenter)
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {

@@ -38,18 +38,21 @@ angular.module("housinghelper").service("renterServ", function($http) {
     })
   };
 
-  // this.createCollection = function(user, org) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/collection',
-  //     data: {
-  //       user: user,
-  //       org: org
-  //     }
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+
+  // CREATE //
+  this.createRenter = function (renter) {
+    return $http({
+      method: 'POST',
+      url:'/api/apartments',
+      data: renter
+    })
+    .then(function(response) {
+      alert('Apartment Successfully Created!')
+    });
+  }
+
+
+
   // this.editCollection = function(id, collection) {
   //   return $http({
   //     method: 'PUT',
