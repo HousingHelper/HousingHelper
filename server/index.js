@@ -83,58 +83,65 @@ app.get('/api/logout', function(req, res, next) {
 
 
 // ENDPOINTS //
-//// GET ////
+
+      //// GET ////
 app.get('/api/me', isAuthed, userCtrl.me);
   // FAQ //
-app.get('/api/faq',adminCtrl.getAllFaqs)
+app.get('/api/faq',isAuthed, adminCtrl.getAllFaqs)
   // HOME //
-app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
-app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
-// app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
-app.get('/api/adminMain/apts', adminCtrl.getAllApartmentsByLoggedInUser)
-app.get('/api/adminMain/users', adminCtrl.getAllUsersByLoggedInUser)
-app.get('/api/adminMain/locations', adminCtrl.getAllLocations)
+app.get('/api/superuser/adminMain', isAuthed, adminCtrl.getSuperUserInfo)
+app.get('/api/admin/adminMain', isAuthed, adminCtrl.getAdminInfo)
+// app.get('/api/adminMain/renters', isAuthed, adminCtrl.getAllApartmentsWithRenters)
+app.get('/api/adminMain/apts', isAuthed, adminCtrl.getAllApartmentsByLoggedInUser)
+app.get('/api/adminMain/users', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
+app.get('/api/adminMain/locations', isAuthed, adminCtrl.getAllLocations)
   // APARTMENTS //
-app.get('/apartments', adminCtrl.getAllApartments)
-app.get('/apartments/:id', adminCtrl.getRentersByAptId)
-app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
+app.get('/apartments', isAuthed, adminCtrl.getAllApartments)
+app.get('/apartments/:id', isAuthed, adminCtrl.getRentersByAptId)
+app.get('/apartments/serviceRequests/:id', isAuthed, serviceRequestsCtrl.getAllServiceRequestsByAptId)
   // UNASSIGNED RENTERS //
-app.get('/unassignedRenters', adminCtrl.getAllUnassignedRenters)
-app.get('/availableRooms', adminCtrl.getAvailableRooms)
+app.get('/unassignedRenters', isAuthed, adminCtrl.getAllUnassignedRenters)
+app.get('/availableRooms', isAuthed, adminCtrl.getAvailableRooms)
   // INDIV RENTER PAGE //
-app.get('/renterAcc', renterCtrl.getRenterAccById)
-app.get('/renterAccApt', renterCtrl.getRentersAccApt)
-app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
+app.get('/renterAcc', isAuthed, renterCtrl.getRenterAccById)
+app.get('/renterAccApt', isAuthed, renterCtrl.getRentersAccApt)
+app.get('/renterAccServReq', isAuthed, renterCtrl.getRentersAccServReq)
   // GROUPS //
-app.get('/allgroups', adminCtrl.getAllGroupsByLoggedInUser)
-app.get('/allgroupsinalllocations', adminCtrl.getAllLocations)
-app.get('/allgroupsusers', adminCtrl.getAllUsersByLoggedInUser)
+app.get('/allgroups', isAuthed, adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/allgroupsinalllocations', isAuthed, adminCtrl.getAllLocations)
+app.get('/allgroupsusers', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
   // SERV REQS //
-app.get('/serviceRequests', serviceRequestsCtrl.getAllServReqsbyLoggedInUser)
-app.get('/servreqnotes', serviceRequestsCtrl.getAllNotesForServReqs)
+app.get('/serviceRequests', isAuthed, serviceRequestsCtrl.getAllServReqsbyLoggedInUser)
+app.get('/servreqnotes', isAuthed, serviceRequestsCtrl.getAllNotesForServReqs)
   // USERS //
-app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
-app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/allusers', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
+app.get('/allusersinallgroups', isAuthed, adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/api/rooms', isAuthed, adminCtrl.getAllRoomsByLoggedInUser)
 
 
-// PUT //
+        //// PUT ////
 
-app.put('/api/putfaq', adminCtrl.updatefaq)
-app.put('/api/putuser', renterCtrl.updateUser)
-app.put('/api/groups', adminCtrl.updategroups)
-app.put('/api/servRequest', renterCtrl.updateServRequest)
-app.put('/api/apartments', adminCtrl.updateApartment)
+app.put('/api/putfaq', isAuthed, adminCtrl.updatefaq)
+app.put('/api/putuser', isAuthed, renterCtrl.updateUser)
+app.put('/api/groups', isAuthed, adminCtrl.updategroups)
+app.put('/api/servRequest', isAuthed, renterCtrl.updateServRequest)
+app.put('/api/apartments', isAuthed, adminCtrl.updateApartment)
+app.put('/api/updateUserAccountInfo', isAuthed, renterCtrl.updateUserAccountInfo)
+app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)
 
-// POST //
-app.post('/api/register', userCtrl.register);
-app.post('/api/createfaq', adminCtrl.createFaq)
-app.post('/api/creategroup', adminCtrl.createGroup)
-app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
 
-//ADDING STUFF
+        //// POST ////
+
+app.post('/api/register', isAuthed, userCtrl.register);
+app.post('/api/createfaq', isAuthed, adminCtrl.createFaq)
+app.post('/api/creategroup', isAuthed, adminCtrl.createGroup)
+app.post('/api/serviceRequests', isAuthed, renterCtrl.CreateServiceRequest)
+app.post('/api/apartments', isAuthed, adminCtrl.createApt)
+app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
+app.post('/api/renter',isAuthed, renterCtrl.createRenter)
 app.post('/api/request', renterCtrl.makeServiceRequest);
 
-app.post('/api/apartments', adminCtrl.createApt)
+
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {
