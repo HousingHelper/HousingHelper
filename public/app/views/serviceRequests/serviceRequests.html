@@ -9,30 +9,36 @@
       <div class="loginTitle">
         <h1>Create Service Request</h1>
       </div>
-      <form ng-submit='' class="loginInputs">
+      <form ng-submit='submitServReq(newSr)' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Request</h1>
-          <input ng-model='sr.request'class="lBoxes" type="text" placeholder="Your request"></input>
+          <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request"></input>
 
           <h1 class="formTxt">Type</h1>
-          <select ng-model='servreqs' ng-options='sr.type for sr in servreqs | unique: "type"'>
+          <select ng-model='newSr.type' ng-options='sr.type as sr.type for sr in servreqs | unique: "type"'>
             <option value="">Choose Type</option>
           </select>
           <br>
 
-          <!-- <h1 class="formTxt">Permissions</h1>
-          <select ng-model='test2' ng-options='sr.permissions for sr in servreqs | unique: "permissions"'>
+          <h1 class="formTxt">Permissions</h1>
+          <select ng-model='newSr.permissions' ng-options='sr.permissions as sr.permissions for sr in servreqs | unique: "permissions"'>
             <option value="">Choose Permission</option>
           </select>
-          <br> -->
+          <br>
+
+          <h1 class="formTxt">User</h1>
+          <select ng-model='selectedUser' ng-options='(user.firstname + " " + user.lastname) for user in users'>
+            <option value="">Choose Requester</option>
+          </select>
+          <br>
 
           <h1 class="formTxt">Note</h1>
           <textarea rows="8" cols="40" ng-model='srnote.note' type="text" placeholder="Add a note"></textarea>
 
         </div>
         <div class="BtnHolder">
-          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
-          <button ng-click="submitServReq(sr)" type="submit" class="lBtns">Create</button>
+          <button id="cancelBtn" class="lBtns" ng-click="show= false; cancelBtnClick()">Cancel</button>
+          <button type="submit" class="lBtns">Create</button>
         </div>
       </form>
     </div>
@@ -49,7 +55,7 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="serviceRequestsView">
         <div class="addBtnHolder">
-          <div id="addData" class="addBtn">Create Service Request</div>
+          <div id="addData" class="addBtn" ng-click="addDataClick()">Create Service Request</div>
         </div>
         <div class="dataHolder">
           <div ng-repeat="sr in servreqs" class="showData">

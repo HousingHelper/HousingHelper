@@ -119,6 +119,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         notes: function(servReqServ) {
           return servReqServ.getServReqsNotes();
         },
+        users: function(adminMainServ) {
+          return adminMainServ.getAllUsersByLoggedInUser();
+        },
         admin: function (loginServ, $state) {
           return loginServ.getCurrentUser()
             .then(function(response) {
