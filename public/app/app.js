@@ -169,10 +169,10 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       //   }
       // }
     })
-    // FAQ STATE
-    .state('faq', {
-      url: '/faqs',
-      templateUrl: './app/views/faqs/faq.html',
+    // User Faq page
+    .state('ufaq', {
+      url: '/ufaqs',
+      templateUrl: './app/views/userfaq/faq.html',
       controller: 'faqCtrl',
       resolve: {
         user: function (loginServ, $state) {
@@ -186,6 +186,11 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
           });
         }
       }
+    })
+    .state('adminFaq', {
+      templateUrl: './app/views/adminFaq/adminFaq.html',
+      controller: 'adminFaq',
+      url: '/adminFaq'
     })
     //Update All~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     .state('update', {

@@ -27,6 +27,15 @@
           <h1 class="formTxt">Email</h1>
           <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
 
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+          <h1 class="formTxt">Email</h1>
+          <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
+
         </div>
         <div class="BtnHolder">
           <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
@@ -47,7 +56,9 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="adminMainView">
         <div class="addBtnHolder">
+          <div id="addLocation" class="addBtn locBtn">Add New Location</div>
           <div id="addData" class="addBtn">Add New Apartment</div>
+          <div class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
 
@@ -55,7 +66,6 @@
             <div class="cityTitle">
               <h1>{{location.city}}</h1>
             </div>
-            <hr>
           <div ng-repeat='apt in apartments | filter: {city: location.city}' class="showData">
             <div class="mainData">
 

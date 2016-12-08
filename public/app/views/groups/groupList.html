@@ -51,11 +51,10 @@
 
         <div class="dataHolder">
           <!-- ((((((((((((((((the ng-repeat goes in showGroupData)))))))))))))))) -->
-          <div class="locationNGR" ng-repeat='location in locations | unique: "location.city"'>
-            <div class="cityTitle">
+          <div class="grpupLocationNGR" ng-repeat='location in locations | unique: "location.city"'>
+            <div class="groupTitle">
               <h1>{{location.city}}</h1>
             </div>
-            <hr>
           <section ng-repeat="group in groups | filter: {citiesid: location.id}" class="showGroupData">
             <h1 class="groupTitle">{{group.title}}</h1>
             <div class="groupDataHolder">
