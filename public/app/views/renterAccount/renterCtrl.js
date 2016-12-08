@@ -6,6 +6,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
 
     $scope.show = true
     $scope.user = user;
+    $('#existingLogin').hide();
 
   // FUNCTIONS
   // ============================================================
@@ -59,6 +60,14 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
       console.log('ctrl err: ', err);
     });
   }
+
+  // this is scrolling the add button
+    $scope.addDataClick = function () {
+      $( "#existingLogin" ).fadeIn( "slow" );
+    }
+    $scope.cancelBtnClick = function() {
+      $( "#existingLogin" ).fadeOut( "slow" );
+    };
 
 
 
