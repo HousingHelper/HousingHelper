@@ -12,7 +12,7 @@ function hashPassword(password) {
 module.exports = {
 
   getRenterAccById: function (req, res) {
-    var user = req.user[0];
+    var user = req.user;
 
     db.get_one_renter([user.id], function(err, account) {
       res.status(200).json(account)
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   getRentersAccApt: function(req, res) {
-    var user = req.user[0]
+    var user = req.user
 
     db.get_renter_apt([user.id], function(err, apt) {
       res.status(200).json(apt)
@@ -28,14 +28,14 @@ module.exports = {
   },
 
   getRentersAccServReq: function(req, res) {
-    var user = req.user[0]
+    var user = req.user
     db.get_renter_servreq([user.id], function(err, servreq) {
       res.status(200).json(servreq)
     })
   },
 
   CreateServiceRequest: function(req, res, next ){
-    var user = req.user[0];
+    var user = req.user;
     var currenttime = new Date().toLocaleDateString();
 
     db.create_serviceRequest([ currenttime, req.body.request ,req.body.type,req.body.permissions,req.body.status,user.orgid, req.body.aptid ],
@@ -68,22 +68,20 @@ module.exports = {
     });
   },
 
-  createRenter: function (res, req, next) {
+  createRenter: function (req, res, next) {
     var renter = req.body
-    console.log('renter: ', renter);
-    var admin = req.user[0];
-    console.log('admin:, ', admin);
+    var admin = req.user;
     renter.password = hashPassword(renter.password)
 
-    db.create_renter([renter.email, renter.password, renter,firstname, renter.lastname, renter.dob,
+    db.create_renter([renter.email, renter.password, renter.firstname, renter.lastname, renter.dob,
       renter.gender, renter.phone, renter.hometown, renter.private_room, renter.aptid, renter.roomid, renter.carmake,
-      renter.carmodel, renter.caryear, renter.leasestart, renter.leaseed, renter.rentamt, renter.checkintime,
+      renter.carmodel, renter.caryear, renter.leasestart, renter.leaseend, renter.rentamt, renter.checkintime,
       renter.checkouttime, false, false, admin.orgid, admin.citiesid], function (err, response) {
         if (err){
           console.log("createRenter error",err);
           return res.status(401).send(err);
         }
-        delete result.password
+        delete response.password
         res.status(200).json(response);
       })
   }

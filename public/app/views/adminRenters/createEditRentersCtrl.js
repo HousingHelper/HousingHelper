@@ -9,15 +9,41 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   $scope.users = users.data
   $scope.groups = groups.data
   $scope.rooms = rooms.data
+  $scope.renter = {
+    email: '',
+    password: '',
+    firstname: '',
+    lastname: '',
+    dob: null,
+    gender: '',
+    phone: '',
+    hometown: '',
+    private_room: false,
+    carmake: '',
+    carmodel: '',
+    caryear: '',
+    leasestart: null,
+    leaseend: null,
+    rentamt: 0,
+    checkintime: '',
+    checkouttime: ''
+  }
   // console.log('rooms', $scope.rooms);
 
   // FUNCTIONS
   // ============================================================
 
   $scope.createRenter = function (renter) {
+    if (renter.checkintime) {
+        renter.checkintime = renter.checkintime.toISOString().slice(0, 19).replace('T', ' ');
+    }
+    if (renter.checkouttime) {
+        renter.checkouttime = renter.checkouttime.toISOString().slice(0, 19).replace('T', ' ');
+    }
+
     // renter.aptid = renter.aptid.id
     // renter.roomid = renter.roomid.apartmentsid
-    console.log('renter: ', renter);
+    // console.log('renter: ', renter);
     // console.log('ctrl renter: ', renter)
     renterServ.createRenter(renter)
     .then(function(response) {
@@ -50,7 +76,9 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     });
 
     $(function() {
+      var d = new Date().getFullYear()
         $('#datepicker').datepicker({
+            yearRange: (d - 35) + ":" + (d + 1),
             changeYear: true,
             showButtonPanel: true,
             dateFormat: 'yy',

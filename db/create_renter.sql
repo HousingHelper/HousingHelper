@@ -15,7 +15,7 @@ insert into users
     carmodel,
     caryear,
     leasestart,
-    leaseed,
+    leaseend,
     -- paydate,
     rentamt,
     -- monthpaid,

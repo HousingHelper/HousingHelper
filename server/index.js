@@ -134,7 +134,7 @@ app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
 app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
-app.post('/api/renter', isAuthed, renterCtrl.createRenter)
+app.post('/api/renter',isAuthed, renterCtrl.createRenter)
 
 
 

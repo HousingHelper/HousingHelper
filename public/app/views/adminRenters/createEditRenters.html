@@ -22,14 +22,15 @@
           <input ng-model='renter.lastname'class="lBoxes" type="text" placeholder="Enter Renter's Last Name" require>
           <h1 class="formTxt">Birth Day</h1>
           <input ng-model='renter.dob'class="lBoxes" type="date">
-          <!-- <h1 class="formTxt">Gender</h1>
-            <section ng-model='renter.gender'>
-              <input  type="radio" name="gender" value="male" checked>Male
-              <input  type="radio" name="gender" value="female">Female
-              <input  type="radio" name="gender" value="other">Other
-            </section> -->
-            <h1 class="formTxt">Gender</h1>
-            <input ng-model='renter.gender'class="lBoxes" type="text" placeholder="Enter Renter's Gender">
+          <h1 class="formTxt">Gender</h1>
+            <select  ng-model='renter.gender'>
+              <option value=null>-- Select Gender --</option>
+              <option value="">Male</option>
+              <option value="">Female</option>
+              <option value="">Other</option>
+            </select>
+            <!-- <h1 class="formTxt">Gender</h1>
+            <input ng-model='renter.gender'class="lBoxes" type="text" placeholder="Enter Renter's Gender"> -->
           <h1 class="formTxt">Phone</h1>
           <input ng-model='renter.phone'class="lBoxes" type="text" placeholder="Enter Renter's Phone Number">
           <h1 class="formTxt">HomeTown</h1>
@@ -37,19 +38,19 @@
           <h1 class="formTxt">Private Room?</h1>
             <input ng-model='renter.private_room' type="checkbox">
 
-          <h1 class="formTxt">Assign Renter Room?</h1><input type="checkbox" ng-model="checked"><br/>
+          <!-- <h1 class="formTxt">Assign Renter Room?</h1><input type="checkbox" ng-model="checked"><br/>
           <div>
             <div ng-show="checked">
               <h1 class="formTxt">Apartment Name</h1>
               <select ng-model='renter.aptid' ng-options='room.title for room in rooms | unique: "title"' required>
-                <option > Choose Apartment </option>
+                <option value=""> Choose Apartment </option>
               </select>
               <select ng-model='renter.roomid' ng-options='room.apt_num for room in rooms |filter: {id :renter.aptid.id} | unique: "apt_num"' required>
-                <option > Choose Room </option>
+                <option value=""> Choose Room </option>
               </select>
 
             </div>
-          </div>
+          </div> -->
             <h1 class="formTxt">Enter Renter's Car Information?</h1><input type="checkbox" ng-model="checked"><br/>
             <div>
               <div ng-show="checked">
@@ -69,7 +70,7 @@
           <h1 class="formTxt">Lease End</h1>
           <input ng-model='renter.leaseend'class="lBoxes" type="date" placeholder="Enter Renter's Lease End Date">
           <h1 class="formTxt">Rent Amount</h1>
-          <input ng-model='renter.rentamt'class="lBoxes" type="date" placeholder="Enter Monthly Rent Ammount">
+          <input ng-model='renter.rentamt'class="lBoxes" type="text" placeholder="Enter Monthly Rent Ammount">
           <h1 class="formTxt">Check In Time</h1>
           <input ng-model='renter.checkintime'class="lBoxes" type="datetime-local" placeholder="Enter Renter's Check-In Time">
           <h1 class="formTxt">Check Out Time</h1>
