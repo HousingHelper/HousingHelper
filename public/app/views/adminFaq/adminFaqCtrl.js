@@ -1,21 +1,9 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("groupListCtrl", function($scope, groups, locations, users, adminMainServ) {
+angular.module("housinghelper").controller("adminFaq", function($scope) {
+  $( "#Create" ).hide();
   // VARIABLES
   // ============================================================
-  $( "#Create" ).hide();
-
-  $scope.groups = groups.data;
-  $scope.locations = locations.data;
-  $scope.users = users.data;
-
-  // FUNCTIONS
-  // ============================================================
-  $scope.submitGroup = function(group) {
-    adminMainServ.submitGroup(group);
-  };
-
-  // this is scrolling the add button
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();
     if(winScroll < 45){
@@ -23,7 +11,6 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, gro
     }else if (winScroll > 45) {
       $(".addBtnHolder").css({"margin-top":"-35px"});
     }
-    // console.log(winScroll);
   });
   // this is the function for the add button model fade
   $(function() {

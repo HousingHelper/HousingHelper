@@ -83,35 +83,44 @@ app.get('/api/logout', function(req, res, next) {
 
 
 // ENDPOINTS //
-// GET //
+      //// GET ////
 app.get('/api/me', isAuthed, userCtrl.me);
+  // FAQ //
 app.get('/api/faq',adminCtrl.getAllFaqs)
+  // HOME //
 app.get('/api/superuser/adminMain', adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', adminCtrl.getAdminInfo)
 // app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
 app.get('/api/adminMain/apts', adminCtrl.getAllApartmentsByLoggedInUser)
 app.get('/api/adminMain/users', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/api/adminMain/locations', adminCtrl.getAllLocations)
+  // APARTMENTS //
 app.get('/apartments', adminCtrl.getAllApartments)
 app.get('/apartments/:id', adminCtrl.getRentersByAptId)
 app.get('/apartments/serviceRequests/:id', serviceRequestsCtrl.getAllServiceRequestsByAptId)
+  // UNASSIGNED RENTERS //
 app.get('/unassignedRenters', adminCtrl.getAllUnassignedRenters)
 app.get('/availableRooms', adminCtrl.getAvailableRooms)
+  // INDIV RENTER PAGE //
 app.get('/renterAcc', renterCtrl.getRenterAccById)
 app.get('/renterAccApt', renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', renterCtrl.getRentersAccServReq)
+  // GROUPS //
 app.get('/allgroups', adminCtrl.getAllGroupsByLoggedInUser)
 app.get('/allgroupsinalllocations', adminCtrl.getAllLocations)
 app.get('/allgroupsusers', adminCtrl.getAllUsersByLoggedInUser)
-app.get('/serviceRequests', adminCtrl.getAllServiceRequests)
+  // SERV REQS //
+app.get('/serviceRequests', serviceRequestsCtrl.getAllServReqsbyLoggedInUser)
+app.get('/servreqnotes', serviceRequestsCtrl.getAllNotesForServReqs)
+  // USERS //
 app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
 app.get('/api/rooms', adminCtrl.getAllRoomsByLoggedInUser)
 
-// PUT//
-// app.put('put', adminCtrl.updateFaq)
 
 
+
+        //// PUT ////
 
 app.put('/api/putfaq', adminCtrl.updatefaq)
 app.put('/api/putuser', renterCtrl.updateUser)
@@ -119,13 +128,16 @@ app.put('/api/groups', adminCtrl.updategroups)
 app.put('/api/servRequest', renterCtrl.updateServRequest)
 app.put('/api/apartments', adminCtrl.updateApartment)
 
-// POST//
+        //// POST ////
 app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
 app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/renter', isAuthed, renterCtrl.createRenter)
+
+
+
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {

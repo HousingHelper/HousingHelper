@@ -14,18 +14,20 @@
   .mainCon
     background: blue
     width: 100%
-    min-height: 80vh
+    // min-height: 80vh
+    min-height: calc(100vh - 200px)
     display: flex
     flex-direction: row
     justify-content: space-between
     .sNavDirCon
       background: #828282
-      width: 15%
-      min-width: 256px
-      // border-right: 1px solid black
+      // width: 15%
+      // min-width: 256px
+      width: 256px
       // height: 80vh
     .pageContent
-      width: 85%
+      width: calc(100% - 256px)
+      // width: 85%
       // height: 80vh
       background: yellow
 

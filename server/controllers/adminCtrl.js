@@ -148,13 +148,6 @@ module.exports = {
   //   })
   // },
 
-  getAllServiceRequests: function (req, res) {
-    var admin = req.user[0]
-    db.get_all_serv_reqs([admin.id], function (err, servReqs) {
-      res.status(200).json(servReqs)
-    })
-  },
-
   getAllUsers: function(req, res) {
     var admin = req.user[0]
     db.get_all_users([admin.id], function(err, users) {
@@ -254,7 +247,7 @@ module.exports = {
 
     createGroup: function(req, res) {
       var admin = req.user[0]
-        db.create_group([req.body.title, req.body.startDate, req.body.endDate, req.body.checkInDate, req.body.checkOutDate, admin.orgid, req.body.citiesid], function(err, faq) {
+        db.create_group([req.body.title, req.body.startdate, req.body.enddate, req.body.checkindate, req.body.checkoutdate, admin.orgid, req.body.citiesid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }
