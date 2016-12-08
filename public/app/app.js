@@ -51,6 +51,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
         servreqs: function (apartmentsServ, $stateParams) {
           return apartmentsServ.getAptsServReqs($stateParams.id)
+        },
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
         }
       }
     })
@@ -60,11 +70,34 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       templateUrl: './app/views/adminRenters/createEditRenters.html',
       controller: 'createEditRentersCtrl',
       resolve: {
+        // admin: function (loginServ, $state) {
+        //   return loginServ.getCurrentUser()
+        //     .then(function(response) {
+        //       if(!response.data)
+        //       $state.go('home');
+        //       return response.data
+        //   }).catch(function(err) {
+        //     $state.go('home')
+        //   });
+        // },
         users: function(adminMainServ) {
           return adminMainServ.sortUsersbyGroups()
         },
         groups: function(adminMainServ) {
           return adminMainServ.getAllGroupsByLoggedInUser()
+        },
+        rooms: function (adminMainServ) {
+          return adminMainServ.getAllRoomsByLoggedInUser()
+        },
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
         }
       }
     })
@@ -80,8 +113,21 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       templateUrl: './app/views/serviceRequests/serviceRequests.html',
       controller: 'serviceRequestsCtrl'
       , resolve: {
-        servreqs: function(adminMainServ) {
-          return adminMainServ.getAllServReqs();
+        servreqs: function(servReqServ) {
+          return servReqServ.getServReqs();
+        },
+        notes: function(servReqServ) {
+          return servReqServ.getServReqsNotes();
+        },
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
         }
       }
     })
@@ -102,6 +148,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
         availableRooms: function(renterServ) {
           return renterServ.getAvailableRooms();
+        },
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
         }
       }
     })
@@ -125,6 +181,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
         users: function(adminMainServ) {
           return adminMainServ.getAllGroupsUsers();
+        },
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
         }
       }
     })
@@ -166,10 +232,10 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       //   }
       // }
     })
-    // FAQ STATE
-    .state('faq', {
-      url: '/faqs',
-      templateUrl: './app/views/faqs/faq.html',
+    // User Faq page
+    .state('ufaq', {
+      url: '/ufaqs',
+      templateUrl: './app/views/userfaq/faq.html',
       controller: 'faqCtrl',
       resolve: {
         user: function (loginServ, $state) {
@@ -183,6 +249,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
           });
         }
       }
+    })
+    .state('adminFaq', {
+      templateUrl: './app/views/adminFaq/adminFaq.html',
+      controller: 'adminFaq',
+      url: '/adminFaq'
+    })
+    .state('soloUser', {
+      templateUrl: './app/views/soloUserView/soloUserView.html',
+      controller: 'soloUser',
+      url: '/soloUser'
     })
     //Update All~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     .state('update', {

@@ -99,7 +99,7 @@
   //button holder ~~~~~~~~~~~~~~~~~~~~~~~~~
   .addBtnHolder
     position: fixed
-    width: 85%
+    width: calc(100% - 256px)
     height: 35px
     // background: blue
     display: flex
@@ -124,11 +124,28 @@
   .dataHolder
     align-items: flex-start
   //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
+  .grpupLocationNGR
+    width: 100%
+    display: flex
+    justify-content: space-around
+    align-items: flex-start
+    flex-direction: row
+    flex-wrap: wrap
+    // background: yellow
+    .groupTitle
+      color: grey
+      font-size: 40px
+      font-weight: bold
+      border-bottom: 2px solid grey
+      width: 95%
+      margin-bottom: 10px
+      // background: red
+      display: flex
+      justify-content: center
   .showGroupData
-    margin-top: 5px
-    margin-bottom: 20px
+    margin: 5px 10px 20px 10px
     min-height: 250px
-    width: 300px
+    width: 400px
     background: white
     border: 1px solid #1B75BB
     border-radius: 10px
@@ -137,7 +154,8 @@
     align-items: center
     // ((((((((((((((((((((((((((group title))))))))))))))))))))))))))
     .groupTitle
-      color: grey
+      color: #2AABE2
+      border-bottom: 2px solid #2AABE2
       font-size: 25px
       font-weight: bold
       margin: 5px 0px
@@ -173,7 +191,7 @@
         #edit
           border-left: none
           border-top-right-radius: 10px
-          width: 262px
+          width: 360px
           background: #2AABE2
           &:hover
             background: #11a5e5
@@ -197,16 +215,23 @@
         border-bottom-right-radius: 10px
         .groupInfo
           width: 95px
+          // background: red
           .baseTxt
             color: black
             font-size: 20px
             text-align: center
             margin: 5px 0px
+        .aptName
+          width: 140px
+        .aptSize
+          width: 50px
+        .nameBig
+          width: 120px
         .subTitleHolder
           // background: yellow
           display: flex
           flex-direction: row
-          justify-content: space-between
+          justify-content: space-around
           .titleTxt
             color: black
             // background: blue
@@ -214,7 +239,7 @@
           // background: blue
           display: flex
           flex-direction: row
-          justify-content: space-between
+          justify-content: space-around
           .memberTxt
-            color: #4c4c4c
+            color: #2a2a2a
             // background: green

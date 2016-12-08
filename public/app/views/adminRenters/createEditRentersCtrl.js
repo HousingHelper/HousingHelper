@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, users, groups) {
+angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, $state, users, groups, rooms, renterServ) {
   // VARIABLES
   // ============================================================
 
@@ -8,11 +8,51 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   $scope.hide = false
   $scope.users = users.data
   $scope.groups = groups.data
-  console.log('groups: ', $scope.groups);
-  console.log('users: ', $scope.users);
+  $scope.rooms = rooms.data
+  $scope.renter = {
+    email: '',
+    password: '',
+    firstname: '',
+    lastname: '',
+    dob: null,
+    gender: '',
+    phone: '',
+    hometown: '',
+    private_room: false,
+    carmake: '',
+    carmodel: '',
+    caryear: '',
+    leasestart: null,
+    leaseend: null,
+    rentamt: 0,
+    checkintime: '',
+    checkouttime: ''
+  }
+  // console.log('rooms', $scope.rooms);
 
   // FUNCTIONS
   // ============================================================
+
+  $scope.createRenter = function (renter) {
+    if (renter.checkintime) {
+        renter.checkintime = renter.checkintime.toISOString().slice(0, 19).replace('T', ' ');
+    }
+    if (renter.checkouttime) {
+        renter.checkouttime = renter.checkouttime.toISOString().slice(0, 19).replace('T', ' ');
+    }
+
+    // renter.aptid = renter.aptid.id
+    // renter.roomid = renter.roomid.apartmentsid
+    // console.log('renter: ', renter);
+    // console.log('ctrl renter: ', renter)
+    renterServ.createRenter(renter)
+    .then(function(response) {
+      $state.go('adminRenters')
+    }).catch(function(err) {
+      console.log('ctrl err: ', err);
+    });
+  }
+
   // this is scrolling the add button
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();
@@ -34,4 +74,26 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
 
     return false;
     });
+
+    $(function() {
+      var d = new Date().getFullYear()
+        $('#datepicker').datepicker({
+            yearRange: (d - 35) + ":" + (d + 1),
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: 'yy',
+            onClose: function(dateText, inst) {
+                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                $(this).datepicker('setDate', new Date(year, 1));
+            }
+        });
+
+       $("#datepicker").focus(function () {
+            $(".ui-datepicker-month").hide();
+            $(".ui-datepicker-calendar").hide();
+        });
+
+    });
+
+
 });

@@ -1,5 +1,7 @@
 select * from users
-where citiesid in (
+join apartments
+on users.aptid = apartments.id
+where users.citiesid in (
   select citiesid from users
   where id = $1
-) 
+)

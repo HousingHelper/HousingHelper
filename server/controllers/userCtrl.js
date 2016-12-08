@@ -46,7 +46,7 @@ module.exports = {
     if (!req.user) {
       res.status(401).send('User is not logged in');
     }
-    var user = req.user[0];
+    var user = req.user;
     delete user.password;
     res.status(200).send(user);
   },
