@@ -280,7 +280,8 @@ module.exports = {
 
     createLocation: function (req, res, next) {
       var user = req.user
-      db.create_location([location.city, 1, location.state], function (err, location) {
+      var location = req.body
+      db.create_location([location.city, location.state, 1], function (err, location) {
         if (err) {
           res.status(500).send(err)
         }

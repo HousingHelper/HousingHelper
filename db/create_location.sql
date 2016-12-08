@@ -1,7 +1,7 @@
 insert into locations
   (
     city,
+    state,
     orgid
-    state
   )
   values ($1, $2, $3)
