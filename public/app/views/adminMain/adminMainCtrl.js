@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("adminMainCtrl", function($scope, admin, apartments, users, adminMainServ, apartmentsServ, locations) {
+angular.module("housinghelper").controller("adminMainCtrl", function($scope, $state, admin, apartments, users, adminMainServ, apartmentsServ, locations) {
   // VARIABLES
   // ============================================================
   $scope.admin = admin;
@@ -8,10 +8,22 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, adm
   $scope.locations = locations.data;
   $scope.users = users.data;
   $scope.apartments = apartments.data;
+  console.log('apartments:', apartments);
 
 
   // FUNCTIONS
   // ============================================================
+  $scope.createApartment = function  (apt) {
+    apt.city = apt.citiesid.city
+    apt.citiesid = apt.citiesid.id
+    adminMainServ.createApartment(apt)
+    .then(function(response) {
+      $state.go('adminMain')
+    }).catch(function(err) {
+      console.log('ctrl err: ', err);
+    });
+  }
+
 
   $scope.createLocation = function (location) {
     adminMainServ.createLocation(location)

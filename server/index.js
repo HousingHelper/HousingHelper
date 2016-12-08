@@ -83,7 +83,8 @@ app.get('/api/logout', function(req, res, next) {
 
 
 // ENDPOINTS //
-//// GET ////
+
+      //// GET ////
 app.get('/api/me', isAuthed, userCtrl.me);
   // FAQ //
 app.get('/api/faq',isAuthed, adminCtrl.getAllFaqs)
@@ -115,9 +116,10 @@ app.get('/servreqnotes', isAuthed, serviceRequestsCtrl.getAllNotesForServReqs)
   // USERS //
 app.get('/allusers', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', isAuthed, adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/api/rooms', isAuthed, adminCtrl.getAllRoomsByLoggedInUser)
 
 
-// PUT //
+        //// PUT ////
 
 app.put('/api/putfaq', isAuthed, adminCtrl.updatefaq)
 app.put('/api/putuser', isAuthed, renterCtrl.updateUser)
@@ -125,13 +127,17 @@ app.put('/api/groups', isAuthed, adminCtrl.updategroups)
 app.put('/api/servRequest', isAuthed, renterCtrl.updateServRequest)
 app.put('/api/apartments', isAuthed, adminCtrl.updateApartment)
 
-// POST //
+
+        //// POST ////
+
 app.post('/api/register', isAuthed, userCtrl.register);
 app.post('/api/createfaq', isAuthed, adminCtrl.createFaq)
 app.post('/api/creategroup', isAuthed, adminCtrl.createGroup)
 app.post('/api/serviceRequests', isAuthed, renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
+app.post('/api/renter',isAuthed, renterCtrl.createRenter)
+
 
 
 // LISTEN //

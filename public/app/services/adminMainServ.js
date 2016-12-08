@@ -4,8 +4,6 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
 
-
-
         //// GET REQUESTS ////
   this.getInfoByAdmin = function() {
     return $http({
@@ -84,8 +82,26 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
+  this.getAllRoomsByLoggedInUser = function () {
+    return $http({
+      method: "GET",
+      url: '/api/rooms'
+    })
+  }
 
-        //// POST REQUESTS ////
+
+  // CREATE //
+
+  this.createApartment = function (apt) {
+    return $http({
+      method: 'POST',
+      url:'/api/apartments',
+      data: apt
+    })
+    .then(function(response) {
+      alert('Apartment Successfully Created!')
+    });
+  }
 
   this.submitGroup = function(group) {
     return $http({
@@ -106,6 +122,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       return response
     });
   }
+
   // this.editCollection = function(id, collection) {
   //   return $http({
   //     method: 'PUT',

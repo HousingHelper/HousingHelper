@@ -70,11 +70,24 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       templateUrl: './app/views/adminRenters/createEditRenters.html',
       controller: 'createEditRentersCtrl',
       resolve: {
+        // admin: function (loginServ, $state) {
+        //   return loginServ.getCurrentUser()
+        //     .then(function(response) {
+        //       if(!response.data)
+        //       $state.go('home');
+        //       return response.data
+        //   }).catch(function(err) {
+        //     $state.go('home')
+        //   });
+        // },
         users: function(adminMainServ) {
           return adminMainServ.sortUsersbyGroups()
         },
         groups: function(adminMainServ) {
           return adminMainServ.getAllGroupsByLoggedInUser()
+        },
+        rooms: function (adminMainServ) {
+          return adminMainServ.getAllRoomsByLoggedInUser()
         },
         admin: function (loginServ, $state) {
           return loginServ.getCurrentUser()
