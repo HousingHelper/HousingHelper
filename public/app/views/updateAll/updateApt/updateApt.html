@@ -1,49 +1,107 @@
-<section class="updateAptHolder">
-  <h1 class="pageTitle">Update Appartment</h1>
+<section class="updateFaqHolder">
+  <h1 class="pageTitle">Update Apartment</h1>
   <form class="formCon">
     <section class="inputContainer">
       <div class="content contentLeft">
-        <!-- this is where we start putting inputs left side -->
         <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Input Title:</h1>
+          <h1 class="inputTitle">Title</h1>
           <h1 class="currentInfo">{Current Value}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Input Title:</h1>
+          <h1 class="inputTitle">Address</h1>
           <h1 class="currentInfo">{Current Value}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Input Title:</h1>
+          <h1 class="inputTitle">Apt Number</h1>
           <h1 class="currentInfo">{Current Value}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- this is where we end putting inputs left side -->
+        <div class="inputTitlesHolder">
+          <h1 class="inputTitle">Square Feet</h1>
+          <h1 class="currentInfo">{Current Value}</h1>
+        </div>
+        <input class="inputBox" type="text">
+
+        <div class="inputTitlesHolder">
+          <h1 class="inputTitle">Baths</h1>
+          <h1 class="currentInfo">{Current Value}</h1>
+        </div>
+        <input class="inputBox" type="text">
+
+        <div class="inputTitlesHolder">
+          <h1 class="inputTitle">Wifi Name</h1>
+          <h1 class="currentInfo">{Current Value}</h1>
+        </div>
+        <input class="inputBox" type="text">
+
+        <div class="inputTitlesHolder">
+          <h1 class="inputTitle">Wifi Password</h1>
+          <h1 class="currentInfo">{Current Value}</h1>
+        </div>
+        <input class="inputBox" type="text">
+
       </div>
       <div class="centerBar"></div>
       <div class="content contentRight">
-        <!-- this is where we start putting inputs right side -->
         <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Input Title:</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
-        <!-- new input -->
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Input Title:</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
-        <!-- new input -->
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Input Title:</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
-        <!-- this is where we end putting inputs right side -->
+                  <h1 class="inputTitle">State</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+                <input class="inputBox" type="text">
+                <!-- new input -->
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Zipcode</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+                <input class="inputBox" type="text">
+                <!-- new input -->
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">City</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+                  <select class='inputBox' name="city" >
+                    <option value="volvo">city1</option>
+                    <option value="saab">city2</option>
+                  </select>
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Bedrooms</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+                <input class="inputBox" type="text">
+
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Trash Day</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+                <input class="inputBox" type="date">
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Parking Space</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+                <input class="inputBox" type="text">
+
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Housing Gender</h1>
+                  <h1 class="currentInfo">{Current Value}</h1>
+                </div>
+
+                <div id="optionBox">
+                  <div id="checkoutBox">
+                    <input class="checkbox" type="checkbox" ng-checked='femaleOnly' value=''>
+                    <p class='checkboxName'>Female only</p>
+                  </div>
+                  <div id="checkoutBox">
+                    <input class="checkbox" type="checkbox" ng-checked='maleOnly' value=''>
+                    <p class='checkboxName'>Male only</p>
+                  </div>
+                </div>
+
+
       </div>
     </section>
     <section class="btnHolder">
