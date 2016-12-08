@@ -20,7 +20,7 @@ angular.module("housinghelper").service("servReqServ", function($http) {
   this.submitSR = function(sr) {
     return $http({
       method: 'POST',
-      url: "/api/serviceRequests",
+      url: "/api/request",
       data: sr
     }).then(function(response) {
       return response;

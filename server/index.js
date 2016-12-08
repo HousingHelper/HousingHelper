@@ -27,7 +27,7 @@ var db = app.get('db')
 // CONTROLLERS //
 var adminCtrl = require('./controllers/adminCtrl')
 var userCtrl = require('./controllers/userCtrl')
-var serviceRequestsCtrl = require('./controllers/serviceRequestsCtrl')
+var serviceRequestsCtrl = require('./controllers/serviceReqCtrl')
 var renterCtrl = require('./controllers/renterCtrl')
 
 // SERVICES //
@@ -139,7 +139,7 @@ app.post('/api/serviceRequests', isAuthed, renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 app.post('/api/renter',isAuthed, renterCtrl.createRenter)
-
+app.post('/api/request', renterCtrl.makeServiceRequest);
 
 
 // LISTEN //
