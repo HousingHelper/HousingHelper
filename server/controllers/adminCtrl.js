@@ -92,22 +92,22 @@ module.exports = {
     //     }
     // },
 
-getAllLocations: function (req, res, next) {
-  admin = req.user[0]
-  if(admin.issuperuser){
-    console.log("upper");
-    db.get_all_locations([admin.orgid], function (err, locations) {
-      console.log("locations: ", locations);
-      if (err){
-          res.send("error: ", err)
-        }
-          res.status(200).json(locations)
-        })
-  } else if (admin.isadmin) {
-    console.log('Lower');
-    db.get_all_locations_by_user([admin.citiesid, admin.orgid], function (err, locations) {
-      console.log("locations: ", locations);
-      if (err){
+  getAllLocations: function (req, res, next) {
+    admin = req.user[0]
+    if(admin.issuperuser){
+      console.log("upper");
+      db.get_all_locations([admin.orgid], function (err, locations) {
+        console.log("locations: ", locations);
+        if (err){
+            res.send("error: ", err)
+          }
+            res.status(200).json(locations)
+          })
+    } else if (admin.isadmin) {
+      console.log('Lower');
+      db.get_all_locations_by_user([admin.citiesid, admin.orgid], function (err, locations) {
+        console.log("locations: ", locations);
+        if (err){
           res.send("error: ", err)
         }
           res.status(200).json(locations)
@@ -152,13 +152,6 @@ getAllLocations: function (req, res, next) {
   //     res.status(200).json(groups)
   //   })
   // },
-
-  getAllServiceRequests: function (req, res) {
-    var admin = req.user[0]
-    db.get_all_serv_reqs([admin.id], function (err, servReqs) {
-      res.status(200).json(servReqs)
-    })
-  },
 
   getAllUsers: function(req, res) {
     var admin = req.user[0]
@@ -260,7 +253,7 @@ getAllLocations: function (req, res, next) {
 
     createGroup: function(req, res) {
       var admin = req.user[0]
-        db.create_group([req.body.title, req.body.startDate, req.body.endDate, req.body.checkInDate, req.body.checkOutDate, admin.orgid, req.body.citiesid], function(err, faq) {
+        db.create_group([req.body.title, req.body.startdate, req.body.enddate, req.body.checkindate, req.body.checkoutdate, admin.orgid, req.body.citiesid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }

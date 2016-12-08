@@ -9,20 +9,20 @@
       <div class="loginTitle">
         <h1>Create New Group</h1>
       </div>
-      <form ng-submit='login(###)' class="loginInputs">
+      <form ng-submit='' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Group Title</h1>
           <input ng-model='group.title'class="lBoxes" type="text" placeholder="Enter a group's title">
           <h1 class="formTxt">Start date</h1>
-          <input ng-model='group.startdate' class="lBoxes" type="text" placeholder="Enter start date">
+          <input ng-model='group.startdate' class="lBoxes" type="text" placeholder="YYYY-MM-DD">
 
           <h1 class="formTxt">End date</h1>
-          <input ng-model='group.enddate'class="lBoxes" type="text" placeholder="Enter end date">
+          <input ng-model='group.enddate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
           <h1 class="formTxt">Check-In Date</h1>
-          <input ng-model='group.checkindate'class="lBoxes" type="text" placeholder="Enter check-in date">
+          <input ng-model='group.checkindate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
           <h1 class="formTxt">Check-Out Date</h1>
-          <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="Enter check-out date">
-          <!-- <h1 class="formTxt">Choose City</h1> -->
+          <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
+          <h1 class="formTxt">Choose City</h1>
           <select ng-model='group.citiesid' ng-options="location.id as location.city for location in locations" required>
             <option value="">Choose City</option>
           </select>
@@ -50,61 +50,58 @@
         </div>
 
         <div class="dataHolder">
-          <!-- the ng-repeat for locations will go in the spot below -->
-          <div class="grpupLocationNGR" >
+          <!-- ((((((((((((((((the ng-repeat goes in showGroupData)))))))))))))))) -->
+          <div class="grpupLocationNGR" ng-repeat='location in locations | unique: "location.city"'>
             <div class="groupTitle">
-              <h1>{group.title}</h1>
+              <h1>{{location.city}}</h1>
             </div>
-            <!-- ((((((((((((((((the ng-repeat goes in showGroupData)))))))))))))))) -->
-            <section class="showGroupData">
-              <h1 class="groupTitle">{DM-14}</h1>
-              <div class="groupDataHolder">
-                <div class="groupBtnHolder">
-                  <div id="delete" class="dataGroupBtns">
-                    <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
-                  </div>
-                  <div id="edit" class="dataGroupBtns">
-                    <h1 class="btnTxt">edit group</h1>
-                  </div>
+          <section ng-repeat="group in groups | filter: {citiesid: location.id}" class="showGroupData">
+            <h1 class="groupTitle">{{group.title}}</h1>
+            <div class="groupDataHolder">
+              <div class="groupBtnHolder">
+                <div id="delete" class="dataGroupBtns">
+                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
                 </div>
-                <div class="mainGroupData">
-                  <section class="subTitleHolder">
-                    <div class="groupInfo nameBig">
-                      <h1 class="baseTxt titleTxt">First</h1>
-                    </div>
-                    <div class="groupInfo nameBig">
-                      <h1 class="baseTxt titleTxt">Last</h1>
-                    </div>
-                    <div class="groupInfo">
-                      <h1 class="baseTxt titleTxt">Apartment</h1>
-                    </div>
-                  </section>
-                  <!-- ((((((((((((the ng-repeat goes in groupMemberNGR)))))))))))) -->
-                  <section class="groupMemberNGR">
-                    <div class="groupInfo nameBig">
-                      <h1 class="baseTxt memberTxt">{brooklyn}</h1>
-                    </div>
-                    <div class="groupInfo nameBig">
-                      <h1 class="baseTxt memberTxt">{schmidt}</h1>
-                    </div>
-                    <div class="groupInfo">
-                      <h1 class="baseTxt memberTxt">{201}</h1>
-                    </div>
-                  </section>
-
+                <div id="edit" class="dataGroupBtns">
+                  <h1 class="btnTxt">edit group</h1>
                 </div>
               </div>
-            </section>
-            <!-- (((((((((((((test data is being entered below))))))))))))) -->
-
-
-
-            <!-- (((((((((((((test data is being entered above))))))))))))) -->
-          </div>
-          <!-- *************** -->
-
+              <div class="mainGroupData">
+                <section class="subTitleHolder">
+                  <div class="groupInfo">
+                    <h1 class="baseTxt titleTxt">First</h1>
+                  </div>
+                  <div class="groupInfo">
+                    <h1 class="baseTxt titleTxt">Last</h1>
+                  </div>
+                  <div class="groupInfo">
+                    <h1 class="baseTxt titleTxt">Apt Name</h1>
+                  </div>
+                  <div class="groupInfo">
+                    <h1 class="baseTxt titleTxt">Apt Num</h1>
+                  </div>
+                </section>
+                <!-- ((((((((((((the ng-repeat goes in groupMemberNGR)))))))))))) -->
+                <section class="groupMemberNGR" ng-repeat="member in users | filter: {groupid: group.id}">
+                  <div class="groupInfo">
+                    <h1 class="baseTxt memberTxt">{{member.firstname}}</h1>
+                  </div>
+                  <div class="groupInfo">
+                    <h1 class="baseTxt memberTxt">{{member.lastname}}</h1>
+                  </div>
+                  <div class="groupInfo">
+                    <h1 class="baseTxt memberTxt">{{member.title}} </h1>
+                  </div>
+                  <div class="groupInfo">
+                    <h1 class="baseTxt memberTxt">{{member.apt_num}}</h1>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
+    </section>
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
     </div>
   </div>

@@ -80,8 +80,11 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       templateUrl: './app/views/serviceRequests/serviceRequests.html',
       controller: 'serviceRequestsCtrl'
       , resolve: {
-        servreqs: function(adminMainServ) {
-          return adminMainServ.getAllServReqs();
+        servreqs: function(servReqServ) {
+          return servReqServ.getServReqs();
+        },
+        notes: function(servReqServ) {
+          return servReqServ.getServReqsNotes();
         }
       }
     })
