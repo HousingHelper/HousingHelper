@@ -3,6 +3,8 @@ var db = app.get('db')
 
 module.exports = {
 
+// ____________________ GET (READ)_______________________________//
+
     getAllApartments: function(req, res) {
         var admin = req.user
         db.get_all_admin_apts([admin.id], function(err, response) {
@@ -155,21 +157,6 @@ module.exports = {
     })
   },
 
-  getSuperUserInfo: function (req, res, next) {
-    var superuser = req.user[0]
-    db.get_all_superuser_apts([superuser.id], function (err, apts) {
-      // console.log('server: ', apts);
-      res.status(200).send(apts)
-    })
-  },
-
-  getAdminInfo: function (req, res, next) {
-    var admin = req.user
-    db.get_all_admin_apts([admin.id], function (err, apts) {
-      res.status(200).send(apts)
-    })
-  },
-
   getAllApartmentsWithRenters: function (req, res, next) {
     // var admin = req.user
     db.please_work([86], function (err, renters) {
@@ -235,6 +222,27 @@ module.exports = {
         })
     },
 
+    getSuperUserInfo: function(req, res, next) {
+        var superuser = req.user[0]
+        db.get_all_superuser_apts([superuser.orgid], function(err, apts) {
+            res.status(200).send(apts)
+        })
+    },
+
+    getAdminInfo: function(req, res, next) {
+        var admin = req.user
+        db.get_all_admin_apts([admin.id], function(err, apts) {
+            res.status(200).send(apts)
+        })
+    },
+
+    getAptsByAptId: function(req, res, next) {
+        var admin = req.user
+        db.get_all_apts_by_aptid([admin.id])
+    },
+
+// ____________________ POST (CREATE)_______________________________//
+
     createFaq: function(req, res) {
       var admin = req.user
         db.create_faq([req.body.question,req.body.answer, admin.orgid,admin.aptid], function(err, faq) {
@@ -255,25 +263,6 @@ module.exports = {
         });
     },
 
-    getSuperUserInfo: function(req, res, next) {
-        var superuser = req.user[0]
-        db.get_all_superuser_apts([superuser.orgid], function(err, apts) {
-            res.status(200).send(apts)
-        })
-    },
-
-    getAdminInfo: function(req, res, next) {
-        var admin = req.user
-        db.get_all_admin_apts([admin.id], function(err, apts) {
-            res.status(200).send(apts)
-        })
-    },
-
-    getAptsByAptId: function(req, res, next) {
-        var admin = req.user
-        db.get_all_apts_by_aptid([admin.id])
-    },
-
     createApt: function(req,res,next){
       // console.log('REQ.BODY: ', req.body);
       var user = req.user;
@@ -288,6 +277,14 @@ module.exports = {
           res.status(200).send(apt)
       })
     },
+
+    createLocation: function (req, res, next) {
+
+    },
+
+
+// ____________________ PUT (UPDATE) _______________________________//
+
     updatefaq: function(req, res, next){
       var update = req.body;
        var key={};
@@ -347,5 +344,10 @@ module.exports = {
         })
       }
     }
+
+
+// ____________________ DELETE _______________________________//
+
+
 
 }
