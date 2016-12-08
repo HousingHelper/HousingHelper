@@ -83,7 +83,7 @@ app.get('/api/logout', function(req, res, next) {
 
 
 // ENDPOINTS //
-//// GET ////
+      //// GET ////
 app.get('/api/me', isAuthed, userCtrl.me);
   // FAQ //
 app.get('/api/faq',adminCtrl.getAllFaqs)
@@ -115,9 +115,12 @@ app.get('/servreqnotes', serviceRequestsCtrl.getAllNotesForServReqs)
   // USERS //
 app.get('/allusers', adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', adminCtrl.getAllGroupsByLoggedInUser)
+app.get('/api/rooms', adminCtrl.getAllRoomsByLoggedInUser)
 
 
-// PUT //
+
+
+        //// PUT ////
 
 app.put('/api/putfaq', adminCtrl.updatefaq)
 app.put('/api/putuser', renterCtrl.updateUser)
@@ -125,12 +128,16 @@ app.put('/api/groups', adminCtrl.updategroups)
 app.put('/api/servRequest', renterCtrl.updateServRequest)
 app.put('/api/apartments', adminCtrl.updateApartment)
 
-// POST //
+        //// POST ////
 app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
 app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
-app.post('/api/apartments', adminCtrl.createApt)
+app.post('/api/apartments', isAuthed, adminCtrl.createApt)
+app.post('/api/renter',isAuthed, renterCtrl.createRenter)
+
+
+
 // LISTEN //
 var port = config.PORT
 app.listen(port, function() {
