@@ -3,6 +3,8 @@ var db = app.get('db')
 
 module.exports = {
 
+// ____________________ GET (READ)_______________________________//
+
     getAllApartments: function(req, res) {
         var admin = req.user[0]
         db.get_all_admin_apts([admin.id], function(err, response) {
@@ -241,6 +243,27 @@ module.exports = {
         })
     },
 
+    getSuperUserInfo: function(req, res, next) {
+        var superuser = req.user[0]
+        db.get_all_superuser_apts([superuser.orgid], function(err, apts) {
+            res.status(200).send(apts)
+        })
+    },
+
+    getAdminInfo: function(req, res, next) {
+        var admin = req.user[0]
+        db.get_all_admin_apts([admin.id], function(err, apts) {
+            res.status(200).send(apts)
+        })
+    },
+
+    getAptsByAptId: function(req, res, next) {
+        var admin = req.user[0]
+        db.get_all_apts_by_aptid([admin.id])
+    },
+
+// ____________________ POST (CREATE)_______________________________//
+
     createFaq: function(req, res) {
       var admin = req.user[0]
         db.create_faq([req.body.question,req.body.answer, admin.orgid,admin.aptid], function(err, faq) {
@@ -261,24 +284,7 @@ module.exports = {
         });
     },
 
-    getSuperUserInfo: function(req, res, next) {
-        var superuser = req.user[0]
-        db.get_all_superuser_apts([superuser.orgid], function(err, apts) {
-            res.status(200).send(apts)
-        })
-    },
 
-    getAdminInfo: function(req, res, next) {
-        var admin = req.user[0]
-        db.get_all_admin_apts([admin.id], function(err, apts) {
-            res.status(200).send(apts)
-        })
-    },
-
-    getAptsByAptId: function(req, res, next) {
-        var admin = req.user[0]
-        db.get_all_apts_by_aptid([admin.id])
-    },
     createApt: function(req,res,next){
       var user = req.user[0];
 
@@ -290,6 +296,14 @@ module.exports = {
           res.status(200).json(err)
       })
     },
+
+    createLocation: function (req, res, next) {
+      
+    },
+
+
+// ____________________ PUT (UPDATE) _______________________________//
+
     updatefaq: function(req, res, next){
       var update = req.body;
        var key={};
@@ -329,5 +343,10 @@ module.exports = {
         res.status(200).json(faq);
       });
     }
+
+
+// ____________________ DELETE _______________________________//
+
+
 
 }

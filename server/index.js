@@ -131,6 +131,7 @@ app.post('/api/createfaq', isAuthed, adminCtrl.createFaq)
 app.post('/api/creategroup', isAuthed, adminCtrl.createGroup)
 app.post('/api/serviceRequests', isAuthed, renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
+app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 
 
 // LISTEN //

@@ -13,6 +13,15 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, adm
   // FUNCTIONS
   // ============================================================
 
+  $scope.createLocation = function (location) {
+    adminMainServ.createLocation(location)
+    .then(function(response) {
+      alert('New Location Successfully Added!')
+    }).catch(function(err) {
+      console.log('ctrl err: ', err);
+    });
+  }
+
   // $scope.renters = function () {
   //   return apartmentsServ.getAllApartmentsWithRenters()
   //   .then(function(response) {

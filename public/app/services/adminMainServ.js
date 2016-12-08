@@ -3,6 +3,10 @@
 angular.module("housinghelper").service("adminMainServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
+
+
+
+        //// GET REQUESTS ////
   this.getInfoByAdmin = function() {
     return $http({
       method: 'GET',
@@ -80,6 +84,9 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
+
+        //// POST REQUESTS ////
+
   this.submitGroup = function(group) {
     return $http({
       method: 'POST',
@@ -89,6 +96,16 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       return response;
     });
   };
+
+  this.createLocation = function (locations) {
+    return $http({
+      method: 'POST',
+      url: '/api/createlocation',
+      data: location
+    }).then(function(response) {
+      return response
+    });
+  }
   // this.editCollection = function(id, collection) {
   //   return $http({
   //     method: 'PUT',
