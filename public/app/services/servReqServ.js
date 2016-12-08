@@ -17,15 +17,15 @@ angular.module("housinghelper").service("servReqServ", function($http) {
     })
   };
 
-  // this.editCollection = function(id, collection) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: "/collection/" + id,
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.submitSR = function(sr) {
+    return $http({
+      method: 'POST',
+      url: "/api/serviceRequests",
+      data: sr
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.deleteCollection = function(id) {
   //   return $http({
   //     method: 'DELETE',
