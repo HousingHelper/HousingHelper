@@ -27,7 +27,7 @@ var db = app.get('db')
 // CONTROLLERS //
 var adminCtrl = require('./controllers/adminCtrl')
 var userCtrl = require('./controllers/userCtrl')
-var serviceRequestsCtrl = require('./controllers/serviceRequestsCtrl')
+var serviceRequestsCtrl = require('./controllers/serviceReqCtrl')
 var renterCtrl = require('./controllers/renterCtrl')
 
 // SERVICES //
@@ -130,6 +130,10 @@ app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', adminCtrl.createFaq)
 app.post('/api/creategroup', adminCtrl.createGroup)
 app.post('/api/serviceRequests', renterCtrl.CreateServiceRequest)
+
+//ADDING STUFF
+app.post('/api/request', renterCtrl.makeServiceRequest);
+
 app.post('/api/apartments', adminCtrl.createApt)
 // LISTEN //
 var port = config.PORT

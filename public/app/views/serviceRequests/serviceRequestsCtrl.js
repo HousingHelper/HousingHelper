@@ -1,15 +1,23 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs, notes, servReqServ) {
+angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs, notes, users, servReqServ) {
   $( "#Create" ).hide();
   // VARIABLES
   // ============================================================
-  $scope.servreqs = servreqs.data
-  $scope.notes = notes.data
+  $scope.servreqs = servreqs.data;
+  $scope.notes = notes.data;
+  $scope.users = users.data;
+  $scope.newSr;
+  $scope.selectedUser;
 
   // FUNCTIONS
   // ============================================================
   $scope.submitServReq = function(sr) {
+    console.log('sr: ', sr);
+    sr.citiesid = $scope.selectedUser.citiesid;
+    sr.aptid = $scope.selectedUser.aptid;
+    sr.renterid = $scope.selectedUser.id;
+    console.log('newsr: ', $scope.newSr);
     servReqServ.submitSR(sr)
   }
 
@@ -22,16 +30,13 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
       $(".addBtnHolder").css({"margin-top":"-35px"});
     }
   });
-  // this is the function for the add button model fade
-  $(function() {
-    $( "#Create" ).hide();
-    $("#addData").click(function() {
-      $( "#Create" ).fadeIn( "slow" );
-    });
-    $("#cancelBtn").click(function() {
-      $( "#Create" ).fadeOut( "slow" );
-    });
 
-    return false;
-    });
+    $scope.addDataClick = function () {
+      $( "#Create" ).fadeIn( "slow" );
+    }
+    $scope.cancelBtnClick = function() {
+      $( "#Create" ).fadeOut( "slow" );
+    };
+
+
 });
