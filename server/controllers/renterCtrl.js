@@ -11,6 +11,8 @@ function hashPassword(password) {
 
 module.exports = {
 
+//_________________GET (READ) ________________________
+
   getRenterAccById: function (req, res) {
     var user = req.user;
 
@@ -34,6 +36,8 @@ module.exports = {
     })
   },
 
+	//_________________POST (CREATE) ________________________
+
   CreateServiceRequest: function(req, res, next ){
     var user = req.user;
     var currenttime = new Date().toLocaleDateString();
@@ -43,32 +47,8 @@ module.exports = {
         res.status(200).json(err)
     })
   },
-  updateUser : function(req,res,next){
-    var update = req.body;
-    var key={};
-   key.id =  update.id;
-    db.users.save(key,update, function(err, faq){
-      if (err){
-        console.log("createapt error",err);
-        return res.status(401).send(err);
-      }
-      res.status(200).json(faq);
-    });
-  },
-  updateServRequest: function(req, res , next){
-    var update = req.body;
-    var key={};
-   key.id =  update.id;
-    db.servreqs.save(key,update, function(err, faq){
-      if (err){
-        console.log("createapt error",err);
-        return res.status(401).send(err);
-      }
-      res.status(200).json(faq);
-    });
-  },
 
-  createRenter: function (req, res, next) {
+	createRenter: function (req, res, next) {
     var renter = req.body
     var admin = req.user;
     renter.password = hashPassword(renter.password)
@@ -84,7 +64,58 @@ module.exports = {
         delete response.password
         res.status(200).json(response);
       })
-  }
+  },
+
+	//_________________PUT (UPDATE) ________________________
+
+  updateUser : function(req,res,next){
+    var update = req.body;
+    var key={};
+   key.id =  update.id;
+    db.users.save(key,update, function(err, faq){
+      if (err){
+        console.log("createapt error",err);
+        return res.status(401).send(err);
+      }
+      res.status(200).json(faq);
+    });
+  },
+
+  updateServRequest: function(req, res , next){
+    var update = req.body;
+    var key={};
+   key.id =  update.id;
+    db.servreqs.save(key,update, function(err, faq){
+      if (err){
+        console.log("createapt error",err);
+        return res.status(401).send(err);
+      }
+      res.status(200).json(faq);
+    });
+  },
+
+	updateUserAccountInfo: function (req, res, next) {
+	  var update = req.body
+		var user = req.user
+		db.update_user_account_info([update.email, update.phone, update.carmake, update.carmodel, user.id], function (err, result) {
+		  if (err) {
+		  	console.log(err);
+		  }
+			res.status(200).send('User Account Information Successfully Updated!')
+		})
+	},
+
+	updateUserPassword: function (req, res, next) {
+	  var update = req.body
+		var user = req.user
+		update.password = hashPassword(update.password)
+		db.update_user_password([update.password, user.id], function (err, result) {
+			if (err) console.log(err);
+			res.status(200).send('User Password Successfully Updated!')
+		})
+	}
+
+
 
 
 }

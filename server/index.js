@@ -126,6 +126,8 @@ app.put('/api/putuser', isAuthed, renterCtrl.updateUser)
 app.put('/api/groups', isAuthed, adminCtrl.updategroups)
 app.put('/api/servRequest', isAuthed, renterCtrl.updateServRequest)
 app.put('/api/apartments', isAuthed, adminCtrl.updateApartment)
+app.put('/api/updateUserAccountInfo', isAuthed, renterCtrl.updateUserAccountInfo)
+app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)
 
 
         //// POST ////
