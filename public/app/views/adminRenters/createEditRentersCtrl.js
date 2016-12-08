@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, users, groups, rooms, renterServ) {
+angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, $state, users, groups, rooms, renterServ) {
   // VARIABLES
   // ============================================================
 
@@ -9,12 +9,16 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   $scope.users = users.data
   $scope.groups = groups.data
   $scope.rooms = rooms.data
-  console.log("rooms: ", $scope.rooms);
+  // console.log('rooms', $scope.rooms);
 
   // FUNCTIONS
   // ============================================================
 
   $scope.createRenter = function (renter) {
+    // renter.aptid = renter.aptid.aptid
+    // renter.roomid = renter.roomid.apartmentsid
+    // console.log('renter: ', renter);
+    console.log('ctrl renter: ', renter)
     renterServ.createRenter(renter)
     .then(function(response) {
       $state.go('adminRenters')

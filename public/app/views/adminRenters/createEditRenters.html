@@ -33,9 +33,21 @@
           <h1 class="formTxt">HomeTown</h1>
           <input ng-model='renter.hometown' class="lBoxes" type="text" placeholder="Enter Renter's Hometown">
           <h1 class="formTxt">Private Room?</h1>
-          <section>
             <input ng-model='renter.private_room' type="checkbox">
-          </section>
+
+          <h1 class="formTxt">Assign Renter Room?</h1><input type="checkbox" ng-model="checked"><br/>
+          <div>
+            <div ng-show="checked">
+              <h1 class="formTxt">Apartment Name</h1>
+              <select ng-model='renter.aptid' ng-options='room.title for room in rooms | unique: "title"' required>
+                <option >-- Choose Apartment --</option>
+              </select>
+              <select ng-model='renter.roomid' ng-options='room.apt_num for room in rooms |filter: {id :renter.aptid.id} | unique: "apt_num"' required>
+                <option >-- Choose Room --</option>
+              </select>
+
+            </div>
+          </div>
             <h1 class="formTxt">Enter Renter's Car Information?</h1><input type="checkbox" ng-model="checked"><br/>
             <div>
               <div ng-show="checked">

@@ -282,7 +282,7 @@ module.exports = {
     },
 
     createApt: function(req,res,next){
-      console.log('REQ.BODY: ', req.body);
+      // console.log('REQ.BODY: ', req.body);
       var user = req.user[0];
       db.create_apt([req.body.title, req.body.apt_num, req.body.address, req.body.city,
         req.body.state, req.body.zipcode, /*req.body.female_only_housing, req.body.male_only_housing, req.body.squareft

@@ -12,7 +12,7 @@ function hashPassword(password) {
 module.exports = {
 
   getRenterAccById: function (req, res) {
-    var user = req.user[0]
+    var user = req.user[0];
 
     db.get_one_renter([user.id], function(err, account) {
       res.status(200).json(account)
@@ -70,19 +70,21 @@ module.exports = {
 
   createRenter: function (res, req, next) {
     var renter = req.body
-    var user = req.user[0]
+    console.log('renter: ', renter);
+    console.log(req.user);
+    var user = req.user[0];
     renter.password = hashPassword(renter.password)
 
     db.create_renter([renter.email, renter.password, renter,firstname, renter.lastname, renter.dob,
-      renter.gender, renter.phone, renter.hometown, renter.private_room, renter.carmake, renter.carmodel,
-      renter.caryear, renter.leasestart, renter.leaseed, renter.rentamt, renter.checkintime, renter.checkouttime,
-      renter.aptid, renter.roomid, user.orgid], function (err, result) {
+      renter.gender, renter.phone, renter.hometown, renter.private_room, renter.aptid, renter.roomid, renter.carmake,
+      renter.carmodel, renter.caryear, renter.leasestart, renter.leaseed, renter.rentamt, renter.checkintime,
+      renter.checkouttime, false, false, user.orgid, user.citiesid], function (err, response) {
         if (err){
           console.log("createRenter error",err);
           return res.status(401).send(err);
         }
         delete result.password
-        res.status(200).json(result);
+        res.status(200).json(response);
       })
   }
 

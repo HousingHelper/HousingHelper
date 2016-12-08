@@ -43,11 +43,13 @@ angular.module("housinghelper").service("renterServ", function($http) {
   this.createRenter = function (renter) {
     return $http({
       method: 'POST',
-      url:'/api/apartments',
+      url:'/api/renter',
       data: renter
     })
     .then(function(response) {
-      alert('Apartment Successfully Created!')
+      alert('Renter Successfully Created!')
+    }).catch(function(err) {
+      console.log('serv error: ', err);
     });
   }
 

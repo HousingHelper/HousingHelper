@@ -1,4 +1,4 @@
-insert into renters
+insert into users
   (
     email,
     password,
@@ -9,6 +9,8 @@ insert into renters
     phone,
     hometown,
     private_room,
+    aptid,
+    roomid,
     carmake,
     carmodel,
     caryear,
@@ -19,9 +21,10 @@ insert into renters
     -- monthpaid,
     checkintime,
     checkouttime,
-    -- aptid,
-    -- roomid,
-    groupid
+    isadmin,
+    issuperuser,
+    orgid,
+    citiesid
   )
-  values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
-  -- , $20, $21
+  values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23)
+  -- , $24, $25
