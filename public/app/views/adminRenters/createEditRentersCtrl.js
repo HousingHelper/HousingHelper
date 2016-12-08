@@ -15,10 +15,10 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   // ============================================================
 
   $scope.createRenter = function (renter) {
-    // renter.aptid = renter.aptid.aptid
+    // renter.aptid = renter.aptid.id
     // renter.roomid = renter.roomid.apartmentsid
-    // console.log('renter: ', renter);
-    console.log('ctrl renter: ', renter)
+    console.log('renter: ', renter);
+    // console.log('ctrl renter: ', renter)
     renterServ.createRenter(renter)
     .then(function(response) {
       $state.go('adminRenters')

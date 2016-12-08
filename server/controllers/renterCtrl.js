@@ -71,14 +71,14 @@ module.exports = {
   createRenter: function (res, req, next) {
     var renter = req.body
     console.log('renter: ', renter);
-    console.log(req.user);
-    var user = req.user[0];
+    var admin = req.user[0];
+    console.log('admin:, ', admin);
     renter.password = hashPassword(renter.password)
 
     db.create_renter([renter.email, renter.password, renter,firstname, renter.lastname, renter.dob,
       renter.gender, renter.phone, renter.hometown, renter.private_room, renter.aptid, renter.roomid, renter.carmake,
       renter.carmodel, renter.caryear, renter.leasestart, renter.leaseed, renter.rentamt, renter.checkintime,
-      renter.checkouttime, false, false, user.orgid, user.citiesid], function (err, response) {
+      renter.checkouttime, false, false, admin.orgid, admin.citiesid], function (err, response) {
         if (err){
           console.log("createRenter error",err);
           return res.status(401).send(err);

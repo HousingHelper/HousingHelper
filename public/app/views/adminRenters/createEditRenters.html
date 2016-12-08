@@ -22,12 +22,14 @@
           <input ng-model='renter.lastname'class="lBoxes" type="text" placeholder="Enter Renter's Last Name" require>
           <h1 class="formTxt">Birth Day</h1>
           <input ng-model='renter.dob'class="lBoxes" type="date">
-          <h1 class="formTxt">Gender</h1>
+          <!-- <h1 class="formTxt">Gender</h1>
             <section ng-model='renter.gender'>
               <input  type="radio" name="gender" value="male" checked>Male
               <input  type="radio" name="gender" value="female">Female
               <input  type="radio" name="gender" value="other">Other
-            </section>
+            </section> -->
+            <h1 class="formTxt">Gender</h1>
+            <input ng-model='renter.gender'class="lBoxes" type="text" placeholder="Enter Renter's Gender">
           <h1 class="formTxt">Phone</h1>
           <input ng-model='renter.phone'class="lBoxes" type="text" placeholder="Enter Renter's Phone Number">
           <h1 class="formTxt">HomeTown</h1>
@@ -40,10 +42,10 @@
             <div ng-show="checked">
               <h1 class="formTxt">Apartment Name</h1>
               <select ng-model='renter.aptid' ng-options='room.title for room in rooms | unique: "title"' required>
-                <option >-- Choose Apartment --</option>
+                <option > Choose Apartment </option>
               </select>
               <select ng-model='renter.roomid' ng-options='room.apt_num for room in rooms |filter: {id :renter.aptid.id} | unique: "apt_num"' required>
-                <option >-- Choose Room --</option>
+                <option > Choose Room </option>
               </select>
 
             </div>
