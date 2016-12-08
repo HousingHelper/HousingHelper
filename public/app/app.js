@@ -197,7 +197,42 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         }
       }
     })
-
+    //Update All~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .state('update', {
+      templateUrl: './app/views/updateAll/updateView.html',
+      controller: 'updateAll',
+      url: '/update'
+    })
+    //Update Appartment
+    .state('update.apt', {
+      templateUrl: './app/views/updateAll/updateApt/updateApt.html',
+      controller: 'updateApt',
+      url: '/apt'
+    })
+    //Update FAQ
+    .state('update.faq', {
+      templateUrl: './app/views/updateAll/updateFaq/updateFaq.html',
+      controller: 'updateFaq',
+      url: '/faq'
+    })
+    //Update Group
+    .state('update.group', {
+      templateUrl: './app/views/updateAll/updateGroup/updateGroup.html',
+      controller: 'updateGroup',
+      url: '/group'
+    })
+    //Update Service Request
+    .state('update.serreq', {
+      templateUrl: './app/views/updateAll/updateSerReq/updateSerReq.html',
+      controller: 'updateSerReq',
+      url: '/service'
+    })
+    //Update User
+    .state('update.user', {
+      templateUrl: './app/views/updateAll/updateUser/updateUser.html',
+      controller: 'updateUser',
+      url: '/user'
+    })
 
 
 

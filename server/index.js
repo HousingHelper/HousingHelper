@@ -112,6 +112,7 @@ app.get('/api/rooms', adminCtrl.getAllRoomsByLoggedInUser)
 // app.put('put', adminCtrl.updateFaq)
 
 
+
 app.put('/api/putfaq', adminCtrl.updatefaq)
 app.put('/api/putuser', renterCtrl.updateUser)
 app.put('/api/groups', adminCtrl.updategroups)
