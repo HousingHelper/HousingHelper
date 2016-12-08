@@ -113,13 +113,15 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     });
   };
 
-  this.createLocation = function (locations) {
+  this.createLocation = function (location) {
     return $http({
       method: 'POST',
       url: '/api/createlocation',
       data: location
     }).then(function(response) {
       return response
+    }).catch(function(err) {
+      console.log('serv: ', err);
     });
   }
 

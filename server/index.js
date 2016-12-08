@@ -91,7 +91,7 @@ app.get('/api/faq',isAuthed, adminCtrl.getAllFaqs)
   // HOME //
 app.get('/api/superuser/adminMain', isAuthed, adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', isAuthed, adminCtrl.getAdminInfo)
-// app.get('/api/adminMain/renters', adminCtrl.getAllApartmentsWithRenters)
+// app.get('/api/adminMain/renters', isAuthed, adminCtrl.getAllApartmentsWithRenters)
 app.get('/api/adminMain/apts', isAuthed, adminCtrl.getAllApartmentsByLoggedInUser)
 app.get('/api/adminMain/users', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
 app.get('/api/adminMain/locations', isAuthed, adminCtrl.getAllLocations)
@@ -126,6 +126,8 @@ app.put('/api/putuser', isAuthed, renterCtrl.updateUser)
 app.put('/api/groups', isAuthed, adminCtrl.updategroups)
 app.put('/api/servRequest', isAuthed, renterCtrl.updateServRequest)
 app.put('/api/apartments', isAuthed, adminCtrl.updateApartment)
+app.put('/api/updateUserAccountInfo', isAuthed, renterCtrl.updateUserAccountInfo)
+app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)
 
 
         //// POST ////

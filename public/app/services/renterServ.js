@@ -3,6 +3,8 @@
 angular.module("housinghelper").service("renterServ", function($http) {
   // CRUD FUNCTIONS
   // ============================================================
+
+    // GET(READ) //
   this.getRenterAccById = function() {
     return $http({
       method: 'GET',
@@ -39,7 +41,7 @@ angular.module("housinghelper").service("renterServ", function($http) {
   };
 
 
-  // CREATE //
+   // POST (CREATE) //
   this.createRenter = function (renter) {
     return $http({
       method: 'POST',
@@ -51,7 +53,32 @@ angular.module("housinghelper").service("renterServ", function($http) {
     }).catch(function(err) {
       console.log('serv error: ', err);
     });
-  }
+  };
+
+  // PUT (UPDATE) //
+    this.updateUserAccountInfo = function (userAccInfo) {
+      return $http({
+        method: 'PUT',
+        url: '/api/updateUserAccountInfo',
+        data: userAccInfo
+      }).catch(function(err) {
+        console.log('serv err: ',err);
+      });
+    };
+
+    this.updateUserPassword = function (password) {
+      return $http({
+        method: "PUT",
+        url: '/api/updateUserPassword',
+        data: {password: password}
+      })
+      .then(function(response) {
+        alert('Password successfully updated. Please Re-Login')
+      }).catch(function(err) {
+        console.log('serv err: ', err);
+      });
+
+    }
 
 
 
