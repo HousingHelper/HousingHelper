@@ -34,6 +34,9 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   // ============================================================
 
   $scope.createRenter = function (renter) {
+    if (!renter.email || !renter.password || !renter.firstname || !renter.lastname) {
+      return alert('Please Enter Email, Password, First Name and Last Name')
+    }
     if (renter.checkintime) {
         renter.checkintime = renter.checkintime.toISOString().slice(0, 19).replace('T', ' ');
     }
@@ -47,7 +50,8 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     // console.log('ctrl renter: ', renter)
     renterServ.createRenter(renter)
     .then(function(response) {
-      $state.go('adminRenters')
+      // $( "#Create" ).hide();
+      // $state.go('adminRenters')
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });

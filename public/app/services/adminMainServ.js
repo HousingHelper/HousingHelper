@@ -109,7 +109,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       url: '/api/creategroup',
       data: group
     }).then(function(response) {
-      return response;
+      alert('Created New Group Successfully!')
     });
   };
 

@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("groupListCtrl", function($scope, groups, locations, users, adminMainServ) {
+angular.module("housinghelper").controller("groupListCtrl", function($scope, $state, groups, locations, users, adminMainServ) {
   // VARIABLES
   // ============================================================
   $( "#Create" ).hide();
@@ -12,7 +12,15 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, gro
   // FUNCTIONS
   // ============================================================
   $scope.submitGroup = function(group) {
-    adminMainServ.submitGroup(group);
+    if (!group.citiesid) {
+      return alert('Please Enter City')
+      $state.go('groupList')
+    }
+    adminMainServ.submitGroup(group)
+    .then(function(response) {
+      $( "#Create" ).hide();
+      $state.go('groupList')
+    });
   };
 
   // this is scrolling the add button
