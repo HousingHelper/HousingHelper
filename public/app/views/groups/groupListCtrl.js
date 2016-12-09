@@ -12,10 +12,15 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
   // FUNCTIONS
   // ============================================================
   $scope.submitGroup = function(group) {
+    if(!group.title){
+      return alert('Please Enter a Group Name')
+      $state.go('groupList')
+    }
     if (!group.citiesid) {
       return alert('Please Enter City')
       $state.go('groupList')
     }
+
     adminMainServ.submitGroup(group)
     .then(function(response) {
       $( "#Create" ).hide();

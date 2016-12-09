@@ -254,7 +254,20 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update', {
       templateUrl: './app/views/updateAll/updateView.html',
       controller: 'updateAll',
-      url: '/update'
+      url: '/update',
+      resolve:{
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        }
+      }
+
     })
     //Update Appartment
     .state('update.apt', {
