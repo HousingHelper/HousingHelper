@@ -200,6 +200,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         }
       }
     })
+    .state('adminFaq', {
+      templateUrl: './app/views/adminFaq/adminFaq.html',
+      controller: 'adminFaq',
+      url: '/adminFaq',
+      resolve:{
+        faqs :  function(faqServ) {
+          return faqServ.getFaqsById();
+        }
+      }
+    })
     // Renter STATE
     .state('renter', {
       url: '/account',
@@ -239,11 +249,6 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
           });
         }
       }
-    })
-    .state('adminFaq', {
-      templateUrl: './app/views/adminFaq/adminFaq.html',
-      controller: 'adminFaq',
-      url: '/adminFaq'
     })
     .state('soloUser', {
       templateUrl: './app/views/soloUserView/soloUserView.html',

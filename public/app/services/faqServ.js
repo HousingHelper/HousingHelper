@@ -9,15 +9,15 @@ angular.module("housinghelper").service("faqServ", function($http ) {
       url: '/api/faq'
     })
   };
-  // this.createCollection = function(collection) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/collection',
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.createFaq = function(faq) {
+    return $http({
+      method: 'POST',
+      url: '/api/createfaq',
+      data: faq
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.editCollection = function(id, collection) {
   //   return $http({
   //     method: 'PUT',
