@@ -135,11 +135,11 @@ app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)
 app.post('/api/register', isAuthed, userCtrl.register);
 app.post('/api/createfaq', isAuthed, adminCtrl.createFaq)
 app.post('/api/creategroup', isAuthed, adminCtrl.createGroup)
-app.post('/api/serviceRequests', isAuthed, renterCtrl.CreateServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 app.post('/api/renter',isAuthed, renterCtrl.createRenter)
-app.post('/api/request', renterCtrl.makeServiceRequest);
+app.post('/api/request', isAuthed, renterCtrl.makeServiceRequest);
+app.post('/api/srnote', isAuthed, serviceRequestsCtrl.createSRNote)
 
 
 // LISTEN //

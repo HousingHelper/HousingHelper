@@ -36,9 +36,15 @@ module.exports = {
         res.status(200).send(users)
       })
     }
+  },
+
+  createSRNote: function(req, res) {
+    var admin = req.user;
+    var currenttime = new Date().toLocaleDateString();
+    db.create_sr_note([req.body.note, req.body.servreqid, admin.orgid, req.body.citiesid, currenttime], function(err, response) {
+      res.status(200).send(response)
+    })
   }
-
-
 
 
 

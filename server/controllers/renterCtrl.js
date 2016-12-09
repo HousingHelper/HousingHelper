@@ -38,45 +38,15 @@ module.exports = {
 
 	//_________________POST (CREATE) ________________________
 
-  CreateServiceRequest: function(req, res, next ){
-    var user = req.user;
-    var currenttime = new Date().toLocaleDateString();
+	makeServiceRequest: function(req, res, next){
+	  var user = req.user;
+	  var currenttime = new Date().toLocaleDateString();
+	  db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid], function(err, response){
+	    console.log(response);
+	    res.status(200).send(response)
+	  })
+	},
 
-    db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid],
-      function(err, servreq) {
-        // if (err) {
-        //   res.status(500).send(err)
-        // }
-        res.status(200).send(servreq)
-    })
-  },
-
-///////ALEX MAKES STUFF
-makeServiceRequest: function(req, res, next){
-  var user = req.user[0];
-  var currenttime = new Date().toLocaleDateString();
-  // var aptid;
-  // var citiesid;
-  // var wow;
-
-  // db.get_userid_by_rentersid([req.body.renterid], function(err, response){
-  //   var cool = response[0];
-  //    aptid =  response[0].aptid;
-  //    citiesid = cool.citiesid;
-  //   // var wow = {
-  //   //   aptid: cool.aptid,
-  //   //    citiesid: cool.citiesid
-  //   // }
-  //    console.log(aptid, citiesid +
-  //     "FIRSTTTT");
-  // })
-// console.log(wow + "second wow");
-    db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid], function(err, response){
-      console.log(response);
-      res.status(200).send(response)
-    })
-  },
-////////////////
 
 	createRenter: function (req, res, next) {
     var renter = req.body

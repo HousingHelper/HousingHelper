@@ -26,6 +26,16 @@ angular.module("housinghelper").service("servReqServ", function($http) {
       return response;
     });
   };
+
+  this.submitSRNote = function(srnote) {
+    return $http({
+      method: 'POST',
+      url: '/api/srnote',
+      data: srnote
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.deleteCollection = function(id) {
   //   return $http({
   //     method: 'DELETE',
