@@ -212,6 +212,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
           }).catch(function(err) {
             $state.go('home')
           });
+        },
+        landlord: function () {
+
         }
       }
       // resolve: {
