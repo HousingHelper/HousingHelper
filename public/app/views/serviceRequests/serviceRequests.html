@@ -9,7 +9,7 @@
       <div class="loginTitle">
         <h1>Create Service Request</h1>
       </div>
-      <form ng-submit='submitServReq(newSr)' class="loginInputs">
+      <form ng-submit='submitServReq(newSr); submitSRNote(newSRNote)' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Request</h1>
           <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request"></input>
@@ -33,7 +33,7 @@
           <br>
 
           <h1 class="formTxt">Note</h1>
-          <textarea rows="8" cols="40" ng-model='srnote.note' type="text" placeholder="Add a note"></textarea>
+          <textarea rows="8" cols="40" ng-model='selectedNote' type="text" placeholder="Add a note"></textarea>
 
         </div>
         <div class="BtnHolder">
