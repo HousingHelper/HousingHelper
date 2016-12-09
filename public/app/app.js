@@ -213,12 +213,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
             $state.go('home')
           });
         },
-        admin: function(renterServ, $state) {
+        admin: function(renterServ) {
           return renterServ.getAdminByUser()
-        },
-        // apartments: function (adminMainServ) {
-        //   return renterServ.getRenterApt()
-        // }
+        }
       }
     })
 

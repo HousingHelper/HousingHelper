@@ -29,6 +29,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     adminMainServ.createLocation(location)
     .then(function(response) {
       alert('New Location Successfully Added!')
+      $state.go('adminMain')
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });

@@ -77,6 +77,18 @@ angular.module("housinghelper").service("renterServ", function($http) {
     });
   };
 
+  this.createServReq = function (sr) {
+    return $http({
+      method: 'POST',
+      url: '/api/serviceRequests',
+      data: sr
+    }).then(function(response) {
+      return response
+    }).catch(function(err) {
+      log('ser err: ', err)
+    });
+  }
+
   // PUT (UPDATE) //
     this.updateUserAccountInfo = function (userAccInfo) {
       return $http({
@@ -99,8 +111,9 @@ angular.module("housinghelper").service("renterServ", function($http) {
       }).catch(function(err) {
         console.log('serv err: ', err);
       });
+    };
 
-    }
+
 
 
 
