@@ -108,13 +108,19 @@
               <h1>{{group.title}}</h1>
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
+              <div ng-repeat='apt in apartments' ng-if="apt.id === renter.aptid" class="showData">
               <div class="mainData">
-                First name: {{renter.firstname}}
-                Last name: {{renter.lastname}}
-                DOB: {{renter.dob}}
-                Gender: {{renter.gender}}
-                Phone: {{renter.phone}}
-                Group: {{renter.groupid}}
+                Name: {{renter.firstname}} {{renter.lastname}}<br>
+                Hometown: {{renter.hometown}}<br>
+                DOB: {{renter.dob | date: 'shortDate'}}<br>
+                Gender: {{renter.gender}}<br>
+                Phone: {{renter.phone}}<br>
+                Email: {{renter.email}}<br>
+                Lease Start: {{renter.leasestart}}, End: {{renter.leaseend}}<br>
+                Apt: {{apt.title}} {{apt.apt_num}}<br>
+                Private Room? {{renter.private_room?"YES":"NO"}}<br>
+                Rent Amount: {{renter.rentamt | currency}}<br>
+                Paid? {{renter.monthpaid?"YES":"NO"}}<br>
               </div>
               <div class="btnHolder">
                 <div id="delete" class="dataBtns">
@@ -125,6 +131,7 @@
                   </a>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
