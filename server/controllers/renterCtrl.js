@@ -63,14 +63,7 @@ module.exports = {
   },
 
 
-	makeServiceRequest: function(req, res, next){
-	  var user = req.user;
-	  var currenttime = new Date().toLocaleDateString();
-	  db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid], function(err, response){
-	    console.log(response);
-	    res.status(200).send(response)
-	  })
-	},
+
 
 	createRenter: function (req, res, next) {
     var renter = req.body;

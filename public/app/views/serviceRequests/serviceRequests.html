@@ -9,7 +9,8 @@
       <div class="loginTitle">
         <h1>Create Service Request</h1>
       </div>
-      <form ng-submit='submitServReq(newSr); submitSRNote(newSRNote)' class="loginInputs">
+      <!-- <form ng-submit='submitServReq(newSr); submitSRNote(selectedNote)' class="loginInputs"> -->
+<form ng-submit='submitServReq(newSr, selectedNote)' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Request</h1>
           <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request"></input>
@@ -77,8 +78,10 @@
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
-              <div id="edit" class="dataBtns">
-                <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>r<br>e<br>q<br>u<br>e<br>s<br>t</h1></div>
+                <a ui-sref="update.serreq">
+                  <div id="edit" class="dataBtns">
+                    <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>r<br>e<br>q<br>u<br>e<br>s<br>t</h1></div>
+                </a>
             </div>
           </div>
 
