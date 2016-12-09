@@ -10,6 +10,9 @@ angular.module("housinghelper").service("loginServ", function($http) {
       data: user
     }).then(function(response) {
       return response;
+    }).catch(function(err) {
+      console.log(err);
+      alert('Login Failed. Please Try Again.')
     });
   };
   // this.logout = function() {

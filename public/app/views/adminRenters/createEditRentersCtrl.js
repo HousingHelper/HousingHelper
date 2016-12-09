@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, $state, users, groups, rooms, renterServ) {
+angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, $state, users, groups, rooms, apartments, renterServ) {
   // VARIABLES
   // ============================================================
 
@@ -9,6 +9,7 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   $scope.users = users.data
   $scope.groups = groups.data
   $scope.rooms = rooms.data
+  $scope.apartments = apartments.data
   $scope.renter = {
     email: '',
     password: '',
@@ -34,6 +35,22 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   // ============================================================
 
   $scope.createRenter = function (renter) {
+    if (!renter.email ) {
+      return alert('Please Enter Email')
+      $state.go('adminRenters')
+    }
+    if (!renter.password ) {
+      return alert('Please Enter Password')
+      $state.go('adminRenters')
+    }
+    if (!renter.firstname ) {
+      return alert('Please Enter First Name')
+      $state.go('adminRenters')
+    }
+    if (!renter.lastname ) {
+      return alert('Please Enter Last Name')
+      $state.go('adminRenters')
+    }
     if (renter.checkintime) {
         renter.checkintime = renter.checkintime.toISOString().slice(0, 19).replace('T', ' ');
     }
@@ -47,6 +64,7 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     // console.log('ctrl renter: ', renter)
     renterServ.createRenter(renter)
     .then(function(response) {
+      $( "#Create" ).hide();
       $state.go('adminRenters')
     }).catch(function(err) {
       console.log('ctrl err: ', err);

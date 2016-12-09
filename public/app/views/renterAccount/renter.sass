@@ -19,7 +19,8 @@
     justify-content: center
     align-items: center
     .updateHolder
-      width: 270px
+      width: 300px
+      padding: 10px
       // height: 280px
       opacity: 1
       background: white
@@ -28,11 +29,11 @@
       flex-direction: column
       justify-content: space-between
       align-items: center
-      margin-top: -100px
+      margin-top: -25px
       .LoggingIn
         position: fixed
         width: 270px
-        height: 280px
+        min-height: 280px
         background: white
         color: grey
         font-size: 25px
@@ -47,49 +48,50 @@
       .loginTitle
         font-size: 40px
         font-weight: bold
-        margin-top: 20px
-        color: grey
-
-      .loginInputs
-        width: 250px
+        color: #2AABE2
+      .iBoxHolder
+        margin-bottom: 10px
         display: flex
         flex-direction: column
         align-items: center
-        .iBoxHolder
-          margin-bottom: 10px
-          .formTxt
-            color: grey
-            font-size: 20px
-          .lBoxes
-            width: 225px
-            height: 30px
-            border: 2px solid #1B75BB
-            border-radius: 5px
-            margin: 10px 0 10px
-        .BtnHolder
-          width: 250px
+        .formHolder
           display: flex
-          flex-direction: row
-          justify-content: space-around
-          .lBtns
-            font-size: 20px
-            color: white
-            width: 100px
-            height: 40px
-            background: #2AABE2
-            border: 1px solid #1B75BB
-            border-radius: 5px
-            margin-bottom: 20px
+          flex-direction: column
+          align-items: center
+          .dropDown
             display: flex
+            flex-direction: row
             justify-content: center
             align-items: center
-            &:hover
-            cursor: pointer
-            background: #11a5e5
+            .editCheck
+              font-size: 16px
+      .editBoxes
+        width: 225px
+        height: 30px
+        border: 2px solid #1B75BB
+        border-radius: 5px
+      .editBtns
+        font-size: 20px
+        color: white
+        width: 175px
+        height: 30px
+        background: #2AABE2
+        border: 1px solid #1B75BB
+        border-radius: 5px
+        margin-top: 5px
+        display: flex
+        justify-content: center
+        align-items: center
+        &:hover
+        cursor: pointer
+        background: #11a5e5
+      #cancelBtn
+        width: 80px
 
     // (((((((top boxes start css)))))))
   .topBoxesCon
     width: 90%
+    max-width: 1257px
     // height: 300px
     margin: 20px 20px
     display: flex
@@ -116,7 +118,7 @@
     font-weight: bold
     color: #2AABE2
     margin-top: 10px
-    // border-bottom: 2px solid #2AABE2
+    border-bottom: 2px solid #2AABE2
     width: 95%
   .subTitle
     width: 100%
@@ -129,6 +131,7 @@
   // (((((((bottom boxes start css)))))))
   .BottomBoxes
     width: 81%
+    max-width: 1130px
     padding-bottom: 20px
     background: white
     border-radius: 10px
@@ -143,8 +146,7 @@
       // background: lightyellow
   // (((((((((this is where you edit the accountInfo)))))))))
   .accountInfo
-    height: 100%
-    border: 2px solid #2AABE2
+    height: 100
     border-radius: 10px
     padding: 5px 10px
     display: flex
@@ -180,7 +182,6 @@
   // (((((((((this is where you edit the payment)))))))))
   .payment
     padding: 5px 10px
-    border: 2px solid #2AABE2
     border-radius: 10px
     display: flex
     flex-direction: column
@@ -212,7 +213,6 @@
   // (((((((((this is where you edit the ApartmentInfo)))))))))
   .ApartmentInfo
     padding: 5px 10px
-    border: 2px solid #2AABE2
     border-radius: 10px
     display: flex
     flex-direction: row
@@ -222,25 +222,100 @@
       // background: green
       padding: 10px
       .innerDiv
-    .CenterBar
-      width: 5px
-      height: 20vh auto
-      border-radius: 5px
-      background: #2AABE2
-      margin: 15px 0px
-  h5
-    margin: 5px 0px
-    font-size: 20px
-    color: black
+    h5
+      margin: 5px 0px
+      font-size: 20px
+      color: black
+  .CenterBar
+    width: 5px
+    height: 20vh auto
+    border-radius: 5px
+    background: #2AABE2
+    margin: 15px 0px
 
   // (((((((((this is where you edit the serviceReqs)))))))))
   .serviceReqs
     padding: 5px 10px
-    border: 2px solid #2AABE2
     border-radius: 10px
-    h1
-      color: purple
+    display: flex
+    flex-direction: column
+    align-items: center
+    .addReqBtn
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+      width: 95px
+      padding: 5px
+      margin-top: 5px
+      border-radius: 5px
+      text-align: center
+      background: #2AABE2
+      border: 1px solid #1B75BB
+      color: white
+      &:hover
+        background: #11a5e5
+        cursor: pointer
+    .hideFORM
+      // background: blue
+      padding: 10px
+      width: 95%
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      .cNSRTitle
+        width: 400px
+      .formHolder
+        padding: 10px
+        // background: green
+        display: flex
+        flex-direction: row
+        justify-content: center
+        .LeftHolder
+          margin-left: 73px
+          margin-right: 40px
+          // background: yellow
+          .lBoxes
+            font-size: 16px
+            width: 225px
+            height: 30px
+            border: 2px solid #1B75BB
+            border-radius: 5px
+            padding-left: 10px
+        .CenterBar
+          margin: 12px 0px 0px 0px
+        .rightHolder
+          margin-left: 40px
+          // background: red
+          .txtArea
+            width: 300px
+            // height: 50px
+            border: 2px solid #1B75BB
+            border-radius: 5px
+            resize: none
+            font-size: 20px
+            padding: 10px
+    .serviceReqHolder
+      .subTitle
+        margin-top: 20px
+      .noteHolder
+        padding: 10px
+        // background: green
+        display: flex
+        flex-direction: row
+        justify-content: center
+        .LeftHolder
+          max-width: 400px
+          margin-right: 40px
+          p
+            font-size: 15px
+        .rightHolder
+          max-width: 400px
+          margin: 0px 40px
+          p
+            font-size: 15px
   // (((((((((this is where you edit the text for the page)))))))))
+  .postBtn
+    height: 32px
+    font-size: 17px
   .renterTxtA
     margin: 5px 0px
     font-size: 20px

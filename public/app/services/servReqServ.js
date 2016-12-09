@@ -17,15 +17,6 @@ angular.module("housinghelper").service("servReqServ", function($http) {
     })
   };
 
-  // this.submitSR = function(sr) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: "/api/request",
-  //     data: sr
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
   this.submitSR = function(sr, note) {
     return $http({
       method: 'POST',
@@ -44,20 +35,7 @@ angular.module("housinghelper").service("servReqServ", function($http) {
     });
   };
 
-// /api/fake
-  this.submitSRNote = function(a, b) {
-    console.log(a, b);
-    return $http({
-      method: 'POST',
-      url: '/api/srnote',
-      data: {
-        note: a,
-        citiesid: b
-      }
-    }).then(function(response) {
-      return response;
-    });
-  };
+
   // this.deleteCollection = function(id) {
   //   return $http({
   //     method: 'DELETE',

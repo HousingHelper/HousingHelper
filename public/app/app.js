@@ -89,6 +89,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         rooms: function (adminMainServ) {
           return adminMainServ.getAllRoomsByLoggedInUser()
         },
+        apartments: function (adminMainServ) {
+          return adminMainServ.getAllApts()
+        },
         admin: function (loginServ, $state) {
           return loginServ.getCurrentUser()
             .then(function(response) {
@@ -223,12 +226,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
             $state.go('home')
           });
         },
-        admin: function(renterServ, $state) {
+        admin: function(renterServ) {
           return renterServ.getAdminByUser()
-        },
-        // apartments: function (adminMainServ) {
-        //   return renterServ.getRenterApt()
-        // }
+        }
       }
     })
 
@@ -259,13 +259,26 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update', {
       templateUrl: './app/views/updateAll/updateView.html',
       controller: 'updateAll',
-      url: '/update'
+      url: '/update',
+      resolve:{
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        }
+      }
+
     })
-    //Update Appartment
+    //Update Apartment
     .state('update.apt', {
       templateUrl: './app/views/updateAll/updateApt/updateApt.html',
       controller: 'updateApt',
-      url: '/apt'
+      url: '/apt/:id'
     })
     //Update FAQ
     .state('update.faq', {
