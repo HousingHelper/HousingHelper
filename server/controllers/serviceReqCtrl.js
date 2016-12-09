@@ -37,14 +37,7 @@ module.exports = {
       })
     }
   },
-  makeServiceRequest: function(req, res, next){
-	  var user = req.user;
-	  var currenttime = new Date().toLocaleDateString();
-	  db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid], function(err, response){
-	    console.log(response);
-	    res.status(200).send(response)
-	  })
-	},
+
   fakeMakeSvcRq: function(req, res, next){
     var user = req.user;
     var note = req.body.note;
@@ -56,23 +49,15 @@ module.exports = {
 
       db.get_servreq_by_id([coolness[0].id], function(req, req, next){
 
-          db.create_sr_note([note, coolness[0].id, user.orgid, citiesid, currenttime], function(err, response) {
-            res.status(200).send(response)
-          })
+        db.create_sr_note([note, coolness[0].id, user.orgid, citiesid, currenttime], function(err, response) {
+          res.status(200).send(response)
+        })
       })
 
     })
-  },
-
-
-
-  createSRNote: function(req, res) {
-    var admin = req.user;
-    var currenttime = new Date().toLocaleDateString();
-    db.create_sr_note([req.body.note, req.body.servreqid, admin.orgid, req.body.citiesid, currenttime], function(err, response) {
-      res.status(200).send(response)
-    })
   }
+
+
 
 
 
