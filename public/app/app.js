@@ -89,6 +89,9 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         rooms: function (adminMainServ) {
           return adminMainServ.getAllRoomsByLoggedInUser()
         },
+        apartments: function (adminMainServ) {
+          return adminMainServ.getAllApts()
+        },
         admin: function (loginServ, $state) {
           return loginServ.getCurrentUser()
             .then(function(response) {
