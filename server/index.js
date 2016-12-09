@@ -142,7 +142,8 @@ app.post('/api/serviceRequests', isAuthed, renterCtrl.createServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 app.post('/api/renter',isAuthed, renterCtrl.createRenter)
-app.post('/api/request', renterCtrl.makeServiceRequest);
+app.post('/api/request', isAuthed, renterCtrl.makeServiceRequest);
+app.post('/api/srnote', isAuthed, serviceRequestsCtrl.createSRNote)
 
 
 // LISTEN //

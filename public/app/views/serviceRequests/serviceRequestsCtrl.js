@@ -10,15 +10,26 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
   $scope.newSr;
   $scope.selectedUser;
 
+  $scope.newSRNote;
+  $scope.selectedNote;
+
   // FUNCTIONS
   // ============================================================
   $scope.submitServReq = function(sr) {
-    console.log('sr: ', sr);
     sr.citiesid = $scope.selectedUser.citiesid;
     sr.aptid = $scope.selectedUser.aptid;
     sr.renterid = $scope.selectedUser.id;
     console.log('newsr: ', $scope.newSr);
     servReqServ.submitSR(sr)
+  }
+
+  $scope.submitSRNote = function(srnote) {
+    srnote.note = $scope.selectedNote.note
+    // srnote.servreqid = $scope.selectedNote.servreqid;
+    // srnote.citiesid = $scope.selectedUser.citiesid;
+    console.log('srnote: ', $scope.srnote);
+
+    servReqServ.submitSRNote(srnote);
   }
 
   // this is scrolling the add button
