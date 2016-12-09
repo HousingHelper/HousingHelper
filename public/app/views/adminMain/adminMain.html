@@ -18,11 +18,11 @@
           <h1 class="formTxt">Address</h1>
           <input ng-model='apt.address' class="lBoxes" type="text" placeholder="Enter Apartment Street Address" required>
           <h1 class="formTxt">City</h1>
-          <select ng-model='apt.citiesid' ng-options='location.city for location in locations' required>
+          <select class="lBoxes" ng-model='apt.citiesid' ng-options='location.city for location in locations' required>
             <option value="">-- Choose City --</option>
           </select>
           <h1 class="formTxt">State</h1>
-          <select ng-model='apt.aptstate' name="state">
+          <select class="lBoxes" ng-model='apt.aptstate' name="state">
           	<option value="AL">AL</option>
           	<option value="AK">AK</option>
           	<option value="AZ">AZ</option>
