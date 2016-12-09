@@ -20,6 +20,8 @@
     align-items: center
     // background: purple
     .inputContainer
+      padding-top: 10px
+      border-top: 2px solid #2a2a2a
       width: 100%
       display: flex
       flex-direction: row
@@ -31,26 +33,33 @@
         display: flex
         flex-direction: column
         align-items: center
-        padding: 5px
+        padding: 5px 50px
         .inputTitlesHolder
           width: 290px
           display: flex
           flex-direction: row
-          justify-content: space-between
-          .inputTitle
-            font-size: 20px
-            font-weight: bold
-            color: black
-          .currentInfo
-            font-size: 20px
-            font-weight: normal
-            color: grey
+          justify-content: flex-start
+        .inputTitle
+          text-align: center
+          margin-bottom: 10px
+          font-size: 20px
+          font-weight: bold
+          color: black
+          margin-right: 10px
+        .currentInfo
+          text-align: center
+          font-size: 15px
+          font-weight: normal
+          color: grey
+          margin-bottom: 5px
         .inputBox
           width: 290px
-          height: 30px
+          height: 60px
           border: 2px solid #1B75BB
           border-radius: 5px
           margin: 5px 0 10px
+          font-size: 16px
+          resize: none
       .contentLeft
         // background: green
       .centerBar
@@ -66,16 +75,16 @@
       width: 100%
       display: flex
       flex-direction: row
-      justify-content: space-around
+      justify-content: center
       .actionBtns
         font-size: 20px
         color: white
         width: 100px
-        height: 40px
+        height: 30px
         background: #2AABE2
         border: 1px solid #1B75BB
         border-radius: 5px
-        margin: 10px 0px 20px 0px
+        margin: 5px 20px 20px 20px
         display: flex
         justify-content: center
         align-items: center
