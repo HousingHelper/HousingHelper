@@ -24,7 +24,6 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     });
   }
 
-
   $scope.createLocation = function (location) {
     adminMainServ.createLocation(location)
     .then(function(response) {
@@ -32,6 +31,10 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });
+  }
+
+  $scope.updateApt = function(id) {
+    apartmentsServ.editApt(id)
   }
 
   // $scope.renters = function () {

@@ -259,11 +259,11 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'updateAll',
       url: '/update'
     })
-    //Update Appartment
+    //Update Apartment
     .state('update.apt', {
       templateUrl: './app/views/updateAll/updateApt/updateApt.html',
       controller: 'updateApt',
-      url: '/apt'
+      url: '/apt/:id'
     })
     //Update FAQ
     .state('update.faq', {
