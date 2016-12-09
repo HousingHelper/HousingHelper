@@ -213,31 +213,15 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
             $state.go('home')
           });
         },
-        landlord: function () {
-
-        }
+        admin: function(renterServ, $state) {
+          return renterServ.getAdminByUser()
+        },
+        // apartments: function (adminMainServ) {
+        //   return renterServ.getRenterApt()
+        // }
       }
-      // resolve: {
-      //   acc: function (renterServ, $stateParams) {
-      //     return renterServ.getRenterAccById($stateParams.id)
-      //       .then(function(response) {
-      //         return response.data;
-      //     });
-      //   },
-      //   apt: function (renterServ, $stateParams) {
-      //     return renterServ.getRenterAccAptById($stateParams.id)
-      //       .then(function(response) {
-      //         return response.data;
-      //     });
-      //   },
-      //   servReq: function (renterServ, $stateParams) {
-      //     return renterServ.getRenterServReqById($stateParams.id)
-      //       .then(function(response) {
-      //         return response.data;
-      //     });
-      //   }
-      // }
     })
+
     // User Faq page
     .state('ufaq', {
       url: '/ufaqs',

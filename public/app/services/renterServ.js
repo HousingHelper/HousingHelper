@@ -40,6 +40,28 @@ angular.module("housinghelper").service("renterServ", function($http) {
     })
   };
 
+  this.getAdminByUser = function () {
+    return $http({
+      method:'GET',
+      url: '/api/renterAccAdmin'
+    }).then(function(response) {
+      return response
+    }).catch(function(err) {
+      console.log(err);
+    });
+  };
+
+  this.getRenterApt = function () {
+    return $http({
+      method: 'GET',
+      url: '/renterAccApt'
+    }).then(function(response) {
+      return response
+    }).catch(function(err) {
+      console.log(err);
+    });
+  };
+
 
    // POST (CREATE) //
   this.createRenter = function (renter) {
