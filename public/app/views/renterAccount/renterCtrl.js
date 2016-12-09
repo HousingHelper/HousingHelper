@@ -3,7 +3,10 @@
 angular.module("housinghelper").controller("renterCtrl", function($scope, $state, user, admin, renterServ) {
   // VARIABLES
   // ============================================================
-
+    // this is add show service req vars below
+    $scope.toggle = false
+    $scope.happy = 'Add New'
+    // this is add show service req vars above
     $scope.show = true
     $scope.user = user;
     $scope.landlord = admin.data
@@ -71,7 +74,16 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     $scope.cancelBtnClick = function() {
       $( "#existingLogin" ).fadeOut( "slow" );
     };
-
+    // this is where i'm using an add show service req
+    $scope.change = function() {
+      console.log($scope.toggle);
+      if(!$scope.toggle) {
+        $scope.happy = 'Add New'
+      }
+      else{
+        $scope.happy = 'Cancel'
+      }
+    }
 
 
 });
