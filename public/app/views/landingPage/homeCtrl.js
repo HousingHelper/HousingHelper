@@ -5,6 +5,7 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
   // ============================================================
   $( "#existingLogin" ).hide();
   $( "#hideAdmin" ).hide();
+
   // FUNCTIONS
   // ============================================================
 
@@ -25,7 +26,7 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
         }
       }
       }).catch(function(err) {
-        $scope.spin = false
+        // $scope.spin = false
         console.log(err);
         $scope.user.password = "";
         alert('user could not be logged in');
