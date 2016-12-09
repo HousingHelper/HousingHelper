@@ -11,6 +11,8 @@ function hashPassword(password) {
 
 module.exports = {
 
+//_________________GET (READ) ________________________
+
   getRenterAccById: function (req, res) {
     var user = req.user;
 
@@ -34,41 +36,49 @@ module.exports = {
     })
   },
 
+	//_________________POST (CREATE) ________________________
+
   CreateServiceRequest: function(req, res, next ){
     var user = req.user;
     var currenttime = new Date().toLocaleDateString();
 
-    db.create_serviceRequest([ currenttime, req.body.request ,req.body.type,req.body.permissions,req.body.status,user.orgid, req.body.aptid ],
+    db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid],
       function(err, servreq) {
-        res.status(200).json(err)
+        // if (err) {
+        //   res.status(500).send(err)
+        // }
+        res.status(200).send(servreq)
     })
   },
-  updateUser : function(req,res,next){
-    var update = req.body;
-    var key={};
-   key.id =  update.id;
-    db.users.save(key,update, function(err, faq){
-      if (err){
-        console.log("createapt error",err);
-        return res.status(401).send(err);
-      }
-      res.status(200).json(faq);
-    });
-  },
-  updateServRequest: function(req, res , next){
-    var update = req.body;
-    var key={};
-   key.id =  update.id;
-    db.servreqs.save(key,update, function(err, faq){
-      if (err){
-        console.log("createapt error",err);
-        return res.status(401).send(err);
-      }
-      res.status(200).json(faq);
-    });
-  },
 
-  createRenter: function (req, res, next) {
+///////ALEX MAKES STUFF
+makeServiceRequest: function(req, res, next){
+  var user = req.user[0];
+  var currenttime = new Date().toLocaleDateString();
+  // var aptid;
+  // var citiesid;
+  // var wow;
+
+  // db.get_userid_by_rentersid([req.body.renterid], function(err, response){
+  //   var cool = response[0];
+  //    aptid =  response[0].aptid;
+  //    citiesid = cool.citiesid;
+  //   // var wow = {
+  //   //   aptid: cool.aptid,
+  //   //    citiesid: cool.citiesid
+  //   // }
+  //    console.log(aptid, citiesid +
+  //     "FIRSTTTT");
+  // })
+// console.log(wow + "second wow");
+    db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid], function(err, response){
+      console.log(response);
+      res.status(200).send(response)
+    })
+  },
+////////////////
+
+	createRenter: function (req, res, next) {
     var renter = req.body
     var admin = req.user;
     renter.password = hashPassword(renter.password)
@@ -84,7 +94,59 @@ module.exports = {
         delete response.password
         res.status(200).json(response);
       })
-  }
+  },
+
+	//_________________PUT (UPDATE) ________________________
+
+
+  updateUser : function(req,res,next){
+    var update = req.body;
+    var key={};
+   key.id =  update.id;
+    db.users.save(key,update, function(err, faq){
+      if (err){
+        console.log("createapt error",err);
+        return res.status(401).send(err);
+      }
+      res.status(200).json(faq);
+    });
+  },
+
+  updateServRequest: function(req, res , next){
+    var update = req.body;
+    var key={};
+   key.id =  update.id;
+    db.servreqs.save(key,update, function(err, faq){
+      if (err){
+        console.log("createapt error",err);
+        return res.status(401).send(err);
+      }
+      res.status(200).json(faq);
+    });
+  },
+
+	updateUserAccountInfo: function (req, res, next) {
+	  var update = req.body
+		var user = req.user
+		db.update_user_account_info([update.email, update.phone, update.carmake, update.carmodel, user.id], function (err, result) {
+		  if (err) {
+		  	console.log(err);
+		  }
+			res.status(200).send('User Account Information Successfully Updated!')
+		})
+	},
+
+	updateUserPassword: function (req, res, next) {
+	  var update = req.body
+		var user = req.user
+		update.password = hashPassword(update.password)
+		db.update_user_password([update.password, user.id], function (err, result) {
+			if (err) console.log(err);
+			res.status(200).send('User Password Successfully Updated!')
+		})
+	}
+
+
 
 
 }

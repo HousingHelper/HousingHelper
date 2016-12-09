@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("renterCtrl", function($scope, user,renterServ) {
+angular.module("housinghelper").controller("renterCtrl", function($scope, $state, user,renterServ) {
   // VARIABLES
   // ============================================================
 
@@ -28,6 +28,37 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, user,r
       console.log(response);
     })
   }  (user);
+
+  $scope.updateUserAccountInfo = function (userAccInfo) {
+    if(!userAccInfo.email){
+      userAccInfo.email = $scope.user.email
+    }
+    if (!userAccInfo.phone) {
+      userAccInfo.phone = $scope.user.phone
+    }
+    if (!userAccInfo.carmake) {
+      userAccInfo.carmake = $scope.user.carmake
+    }
+    if (!userAccInfo.carmodel) {
+      userAccInfo.carmodel = $scope.user.carmodel
+    }
+    renterServ.updateUserAccountInfo(userAccInfo)
+    .then(function(response) {
+      alert('Account Successfully Updated!')
+      $state.go('renter')
+    }).catch(function(err) {
+      console.log('ctrl: ', err);
+    });
+  }
+
+  $scope.updateUserPassword = function (password) {
+    renterServ.updateUserPassword(password)
+    .then(function(response) {
+      $state.go('home')
+    }).catch(function(err) {
+      console.log('ctrl err: ', err);
+    });
+  }
 
 
 

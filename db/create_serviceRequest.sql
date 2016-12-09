@@ -5,7 +5,10 @@ insert into servreqs
     type,
     permissions,
     status,
+    newnotification,
     renterid,
-    aptid
+    aptid,
+    citiesid,
+    orgid
   )
-  values ($1, $2, $3, $4, $5,$6,$7)
+  values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)

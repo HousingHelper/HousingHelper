@@ -279,7 +279,14 @@ module.exports = {
     },
 
     createLocation: function (req, res, next) {
-
+      var user = req.user
+      var location = req.body
+      db.create_location([location.city, location.state, 1], function (err, location) {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(location)
+      })
     },
 
 
