@@ -1,6 +1,7 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("adminFaq", function($scope, faqServ) {
+angular.module("housinghelper").controller("adminFaq", function($scope, faqServ,faqs) {
+  $scope.faqs = faqs.data;
   $( "#Create" ).hide();
   // VARIABLES
   // ============================================================
@@ -24,9 +25,7 @@ angular.module("housinghelper").controller("adminFaq", function($scope, faqServ)
 
     return false;
     });
-    $scope.getFaq = function(){
 
-    };
     $scope.createFaq = function(faq){
       if (!faq.question || !faq.answer){
         return alert('please fullfill the form')
@@ -34,4 +33,5 @@ angular.module("housinghelper").controller("adminFaq", function($scope, faqServ)
       console.log(faq);
       faqServ.createFaq(faq)
     };
+
 });

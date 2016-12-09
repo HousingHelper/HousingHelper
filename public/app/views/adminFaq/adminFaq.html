@@ -42,10 +42,10 @@
         </div>
         <div class="dataHolder">
           <!-- the ng-repeat go inside of showFaqs -->
-          <div class="showFaqs" ng-repeat=''>
+          <div class="showFaqs" ng-repeat='faq in faqs'>
             <div class="mainData">
-              <h1 class="mdTxtH1">{title}</h1>
-              <p class="mdTxtP">{answer}</p>
+              <h1 class="mdTxtH1">{{faq.question}}</h1>
+              <p class="mdTxtP">{{faq.answer}}</p>
             </div>
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
