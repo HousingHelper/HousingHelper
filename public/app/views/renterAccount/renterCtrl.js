@@ -66,7 +66,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
   $scope.createServReq = function (sr) {
     renterServ.createServReq(sr)
     .then(function(response) {
-      alert('Service Request Successfullly Sent!')
+      $('#existingLogin').hide();
       $state.go('renter')
     }).catch(function(err) {
       console.log('ctrl err: ', err);

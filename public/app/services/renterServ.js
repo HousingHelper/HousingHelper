@@ -64,6 +64,7 @@ angular.module("housinghelper").service("renterServ", function($http) {
 
 
    // POST (CREATE) //
+   
   this.createRenter = function (renter) {
     return $http({
       method: 'POST',
@@ -83,7 +84,8 @@ angular.module("housinghelper").service("renterServ", function($http) {
       url: '/api/serviceRequests',
       data: sr
     }).then(function(response) {
-      return response
+
+      alert('Service Request Successfullly Sent!')
     }).catch(function(err) {
       log('ser err: ', err)
     });

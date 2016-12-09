@@ -119,7 +119,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       url: '/api/createlocation',
       data: location
     }).then(function(response) {
-      return response
+      alert('New Location Successfully Added!')
     }).catch(function(err) {
       console.log('serv: ', err);
     });

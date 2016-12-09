@@ -4,7 +4,8 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
   // VARIABLES
   // ============================================================
   $scope.admin = admin;
-  $( "#Create" ).hide();
+  $( "#createLocation" ).hide();
+  $( "#createApartment" ).hide();
   $scope.locations = locations.data;
   $scope.users = users.data;
   $scope.apartments = apartments.data;
@@ -18,6 +19,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     apt.citiesid = apt.citiesid.id
     adminMainServ.createApartment(apt)
     .then(function(response) {
+      $( "#createApartment" ).hide();
       $state.go('adminMain')
     }).catch(function(err) {
       console.log('ctrl err: ', err);
@@ -28,7 +30,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
   $scope.createLocation = function (location) {
     adminMainServ.createLocation(location)
     .then(function(response) {
-      alert('New Location Successfully Added!')
+      $( "#createLocation" ).hide();
       $state.go('adminMain')
     }).catch(function(err) {
       console.log('ctrl err: ', err);
@@ -85,14 +87,28 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
   });
 
   $(function() {
-    $( "#Create" ).hide();
-    $("#addData").click(function() {
-      $( "#Create" ).fadeIn( "slow" );
+    $( "#createLocation" ).hide();
+    $("#addLocation").click(function() {
+      $( "#createLocation" ).fadeIn( "slow" );
     });
-    $("#cancelBtn").click(function() {
-      $( "#Create" ).fadeOut( "slow" );
+    $("#cancelBtn2").click(function() {
+      $( "#createLocation" ).fadeOut( "slow" );
     });
 
     return false;
     });
+
+  $(function() {
+    $( "#createApartment" ).hide();
+    $("#addData").click(function() {
+      $( "#createApartment" ).fadeIn( "slow" );
+    });
+    $("#cancelBtn").click(function() {
+      $( "#createApartment" ).fadeOut( "slow" );
+    });
+
+    return false;
+    });
+
+
 });
