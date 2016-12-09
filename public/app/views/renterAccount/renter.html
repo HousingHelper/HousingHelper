@@ -9,34 +9,37 @@
         <div  class="login" id="existingLogin">
           <div class="updateHolder">
             <section ng-hide="!spin" class="LoggingIn">
-              <h1>Logging In...</h1>
+              <h1>Updating Account...</h1>
               <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
             </section>
             <div class="loginTitle">
-              <h1 style="color:#2AABE2;">Edit Account</h1>
+              <h1>Edit Account</h1>
             </div>
-            <button ng-click="cancelBtnClick()" class="headerBtns"name="button">Cancel</button>
+            <button id="cancelBtn" ng-click="cancelBtnClick()" class="editBtns"name="button">Cancel</button>
             <div class="iBoxHolder">
-              <form ng-submit='updateUserAccountInfo(userAccInfo)'>
-                <h1 class="formTxt">Update Email:</h1>
-                <input class="lBoxes"ng-model='userAccInfo.email' type="input" name="email" placeholder="Enter New Email"><br>
-                <h1 class="formTxt">Update Phone:</h1>
-                <input class="lBoxes"ng-model='userAccInfo.phone' type="input" name="password" placeholder="Enter New Phone Number">
-                <h1 class="formTxt">Add/Update Car Info?</h1> <input type="checkbox" ng-model="checked"><br/>
-                <div ng-if='checked'>
-                  <h1 class="formTxt">Update Car Make:</h1>
-                  <input class="lBoxes"ng-model='userAccInfo.carmake' type="input" name="carmake" placeholder="Enter Car Make"><br>
-                  <h1 class="formTxt">Update Car Model:</h1>
-                  <input class="lBoxes"ng-model='userAccInfo.carmodel' type="input" name="carmodel" placeholder="Enter Car Model"><br>
+              <form class="formHolder" ng-submit='updateUserAccountInfo(userAccInfo)'>
+                <h1 class="renterTxtH5">Update Email:</h1>
+                <input class="editBoxes"ng-model='userAccInfo.email' type="input" name="email" placeholder="Enter New Email">
+                <h1 class="renterTxtH5">Update Phone:</h1>
+                <input class="editBoxes"ng-model='userAccInfo.phone' type="input" name="password" placeholder="Enter New Phone Number">
+                <div class="dropDown">
+                  <h1 class="renterTxtH5">Update Car Info</h1>
+                  <input class="editCheck" type="checkbox" ng-model="checked">
                 </div>
-                <button class="headerBtns" name="button">Update Account</button>
+                <div ng-if='checked'>
+                  <h1 class="renterTxtH5">Update Car Make:</h1>
+                  <input class="editBoxes"ng-model='userAccInfo.carmake' type="input" name="carmake" placeholder="Enter Car Make">
+                  <h1 class="renterTxtH5">Update Car Model:</h1>
+                  <input class="editBoxes"ng-model='userAccInfo.carmodel' type="input" name="carmodel" placeholder="Enter Car Model">
+                </div>
+                <button class="editBtns" name="button">Update Account</button>
               </form>
               <div>
-                <h1 class="formTxt">Update Password:</h1>
-                <input class="lBoxes" ng-model='userinfo.password' type="input" name="password" placeholder="Enter New Password">
+                <h1 class="renterTxtH5">Update Password:</h1>
+                <input class="editBoxes" ng-model='userinfo.password' type="input" name="password" placeholder="Enter New Password">
               </div>
             </div>
-            <button class="headerBtns" type="button" name="button" ng-click="updateUserPassword(userinfo.password)">Change Password</button>
+            <button class="editBtns" type="button" name="button" ng-click="updateUserPassword(userinfo.password)">Change Password</button>
           </div>
         </div>
 
@@ -146,7 +149,75 @@
           <section class="BottomData">
             <div class="serviceReqs">
               <!-- ((((((((((((((Information goes under here)))))))))))))) -->
-              <h1>Currently Under Construction</h1>
+              <div class="addReqBtn" ng-click="toggle=!toggle; change()">{{happy}}</div>
+              <form ng-show="toggle" class="hideFORM">
+                <div class="subTitle cNSRTitle">Create New Service Request</div>
+                <div class="formHolder">
+                  <div class="LeftHolder">
+
+                    <h1 class="renterTxtH5">Request:</h1>
+                    <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request"></input>
+
+                    <h1 class="renterTxtH5">Type</h1>
+                    <select class="lBoxes" ng-model='newSr.type' ng-options='sr.type as sr.type for sr in servreqs | unique: "type"'>
+                      <option value="">Choose Type</option>
+                    </select>
+
+                    <h1 class="renterTxtH5">Permissions</h1>
+                    <select class="lBoxes" ng-model='newSr.permissions' ng-options='sr.permissions as sr.permissions for sr in servreqs | unique: "permissions"'>
+                      <option value="">Choose Permission</option>
+                    </select>
+
+                    <h1 class="renterTxtH5">User</h1>
+                    <select class="lBoxes" ng-model='selectedUser' ng-options='(user.firstname + " " + user.lastname) for user in users'>
+                      <option value="">Choose Requester</option>
+                    </select>
+                  </div>
+
+                  <div class="CenterBar"></div>
+
+                  <div class="rightHolder">
+                    <h1 class="renterTxtH5">Note:</h1>
+                    <textarea class="txtArea" rows="8" cols="40" ng-model='selectedNote' type="text" placeholder="Add a note"></textarea>
+                  </div>
+
+                </div>
+                <button class="addReqBtn postBtn" type="submit" name="button">Post</button>
+              </form>
+
+              <section class="serviceReqHolder">
+                <!-- this is where you will use the ng-repeat inside NoteHolder -->
+                <h1 class="subTitle">Submitted Requests</h1>
+                <div class="noteHolder">
+                  <div class="LeftHolder">
+
+                    <h1 class="renterTxtH5">Date Submitted:</h1>
+                    <h2 class="renterTxtA">{10/24/87}</h2>
+
+                    <h1 class="renterTxtH5">Request:</h1>
+                    <p class="renterTxtA">{could you please get out door fixed}</p>
+
+                    <h1 class="renterTxtH5">Type</h1>
+                    <h2 class="renterTxtA">{Electrical}</h2>
+
+                    <h1 class="renterTxtH5">Permissions</h1>
+                    <h2 class="renterTxtA">{24 Hour Notice}</h2>
+
+                  </div>
+
+                  <div class="CenterBar"></div>
+
+                  <div class="rightHolder">
+
+                    <h1 class="renterTxtH5">Current Status:</h1>
+                    <h2 class="renterTxtA">{Not Seen}</h2>
+
+                    <h1 class="renterTxtH5">Note:</h1>
+                    <p class="renterTxtA" class="renterTxtA">{Note goes here}</p>
+                  </div>
+
+                </div>
+              </section>
             </div>
           </section>
         </div>
