@@ -39,15 +39,15 @@ angular.module("housinghelper").service("apartmentsServ", function($http) {
   //     return response;
   //   });
   // };
-  // this.editCollection = function(id, collection) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: "/collection/" + id,
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.editApt = function(id, apt) {
+    return $http({
+      method: 'PUT',
+      url: "/api/apartments/" + id,
+      data: apt
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.deleteCollection = function(id) {
   //   return $http({
   //     method: 'DELETE',
