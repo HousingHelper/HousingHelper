@@ -38,7 +38,7 @@ module.exports = {
 
 	getAdminByLoggedInUser: function (req, res) {
 	  var user = req.user;
-		db.get_all_admins_by_citiesid([user.citiesid], function (err, admin) {
+		db.get_all_admins_by_citiesid([user.citiesid, user.aptid], function (err, admin) {
 		  if (err) {
 		  	res.status(500).send(err)
 		  }

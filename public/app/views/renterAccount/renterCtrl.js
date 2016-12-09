@@ -6,9 +6,10 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
 
     $scope.show = true
     $scope.user = user;
-    $scope.landlord = admin.data
+    $scope.landlord = admin.data[0]
     // $scope.apartments = apartments.data
     console.log('landlord:', $scope.landlord);
+    console.log('user: ', $scope.user);
     // console.log('apartments: ', $scope.apartments);
     $('#existingLogin').hide();
 
