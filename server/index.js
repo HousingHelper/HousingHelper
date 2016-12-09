@@ -102,10 +102,12 @@ app.get('/apartments/serviceRequests/:id', isAuthed, serviceRequestsCtrl.getAllS
   // UNASSIGNED RENTERS //
 app.get('/unassignedRenters', isAuthed, adminCtrl.getAllUnassignedRenters)
 app.get('/availableRooms', isAuthed, adminCtrl.getAvailableRooms)
-  // INDIV RENTER PAGE //
+  // RENTER ACCOUNT PAGE //
 app.get('/renterAcc', isAuthed, renterCtrl.getRenterAccById)
 app.get('/renterAccApt', isAuthed, renterCtrl.getRentersAccApt)
 app.get('/renterAccServReq', isAuthed, renterCtrl.getRentersAccServReq)
+app.get('/api/renterAccAdmin', isAuthed, renterCtrl.getAdminByLoggedInUser)
+// app.get('/api/renterApts', isAuthed, renterCtrl.getRenterApt)
   // GROUPS //
 app.get('/allgroups', isAuthed, adminCtrl.getAllGroupsByLoggedInUser)
 app.get('/allgroupsinalllocations', isAuthed, adminCtrl.getAllLocations)
@@ -117,6 +119,7 @@ app.get('/servreqnotes', isAuthed, serviceRequestsCtrl.getAllNotesForServReqs)
 app.get('/allusers', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', isAuthed, adminCtrl.getAllGroupsByLoggedInUser)
 app.get('/api/rooms', isAuthed, adminCtrl.getAllRoomsByLoggedInUser)
+
 
 
         //// PUT ////
@@ -135,12 +138,13 @@ app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)
 app.post('/api/register', isAuthed, userCtrl.register);
 app.post('/api/createfaq', isAuthed, adminCtrl.createFaq)
 app.post('/api/creategroup', isAuthed, adminCtrl.createGroup)
+app.post('/api/serviceRequests', isAuthed, renterCtrl.createServiceRequest)
 app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 app.post('/api/renter',isAuthed, renterCtrl.createRenter)
-app.post('/api/request', isAuthed, renterCtrl.makeServiceRequest);
+app.post('/api/request', isAuthed, serviceRequestsCtrl.makeServiceRequest);
 app.post('/api/srnote', isAuthed, serviceRequestsCtrl.createSRNote)
-
+app.post('/api/fake', serviceRequestsCtrl.fakeMakeSvcRq);
 
 // LISTEN //
 var port = config.PORT

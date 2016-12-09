@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("renterCtrl", function($scope, $state, user,renterServ) {
+angular.module("housinghelper").controller("renterCtrl", function($scope, $state, user, admin, renterServ) {
   // VARIABLES
   // ============================================================
     // this is add show service req vars below
@@ -9,6 +9,10 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     // this is add show service req vars above
     $scope.show = true
     $scope.user = user;
+    $scope.landlord = admin.data
+    // $scope.apartments = apartments.data
+    console.log('landlord:', $scope.landlord);
+    // console.log('apartments: ', $scope.apartments);
     $('#existingLogin').hide();
 
   // FUNCTIONS
@@ -29,7 +33,6 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     renterServ.getRenterServReqById()
     .then(function(response){
       $scope.servreq = response.data
-      console.log(response);
     })
   }  (user);
 
