@@ -230,15 +230,19 @@ module.exports = {
     },
 
     getAdminInfo: function(req, res, next) {
-        var admin = req.user
-        db.get_all_admin_apts([admin.id], function(err, apts) {
-            res.status(200).send(apts)
-        })
+      var admin = req.user
+      db.get_all_admin_apts([admin.id], function(err, apts) {
+          res.status(200).send(apts)
+      })
     },
 
-    getAptsByAptId: function(req, res, next) {
-        var admin = req.user
-        db.get_all_apts_by_aptid([admin.id])
+    getAptByAptId: function(req, res, next) {
+      db.apartments.find({id: req.params.id}, function(err, apt) {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(apt)
+      })
     },
 
 // ____________________ POST (CREATE)_______________________________//

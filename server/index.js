@@ -96,9 +96,11 @@ app.get('/api/adminMain/apts', isAuthed, adminCtrl.getAllApartmentsByLoggedInUse
 app.get('/api/adminMain/users', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
 app.get('/api/adminMain/locations', isAuthed, adminCtrl.getAllLocations)
   // APARTMENTS //
-app.get('/apartments', isAuthed, adminCtrl.getAllApartments)
+// app.get('/apartments', isAuthed, adminCtrl.getAllApartments)
 app.get('/apartments/:id', isAuthed, adminCtrl.getRentersByAptId)
-app.get('/apartments/serviceRequests/:id', isAuthed, serviceRequestsCtrl.getAllServiceRequestsByAptId)
+app.get('/api/apartments/:id', isAuthed, adminCtrl.getAptByAptId)
+
+// app.get('/apartments/serviceRequests/:id', isAuthed, serviceRequestsCtrl.getAllServiceRequestsByAptId)
   // UNASSIGNED RENTERS //
 app.get('/unassignedRenters', isAuthed, adminCtrl.getAllUnassignedRenters)
 app.get('/availableRooms', isAuthed, adminCtrl.getAvailableRooms)

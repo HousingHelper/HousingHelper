@@ -263,7 +263,15 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update.apt', {
       templateUrl: './app/views/updateAll/updateApt/updateApt.html',
       controller: 'updateApt',
-      url: '/apt/:id'
+      url: '/apt/:id',
+      resolve: {
+        apartment: function(apartmentsServ, $stateParams) {
+          return apartmentsServ.getAptsById($stateParams.id)
+        },
+        locations: function (apartmentsServ) {
+          return apartmentsServ.getAllLocations()
+        }
+      }
     })
     //Update FAQ
     .state('update.faq', {

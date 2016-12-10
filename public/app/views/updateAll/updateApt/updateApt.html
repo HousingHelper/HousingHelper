@@ -1,89 +1,99 @@
 <section class="updateAptHolder">
   <h1 class="pageTitle">Update Apartment</h1>
-  <form class="formCon">
+  <form ng-submit='editApt(apartment)'class="formCon">
     <section class="inputContainer">
       <div class="content contentLeft">
         <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Title</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="inputTitle">Apartment Name</h1>
+          <h1 class="currentInfo">{{apartment.title}}</h1>
         </div>
-        <input class="inputBox" type="text">
+        <input ng-model='apartment.title'class="inputBox" type="text" ng-value='apartment.title'>
+        <div class="inputTitlesHolder">
+          <h1 class="inputTitle">Apt Number</h1>
+          <h1 class="currentInfo">{{apartment.apt_num}}</h1>
+        </div>
+        <input ng-model='apartment.apt_num'class="inputBox" type="text" ng-value='apartment.apt_num'>
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Address</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{apartment.address}}</h1>
         </div>
-        <input class="inputBox" type="text">
+      <input ng-model='apartment.address'class="inputBox" type="text" ng-value='apartment.address'>
         <!-- new input -->
+
+
         <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Apt Number</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="inputTitle">City</h1>
+          <h1 class="currentInfo"></h1>
         </div>
-        <input class="inputBox" type="text">
+          <select ng-model='apartment.city' ng-options='location.city for location in locations | unique: "city"' class='inputBox' name="city" required>
+            <option value="">-- Select City --</option>
+          </select>
+
+          <div class="inputTitlesHolder">
+              <h1 class="inputTitle">State</h1>
+              <h1 class="currentInfo">{{apartment.state}}</h1>
+            </div>
+          <input ng-model='apartment.state'class="inputBox" type="text" ng-value='apartment.state'>
+            <!-- new input -->
+            <div class="inputTitlesHolder">
+              <h1 class="inputTitle">Zipcode</h1>
+              <h1 class="currentInfo">{{apartment.zipcode}}</h1>
+            </div>
+            <input ng-model='apartment.zipcode'class="inputBox" type="text" ng-value='apartment.zipcode'>
+
+            <div class="inputTitlesHolder">
+              <h1 class="inputTitle">Parking Space</h1>
+              <h1 class="currentInfo">{{apartment.parkingspace}}</h1>
+            </div>
+          <input ng-model='apartment.parkingspace'class="inputBox" type="text" ng-value='apartment.parkingspace'>
         <!-- this is where we end putting inputs left side -->
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Square Feet</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
 
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Baths</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
-
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Wifi Name</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
-
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Wifi Password</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
 
       </div>
       <div class="centerBar"></div>
       <div class="content contentRight">
-        <div class="inputTitlesHolder">
-                  <h1 class="inputTitle">State</h1>
-                  <h1 class="currentInfo">{Current Value}</h1>
-                </div>
-                <input class="inputBox" type="text">
+
                 <!-- new input -->
-                <div class="inputTitlesHolder">
-                  <h1 class="inputTitle">Zipcode</h1>
-                  <h1 class="currentInfo">{Current Value}</h1>
-                </div>
-                <input class="inputBox" type="text">
-                <!-- new input -->
-                <div class="inputTitlesHolder">
-                  <h1 class="inputTitle">City</h1>
-                  <h1 class="currentInfo">{Current Value}</h1>
-                </div>
-                  <select class='inputBox' name="city" >
-                    <option value="volvo">city1</option>
-                    <option value="saab">city2</option>
-                  </select>
+
                 <div class="inputTitlesHolder">
                   <h1 class="inputTitle">Bedrooms</h1>
-                  <h1 class="currentInfo">{Current Value}</h1>
+                  <h1 class="currentInfo">{{apartment.bedrooms}}</h1>
                 </div>
-                <input class="inputBox" type="text">
+                <input ng-model='apartment.bedrooms'class="inputBox" type="text" ng-value='apartment.bedrooms'>
+
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Baths</h1>
+                  <h1 class="currentInfo">{{apartment.baths}}</h1>
+                </div>
+                <input ng-model='apartment.baths'class="inputBox" type="text" ng-value='apartment.baths'>
+
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Square Feet</h1>
+                  <h1 class="currentInfo">{{apartment.squareft}}</h1>
+                </div>
+                <input ng-model='apartment.squareft'class="inputBox" type="text" ng-value='apartment.squareft'>
+
+
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Wifi Name</h1>
+                  <h1 class="currentInfo">{{apartment.wifiname}}</h1>
+                </div>
+                <input ng-model='apartment.wifiname'class="inputBox" type="text" ng-value='apartment.wifiname'>
+
+
+                <div class="inputTitlesHolder">
+                  <h1 class="inputTitle">Wifi Password</h1>
+                  <h1 class="currentInfo">{{apartment.wifipwd}}</h1>
+                </div>
+                <input ng-model='apartment.wifipwd'class="inputBox" type="text" ng-value='apartment.wifipwd'>
 
                 <div class="inputTitlesHolder">
                   <h1 class="inputTitle">Trash Day</h1>
-                  <h1 class="currentInfo">{Current Value}</h1>
+                  <h1 class="currentInfo">{{apartment.trashday}}</h1>
                 </div>
-                <input class="inputBox" type="date">
-                <div class="inputTitlesHolder">
-                  <h1 class="inputTitle">Parking Space</h1>
-                  <h1 class="currentInfo">{Current Value}</h1>
-                </div>
-                <input class="inputBox" type="text">
+                <input ng-model='apartment.trashday'class="inputBox" type="text" ng-value='apartment.trashday'>
+
 
                 <div class="inputTitlesHolder">
                   <h1 class="inputTitle">Housing Gender</h1>
@@ -91,12 +101,12 @@
                 </div>
                 <div id="optionBox">
                   <div id="checkoutBox">
-                    <input class="checkbox" type="checkbox" ng-checked='femaleOnly' value=''>
-                    <p class='checkboxName'>Female only</p>
+                    <input class="checkbox" type="checkbox" ng-model='apartment.female_only_housing' value=''>
+                    <p class='checkboxName'>Female</p>
                   </div>
                   <div id="checkoutBox">
-                    <input class="checkbox" type="checkbox" ng-checked='maleOnly' value=''>
-                    <p class='checkboxName'>Male only</p>
+                    <input class="checkbox" type="checkbox" ng-model='apartment.male_only_housing' value=''>
+                    <p class='checkboxName'>Male</p>
                   </div>
                 </div>
 
@@ -104,8 +114,9 @@
       </div>
     </section>
     <section class="btnHolder">
-      <button class="actionBtns" type="button" name="button">Cancel</button>
+      <button class="actionBtns" type="reset" name="button">Cancel</button>
       <button class="actionBtns" type="submit" name="button">Update</button>
+      <button class="actionBtns" type="reset" name="button">Reset</button>
     </section>
   </form>
 </section>
