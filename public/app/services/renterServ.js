@@ -64,6 +64,7 @@ angular.module("housinghelper").service("renterServ", function($http) {
 
 
    // POST (CREATE) //
+   
   this.createRenter = function (renter) {
     return $http({
       method: 'POST',
@@ -76,6 +77,19 @@ angular.module("housinghelper").service("renterServ", function($http) {
       console.log('serv error: ', err);
     });
   };
+
+  this.createServReq = function (sr) {
+    return $http({
+      method: 'POST',
+      url: '/api/serviceRequests',
+      data: sr
+    }).then(function(response) {
+
+      alert('Service Request Successfullly Sent!')
+    }).catch(function(err) {
+      log('ser err: ', err)
+    });
+  }
 
   // PUT (UPDATE) //
     this.updateUserAccountInfo = function (userAccInfo) {
@@ -99,8 +113,9 @@ angular.module("housinghelper").service("renterServ", function($http) {
       }).catch(function(err) {
         console.log('serv err: ', err);
       });
+    };
 
-    }
+
 
 
 

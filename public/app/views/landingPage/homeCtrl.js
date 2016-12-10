@@ -15,8 +15,9 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
     loginServ.login(user)
     .then(function(response) {
       if (!response.data){
+        $scope.spin = false
         $scope.user.password = "";
-      return alert('user could not be logged in');
+        $state.go('home')
       }
       if(response.data){
         if(response.data.isadmin){
@@ -26,10 +27,10 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
         }
       }
       }).catch(function(err) {
-        // $scope.spin = false
+        $scope.spin = false
         console.log(err);
         $scope.user.password = "";
-        alert('user could not be logged in');
+        $state.go('home')
       });
   };
 
@@ -62,20 +63,20 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
           return false;
         });
       });
-      $(function() {
-            // Select link by id and add click event
-            $('#link3').click(function() {
+    $(function() {
+          // Select link by id and add click event
+          $('#link3').click(function() {
 
-              // Animate Scroll to #bottom
-              $('html,body').animate({
-                scrollTop: $("#part-three").offset().top }, // Tell it to scroll to the top #bottom
-                2000 // How long scroll will take in milliseconds
-              );
+            // Animate Scroll to #bottom
+            $('html,body').animate({
+              scrollTop: $("#part-three").offset().top }, // Tell it to scroll to the top #bottom
+              2000 // How long scroll will take in milliseconds
+            );
 
-              // Prevent default behavior of link
-              return false;
-            });
+            // Prevent default behavior of link
+            return false;
           });
+        });
       // this is where im going to use window scroll to animate the nav bar*****************
       $(window).scroll(function(){
             var scrollLo = $(this).scrollTop();

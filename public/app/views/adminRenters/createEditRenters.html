@@ -89,7 +89,7 @@
         <!-- this is where the left button holder starts -->
 
         <div class="BtnHolder">
-          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
           <button type="submit" class="lBtns">Create</button>
         </div>
       </form>
@@ -117,30 +117,22 @@
               <h1>{{group.title}}</h1>
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
-              <div ng-repeat='apt in apartments' ng-if="apt.id === renter.aptid" class="showData">
               <div class="mainData">
-                Name: {{renter.firstname}} {{renter.lastname}}<br>
-                Hometown: {{renter.hometown}}<br>
-                DOB: {{renter.dob | date: 'shortDate'}}<br>
-                Gender: {{renter.gender}}<br>
-                Phone: {{renter.phone}}<br>
-                Email: {{renter.email}}<br>
-                Lease Start: {{renter.leasestart}}, End: {{renter.leaseend}}<br>
-                Apt: {{apt.title}} {{apt.apt_num}}<br>
-                Private Room? {{renter.private_room?"YES":"NO"}}<br>
-                Rent Amount: {{renter.rentamt | currency}}<br>
-                Paid? {{renter.monthpaid?"YES":"NO"}}<br>
+                First name: {{renter.firstname}}
+                Last name: {{renter.lastname}}
+                DOB: {{renter.dob}}
+                Gender: {{renter.gender}}
+                Phone: {{renter.phone}}
+                Group: {{renter.groupid}}
               </div>
               <div class="btnHolder">
                 <div id="delete" class="dataBtns">
                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
-                  <a ui-sref="update.user">
-                    <div id="edit" class="dataBtns">
-                      <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1></div>
-                  </a>
+                  <div ui-sref="update.user" id="edit" class="dataBtns">
+                    <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1>
+                  </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </section>

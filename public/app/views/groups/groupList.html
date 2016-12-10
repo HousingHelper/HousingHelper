@@ -12,7 +12,7 @@
       <form ng-submit='' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Group Title</h1>
-          <input ng-model='group.title'class="lBoxes" type="text" placeholder="Enter a group's title">
+          <input ng-model='group.title'class="lBoxes" type="text" placeholder="Enter a group's title" required>
           <h1 class="formTxt">Start date</h1>
           <input ng-model='group.startdate' class="lBoxes" type="text" placeholder="YYYY-MM-DD">
 
@@ -23,12 +23,12 @@
           <h1 class="formTxt">Check-Out Date</h1>
           <input ng-model='group.checkoutdate'class="lBoxes" type="text" placeholder="YYYY-MM-DD">
           <h1 class="formTxt">Choose City</h1>
-          <select ng-model='group.citiesid' ng-options="location.id as location.city for location in locations" required>
+          <select class="lBoxes" ng-model='group.citiesid' ng-options="location.id as location.city for location in locations" required>
             <option value="">Choose City</option>
           </select>
         </div>
         <div class="BtnHolder">
-          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
           <button type="submit" class="lBtns" ng-click="submitGroup(group)">Create</button>
         </div>
       </form>
@@ -62,11 +62,9 @@
                 <div id="delete" class="dataGroupBtns">
                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
                 </div>
-                <a ui-sref="update.group">
-                  <div id="edit" class="dataGroupBtns">
-                    <h1 class="btnTxt">edit group</h1>
-                  </div>
-                </a>
+                <div ui-sref="update.group" id="edit" class="dataGroupBtns">
+                  <h1 class="btnTxt">edit group</h1>
+                </div>
               </div>
               <div class="mainGroupData">
                 <section class="subTitleHolder">

@@ -3,36 +3,36 @@
 angular.module("housinghelper").controller("renterCtrl", function($scope, $state, user, admin, renterServ) {
   // VARIABLES
   // ============================================================
+
     // this is add show service req vars below
     $scope.toggle = false
     $scope.happy = 'Add New'
     // this is add show service req vars above
     $scope.show = true
     $scope.user = user;
-    $scope.landlord = admin.data
+    $scope.landlord = admin.data[0];
     // $scope.apartments = apartments.data
-    console.log('landlord:', $scope.landlord);
-    // console.log('apartments: ', $scope.apartments);
     $('#existingLogin').hide();
 
   // FUNCTIONS
   // ============================================================
-  $scope.getUserInfo = function (user){
-    renterServ.getRenterAccById()
-    .then(function(response){
-      $scope.info = response.data
-    })
-  }  (user);
-  $scope.getUserAptInfo = function (user){
-    renterServ.getRenterAccAptById()
-    .then(function(response){
-      $scope.aptInfo = response.data
-    })
-  }  (user);
+  // $scope.getUserInfo = function (user){
+  //   renterServ.getRenterAccById()
+  //   .then(function(response){
+  //     $scope.info = response.data;
+  //   })
+  // }  (user);
+  // $scope.getUserAptInfo = function (user){
+  //   renterServ.getRenterAccAptById()
+  //   .then(function(response){
+  //     $scope.aptInfo = response.data;
+  //   })
+  // }  (user);
   $scope.getUserServReq = function (user){
     renterServ.getRenterServReqById()
     .then(function(response){
-      $scope.servreq = response.data
+      $scope.servreqs = response.data;
+      console.log('sr: ', $scope.servreqs);
     })
   }  (user);
 
@@ -51,17 +51,27 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     }
     renterServ.updateUserAccountInfo(userAccInfo)
     .then(function(response) {
-      alert('Account Successfully Updated!')
-      $state.go('renter')
+      alert('Account Successfully Updated!');
+      $state.go('renter');
     }).catch(function(err) {
       console.log('ctrl: ', err);
     });
-  }
+  };
 
   $scope.updateUserPassword = function (password) {
     renterServ.updateUserPassword(password)
     .then(function(response) {
-      $state.go('home')
+      $state.go('home');
+    }).catch(function(err) {
+      console.log('ctrl err: ', err);
+    });
+  };
+
+  $scope.createServReq = function (sr) {
+    renterServ.createServReq(sr)
+    .then(function(response) {
+      $('#existingLogin').hide();
+      $state.go('renter')
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });
