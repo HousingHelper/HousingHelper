@@ -87,7 +87,8 @@ app.get('/api/logout', function(req, res, next) {
       //// GET ////
 app.get('/api/me', isAuthed, userCtrl.me);
   // FAQ //
-app.get('/api/faq',isAuthed, adminCtrl.getAllFaqs)
+app.get('/api/faq', isAuthed, adminCtrl.getAllFaqs)
+app.get('/api/faq/:id', isAuthed, adminCtrl.getFaqByFaqId)
   // HOME //
 app.get('/api/superuser/adminMain', isAuthed, adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', isAuthed, adminCtrl.getAdminInfo)
@@ -126,7 +127,7 @@ app.get('/api/rooms', isAuthed, adminCtrl.getAllRoomsByLoggedInUser)
 
         //// PUT ////
 
-app.put('/api/putfaq', isAuthed, adminCtrl.updatefaq)
+app.put('/api/putfaq/:id', isAuthed, adminCtrl.updatefaq)
 app.put('/api/putuser', isAuthed, renterCtrl.updateUser)
 app.put('/api/groups', isAuthed, adminCtrl.updategroups)
 app.put('/api/servRequest', isAuthed, renterCtrl.updateServRequest)

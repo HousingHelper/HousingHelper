@@ -168,14 +168,14 @@ module.exports = {
   },
 
   getAllFaqs: function(req, res) {
-      var user = req.user
-      // console.log('this is your user', user);
-      db.get_all_faqs([user.id], function(err, faqs) {
-          if (err) {
-              res.send("error: ", err)
-          }
-          res.status(200).send(faqs)
-      })
+    var user = req.user
+    // console.log('this is your user', user);
+    db.get_all_faqs(function(err, faqs) {
+      if (err) {
+          res.send("error: ", err)
+      }
+      res.status(200).send(faqs)
+    })
   },
 
     // getAptsByAdminId: function(req, res) {
@@ -245,6 +245,15 @@ module.exports = {
       })
     },
 
+    getFaqByFaqId: function(req, res, next) {
+      db.faqs.find({id: req.params.id}, function(err, faq) {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(faq)
+      })
+    },
+
 // ____________________ POST (CREATE)_______________________________//
 
     createFaq: function(req, res) {
@@ -298,8 +307,8 @@ module.exports = {
 
     updatefaq: function(req, res, next){
       var update = req.body;
-       var key={};
-     key.id =  update.id;
+      var key={};
+      key.id =  update.id;
       db.faqs.save(key,update, function(err, faq){
         if (err){
           console.log("createapt error",err);
@@ -309,6 +318,7 @@ module.exports = {
         res.status(200).json(faq);
       });
     },
+
     updategroups: function(req,res,next){
       var update = req.body;
        var key={};

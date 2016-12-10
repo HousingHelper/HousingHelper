@@ -205,8 +205,8 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'adminFaq',
       url: '/adminFaq',
       resolve:{
-        faqs :  function(faqServ) {
-          return faqServ.getFaqsById();
+        faqs: function(faqServ) {
+          return faqServ.getAllFaqs();
         }
       }
     })
@@ -292,7 +292,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update.faq', {
       templateUrl: './app/views/updateAll/updateFaq/updateFaq.html',
       controller: 'updateFaq',
-      url: '/faq'
+      url: '/faq/:id',
+      resolve: {
+        faq: function(faqServ, $stateParams) {
+          return faqServ.getFaqsById($stateParams.id)
+        }
+      }
     })
     //Update Group
     .state('update.group', {

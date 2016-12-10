@@ -1,20 +1,20 @@
 <section class="updateFaqHolder">
   <h1 class="pageTitle">Update FAQ's</h1>
-  <form class="formCon">
+  <form ng-submit="editFaq(faq)" class="formCon">
     <section class="inputContainer">
       <div class="content contentLeft">
         <!-- this is where we start putting inputs left side -->
         <h1 class="inputTitle">Question:</h1>
-        <h1 class="currentInfo">{Current Value}</h1>
-        <textarea class="inputBox" type="text" placeholder="{Current Value}"></textarea>
+        <h1 class="currentInfo">{{faq.question}}</h1>
+        <textarea ng-model="faq.question" class="inputBox" type="text" ng-value="faq.question"></textarea>
         <!-- this is where we start putting inputs left side -->
       </div>
       <div class="centerBar"></div>
       <div class="content contentRight">
         <!-- this is where we start putting inputs left side -->
         <h1 class="inputTitle">Answer:</h1>
-        <h1 class="currentInfo">{Current Value}</h1>
-        <textarea class="inputBox" type="text" placeholder="{Current Value}"></textarea>
+        <h1 class="currentInfo">{{faq.answer}}</h1>
+        <textarea ng-model="faq.answer" class="inputBox" type="text" ng-value="faq.answer"></textarea>
         <!-- this is where we start putting inputs left side -->
       </div>
     </section>

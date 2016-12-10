@@ -36,9 +36,9 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     });
   }
 
-  $scope.updateApt = function(id) {
-    apartmentsServ.editApt(id)
-  }
+  // $scope.updateApt = function(id) {
+  //   apartmentsServ.editApt(id)
+  // }
 
   // $scope.renters = function () {
   //   return apartmentsServ.getAllApartmentsWithRenters()
