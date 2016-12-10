@@ -46,7 +46,7 @@
         <!-- (((((((((((((((((((((((((account info))))))))))))))))))))))))) -->
         <div class="topBoxesCon">
           <div class="topBoxes">
-            <h1 class="boxTitles">Account Information</h1>
+            <h1 class="boxTitles">Account Information</h1><br>
             <section class="Data">
               <div class="accountInfo">
                 <div class="mainInfo">
@@ -66,7 +66,7 @@
           </div>
           <!-- (((((((((((((((((((((((((Make a payment))))))))))))))))))))))))) -->
           <div class="topBoxes">
-            <h1 class="boxTitles">Make A Payment  <i class="fa fa-cc-stripe" aria-hidden="true"></i></h1>
+            <h1 class="boxTitles">Make A Payment  <i class="fa fa-cc-stripe" aria-hidden="true"></i></h1><br>
             <section class="Data">
               <div class="payment">
                 <form class="payInfo" action="/your-charge-code" method="POST" id="payment-form">
@@ -111,33 +111,34 @@
 
         <!-- (((((((((((((((((((these are the bottom boxes))))))))))))))))))) -->
         <div class="BottomBoxes">
-          <h1 class="boxTitles">Apartment Information</h1>
+          <h1 class="boxTitles">Apartment Information</h1><br>
           <section class="BottomData">
             <section class="ApartmentInfo">
               <div class="aptSections">
-                <h1 class="subTitle">Carson Corner 205 {{apt.name}}{{apt.apt_num}}</h1>
+                <h1 class="subTitle">{{landlord.title}} {{landlord.apt_num}}</h1><br>
                 <div class="innerDiv">
-                  <h5>Lease:<span class="renterTxtA"> {{user.leasestart}} - {{user.leaseend}}</span></h5>
-                  <h5>Parking Space:<span class="renterTxtA"> {{apt.parkingspace}}</span></h5>
-                  <h5>Square Footage:<span class="renterTxtA"> {{apt.squareft}}</span></h5>
+                  <h5>Address: <span class="renterTxtA"><br>{{landlord.address}} {{landlord.city}} {{landlord.state}} {{landlord.zipcode}}</span></h5><br>
+                  <h5 ng-if='user.leasestart'>Lease:<span class="renterTxtA"> <br> {{user.leasestart}} - <br>{{user.leaseend}}</span></h5><br>
+                  <h5 ng-if='landlord.parkingspace'>Parking Space:<span class="renterTxtA"> <br>{{landlord.parkingspace}}</span></h5><br>
+                  <h5>Square Footage:<span class="renterTxtA"><br> {{landlord.squareft}}</span></h5><br>
                 </div>
               </div>
               <div class="CenterBar"></div>
               <div class="aptSections">
-                <h1 class="subTitle">Landlord Information</h1>
-                <div class="innerDiv">
-                  <h5>Lanlord:<span class="renterTxtA"> {{admin.firstname}} {{admin.lastname}}</span></h5>
-                  <h5>Contact Email:<span class="renterTxtA"> {{admin.email}}</span></h5>
-                  <h5>Contact Phone:<span class="renterTxtA"> {{admin.phone}}</span></h5>
+                <h1 class="subTitle">Landlord</h1><br>
+                <div  class="innerDiv">
+                  <h5>Lanlord:<span class="renterTxtA"><br> {{landlord.firstname}} {{landlord.lastname}}</span></h5><br>
+                  <h5>Contact Email:<span class="renterTxtA"><br> {{landlord.email}}</span></h5><br>
+                  <h5>Contact Phone:<span class="renterTxtA"> <br>{{landlord.phone}}</span></h5><br>
                 </div>
               </div>
               <div class="CenterBar"></div>
               <div class="aptSections" >
-                <h1 class="subTitle">General Information</h1>
+                <h1 class="subTitle">General</h1><br>
                 <div class="innerDiv">
-                  <h5>Wifi Name:<span class="renterTxtA"> {{apt.wifiname}}</span></h5>
-                  <h5>Wifi Password:<span class="renterTxtA"> {{apt.wifipwd}}</span></h5>
-                  <h5>Trash Day:<span class="renterTxtA"> {{apt.trashday}}</span></h5>
+                  <h5>Wifi Name:<span class="renterTxtA"> <br>{{landlord.wifiname}}</span></h5><br>
+                  <h5>Wifi Password:<span class="renterTxtA"> <br>{{landlord.wifipwd}}</span></h5><br>
+                  <h5>Trash Day:<span class="renterTxtA"> <br>{{landlord.trashday}}</span></h5><br>
                 </div>
               </div>
             </section>

@@ -15,8 +15,9 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
     loginServ.login(user)
     .then(function(response) {
       if (!response.data){
+        $scope.spin = false
         $scope.user.password = "";
-      return alert('user could not be logged in');
+        $state.go('home')
       }
       if(response.data){
         if(response.data.isadmin){
@@ -26,10 +27,10 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
         }
       }
       }).catch(function(err) {
-        // $scope.spin = false
+        $scope.spin = false
         console.log(err);
         $scope.user.password = "";
-        alert('user could not be logged in');
+        $state.go('home')
       });
   };
 

@@ -121,27 +121,27 @@ module.exports = {
     })
   },
 
-  getRentersByAptId: function (req,res) {
-    var apartment = req.params
-    var admin = req.user
-    db.get_one_apt_renters([admin.id, apartment.id], function (err, renters) {
-      res.status(200).send(renters)
-    })
-  },
-
-  getAllUnassignedRenters: function (req, res) {
-    var admin = req.user
-    db.get_all_unassigned_renters([admin.id], function (err, renters) {
-      res.status(200).send(renters)
-    })
-  },
-
-  getAvailableRooms: function (req, res) {
-    var admin = req.user
-    db.get_all_available_housing([admin.id], function (err, rooms) {
-      res.status(200).json(rooms)
-    })
-  },
+  // getRentersByAptId: function (req,res) {
+  //   var apartment = req.params
+  //   var admin = req.user
+  //   db.get_one_apt_renters([admin.id, apartment.id], function (err, renters) {
+  //     res.status(200).send(renters)
+  //   })
+  // },
+  //
+  // getAllUnassignedRenters: function (req, res) {
+  //   var admin = req.user
+  //   db.get_all_unassigned_renters([admin.id], function (err, renters) {
+  //     res.status(200).send(renters)
+  //   })
+  // },
+  //
+  // getAvailableRooms: function (req, res) {
+  //   var admin = req.user
+  //   db.get_all_available_housing([admin.id], function (err, rooms) {
+  //     res.status(200).json(rooms)
+  //   })
+  // },
 
   // getAllGroups: function (req, res) {
   //   var admin = req.user
@@ -318,16 +318,17 @@ module.exports = {
         res.status(200).json(faq);
       });
     },
+
     updateApartment: function(req, res, next){
       var update = req.body;
-       var key={};
-     key.id =  update.id;
-      db.apartments.save(key,update, function(err, faq){
+      var key={};
+      key.id = update.id;
+      db.apartments.save(key, update, function(err, apt){
         if (err){
-          console.log("createapt error",err);
+          console.log("updateapt error",err);
           return res.status(401).send(err);
         }
-        res.status(200).json(faq);
+        res.status(200).json(apt);
       });
     },
 

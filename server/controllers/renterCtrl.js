@@ -38,7 +38,7 @@ module.exports = {
 
 	getAdminByLoggedInUser: function (req, res) {
 	  var user = req.user;
-		db.get_all_admins_by_citiesid([user.citiesid], function (err, admin) {
+		db.get_all_admins_by_citiesid([user.citiesid, user.aptid], function (err, admin) {
 		  if (err) {
 		  	res.status(500).send(err)
 		  }
@@ -53,7 +53,7 @@ module.exports = {
     var user = req.user;
     var currenttime = new Date().toLocaleDateString();
 
-    db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, req.body.renterid, req.body.aptid, req.body.citiesid, user.orgid],
+    db.create_serviceRequest([currenttime, req.body.request, req.body.type, req.body.permissions,'received', true, user.id, user.aptid, user.citiesid, user.orgid],
       function(err, servreq) {
         // if (err) {
         //   res.status(500).send(err)

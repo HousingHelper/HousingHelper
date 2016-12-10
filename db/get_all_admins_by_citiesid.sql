@@ -1,6 +1,6 @@
-select users.* from users
+select users.*, apartments.* from users
 join apartments
-on users.aptid = apartments.id
+on apartments.id = $2
 where users.citiesid = $1
 and isadmin = true
--- and issuperuser = false
+and issuperuser = false

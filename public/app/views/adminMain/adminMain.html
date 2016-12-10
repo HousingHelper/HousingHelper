@@ -1,13 +1,13 @@
 <div class="main adminMV">
 
-  <div class="login" id="Create" ng-cloak>
+  <div class="login" id="createApartment" ng-cloak>
     <div class="loginHolder">
       <section ng-hide="!spin" class="LoggingIn">
         <h1>Logging In...</h1>
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
       </section>
       <div class="loginTitle">
-        <h1>Create New Appartment</h1>
+        <h1>Add New Appartment</h1>
       </div>
       <form ng-submit='createApartment(apt)' class="loginInputs">
         <div class="iBoxHolder">
@@ -79,7 +79,83 @@
           <input ng-model='apt.zipcode'class="lBoxes" type="text" placeholder="Enter Zipcode" required>
           </div>
         <div class="BtnHolder">
-          <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
+          <button id="cancelBtn" type='reset' class="lBtns" ng-click="show= false">Cancel</button>
+          <button type="submit" class="lBtns">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="login" id="createLocation" ng-cloak>
+    <div class="loginHolder">
+      <section ng-hide="!spin" class="LoggingIn">
+        <h1>Logging In...</h1>
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </section>
+      <div class="loginTitle">
+        <h1>Add New Location</h1>
+      </div>
+      <form ng-submit='createLocation(location)' class="loginInputs">
+        <div class="iBoxHolder">
+          <h1 class="formTxt">City Name</h1>
+          <input ng-model='location.city'class="lBoxes" type="text" placeholder="Enter Location Name" required>
+          <h1 class="formTxt">State</h1>
+          <select ng-model='location.state' name="state">
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AZ">AZ</option>
+            <option value="AR">AR</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DE">DE</option>
+            <option value="DC">DC</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="IA">IA</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="ME">ME</option>
+            <option value="MD">MD</option>
+            <option value="MA">MA</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MS">MS</option>
+            <option value="MO">MO</option>
+            <option value="MT">MT</option>
+            <option value="NE">NE</option>
+            <option value="NV">NV</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>
+            <option value="NY">NY</option>
+            <option value="NC">NC</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WV">WV</option>
+            <option value="WI">WI</option>
+            <option value="WY">WY</option>
+          </select>
+          </div>
+        <div class="BtnHolder">
+          <button id="cancelBtn2" type='reset' class="lBtns" ng-click="show= false">Cancel</button>
           <button type="submit" class="lBtns">Create</button>
         </div>
       </form>

@@ -21,7 +21,7 @@
         </div>
         <div class="BtnHolder">
           <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
-          <button type="submit" class="lBtns">Create</button>
+          <button type="submit" class="lBtns" ng-click='createFaq(faq)'>Create</button>
         </div>
       </form>
     </div>
@@ -42,10 +42,10 @@
         </div>
         <div class="dataHolder">
           <!-- the ng-repeat go inside of showFaqs -->
-          <div class="showFaqs">
+          <div class="showFaqs" ng-repeat='faq in faqs'>
             <div class="mainData">
-              <h1 class="mdTxtH1">{title}</h1>
-              <p class="mdTxtP">{answer}</p>
+              <h1 class="mdTxtH1">{{faq.question}}</h1>
+              <p class="mdTxtP">{{faq.answer}}</p>
             </div>
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
