@@ -79,7 +79,7 @@
           <input ng-model='apt.zipcode'class="lBoxes" type="text" placeholder="Enter Zipcode" required>
           </div>
         <div class="BtnHolder">
-          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
           <button type="submit" class="lBtns">Create</button>
         </div>
       </form>
@@ -128,10 +128,9 @@
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
-                <a ui-sref="update.apt">
-                  <div id="edit" class="dataBtns">
-                    <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>a<br>p<br>a<br>r<br>t<br>m<br>e<br>n<br>t</h1></div>
-                </a>
+                <div ui-sref="update.apt" id="edit" class="dataBtns">
+                <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>a<br>p<br>a<br>r<br>t<br>m<br>e<br>n<br>t</h1>
+                </div>
             </div>
             </div>
           </div>

@@ -11,16 +11,16 @@
       </div>
       <form ng-submit='' class="loginInputs">
         <div class="iBoxHolder">
-          <h1 class="formTxt">Enter Question</h1>
-          <textarea name="Answer" rows="3" cols="40"></textarea>
+          <h1 class="formTxt">Enter Question:</h1>
+          <textarea class="txtArea" name="Answer" rows="3" cols="40" placeholder="Enter Here..."></textarea>
           <!-- <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email"> -->
-          <h1 class="formTxt">Enter Answer</h1>
-          <textarea name="Answer" rows="8" cols="40"></textarea>
+          <h1 class="formTxt">Enter Answer:</h1>
+          <textarea class="txtArea txtAreaBig" name="Answer" rows="8" cols="40" placeholder="Enter Here..."></textarea>
           <!-- <input ng-model='user.password' class="lBoxes" type="text" placeholder="Enter Password"> -->
 
         </div>
         <div class="BtnHolder">
-          <button id="cancelBtn" class="lBtns" ng-click="show= false">Cancel</button>
+          <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
           <button type="submit" class="lBtns">Create</button>
         </div>
       </form>
@@ -36,7 +36,7 @@
     </div>
     <div class="pageContent">
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
-      <section class="serviceRequestsView">
+      <section class="adminFAQView">
         <div class="addBtnHolder">
           <div id="addData" class="addBtn">Create New FAQ</div>
         </div>
@@ -50,11 +50,9 @@
             <div class="btnHolder">
               <div id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
-                <a ui-sref="update.faq">
-                  <div id="edit" class="dataBtns">
-                    <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>f<br>a<br>q</h1>
-                  </div>
-                </a>
+                <div ui-sref="update.faq" id="edit" class="dataBtns">
+                  <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>f<br>a<br>q</h1>
+                </div>
             </div>
           </div>
 
