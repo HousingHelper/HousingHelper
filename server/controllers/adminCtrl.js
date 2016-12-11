@@ -254,6 +254,15 @@ module.exports = {
       })
     },
 
+    getGroupByGroupId: function(req, res, next) {
+      db.groups.find({id: req.params.id}, function(err, group) {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(group)
+      })
+    },
+
 // ____________________ POST (CREATE)_______________________________//
 
     createFaq: function(req, res) {
@@ -321,16 +330,16 @@ module.exports = {
 
     updategroups: function(req,res,next){
       var update = req.body;
-       var key={};
+      var key={};
      key.id =  update.id;
-      db.groups.save(key,update, function(err, faq){
-        if (err){
-          console.log("createapt error",err);
-          return res.status(401).send(err);
-        }
-        // delete admin.password;
-        res.status(200).json(faq);
-      });
+     db.groups.save(key,update, function(err, group){
+      if (err){
+        console.log("update group error", err);
+        return res.status(401).send(err);
+      }
+      // delete admin.password;
+      res.status(200).json(group);
+    });
     },
 
     updateApartment: function(req, res, next){

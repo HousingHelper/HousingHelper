@@ -303,7 +303,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update.group', {
       templateUrl: './app/views/updateAll/updateGroup/updateGroup.html',
       controller: 'updateGroup',
-      url: '/group'
+      url: '/group/:id',
+      resolve: {
+        group: function(adminMainServ, $stateParams) {
+          return adminMainServ.getGroupByGroupId($stateParams.id)
+        }
+      }
     })
     //Update Service Request
     .state('update.serreq', {
