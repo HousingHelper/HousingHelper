@@ -1,4 +1,4 @@
-select * from users
+select users.* from users
 join apartments
 on users.aptid = apartments.id
 where users.citiesid in (

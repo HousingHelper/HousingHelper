@@ -118,12 +118,12 @@
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
               <div class="mainData">
-                First name: {{renter.firstname}}
-                Last name: {{renter.lastname}}
-                DOB: {{renter.dob}}
-                Gender: {{renter.gender}}
-                Phone: {{renter.phone}}
-                Group: {{renter.groupid}}
+                Name: {{renter.firstname}}  {{renter.lastname}}<br>
+                DOB: {{renter.dob}}<br>
+                Gender: {{renter.gender}}<br>
+                Phone: {{renter.phone}}<br>
+                Email: {{renter.email}}<br>
+                ID: {{renter.id}}
               </div>
               <div class="btnHolder">
                 <div id="delete" class="dataBtns">
