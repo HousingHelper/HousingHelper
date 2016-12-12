@@ -113,5 +113,39 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     return false;
     });
 
+    $scope.saAlert = function (){
+      // swal({
+      //   type: "success",
+      //   title: "Created Successfully!",
+      //   text: "Auto close in 2 seconds.",
+      //   timer: 2000,
+      //   showConfirmButton: false
+      // });
+      // swal({
+      //   type: "error",
+      //   title: "Encountered Error!",
+      //   text: "Auto close in 2 seconds.",
+      //   timer: 2000,
+      //   showConfirmButton: false
+      // });
+      swal({
+        title: "Are you sure?",
+        text: "This Item Will Be Permanently Deleted!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#55AA55",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      },
+      function(isConfirm){
+        if (isConfirm) {
+          swal("Deleted!", "This Item Has Been Deleted.", "success");
+        } else {
+          swal("Cancelled", "This Item is safe :)", "error");
+        }
+      });
+    }
 
 });

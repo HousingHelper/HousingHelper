@@ -34,19 +34,25 @@ angular.module("housinghelper").controller("adminFaq", function($scope, faqServ,
     faqServ.createFaq(faq)
   };
 
-
-  $scope.deleteAlert = function(){
+  $scope.saAlert = function (){
     swal({
       title: "Are you sure?",
-      text: "You will not be able to recover this imaginary file!",
+      text: "This Item Will Be Permanently Deleted!",
       type: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#DD6B55",
+      confirmButtonColor: "#55AA55",
       confirmButtonText: "Yes, delete it!",
-      closeOnConfirm: false
+      cancelButtonText: "No, cancel!",
+      closeOnConfirm: false,
+      closeOnCancel: false
     },
-    function(){
-      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    function(isConfirm){
+      if (isConfirm) {
+        swal("Deleted!", "This Item Has Been Deleted.", "success");
+      } else {
+        swal("Cancelled", "This Item is safe :)", "error");
+      }
     });
   }
+
 });

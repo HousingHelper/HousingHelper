@@ -12,7 +12,13 @@ angular.module("housinghelper").service("loginServ", function($http) {
       return response;
     }).catch(function(err) {
       console.log(err);
-      alert('Login Failed. Please Try Again.')
+      swal({
+        type: "error",
+        title: "Login Failed. Please Try Again.",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
   // this.logout = function() {
