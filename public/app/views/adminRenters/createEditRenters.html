@@ -117,13 +117,20 @@
               <h1>{{group.title}}</h1>
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
+
               <div class="mainData">
                 Name: {{renter.firstname}}  {{renter.lastname}}<br>
                 DOB: {{renter.dob}}<br>
                 Gender: {{renter.gender}}<br>
                 Phone: {{renter.phone}}<br>
                 Email: {{renter.email}}<br>
-                ID: {{renter.id}}
+                Hometown: {{renter.hometown}}<br>
+                Private room? {{renter.private_room?'Yes':'No'}}<br>
+                Lease start: {{renter.leasestart}} - End: {{renter.leaseend}}<br>
+                Rent Amt: {{renter.rentamt | currency}}<br>
+                Paid? {{renter.monthpaid?'Yes':'No'}}<br>
+                Apt: {{renter.title}} {{renter.apt_num}}<br>
+                Admin? {{renter.isadmin?'Yes':'No'}}<br>
               </div>
               <div class="btnHolder">
                 <div id="delete" class="dataBtns">
