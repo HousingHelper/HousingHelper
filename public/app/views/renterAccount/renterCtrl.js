@@ -11,6 +11,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     $scope.show = true
     $scope.user = user;
     $scope.landlord = admin.data[0];
+    console.log('landlord: ', admin.data);
     // $scope.apartments = apartments.data
     $('#existingLogin').hide();
 
@@ -40,7 +41,6 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     renterServ.getRenterServReqById()
     .then(function(response){
       $scope.servreqs = response.data;
-      console.log($scope.servreqs);
     })
   }  (user);
 

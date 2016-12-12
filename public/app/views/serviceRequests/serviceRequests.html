@@ -13,22 +13,31 @@
       <form ng-submit='submitServReq(newSr, selectedNote)' class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Request</h1>
-          <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request"></input>
+          <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request" required></input>
 
           <h1 class="formTxt">Type</h1>
-          <select class="lBoxes" ng-model='newSr.type' ng-options='sr.type as sr.type for sr in servreqs | unique: "type"'>
-            <option value="">Choose Type</option>
+          <select class="lBoxes" ng-model='newSr.type' required>
+            <option value=''>Choose Type</option>
+            <option >Electrical</option>
+            <option >Damage/Repair</option>
+            <option >Utilities</option>
+            <option >Appliances</option>
+            <option >Housekeeping</option>
+            <option >Other</option>
           </select>
           <br>
 
           <h1 class="formTxt">Permissions</h1>
-          <select class="lBoxes" ng-model='newSr.permissions' ng-options='sr.permissions as sr.permissions for sr in servreqs | unique: "permissions"'>
+          <select class="lBoxes" ng-model='newSr.permissions'  required>
             <option value="">Choose Permission</option>
+            <option > 24 hour or more advance notice </option>
+            <option >Less than 24 hour advance notice but more than 4 hours notice</option>
+            <option >Less than 4 hour advance notice</option>
           </select>
           <br>
 
           <h1 class="formTxt">User</h1>
-          <select class="lBoxes" ng-model='selectedUser' ng-options='(user.firstname + " " + user.lastname) for user in users'>
+          <select class="lBoxes" ng-model='selectedUser' ng-options='(user.firstname + " " + user.lastname) for user in users' required>
             <option value="">Choose Requester</option>
           </select>
           <br>

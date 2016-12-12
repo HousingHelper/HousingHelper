@@ -38,7 +38,7 @@ angular.module("housinghelper").service("servReqServ", function($http) {
            note: note
       }
     }).then(function(response) {
-      return response;
+      alert("Service Request Successfully Created!");
     });
   };
 
