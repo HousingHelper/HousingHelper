@@ -140,7 +140,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       url: "/api/groups/" + group.id,
       data: group
     }).then(function(response) {
-      return response;
+      alert('Group Successfully Updated!');
     });
   };
   // this.deleteCollection = function(id) {

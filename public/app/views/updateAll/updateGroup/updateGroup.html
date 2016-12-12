@@ -8,19 +8,19 @@
           <h1 class="inputTitle">Title</h1>
           <h1 class="currentInfo">{{group.title}}</h1>
         </div>
-        <input ng-model="group.title" ng-value="group.title" class="inputBox" type="text">
+        <input ng-model="group.title" ng-value="group.title" class="inputBox" type="text" required>
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Start Date:</h1>
           <h1 class="currentInfo">{{group.startdate | date:'shortDate'}}</h1>
         </div>
-        <input ng-model="group.startdate" ng-value="group.startdate" class="inputBox" type="date" required>
+        <input ng-model="group.startdate" ng-value="group.startdate" class="inputBox" type="date">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">End Date:</h1>
           <h1 class="currentInfo">{{group.enddate | date:'shortDate'}}</h1>
         </div>
-        <input ng-model="group.enddate" ng-value="group.enddate" class="inputBox" type='date' required>
+        <input ng-model="group.enddate" ng-value="group.enddate" class="inputBox" type='date' >
         <!-- this is where we end putting inputs left side -->
       </div>
       <div class="centerBar"></div>
@@ -30,13 +30,13 @@
           <h1 class="inputTitle">Check In:</h1>
           <h1 class="currentInfo">{{group.checkindate | date:'shortDate'}}</h1>
         </div>
-        <input ng-model="group.checkindate" ng-value="group.checkindate" class="inputBox" type="date" required>
+        <input ng-model="group.checkindate" ng-value="group.checkindate" class="inputBox" type="date">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Check Out:</h1>
           <h1 class="currentInfo">{{group.checkoutdate | date:'shortDate'}}</h1>
         </div>
-        <input ng-model="group.checkoutdate" ng-value="group.checkoutdate" class="inputBox" type="date" required>
+        <input ng-model="group.checkoutdate" ng-value="group.checkoutdate" class="inputBox" type="date">
         <!-- this is where we end putting inputs right side -->
       </div>
     </section>

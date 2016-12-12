@@ -5,7 +5,6 @@ angular.module("housinghelper").controller("updateSerReq", function($scope, sr, 
   // ============================================================
   $scope.sr = sr.data[0]
   $scope.servreqs = servreqs.data
-  $scope.newSr;
 
   // FUNCTIONS
   // ============================================================

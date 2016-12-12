@@ -113,7 +113,7 @@ module.exports = {
     var key = {};
    	key.id = update.id;
 
-    db.servreqs.save(key,update, function(err, sr){
+    db.servreqs.update(key,update, function(err, sr){
       if (err){
         console.log("update sr error",err);
         return res.status(401).send(err);
@@ -128,7 +128,7 @@ module.exports = {
 		var user = req.user;
 		db.update_user_account_info([update.email, update.phone, update.carmake, update.carmodel, user.id], function (err, result) {
 		  if (err) {
-		  	console.log(err);
+		  	console.log('err',err);
 		  }
 			res.status(200).send('User Account Information Successfully Updated!');
 		})
@@ -139,7 +139,7 @@ module.exports = {
 		var user = req.user;
 		update.password = hashPassword(update.password);
 		db.update_user_password([update.password, user.id], function (err, result) {
-			if (err) console.log(err);
+			if (err) console.log('err: ', err);
 			res.status(200).send('User Password Successfully Updated!');
 		})
 	}
