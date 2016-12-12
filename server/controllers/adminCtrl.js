@@ -284,6 +284,27 @@ module.exports = {
       res.status(200).send(sr)
     })
   },
+  
+  getAllRoomsByLoggedInUser: function (req,res,next) {
+    var admin = req.user
+    if (admin.issuperuser) {
+      db.get_all_rooms_by_superuser([admin.orgid], function (err, rooms) {
+        if (err){
+          console.log("getrooms error",err);
+          return res.status(401).send(err);
+        }
+        res.status(200).send(rooms)
+      })
+    } else if (admin.isadmin) {
+      db.get_all_rooms_by_admin([admin.id], function (err, rooms) {
+        if (err){
+          console.log("getrooms error",err);
+          return res.status(401).send(err);
+        }
+        res.status(200).send(rooms)
+      })
+    }
+  },
 
 // ____________________ POST (CREATE)_______________________________//
 
@@ -340,13 +361,13 @@ module.exports = {
       var update = req.body;
       var key={};
       key.id =  update.id;
-      db.faqs.save(key,update, function(err, faq){
+      db.faqs.update(key,update, function(err, faq){
         if (err){
           console.log("createapt error",err);
           return res.status(401).send(err);
         }
         // delete admin.password;
-        res.status(200).json(faq);
+        res.status(200).send('FAQ Updated Successfully!');
       });
     },
 
@@ -354,13 +375,13 @@ module.exports = {
       var update = req.body;
       var key={};
      key.id =  update.id;
-     db.groups.save(key,update, function(err, group){
+     db.groups.update(key,update, function(err, group){
       if (err){
         console.log("update group error", err);
         return res.status(401).send(err);
       }
       // delete admin.password;
-      res.status(200).json(group);
+      res.status(200).send('Group Successfully Updated!');
     });
     },
 
@@ -368,35 +389,15 @@ module.exports = {
       var update = req.body;
       var key={};
       key.id = update.id;
-      db.apartments.save(key, update, function(err, apt){
+      db.apartments.update(key, update, function(err, apt){
         if (err){
           console.log("updateapt error",err);
           return res.status(401).send(err);
         }
-        res.status(200).json(apt);
+        res.status(200).send("Apartment Updated Successfully!");
       });
-    },
-
-    getAllRoomsByLoggedInUser: function (req,res,next) {
-      var admin = req.user
-      if (admin.issuperuser) {
-        db.get_all_rooms_by_superuser([admin.orgid], function (err, rooms) {
-          if (err){
-            console.log("getrooms error",err);
-            return res.status(401).send(err);
-          }
-          res.status(200).send(rooms)
-        })
-      } else if (admin.isadmin) {
-        db.get_all_rooms_by_admin([admin.id], function (err, rooms) {
-          if (err){
-            console.log("getrooms error",err);
-            return res.status(401).send(err);
-          }
-          res.status(200).send(rooms)
-        })
-      }
     }
+
 
 
 // ____________________ DELETE _______________________________//

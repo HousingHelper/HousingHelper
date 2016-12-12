@@ -99,7 +99,7 @@ module.exports = {
   	var update = req.body;
   	var key= {};
    	key.id = update.id;
-    db.users.save(key, update, function(err, user){
+    db.users.update(key, update, function(err, user){
       if (err){
         console.log("update user error",err);
         return res.status(401).send(err);
