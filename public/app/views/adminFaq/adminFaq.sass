@@ -5,6 +5,7 @@
     margin-right: -330px
   // ((((((((((((((((((((((((((login))))))))))))))))))))))))))
   .login
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
     position: fixed
     top: 0
     width: 100%
@@ -132,6 +133,20 @@
       &:hover
         background: #11a5e5
         cursor: pointer
+    .helpBtn
+      position: absolute
+      right: 10px
+      width: 71px
+      padding: 1px
+      border-radius: 5px
+      text-align: center
+      font-size: 24px
+      background: #2AABE2
+      border: 1px solid #1B75BB
+      color: white
+      &:hover
+        background: #11a5e5
+        cursor: pointer
   //data holder look for this information in main.sass this is styling for all ng-repeats ~~~~~~~~~~~~~~~~~~~~~~~~~
   .showFaqs
     width: 650px
@@ -153,6 +168,7 @@
       display: flex
       flex-direction: column
       justify-content: flex-start
+      padding-bottom: 15px
       .mdTxtH1
         font-size: 25px
         font-weight: bold
