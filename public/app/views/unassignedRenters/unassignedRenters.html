@@ -19,10 +19,10 @@
                   <h1 class="titles">Renters Name</h1>
                   <h2 class="titlesH2">Drag To Avalible Room</h2>
                   <!-- put the ng-repeat on youBox -->
-                  <div class="youBox">
+                  <div class="youBox" ng-repeat="renter in unassignedRenters">
                     <span>
-                      <h1>{renter.name}</h1>
-                      <h1>{group.name}</h1>
+                      <h1>{{renter.firstName}} {{renter.lastname}}</h1>
+                      <h1>{{renter.title}}</h1>
                     </span>
                   </div>
 
@@ -32,9 +32,9 @@
                   <h1 class="titles">Rooms Avalibale</h1>
                   <h2 class="titlesH2">drop name in text area</h2>
                   <!-- put the ng-repeat on roomBox -->
-                  <form class="roomBox">
-                    <h1>Carson Corner</h1>
-                    <h2>room#: 2</h2>
+                  <form class="roomBox" ng-repeat="rooms in availableRooms">
+                    <h1>{{rooms.title}} / #{{rooms.aptnum}}</h1>
+                    <h2>room#:{{rooms.roomid}}</h2>
                     <input class="roomBoxInput" type="text" name="name">
                     <button class="sBtn" type="submit">Submit</button>
                   </form>
