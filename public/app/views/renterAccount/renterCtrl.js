@@ -14,6 +14,14 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     // $scope.apartments = apartments.data
     $('#existingLogin').hide();
 
+    $scope.newSR = {
+      request: '',
+      type: '',
+      permissions: '',
+      note: ''
+    }
+
+
   // FUNCTIONS
   // ============================================================
   // $scope.getUserInfo = function (user){
@@ -32,7 +40,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     renterServ.getRenterServReqById()
     .then(function(response){
       $scope.servreqs = response.data;
-      console.log('sr: ', $scope.servreqs);
+      console.log($scope.servreqs);
     })
   }  (user);
 
@@ -67,8 +75,8 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     });
   };
 
-  $scope.createServReq = function (sr) {
-    renterServ.createServReq(sr)
+  $scope.createServReq = function (newSR) {
+    renterServ.createServReq(newSR)
     .then(function(response) {
       $('#existingLogin').hide();
       $state.go('renter')
