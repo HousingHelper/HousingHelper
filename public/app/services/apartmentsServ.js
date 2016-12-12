@@ -6,7 +6,7 @@ angular.module("housinghelper").service("apartmentsServ", function($http) {
   this.getAptsById = function(id) {
     return $http({
       method: 'GET',
-      url: '/apartments/' + id
+      url: '/api/apartments/' + id
     })
   };
 
@@ -39,13 +39,15 @@ angular.module("housinghelper").service("apartmentsServ", function($http) {
   //     return response;
   //   });
   // };
-  this.editApt = function(id, apt) {
+  this.editApt = function(apartment) {
     return $http({
       method: 'PUT',
-      url: "/api/apartments/" + id,
-      data: apt
+      url: "/api/apartments/" + apartment.id,
+      data: apartment
     }).then(function(response) {
-      return response;
+      alert('Apartment Updated Successfully!')
+    }).catch(function(err) {
+      console.log('SERV: ', err);
     });
   };
   // this.deleteCollection = function(id) {

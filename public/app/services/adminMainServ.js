@@ -40,6 +40,13 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     })
   };
 
+  this.getGroupByGroupId = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/allgroups/' + id
+    })
+  };
+
   this.getAllGroupsLocations = function() {
     return $http({
       method: 'GET',
@@ -125,15 +132,17 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     });
   }
 
-  // this.editCollection = function(id, collection) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: "/collection/" + id,
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  // UPDATE //
+
+  this.editGroup = function(group) {
+    return $http({
+      method: 'PUT',
+      url: "/api/groups/" + group.id,
+      data: group
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.deleteCollection = function(id) {
   //   return $http({
   //     method: 'DELETE',

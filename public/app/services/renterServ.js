@@ -62,9 +62,16 @@ angular.module("housinghelper").service("renterServ", function($http) {
     });
   };
 
+  this.getUserbyUserId = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/adminRenters/' + id
+    })
+  }
+
 
    // POST (CREATE) //
-   
+
   this.createRenter = function (renter) {
     return $http({
       method: 'POST',
@@ -92,42 +99,38 @@ angular.module("housinghelper").service("renterServ", function($http) {
   }
 
   // PUT (UPDATE) //
-    this.updateUserAccountInfo = function (userAccInfo) {
-      return $http({
-        method: 'PUT',
-        url: '/api/updateUserAccountInfo',
-        data: userAccInfo
-      }).catch(function(err) {
-        console.log('serv err: ',err);
-      });
-    };
+  this.updateUserAccountInfo = function (userAccInfo) {
+    return $http({
+      method: 'PUT',
+      url: '/api/updateUserAccountInfo',
+      data: userAccInfo
+    }).catch(function(err) {
+      console.log('serv err: ',err);
+    });
+  };
 
-    this.updateUserPassword = function (password) {
-      return $http({
-        method: "PUT",
-        url: '/api/updateUserPassword',
-        data: {password: password}
-      })
-      .then(function(response) {
-        alert('Password successfully updated. Please Re-Login')
-      }).catch(function(err) {
-        console.log('serv err: ', err);
-      });
-    };
+  this.updateUserPassword = function (password) {
+    return $http({
+      method: "PUT",
+      url: '/api/updateUserPassword',
+      data: {password: password}
+    })
+    .then(function(response) {
+      alert('Password successfully updated. Please Re-Login')
+    }).catch(function(err) {
+      console.log('serv err: ', err);
+    });
+  };
 
-
-
-
-
-  // this.editCollection = function(id, collection) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: "/collection/" + id,
-  //     data: collection
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.editUser = function(user) {
+    return $http({
+      method: 'PUT',
+      url: "/api/putuser/" + user.id,
+      data: user
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.deleteCollection = function(id) {
   //   return $http({
   //     method: 'DELETE',

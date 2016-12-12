@@ -29,17 +29,17 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
             $state.go('home')
           });
         },
-    locations: function (apartmentsServ) {
-      return apartmentsServ.getAllLocations()
-    },
-    apartments: function (adminMainServ) {
-      return adminMainServ.getAllApts()
-    },
-    users: function(adminMainServ) {
-      return adminMainServ.getAllUsersByLoggedInUser()
-    }
-  }
-  })
+        locations: function (apartmentsServ) {
+          return apartmentsServ.getAllLocations()
+        },
+        apartments: function (adminMainServ) {
+          return adminMainServ.getAllApts()
+        },
+        users: function(adminMainServ) {
+          return adminMainServ.getAllUsersByLoggedInUser()
+        }
+      }
+    })
     // Apartments STATE
     .state('apartments', {
       url: '/apartments/:id',
@@ -205,8 +205,8 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'adminFaq',
       url: '/adminFaq',
       resolve:{
-        faqs :  function(faqServ) {
-          return faqServ.getFaqsById();
+        faqs: function(faqServ) {
+          return faqServ.getAllFaqs();
         }
       }
     })
@@ -278,31 +278,62 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update.apt', {
       templateUrl: './app/views/updateAll/updateApt/updateApt.html',
       controller: 'updateApt',
-      url: '/apt/:id'
+      url: '/apt/:id',
+      resolve: {
+        apartment: function(apartmentsServ, $stateParams) {
+          return apartmentsServ.getAptsById($stateParams.id)
+        },
+        locations: function (apartmentsServ) {
+          return apartmentsServ.getAllLocations()
+        }
+      }
     })
     //Update FAQ
     .state('update.faq', {
       templateUrl: './app/views/updateAll/updateFaq/updateFaq.html',
       controller: 'updateFaq',
-      url: '/faq'
+      url: '/faq/:id',
+      resolve: {
+        faq: function(faqServ, $stateParams) {
+          return faqServ.getFaqsById($stateParams.id)
+        }
+      }
     })
     //Update Group
     .state('update.group', {
       templateUrl: './app/views/updateAll/updateGroup/updateGroup.html',
       controller: 'updateGroup',
-      url: '/group'
+      url: '/group/:id',
+      resolve: {
+        group: function(adminMainServ, $stateParams) {
+          return adminMainServ.getGroupByGroupId($stateParams.id)
+        }
+      }
     })
     //Update Service Request
     .state('update.serreq', {
       templateUrl: './app/views/updateAll/updateSerReq/updateSerReq.html',
       controller: 'updateSerReq',
-      url: '/service'
+      url: '/service/:id',
+      resolve: {
+        sr: function(servReqServ, $stateParams) {
+          return servReqServ.getServReqBySRId($stateParams.id)
+        },
+        servreqs: function(servReqServ) {
+          return servReqServ.getServReqs();
+        }
+      }
     })
     //Update User
     .state('update.user', {
       templateUrl: './app/views/updateAll/updateUser/updateUser.html',
       controller: 'updateUser',
-      url: '/user'
+      url: '/user/:id',
+      resolve: {
+        user: function(renterServ, $stateParams) {
+          return renterServ.getUserbyUserId($stateParams.id);
+        }
+      }
     })
 
 

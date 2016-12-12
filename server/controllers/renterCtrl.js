@@ -46,6 +46,15 @@ module.exports = {
 		})
 	},
 
+	getUserByUserId: function(req, res, next) {
+    db.users.find({id: req.params.id}, function(err, user) {
+      if (err) {
+        res.status(500).send(err)
+      }
+      res.status(200).send(user)
+    })
+  },
+
 
 	//_________________POST (CREATE) ________________________
 
@@ -87,15 +96,15 @@ module.exports = {
 
 
   updateUser : function(req,res,next){
-    var update = req.body;
-    var key={};
-   key.id =  update.id;
-    db.users.save(key,update, function(err, faq){
+  	var update = req.body;
+  	var key= {};
+   	key.id = update.id;
+    db.users.save(key, update, function(err, user){
       if (err){
-        console.log("createapt error",err);
+        console.log("update user error",err);
         return res.status(401).send(err);
       }
-      res.status(200).json(faq);
+      res.status(200).json(user);
     });
   },
 
@@ -103,12 +112,12 @@ module.exports = {
     var update = req.body;
     var key={};
    key.id =  update.id;
-    db.servreqs.save(key,update, function(err, faq){
+    db.servreqs.save(key,update, function(err, sr){
       if (err){
-        console.log("createapt error",err);
+        console.log("update sr error",err);
         return res.status(401).send(err);
       }
-      res.status(200).json(faq);
+      res.status(200).json(sr);
     });
   },
 
