@@ -119,19 +119,20 @@ app.get('/allgroups/:id', isAuthed, adminCtrl.getGroupByGroupId)
   // SERV REQS //
 app.get('/serviceRequests', isAuthed, serviceRequestsCtrl.getAllServReqsbyLoggedInUser)
 app.get('/servreqnotes', isAuthed, serviceRequestsCtrl.getAllNotesForServReqs)
+app.get('/serviceRequests/:id', isAuthed, adminCtrl.getServReqBySRId)
   // USERS //
 app.get('/allusers', isAuthed, adminCtrl.getAllUsersByLoggedInUser)
 app.get('/allusersinallgroups', isAuthed, adminCtrl.getAllGroupsByLoggedInUser)
 app.get('/api/rooms', isAuthed, adminCtrl.getAllRoomsByLoggedInUser)
-
+app.get('/adminRenters/:id', isAuthed, renterCtrl.getUserByUserId)
 
 
         //// PUT ////
 
 app.put('/api/putfaq/:id', isAuthed, adminCtrl.updatefaq)
-app.put('/api/putuser', isAuthed, renterCtrl.updateUser)
+app.put('/api/putuser/:id', isAuthed, renterCtrl.updateUser)
 app.put('/api/groups/:id', isAuthed, adminCtrl.updategroups)
-app.put('/api/servRequest', isAuthed, renterCtrl.updateServRequest)
+app.put('/api/servRequest/:id', isAuthed, renterCtrl.updateServRequest)
 app.put('/api/apartments/:id', isAuthed, adminCtrl.updateApartment)
 app.put('/api/updateUserAccountInfo', isAuthed, renterCtrl.updateUserAccountInfo)
 app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)

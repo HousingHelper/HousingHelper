@@ -1,15 +1,18 @@
 <section class="updateSerReqHolder">
   <h1 class="pageTitle">Update Service Requests</h1>
-  <form class="formCon">
+  <form ng-submit="editSR(newSr)" class="formCon">
     <section class="inputContainer">
       <div class="content contentLeft">
         <!-- this is where we start putting inputs left side -->
           <h1 class="inputTitle">Request:</h1>
-          <p class="currentInfo">{Current Value}</p>
+          <p class="currentInfo">{{newSr.request}}</p>
+          <input ng-model="newSr.request" ng-value="sr.request" class="inputBox" type="text">
         <!-- new input -->
           <h1 class="inputTitle">Permission:</h1>
-          <p class="currentInfo">{Current Value}</p>
-
+          <p class="currentInfo">{{newSr.permissions}}</p>
+          <select ng-model="newSr.permissions" ng-options="sr.permissions as sr.permissions for sr in servreqs | unique: 'permissions'" class="inputBox">
+            <option value="">Select Permission</option>
+          </select>
         <!-- this is where we end putting inputs left side -->
       </div>
       <div class="centerBar"></div>
@@ -17,25 +20,19 @@
         <!-- this is where we start putting inputs right side -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Type</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{newSr.type}}</h1>
         </div>
-        <select class="inputBox" name="">
-          <option value="">Damage/Repair</option>
-          <option value="">Hosekeeping</option>
-          <option value="">Electrical</option>
-          <option value="">Utilities</option>
-          <option value="">Appliances</option>
-          <option value="">Other</option>
+        <select ng-model="newSr.type" class="inputBox" name="" ng-options="sr.type as sr.type for sr in servreqs | unique: 'type'">
+          <option value="">Select Type</option>
+
         </select>
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Status</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{newSr.status}}</h1>
         </div>
-        <select class="inputBox" name="">
-          <option value="">Recieved</option>
-          <option value="">In Progress</option>
-          <option value="">Completed</option>
+        <select ng-model="newSr.status" class="inputBox" name=""ng-options="sr.status as sr.status for sr in servreqs | unique: 'status'">
+          <option value="">Select Status</option>
         </select>
 
       </div>

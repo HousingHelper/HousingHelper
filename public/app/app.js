@@ -29,17 +29,17 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
             $state.go('home')
           });
         },
-    locations: function (apartmentsServ) {
-      return apartmentsServ.getAllLocations()
-    },
-    apartments: function (adminMainServ) {
-      return adminMainServ.getAllApts()
-    },
-    users: function(adminMainServ) {
-      return adminMainServ.getAllUsersByLoggedInUser()
-    }
-  }
-  })
+        locations: function (apartmentsServ) {
+          return apartmentsServ.getAllLocations()
+        },
+        apartments: function (adminMainServ) {
+          return adminMainServ.getAllApts()
+        },
+        users: function(adminMainServ) {
+          return adminMainServ.getAllUsersByLoggedInUser()
+        }
+      }
+    })
     // Apartments STATE
     .state('apartments', {
       url: '/apartments/:id',
@@ -314,13 +314,26 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
     .state('update.serreq', {
       templateUrl: './app/views/updateAll/updateSerReq/updateSerReq.html',
       controller: 'updateSerReq',
-      url: '/service'
+      url: '/service/:id',
+      resolve: {
+        sr: function(servReqServ, $stateParams) {
+          return servReqServ.getServReqBySRId($stateParams.id)
+        },
+        servreqs: function(servReqServ) {
+          return servReqServ.getServReqs();
+        }
+      }
     })
     //Update User
     .state('update.user', {
       templateUrl: './app/views/updateAll/updateUser/updateUser.html',
       controller: 'updateUser',
-      url: '/user'
+      url: '/user/:id',
+      resolve: {
+        user: function(renterServ, $stateParams) {
+          return renterServ.getUserbyUserId($stateParams.id);
+        }
+      }
     })
 
 

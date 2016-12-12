@@ -9,7 +9,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
   $scope.locations = locations.data;
   $scope.users = users.data;
   $scope.apartments = apartments.data;
-  console.log('apartments:', apartments);
+  // console.log('apartments:', apartments);
 
 
   // FUNCTIONS

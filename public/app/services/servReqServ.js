@@ -10,6 +10,13 @@ angular.module("housinghelper").service("servReqServ", function($http) {
     })
   };
 
+  this.getServReqBySRId = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/serviceRequests/' + id
+    })
+  };
+
   this.getServReqsNotes = function() {
     return $http({
       method: 'GET',
@@ -35,6 +42,15 @@ angular.module("housinghelper").service("servReqServ", function($http) {
     });
   };
 
+  this.editSR = function(sr) {
+    return $http({
+      method: 'PUT',
+      url: '/api/servRequest/' + sr.id,
+      data: sr
+    }).then(function(response) {
+      return response;
+    });
+  };
 
   // this.deleteCollection = function(id) {
   //   return $http({

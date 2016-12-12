@@ -1,34 +1,35 @@
 <section class="updateUserHolder">
   <h1 class="pageTitle">Update User</h1>
-  <form class="formCon">
+  <form ng-submit='editUser(user)' class="formCon">
     <section class="inputContainer">
       <div class="content contentLeft">
         <!-- this is where we start putting inputs left side -->
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">First Name</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.firstname}}</h1>
         </div>
-        <input class="inputBox" type="text">
+        <input ng-model="user.firstname" class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Last Name</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.lastname}}</h1>
         </div>
-        <input class="inputBox" type="text">
+        <input ng-model="user.lastname" class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Private Room</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.private_room?"Yes":"No"}}</h1>
         </div>
-        <select class="inputBox" name="">
-          <option value="true">True</option>
-          <option value="false">False</option>
-        </select>
+        <label><input type="radio" ng-model="user.private_room" name="" value="true">Yes</label>
+        <label><input type="radio" ng-model="user.private_room" name="" value="false">No</label>
+        <!-- <select ng-model="user.private_room" ng-options="user.private_room as sr.private_room for user in users | unique: 'private_room'" class="inputBox" name="">
+          <option value="">YES/NO</option>
+        </select> -->
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Gender</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.gender}}</h1>
         </div>
         <select class="inputBox" name="">
           <option value="male">Male</option>
@@ -37,38 +38,38 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Birth Date</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.dob}}</h1>
         </div>
         <input class="inputBox" type="date">
         <!-- new input -->
 
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Hometown</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.hometown}}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Phone</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
-        </div>
-        <input class="inputBox" type="text">
-        <!-- new input -->
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Career</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.phone}}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Car Make</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.carmake}}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Car Model</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.carmodel}}</h1>
+        </div>
+        <input class="inputBox" type="text">
+        <!-- new input -->
+        <div class="inputTitlesHolder">
+          <h1 class="inputTitle">Car Year</h1>
+          <h1 class="currentInfo">{{user.caryear}}</h1>
         </div>
         <input class="inputBox" type="text">
 
@@ -80,7 +81,7 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Status</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.isadmin}}</h1>
         </div>
         <select class="inputBox" name="">
           <option value="True">User</option>
@@ -89,7 +90,7 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Apartment #</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.aptid}}</h1>
         </div>
         <select class="inputBox" name="">
           <option value="option1">option1</option>
@@ -98,7 +99,7 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Room #</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.roomid}}</h1>
         </div>
         <select class="inputBox" name="">
           <option value="option1">option1</option>
@@ -107,7 +108,7 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Group</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.groupid}}</h1>
         </div>
         <select class="inputBox" name="">
           <option value="option1">option1</option>
@@ -116,38 +117,38 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Lease Start</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.leasestart}}</h1>
         </div>
         <input class="inputBox" type="date">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Lease End</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.leaseend}}</h1>
         </div>
         <input class="inputBox" type="date">
         <!-- new input -->
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Pay Date</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.paydate}}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Rent Amount</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.rentamt}}</h1>
         </div>
         <input class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Check In</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.checkintime}}</h1>
         </div>
         <input class="inputBox" type="date">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Check Out</h1>
-          <h1 class="currentInfo">{Current Value}</h1>
+          <h1 class="currentInfo">{{user.checkouttime}}</h1>
         </div>
         <input class="inputBox" type="date">
 
