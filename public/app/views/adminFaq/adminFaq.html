@@ -39,6 +39,7 @@
       <section class="adminFAQView">
         <div class="addBtnHolder">
           <div id="addData" class="addBtn">Create New FAQ</div>
+          <div class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
           <!-- the ng-repeat go inside of showFaqs -->
@@ -48,8 +49,9 @@
               <p class="mdTxtP">{{faq.answer}}</p>
             </div>
             <div class="btnHolder">
-              <div id="delete" class="dataBtns">
-                <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
+              <div ng-click="deleteAlert()" id="delete" class="dataBtns">
+                <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
+              </div>
                 <div ui-sref="update.faq({id: faq.id})" id="edit" class="dataBtns">
                   <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>f<br>a<br>q</h1>
                 </div>

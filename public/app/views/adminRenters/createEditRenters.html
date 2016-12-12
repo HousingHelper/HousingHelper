@@ -108,6 +108,7 @@
       <section class="createEditRentersView">
         <div class="addBtnHolder">
           <div id="addData" class="addBtn">Create New Renter</div>
+          <div class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
 
@@ -117,20 +118,19 @@
               <h1>{{group.title}}</h1>
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
-
-              <div class="mainData">
-                Name: {{renter.firstname}}  {{renter.lastname}}<br>
-                DOB: {{renter.dob}}<br>
-                Gender: {{renter.gender}}<br>
-                Phone: {{renter.phone}}<br>
-                Email: {{renter.email}}<br>
-                Hometown: {{renter.hometown}}<br>
-                Private room? {{renter.private_room?'Yes':'No'}}<br>
-                Lease start: {{renter.leasestart}} - End: {{renter.leaseend}}<br>
-                Rent Amt: {{renter.rentamt | currency}}<br>
-                Paid? {{renter.monthpaid?'Yes':'No'}}<br>
-                Apt: {{renter.title}} {{renter.apt_num}}<br>
-                Admin? {{renter.isadmin?'Yes':'No'}}<br>
+<<<<<<< HEAD
+              <div class="mainData" style="text-align:left;width:370px;">
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Name:<span style="margin-left:10px;" class="mainTxtA">{{renter.firstname}}  {{renter.lastname}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">DOB:<span style="margin-left:10px;" class="mainTxtA"> {{renter.dob}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Gender:<span style="margin-left:10px;" class="mainTxtA"> {{renter.gender}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Phone:<span style="margin-left:10px;" class="mainTxtA"> {{renter.phone}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Email:<span style="margin-left:10px;" class="mainTxtA"> {{renter.email}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Hometown:<span style="margin-left:10px;" class="mainTxtA"> {{renter.hometown}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Private room?<span style="margin-left:10px;" class="mainTxtA"> {{renter.private_room?'Yes':'No'}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Rent Amt:<span style="margin-left:10px;" class="mainTxtA"> {{renter.rentamt | currency}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Paid?<span style="margin-left:10px;" class="mainTxtA"> {{renter.monthpaid?'Yes':'No'}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Apt:<span style="margin-left:10px;" class="mainTxtA"> {{renter.title}} {{renter.apt_num}}</span></h1>
+                <h1 style="margin-left:20px;" class="mainTxtTitle">Admin?<span style="margin-left:10px;" class="mainTxtA"> {{renter.isadmin?'Yes':'No'}}</span></h1>
               </div>
               <div class="btnHolder">
                 <div id="delete" class="dataBtns">
