@@ -30,6 +30,7 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     checkouttime: ''
   }
   // console.log('rooms', $scope.rooms);
+  console.log('users: ', $scope.users);
 
   // FUNCTIONS
   // ============================================================
