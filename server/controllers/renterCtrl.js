@@ -110,14 +110,16 @@ module.exports = {
 
   updateServRequest: function(req, res , next){
     var update = req.body;
-    var key={};
-   key.id =  update.id;
+    var key = {};
+   	key.id = update.id;
+
     db.servreqs.save(key,update, function(err, sr){
       if (err){
         console.log("update sr error",err);
         return res.status(401).send(err);
       }
-      res.status(200).json(sr);
+			console.log('sr: ' ,sr);
+      res.status(200).send('Service Request Successfully Updated');
     });
   },
 

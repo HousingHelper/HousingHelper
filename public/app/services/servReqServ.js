@@ -48,7 +48,7 @@ angular.module("housinghelper").service("servReqServ", function($http) {
       url: '/api/servRequest/' + sr.id,
       data: sr
     }).then(function(response) {
-      return response;
+      alert('Service Request Successfully Updated!')
     });
   };
 
