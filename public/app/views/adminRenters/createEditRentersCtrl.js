@@ -114,5 +114,26 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
 
     });
 
+    $scope.saAlert = function (){
+      swal({
+        title: "Are you sure?",
+        text: "This Item Will Be Permanently Deleted!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#55AA55",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      },
+      function(isConfirm){
+        if (isConfirm) {
+          swal("Deleted!", "This Item Has Been Deleted.", "success");
+        } else {
+          swal("Cancelled", "This Item is safe :)", "error");
+        }
+      });
+    }
+
 
 });

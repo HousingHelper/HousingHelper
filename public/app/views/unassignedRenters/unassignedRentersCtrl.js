@@ -18,7 +18,8 @@ angular.module("housinghelper").controller("unassignedRentersCtrl", function($sc
   $(function() {
     $("input").droppable({
       drop: function(event, ui) {
-        alert('Add ' + ui.draggable.text() + ' to this Apt');
+        // swal("Add Renter To This Appartment!", "When Ready Click Submit To Confirm");
+        // alert('Add ' + ui.draggable.text() + ' to this Apt');
       }
     });
 

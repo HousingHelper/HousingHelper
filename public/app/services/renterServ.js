@@ -79,9 +79,21 @@ angular.module("housinghelper").service("renterServ", function($http) {
       data: renter
     })
     .then(function(response) {
-      alert('Renter Successfully Created!')
+      swal({
+        type: "success",
+        title: "Created Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      console.log('serv error: ', err);
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
 
@@ -91,10 +103,21 @@ angular.module("housinghelper").service("renterServ", function($http) {
       url: '/api/serviceRequests',
       data: newSR
     }).then(function(response) {
-
-      alert('Service Request Successfullly Sent!')
+      swal({
+        type: "success",
+        title: "Service Request Successfullly Sent!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      log('ser err: ', err)
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   }
 
@@ -105,6 +128,13 @@ angular.module("housinghelper").service("renterServ", function($http) {
       url: '/api/updateUserAccountInfo',
       data: userAccInfo
     }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
       console.log('serv err: ',err);
     });
   };
@@ -116,9 +146,21 @@ angular.module("housinghelper").service("renterServ", function($http) {
       data: {password: password}
     })
     .then(function(response) {
-      alert('Password successfully updated. Please Re-Login')
+      swal({
+        type: "success",
+        title: "Password successfully updated. Please Re-Login",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      console.log('serv err: ', err);
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
 

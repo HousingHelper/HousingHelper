@@ -45,9 +45,21 @@ angular.module("housinghelper").service("apartmentsServ", function($http) {
       url: "/api/apartments/" + apartment.id,
       data: apartment
     }).then(function(response) {
-      alert('Apartment Updated Successfully!')
+      swal({
+        type: "success",
+        title: "Apartment Updated Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      console.log('SERV: ', err);
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
   // this.deleteCollection = function(id) {

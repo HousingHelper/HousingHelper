@@ -132,7 +132,7 @@
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Admin?<span style="margin-left:10px;" class="mainTxtA"> {{renter.isadmin?'Yes':'No'}}</span></h1>
               </div>
               <div class="btnHolder">
-                <div id="delete" class="dataBtns">
+                <div ng-click="saAlert()" id="delete" class="dataBtns">
                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
                   <div ui-sref="update.user({id: renter.id})" id="edit" class="dataBtns">
                     <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1>
