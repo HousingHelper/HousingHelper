@@ -3,9 +3,10 @@
 angular.module("housinghelper").controller("unassignedRentersCtrl", function($scope, unassignedRenters, availableRooms) {
   // VARIABLES
   // ============================================================
-  $scope.unassignedRenters = unassignedRenters
+  $scope.unassignedRenters = unassignedRenters.data
   $( "#Create" ).hide();
-  $scope.availableRooms = availableRooms
+  $scope.availableRooms = availableRooms.data
+  console.log(availableRooms);
   // FUNCTIONS
   // ============================================================
   //this where i am doing the drag and drop stuff ~~~~~~~~~~~~~~~~
@@ -33,4 +34,5 @@ angular.module("housinghelper").controller("unassignedRentersCtrl", function($sc
     }
     // console.log(winScroll);
   });
+
 });
