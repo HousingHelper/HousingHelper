@@ -100,7 +100,7 @@
           <h1 class="formTxt">City Name</h1>
           <input ng-model='location.city'class="lBoxes" type="text" placeholder="Enter Location Name" required>
           <h1 class="formTxt">State</h1>
-          <select ng-model='location.state' name="state">
+          <select class="lBoxes" ng-model='location.state' name="state">
             <option value="AL">AL</option>
             <option value="AK">AK</option>
             <option value="AZ">AZ</option>
@@ -184,18 +184,18 @@
               <h1>{{location.city}}</h1>
             </div>
           <div ng-repeat='apt in apartments | filter: {city: location.city}' class="showData">
-            <div class="mainData">
+            <div style="text-align: center;margin-left:0px;" class="mainData">
 
-              <h1>{{apt.title}}, {{apt.apt_num}}</h1>
+              <h1 class="mainTxtTitle">{{apt.title}}, {{apt.apt_num}}</h1>
               <div>
-                <h5>Address: {{apt.address}} {{apt.city}}, {{apt.state}} {{apt.zipcode}}</h5>
-                  <h5>Occupancy: {{apt.currentocc}} / {{apt.totalocc}}</h5>
-                  <hr>
-                  <h5>Renters:</h5>
-                  <ul>
+                <h5 class="mainTxtTitle">Address:<br> <span class="mainTxtA">{{apt.address}} {{apt.city}}, {{apt.state}} {{apt.zipcode}}</span></h5>
+                  <h5 class="mainTxtTitle">Occupancy: {{apt.currentocc}} / {{apt.totalocc}}</h5>
+                  <hr style="border: 0;height: 2px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0));">
+                  <h5 class="mainTxtTitle">Renters:</h5>
+                  <ul style="text-align: left;">
                     <li ng-repeat='renter in users | filter: {aptid: apt.id}'>
-                      <h5>Name:{{renter.firstname}} {{renter.lastname}} {{renter.title}}</h5>
-                      <h5>Email: {{renter.email}}</h5>
+                      <h5 class="mainTxtTitle">Name:<span class="mainTxtA">{{renter.firstname}} {{renter.lastname}} {{renter.title}}</span></h5>
+                      <h5 class="mainTxtTitle">Email: <span class="mainTxtA">{{renter.email}}</span></h5>
                       <br>
                     </li>
                   </ul>

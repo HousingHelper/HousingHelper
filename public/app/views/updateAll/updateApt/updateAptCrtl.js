@@ -19,4 +19,9 @@ angular.module("housinghelper").controller("updateApt", function($scope, apartme
       console.log('ctrl: ', err);
     });
   }
+
+  // $scope.fadeOut = function(){
+  //   $scope.$parent.fadeOut('adminMain')
+  // }
+
 });

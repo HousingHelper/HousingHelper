@@ -111,7 +111,25 @@ module.exports = {
           })
       }
   },
-
+  // allUnassingnedRenters: function(req, res, next){
+  //   var admin = req.user;
+  //   if (admin.issuperuser) {
+  //     db.get_unassing_user_by_org([admin.orgid], function(err, locations){
+  //       if (err){
+  //         res.send('error: ', err)
+  //       }
+  //       res.status(200).json(locations)
+  //     })
+  //   }
+  //   else if (admin.isadmin){
+  //       db.get_unassing_user_by_citiesid([admin.orgid, admin.citiesid], function(err, locations){
+  //       if (err){
+  //         res.send('error: ', err)
+  //       }
+  //       res.status(200).json(locations)
+  //     })
+  //   }
+  // },
   getAptsByAdminId: function (req, res) {
     db.apartments.where("admin_id=$1", [req.params.adminId], function (err,apartments) {
       if(err){
@@ -128,14 +146,6 @@ module.exports = {
   //     res.status(200).send(renters)
   //   })
   // },
-  //
-  // getAllUnassignedRenters: function (req, res) {
-  //   var admin = req.user
-  //   db.get_all_unassigned_renters([admin.id], function (err, renters) {
-  //     res.status(200).send(renters)
-  //   })
-  // },
-  //
   // getAvailableRooms: function (req, res) {
   //   var admin = req.user
   //   db.get_all_available_housing([admin.id], function (err, rooms) {
@@ -187,9 +197,22 @@ module.exports = {
 
   getAllUnassignedRenters: function(req, res) {
       var admin = req.user
-      db.get_all_unassigned_renters([admin.id], function(err, renters) {
-          res.status(200).send(renters)
-      })
+      if (admin.issuperuser) {
+        db.get_all_unassigned_renters([admin.id, admin.orgid], function(err, renters) {
+            res.status(200).send(renters)
+        })
+      }   else if
+      (admin.isadmin){
+            db.get_unassing_user_by_citiesid([admin.orgid, admin.citiesid, admin.id], function(err, renters){
+            if (err){
+              console.log(err);
+              res.send({
+                'error': err
+              })
+            }
+            res.status(200).json(renters)
+          })
+        }
   },
 
   getAvailableRooms: function(req, res) {

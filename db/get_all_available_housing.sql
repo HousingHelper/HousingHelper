@@ -4,7 +4,8 @@ apartments.apt_num as aptNum,
 apartments.title as title,
 apartments.city as city,
 apartments.female_only_housing,
-apartments.male_only_housing
+apartments.male_only_housing,
+apartments.apt_num
 from apartments
 join rooms
 on rooms.aptid = apartments.id
