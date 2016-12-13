@@ -31,6 +31,8 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
   }
   // console.log('rooms', $scope.rooms);
   // console.log('apts: ', $scope.apartments);
+  // console.log('users: ', $scope.users);
+
 
   // FUNCTIONS
   // ============================================================

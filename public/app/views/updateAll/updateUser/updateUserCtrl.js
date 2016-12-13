@@ -1,10 +1,12 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("updateUser", function($scope, user, $stateParams, renterServ, $state) {
+angular.module("housinghelper").controller("updateUser", function($scope, user, apartments, groups, $stateParams, renterServ, $state) {
   // VARIABLES
   // ============================================================
   $scope.user = user.data[0]
-  $scope.changeUser;
+  $scope.apartments = apartments.data
+  $scope.groups = groups.data
+
 
   // FUNCTIONS
   // ============================================================
