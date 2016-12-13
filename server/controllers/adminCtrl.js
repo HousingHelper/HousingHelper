@@ -33,7 +33,7 @@ module.exports = {
         })
       }
       else if (admin.isadmin) {
-        db.get_all_users_by_admin([admin.id], function (err, users) {
+        db.get_all_users_by_admin([admin.citiesid], function (err, users) {
           res.status(200).send(users)
         })
       }
@@ -259,7 +259,7 @@ module.exports = {
   },
 
   getFaqByFaqId: function(req, res, next) {
-    db.faqs.find({id: req.params.id}, function(err, faq) {
+    db.faqs.find({id: req.users.id}, function(err, faq) {
       if (err) {
         res.status(500).send(err)
       }
@@ -284,7 +284,7 @@ module.exports = {
       res.status(200).send(sr)
     })
   },
-  
+
   getAllRoomsByLoggedInUser: function (req,res,next) {
     var admin = req.user
     if (admin.issuperuser) {
@@ -310,7 +310,7 @@ module.exports = {
 
     createFaq: function(req, res) {
       var admin = req.user
-        db.create_faq([req.body.question,req.body.answer, admin.orgid,admin.aptid], function(err, faq) {
+        db.create_faq([req.body.question, req.body.answer, admin.orgid, admin.citiesid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }

@@ -10,7 +10,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     // this is add show service req vars above
     $scope.show = true
     $scope.user = user;
-    $scope.landlord = admin.data[0];
+    $scope.landlord = admin.data;
     console.log('landlord: ', admin.data);
     // $scope.apartments = apartments.data
     $('#existingLogin').hide();

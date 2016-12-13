@@ -10,10 +10,10 @@ angular.module("housinghelper").service("faqServ", function($http ) {
     })
   };
 
-  this.getFaqsById = function(id) {
+  this.getFaqsById = function() {
     return $http({
       method: 'GET',
-      url: '/api/faq/' + id
+      url: '/api/faqById'
     })
   };
 
@@ -23,7 +23,9 @@ angular.module("housinghelper").service("faqServ", function($http ) {
       url: '/api/createfaq',
       data: faq
     }).then(function(response) {
-      return response;
+      alert('FAQ Successfully Created!')
+    }).catch(function(err) {
+      console.log('serv: ',err);
     });
   };
 
