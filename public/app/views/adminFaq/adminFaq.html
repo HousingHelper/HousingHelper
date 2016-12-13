@@ -45,11 +45,11 @@
           <!-- the ng-repeat go inside of showFaqs -->
           <div class="showFaqs" ng-repeat='faq in faqs'>
             <div class="mainData">
-              <h1 class="mdTxtH1">{{faq.question}}</h1>
-              <p class="mdTxtP">{{faq.answer}}</p>
+              <h1 ng-model='faq.question' class="mdTxtH1">{{faq.question}}</h1>
+              <p ng-moedl='faq.answer' class="mdTxtP">{{faq.answer}}</p>
             </div>
             <div class="btnHolder">
-              <div ng-click="saAlert()" id="delete" class="dataBtns">
+              <div ng-click="deleteFaq(faq)" id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
               </div>
                 <div ui-sref="update.faq({id: faq.id})" id="edit" class="dataBtns">
