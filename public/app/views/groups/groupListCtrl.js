@@ -72,4 +72,12 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
       });
     }
 
+    $scope.helpIcon = function(){
+      swal({
+        // type: "info",
+        title: "Need Help?",
+        text: "#1 Current Groups Will Show On This Page After Being Created. #2 Add A New Group By Clicking The 'Add New Group' Button At The Top. #3 You Can Assign Renters To Groups While Creating A New User, or By Updating A Current User #4 Edit Or Delete Groups If Needed.",
+      });
+    }
+
 });

@@ -134,6 +134,13 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
         }
       });
     }
+    $scope.helpIcon = function(){
+      swal({
+        // type: "info",
+        title: "Need Help?",
+        text: "#1 Current Users Will Show On This Page After Being Created. #2 New Users Can Be Added By Clicking The Create New Renter At The Top. #3 Edit Or Delete Users If Needed.",
+      });
+    }
 
 
 });

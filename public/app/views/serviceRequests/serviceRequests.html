@@ -57,7 +57,7 @@
       <section class="serviceRequestsView">
         <div class="addBtnHolder">
           <div id="addData" class="addBtn" ng-click="addDataClick()">Create Service Request</div>
-          <div class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
+          <div ng-click="helpIcon()" class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
           <div ng-repeat="sr in servreqs" class="showData">
