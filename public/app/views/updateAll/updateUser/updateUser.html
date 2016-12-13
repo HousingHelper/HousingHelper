@@ -19,16 +19,15 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Private Room</h1>
-          <h1 class="currentInfo">{{user.private_room?"Yes":"No"}}</h1>
+          <h1 class="currentInfo">{{user.private_room}}</h1>
         </div>
-        <label><input type="radio" ng-model="user.private_room" name="" value="true">Yes</label>
-        <label><input type="radio" ng-model="user.private_room" name="" value="false">No</label>
+        <label><input type="radio" ng-model="user.private_room" name="" value="true">Yes</label><label><input type="radio" ng-model="user.private_room" name="" value="false">No</label>
 
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Gender</h1>
           <h1 class="currentInfo">{{user.gender}}</h1>
         </div>
-        <select ng-model="user.gender"class="inputBox" name="">
+        <select ng-model="user.gender" class="inputBox" name="">
           <option value="M">Male</option>
           <option value="F">Female</option>
           <option value="O">Other</option>
@@ -36,9 +35,9 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Birth Date</h1>
-          <h1 class="currentInfo">{{user.dob | date: 'shortDate'}}</h1>
+          <h1 class="currentInfo">{{user.dob}}</h1>
         </div>
-        <input ng-model="user.dob" class="inputBox" type="date">
+        <input ng-model="user.dob" class="inputBox" type="text">
         <!-- new input -->
 
         <div class="inputTitlesHolder">
@@ -79,51 +78,41 @@
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Is Admin?</h1>
-          <h1 class="currentInfo">{{user.isadmin?"Yes":"No"}}</h1>
+          <h1 class="currentInfo">{{user.isadmin}}</h1>
         </div>
         <select ng-model="user.isadmin" class="inputBox" name="">
-          <option value="False">User</option>
-          <option value="True">Admin</option>
+          <option value=false>No</option>
+          <option value=true>Yes</option>
         </select>
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Apartment #</h1>
-          <h1 class="currentInfo">{{user.aptid}}</h1>
+          <h1 class="currentInfo"></h1>
         </div>
-        <select ng-model="user.aptid" class="inputBox" name="">
-          <option value="option1">option1</option>
-          <option value="option2">option2</option>
+        <select ng-model="user.aptid" class="inputBox" name="" ng-options="apartment.id as (apartment.title + ' ' + apartment.apt_num) for apartment in apartments">
+          <option value="">{{apartment.id}}</option>
         </select>
-        <!-- new input -->
-        <div class="inputTitlesHolder">
-          <h1 class="inputTitle">Room #</h1>
-          <h1 class="currentInfo">{{user.roomid}}</h1>
-        </div>
-        <select ng-model="user.roomid" class="inputBox" name="">
-          <option value="option1">option1</option>
-          <option value="option2">option2</option>
-        </select>
+
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Group</h1>
-          <h1 class="currentInfo">{{user.groupid}}</h1>
+          <h1 class="currentInfo"></h1>
         </div>
-        <select ng-model="user.groupid" class="inputBox" name="">
-          <option value="option1">option1</option>
-          <option value="option2">option2</option>
+        <select ng-model="user.groupid" class="inputBox" name="" ng-options="group.id as group.title for group in groups">
+          <option value="">{{group.id}}</option>
         </select>
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Lease Start</h1>
           <h1 class="currentInfo">{{user.leasestart}}</h1>
         </div>
-        <input ng-model="user.leasestart" class="inputBox" type="date">
+        <input ng-model="user.leasestart" class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Lease End</h1>
           <h1 class="currentInfo">{{user.leaseend}}</h1>
         </div>
-        <input ng-model="user.leaseend" class="inputBox" type="date">
+        <input ng-model="user.leaseend" class="inputBox" type="text">
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Pay Date</h1>

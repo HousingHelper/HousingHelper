@@ -332,6 +332,12 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       resolve: {
         user: function(renterServ, $stateParams) {
           return renterServ.getUserbyUserId($stateParams.id);
+        },
+        apartments: function (adminMainServ) {
+          return adminMainServ.getAllApts();
+        },
+        groups: function(adminMainServ) {
+          return adminMainServ.getAllGroups();
         }
       }
     })

@@ -117,10 +117,9 @@
               <h1>{{group.title}}</h1>
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
-
               <div class="mainData">
                 Name: {{renter.firstname}}  {{renter.lastname}}<br>
-                DOB: {{renter.dob}}<br>
+                DOB: {{renter.dob | date: 'shortDate'}}<br>
                 Gender: {{renter.gender}}<br>
                 Phone: {{renter.phone}}<br>
                 Email: {{renter.email}}<br>
