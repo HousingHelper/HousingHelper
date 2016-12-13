@@ -23,9 +23,22 @@ angular.module("housinghelper").service("faqServ", function($http ) {
       url: '/api/createfaq',
       data: faq
     }).then(function(response) {
-      alert('FAQ Successfully Created!')
+      swal({
+        type: "success",
+        title: "Apartment Updated Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      console.log('serv: ',err);
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      })
+      console.log(err);
     });
   };
 

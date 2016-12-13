@@ -11,12 +11,19 @@ angular.module("housinghelper").controller("adminFaq", function($scope, $state, 
   // ============================================================
 
   $scope.createFaq = function(faq){
+    // $scope.spin = true
     faqServ.createFaq(faq)
     .then(function(response) {
       $( "#Create" ).hide();
       $state.go('adminFaq')
     });
   };
+
+  $scope.deleteFaq = function (faq) {
+    if($scope.saAlert()) {
+      faqServ.deleteFaq(faq) //does not exist yet
+    }
+  }
 
   //  JQUERY
   // ============================================================
