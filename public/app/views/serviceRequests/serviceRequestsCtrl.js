@@ -62,4 +62,12 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
       });
     }
 
+    $scope.helpIcon = function(){
+      swal({
+        // type: "info",
+        title: "Need Help?",
+        text: "#1 Service Requests Are Usually Added By Your Renters. You Can Add Them As Well If You Would Like, By Clicking The Blue 'Create Service Request' Button #2 Current Service Requests Will Show On This Page After Being Created. #3 You Can Change The Status Of The Request By Clicking Edit #4 Edit Or Delete Request If Needed.",
+      });
+    }
+
 });

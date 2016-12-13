@@ -114,20 +114,6 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     });
 
     $scope.saAlert = function (){
-      // swal({
-      //   type: "success",
-      //   title: "Created Successfully!",
-      //   text: "Auto close in 2 seconds.",
-      //   timer: 2000,
-      //   showConfirmButton: false
-      // });
-      // swal({
-      //   type: "error",
-      //   title: "Encountered Error!",
-      //   text: "Auto close in 2 seconds.",
-      //   timer: 2000,
-      //   showConfirmButton: false
-      // });
       swal({
         title: "Are you sure?",
         text: "This Item Will Be Permanently Deleted!",
@@ -145,6 +131,14 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
         } else {
           swal("Cancelled", "This Item is safe :)", "error");
         }
+      });
+    }
+
+    $scope.helpIcon = function(){
+      swal({
+        // type: "info",
+        title: "Need Help?",
+        text: "#1 You Can Add New Locations And Apartments From This Page By Clicking The Blue Buttons At The Top. #2 Remember One Location Can Have Many Apartments. #3 Add New Locations Before Adding Apartments That Need New Locations. #4 Add Appartments To Existing Locations. #5 Edit Or Delete If Needed.",
       });
     }
 

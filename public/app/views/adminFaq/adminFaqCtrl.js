@@ -55,4 +55,12 @@ angular.module("housinghelper").controller("adminFaq", function($scope, faqServ,
     });
   }
 
+  $scope.helpIcon = function(){
+    swal({
+      // type: "info",
+      title: "Need Help?",
+      text: "#1 Current FAQ's Will Show On This Page After Being Created. #2 Creating FAQ's Will Give Quick Answers To Your Renters When They LogIn. #3 Adding Can Be Dont By Clicking The Button At The Top. #4 Edit Or Delete FAQ's If Needed.",
+    });
+  }
+
 });
