@@ -118,6 +118,7 @@
               <h1>{{group.title}}</h1>
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
+
               <div class="mainData" style="text-align:left;width:370px;">
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Name:<span style="margin-left:10px;" class="mainTxtA">{{renter.firstname}}  {{renter.lastname}}</span></h1>
                 <h1 style="margin-left:20px;" class="mainTxtTitle">DOB:<span style="margin-left:10px;" class="mainTxtA"> {{renter.dob}}</span></h1>
@@ -130,6 +131,7 @@
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Paid?<span style="margin-left:10px;" class="mainTxtA"> {{renter.monthpaid?'Yes':'No'}}</span></h1>
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Apt:<span style="margin-left:10px;" class="mainTxtA"> {{renter.title}} {{renter.apt_num}}</span></h1>
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Admin?<span style="margin-left:10px;" class="mainTxtA"> {{renter.isadmin?'Yes':'No'}}</span></h1>
+
               </div>
               <div class="btnHolder">
                 <div ng-click="saAlert()" id="delete" class="dataBtns">
