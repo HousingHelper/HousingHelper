@@ -57,26 +57,27 @@
       <section class="serviceRequestsView">
         <div class="addBtnHolder">
           <div id="addData" class="addBtn" ng-click="addDataClick()">Create Service Request</div>
+          <div ng-click="helpIcon()" class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
           <div ng-repeat="sr in servreqs" class="showData">
             <div class="mainData">
-              <h1>{{sr.request}}</h1>
+              <h1 class="mainTxtTitle">{{sr.request}}</h1>
               <div>
-                <h5>Submitted: {{sr.submitted}}</h5>
-                <h5>Type: {{sr.type}}</h5>
-                <h5>Permissions: {{sr.permissions}}</h5>
-                <h5>Status: {{sr.status}}</h5>
-                <h5>Notes</h5>
+                <h5 class="mainTxtTitle">Submitted: <span class="mainTxtA">{{sr.submitted}}</span></h5>
+                <h5 class="mainTxtTitle">Type: <span class="mainTxtA">{{sr.type}}</span></h5>
+                <h5 class="mainTxtTitle">Permissions: <span class="mainTxtA">{{sr.permissions}}</span></h5>
+                <h5 class="mainTxtTitle">Status: <span class="mainTxtA">{{sr.status}}</span></h5>
+                <h5 class="mainTxtTitle">Notes:</h5>
                 <ul>
-                  <li ng-repeat="srnote in notes | filter: {servreqid: sr.id}"><h5>{{srnote.note}}</h5>
+                  <li ng-repeat="srnote in notes | filter: {servreqid: sr.id}"><h5 class="mainTxtA">{{srnote.note}}</h5>
                     <br>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="btnHolder">
-              <div id="delete" class="dataBtns">
+              <div ng-click="saAlert()" id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
                 <div ui-sref="update.serreq({id: sr.id})" id="edit" class="dataBtns">
                   <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>r<br>e<br>q<br>u<br>e<br>s<br>t</h1>

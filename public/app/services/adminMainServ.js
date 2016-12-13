@@ -106,7 +106,13 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       data: apt
     })
     .then(function(response) {
-      alert('Apartment Successfully Created!')
+      swal({
+        type: "success",
+        title: "Apartment Successfully Created!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   }
 
@@ -116,7 +122,13 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       url: '/api/creategroup',
       data: group
     }).then(function(response) {
-      alert('Created New Group Successfully!')
+      swal({
+        type: "success",
+        title: "Created New Group Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
 
@@ -126,9 +138,21 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       url: '/api/createlocation',
       data: location
     }).then(function(response) {
-      alert('New Location Successfully Added!')
+      swal({
+        type: "success",
+        title: "New Location Successfully Added!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      console.log('serv: ', err);
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   }
 

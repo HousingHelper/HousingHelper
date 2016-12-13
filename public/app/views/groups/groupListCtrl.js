@@ -50,4 +50,34 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
 
     return false;
     });
+
+    $scope.saAlert = function (){
+      swal({
+        title: "Are you sure?",
+        text: "This Item Will Be Permanently Deleted!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#55AA55",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      },
+      function(isConfirm){
+        if (isConfirm) {
+          swal("Deleted!", "This Item Has Been Deleted.", "success");
+        } else {
+          swal("Cancelled", "This Item is safe :)", "error");
+        }
+      });
+    }
+
+    $scope.helpIcon = function(){
+      swal({
+        // type: "info",
+        title: "Need Help?",
+        text: "#1 Current Groups Will Show On This Page After Being Created. #2 Add A New Group By Clicking The 'Add New Group' Button At The Top. #3 You Can Assign Renters To Groups While Creating A New User, or By Updating A Current User #4 Edit Or Delete Groups If Needed.",
+      });
+    }
+
 });

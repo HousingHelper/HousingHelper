@@ -11,31 +11,34 @@
       <section class="unassignedRentersView">
         <div class="addBtnHolder">
           <div class="addBtn">Unassigned Renters</div>
+          <div ng-click="helpIcon()" class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
           <section class="urDataHolder">
               <!-- <div > -->
                 <div class="you">
                   <h1 class="titles">Renters Name</h1>
-                  <h2 class="titlesH2">Drag To Avalible Room</h2>
+                  <h2 class="titlesH2">Renter ID is the "<span style="color:grey;">GREY</span>" Value</h2>
                   <!-- put the ng-repeat on youBox -->
-                  <div class="youBox">
-                    <span>
-                      <h1>{renter.name}</h1>
-                      <h1>{group.name}</h1>
-                    </span>
+                  <div class="youBox" ng-repeat="renter in unassignedRenters">
+                    <h1>{{renter.firstName}} {{renter.lastname}}</h1>
+                    <h1>Group: {{renter.title}}</h1>
+                    <h1>Renter ID:<span>{{renter.id}}</span></h1>
                   </div>
 
                 </div>
                 <div class="horizontalBar"></div>
                 <div class="me">
                   <h1 class="titles">Rooms Avalibale</h1>
-                  <h2 class="titlesH2">drop name in text area</h2>
+                  <h2 class="titlesH2">Insert "<span style="color:grey;">ID</span>" Into Text Box</h2>
                   <!-- put the ng-repeat on roomBox -->
-                  <form class="roomBox">
-                    <h1>Carson Corner</h1>
-                    <h2>room#: 2</h2>
-                    <input class="roomBoxInput" type="text" name="name">
+                  <form ng-submit="editUser(user)" class="roomBox" ng-repeat="rooms in availableRooms">
+                    <h1>{{rooms.title}} / #{{rooms.aptnum}}</h1>
+                    <h1>room#:{{rooms.roomid}}</h1>
+                    <div class="inputHolder">
+                      <h1>Renter ID:</h1>
+                      <input ng-model="user.id" class="roomBoxInput" type="text" name="name">
+                    </div>
                     <button class="sBtn" type="submit">Submit</button>
                   </form>
 
