@@ -33,7 +33,7 @@ module.exports = {
         })
       }
       else if (admin.isadmin) {
-        db.get_all_users_by_admin([admin.id], function (err, users) {
+        db.get_all_users_by_admin([admin.citiesid], function (err, users) {
           res.status(200).send(users)
         })
       }
@@ -168,14 +168,16 @@ module.exports = {
   },
 
   getAllFaqs: function(req, res) {
-    var user = req.user
-    // console.log('this is your user', user);
-    db.get_all_faqs(function(err, faqs) {
-      if (err) {
-        res.send("error: ", err)
-      }
-      res.status(200).send(faqs)
-    })
+    var admin = req.user
+    if (admin.issuperuser) {
+      db.get_all_faqs_by_superuser([admin.orgid], function (err, faqs) {
+        res.status(200).send(faqs)
+      })
+    } else if (admin.isadmin) {
+      db.get_all_faqs_by_admin([admin.citiesid], function (err, faqs) {
+        res.status(200).send(faqs)
+      })
+    }
   },
 
     // getAptsByAdminId: function(req, res) {
@@ -259,7 +261,7 @@ module.exports = {
   },
 
   getFaqByFaqId: function(req, res, next) {
-    db.faqs.find({id: req.params.id}, function(err, faq) {
+    db.faqs.find({id: req.users.id}, function(err, faq) {
       if (err) {
         res.status(500).send(err)
       }
@@ -285,11 +287,32 @@ module.exports = {
     })
   },
 
+  getAllRoomsByLoggedInUser: function (req,res,next) {
+    var admin = req.user
+    if (admin.issuperuser) {
+      db.get_all_rooms_by_superuser([admin.orgid], function (err, rooms) {
+        if (err){
+          console.log("getrooms error",err);
+          return res.status(401).send(err);
+        }
+        res.status(200).send(rooms)
+      })
+    } else if (admin.isadmin) {
+      db.get_all_rooms_by_admin([admin.id], function (err, rooms) {
+        if (err){
+          console.log("getrooms error",err);
+          return res.status(401).send(err);
+        }
+        res.status(200).send(rooms)
+      })
+    }
+  },
+
 // ____________________ POST (CREATE)_______________________________//
 
     createFaq: function(req, res) {
       var admin = req.user
-        db.create_faq([req.body.question,req.body.answer, admin.orgid,admin.aptid], function(err, faq) {
+        db.create_faq([req.body.question, req.body.answer, admin.orgid, admin.citiesid], function(err, faq) {
             if (err) {
                 return res.status(500).send(err);
             }
@@ -340,13 +363,13 @@ module.exports = {
       var update = req.body;
       var key={};
       key.id =  update.id;
-      db.faqs.save(key,update, function(err, faq){
+      db.faqs.update(key,update, function(err, faq){
         if (err){
           console.log("createapt error",err);
           return res.status(401).send(err);
         }
         // delete admin.password;
-        res.status(200).json(faq);
+        res.status(200).send('FAQ Updated Successfully!');
       });
     },
 
@@ -354,13 +377,13 @@ module.exports = {
       var update = req.body;
       var key={};
      key.id =  update.id;
-     db.groups.save(key,update, function(err, group){
+     db.groups.update(key,update, function(err, group){
       if (err){
         console.log("update group error", err);
         return res.status(401).send(err);
       }
       // delete admin.password;
-      res.status(200).json(group);
+      res.status(200).send('Group Successfully Updated!');
     });
     },
 
@@ -368,35 +391,15 @@ module.exports = {
       var update = req.body;
       var key={};
       key.id = update.id;
-      db.apartments.save(key, update, function(err, apt){
+      db.apartments.update(key, update, function(err, apt){
         if (err){
           console.log("updateapt error",err);
           return res.status(401).send(err);
         }
-        res.status(200).json(apt);
+        res.status(200).send("Apartment Updated Successfully!");
       });
-    },
-
-    getAllRoomsByLoggedInUser: function (req,res,next) {
-      var admin = req.user
-      if (admin.issuperuser) {
-        db.get_all_rooms_by_superuser([admin.orgid], function (err, rooms) {
-          if (err){
-            console.log("getrooms error",err);
-            return res.status(401).send(err);
-          }
-          res.status(200).send(rooms)
-        })
-      } else if (admin.isadmin) {
-        db.get_all_rooms_by_admin([admin.id], function (err, rooms) {
-          if (err){
-            console.log("getrooms error",err);
-            return res.status(401).send(err);
-          }
-          res.status(200).send(rooms)
-        })
-      }
     }
+
 
 
 // ____________________ DELETE _______________________________//

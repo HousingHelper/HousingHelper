@@ -97,11 +97,11 @@ angular.module("housinghelper").service("renterServ", function($http) {
     });
   };
 
-  this.createServReq = function (sr) {
+  this.createServReq = function (newSR) {
     return $http({
       method: 'POST',
       url: '/api/serviceRequests',
-      data: sr
+      data: newSR
     }).then(function(response) {
       swal({
         type: "success",

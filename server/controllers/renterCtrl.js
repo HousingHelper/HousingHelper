@@ -99,7 +99,7 @@ module.exports = {
   	var update = req.body;
   	var key= {};
    	key.id = update.id;
-    db.users.save(key, update, function(err, user){
+    db.users.update(key, update, function(err, user){
       if (err){
         console.log("update user error",err);
         return res.status(401).send(err);
@@ -110,14 +110,16 @@ module.exports = {
 
   updateServRequest: function(req, res , next){
     var update = req.body;
-    var key={};
-   key.id =  update.id;
-    db.servreqs.save(key,update, function(err, sr){
+    var key = {};
+   	key.id = update.id;
+
+    db.servreqs.update(key,update, function(err, sr){
       if (err){
         console.log("update sr error",err);
         return res.status(401).send(err);
       }
-      res.status(200).json(sr);
+			console.log('sr: ' ,sr);
+      res.status(200).send('Service Request Successfully Updated');
     });
   },
 
@@ -126,7 +128,7 @@ module.exports = {
 		var user = req.user;
 		db.update_user_account_info([update.email, update.phone, update.carmake, update.carmodel, user.id], function (err, result) {
 		  if (err) {
-		  	console.log(err);
+		  	console.log('err',err);
 		  }
 			res.status(200).send('User Account Information Successfully Updated!');
 		})
@@ -137,7 +139,7 @@ module.exports = {
 		var user = req.user;
 		update.password = hashPassword(update.password);
 		db.update_user_password([update.password, user.id], function (err, result) {
-			if (err) console.log(err);
+			if (err) console.log('err: ', err);
 			res.status(200).send('User Password Successfully Updated!');
 		})
 	}

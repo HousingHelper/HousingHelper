@@ -12,13 +12,14 @@ module.exports = {
 
   getAllServReqsbyLoggedInUser: function (req, res) {
     var admin = req.user
+    console.log('admin: ', admin);
     if (admin.issuperuser) {
       db.get_all_serv_reqs_by_superuser([admin.orgid], function (err, users) {
         res.status(200).send(users)
       })
     }
     else if (admin.isadmin) {
-      db.get_all_serv_reqs_by_admin([admin.id], function (err, users) {
+      db.get_all_serv_reqs_by_admin([admin.citiesid], function (err, users) {
         res.status(200).send(users)
       })
     }
@@ -32,7 +33,7 @@ module.exports = {
       })
     }
     else if (admin.isadmin) {
-      db.get_all_servreq_notes_by_admin([admin.id], function (err, users) {
+      db.get_all_servreq_notes_by_admin([admin.citiesid], function (err, users) {
         res.status(200).send(users)
       })
     }
