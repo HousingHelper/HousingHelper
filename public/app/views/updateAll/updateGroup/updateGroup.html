@@ -1,26 +1,26 @@
 <section class="updateGroupHolder">
   <h1 class="pageTitle">Update Group</h1>
-  <form ng-submit="editGroup(group)"class="formCon">
+  <form ng-submit="editGroup(newGroup)"class="formCon">
     <section class="inputContainer">
       <div class="content contentLeft">
         <!-- this is where we start putting inputs left side -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Title</h1>
-          <h1 class="currentInfo">{{group.title}}</h1>
+          <h1 class="currentInfo">{{newGroup.title}}</h1>
         </div>
-        <input ng-model="group.title" ng-value="group.title" class="inputBox" type="text">
+        <input ng-model="group.title" ng-value="group.title" class="inputBox" type="text" required>
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Start Date:</h1>
-          <h1 class="currentInfo">{{group.startdate | date:'shortDate'}}</h1>
+          <h1 class="currentInfo">{{newGroup.startdate | date:'mediumDate'}}</h1>
         </div>
-        <input ng-model="group.startdate" ng-value="group.startdate" class="inputBox" type="date" required>
+        <input ng-model="newGroup.startdate" ng-value="newGroup.startdate" class="inputBox" type="date" ng-placeholder='newGroup.startdate' >
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">End Date:</h1>
-          <h1 class="currentInfo">{{group.enddate | date:'shortDate'}}</h1>
+          <h1 class="currentInfo">{{newGroup.enddate | date:'mediumDate'}}</h1>
         </div>
-        <input ng-model="group.enddate" ng-value="group.enddate" class="inputBox" type='date' required>
+        <input ng-model="newGroup.enddate" ng-value="newGroup.enddate" class="inputBox" type='date' ng-placeholder='newGroup.enddate'  >
         <!-- this is where we end putting inputs left side -->
       </div>
       <div class="centerBar"></div>
@@ -28,15 +28,15 @@
         <!-- this is where we start putting inputs right side -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Check In:</h1>
-          <h1 class="currentInfo">{{group.checkindate | date:'shortDate'}}</h1>
+          <h1 class="currentInfo">{{newGroup.checkindate | date:'mediumDate'}}</h1>
         </div>
-        <input ng-model="group.checkindate" ng-value="group.checkindate" class="inputBox" type="date" required>
+        <input ng-model="newGroup.checkindate" ng-value="newGroup.checkindate" class="inputBox" type="date" ng-placeholder='newGroup.checkindate' >
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Check Out:</h1>
-          <h1 class="currentInfo">{{group.checkoutdate | date:'shortDate'}}</h1>
+          <h1 class="currentInfo">{{newGroup.checkoutdate | date:'mediumDate'}}</h1>
         </div>
-        <input ng-model="group.checkoutdate" ng-value="group.checkoutdate" class="inputBox" type="date" required>
+        <input ng-model="newGroup.checkoutdate" ng-value="newGroup.checkoutdate" class="inputBox" type="date" ng-placeholder='newGroup.checkoutdate'>
         <!-- this is where we end putting inputs right side -->
       </div>
     </section>

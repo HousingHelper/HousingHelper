@@ -115,30 +115,31 @@
           <section class="BottomData">
             <section class="ApartmentInfo">
               <div class="aptSections">
-                <h1 class="subTitle">{{landlord.title}} {{landlord.apt_num}}</h1><br>
+                <h1 class="subTitle">{{landlord[0].title}} {{landlord[0].apt_num}}</h1><br>
                 <div class="innerDiv">
-                  <h5>Address: <span class="renterTxtA"><br>{{landlord.address}} {{landlord.city}} {{landlord.state}} {{landlord.zipcode}}</span></h5><br>
+                  <h5>Address: <span class="renterTxtA"><br>{{landlord[0].address}} {{landlord[0].city}} {{landlord[0].state}} {{landlord[0].zipcode}}</span></h5><br>
                   <h5 ng-if='user.leasestart'>Lease:<span class="renterTxtA"> <br> {{user.leasestart}} - <br>{{user.leaseend}}</span></h5><br>
-                  <h5 ng-if='landlord.parkingspace'>Parking Space:<span class="renterTxtA"> <br>{{landlord.parkingspace}}</span></h5><br>
-                  <h5>Square Footage:<span class="renterTxtA"><br> {{landlord.squareft}}</span></h5><br>
+                  <h5 ng-if='landlord[0].parkingspace'>Parking Space:<span class="renterTxtA"> <br>{{landlord[0].parkingspace}}</span></h5><br>
+                  <h5>Square Footage:<span class="renterTxtA"><br> {{landlord[0].squareft}}</span></h5><br>
                 </div>
               </div>
               <div class="CenterBar"></div>
               <div class="aptSections">
                 <h1 class="subTitle">Landlord</h1><br>
-                <div  class="innerDiv">
-                  <h5>Lanlord:<span class="renterTxtA"><br> {{landlord.firstname}} {{landlord.lastname}}</span></h5><br>
-                  <h5>Contact Email:<span class="renterTxtA"><br> {{landlord.email}}</span></h5><br>
-                  <h5>Contact Phone:<span class="renterTxtA"> <br>{{landlord.phone}}</span></h5><br>
+                <div ng-repeat='ll in landlord' class="innerDiv">
+                  <h5>Lanlord:<span class="renterTxtA"><br> {{ll.firstname}} {{ll.lastname}}</span><br>
+                  <h5>Contact Email:<span class="renterTxtA"><br> {{ll.email}}</span></h5><br>
+                  <h5>Contact Phone:<span class="renterTxtA"> <br>{{ll.phone}}</span></h5><br>
+                  <hr>
                 </div>
               </div>
               <div class="CenterBar"></div>
               <div class="aptSections" >
                 <h1 class="subTitle">General</h1><br>
                 <div class="innerDiv">
-                  <h5>Wifi Name:<span class="renterTxtA"> <br>{{landlord.wifiname}}</span></h5><br>
-                  <h5>Wifi Password:<span class="renterTxtA"> <br>{{landlord.wifipwd}}</span></h5><br>
-                  <h5>Trash Day:<span class="renterTxtA"> <br>{{landlord.trashday}}</span></h5><br>
+                  <h5>Wifi Name:<span class="renterTxtA"> <br>{{landlord[0].wifiname}}</span></h5><br>
+                  <h5>Wifi Password:<span class="renterTxtA"> <br>{{landlord[0].wifipwd}}</span></h5><br>
+                  <h5>Trash Day:<span class="renterTxtA"> <br>{{landlord[0].trashday}}</span></h5><br>
                 </div>
               </div>
             </section>
@@ -151,35 +152,41 @@
             <div class="serviceReqs">
               <!-- ((((((((((((((Information goes under here)))))))))))))) -->
               <div class="addReqBtn" ng-click="toggle=!toggle; change()">{{happy}}</div>
-              <form ng-show="toggle" class="hideFORM">
+              <form ng-submit='createServReq(newSR)'ng-show="toggle" class="hideFORM">
                 <div class="subTitle cNSRTitle">Create New Service Request</div>
                 <div class="formHolder">
                   <div class="LeftHolder">
 
                     <h1 class="renterTxtH5">Request:</h1>
-                    <input ng-model='newSr.request'class="lBoxes" type="text" placeholder="Your request"></input>
+                    <input ng-model='newSR.request'class="lBoxes" type="text" placeholder="Your request" required></input>
 
                     <h1 class="renterTxtH5">Type</h1>
-                    <select class="lBoxes" ng-model='newSr.type' ng-options='sr.type as sr.type for sr in servreqs | unique: "type"'>
-                      <option value="">Choose Type</option>
+                    <select class="lBoxes" ng-model='newSR.type' required>
+                      <option value=''>Choose Type</option>
+                      <option >Electrical</option>
+                      <option >Damage/Repair</option>
+                      <option >Utilities</option>
+                      <option >Appliances</option>
+                      <option >Housekeeping</option>
+                      <option >Other</option>
                     </select>
 
                     <h1 class="renterTxtH5">Permissions</h1>
-                    <select class="lBoxes" ng-model='newSr.permissions' ng-options='sr.permissions as sr.permissions for sr in servreqs | unique: "permissions"'>
+                    <select class="lBoxes" ng-model='newSR.permissions' required>
                       <option value="">Choose Permission</option>
+                      <option > 24 hour or more advance notice </option>
+                      <option >Less than 24 hour advance notice but more than 4 hours notice</option>
+                      <option >Less than 4 hour advance notice</option>
                     </select>
 
-                    <h1 class="renterTxtH5">User</h1>
-                    <select class="lBoxes" ng-model='selectedUser' ng-options='(user.firstname + " " + user.lastname) for user in users'>
-                      <option value="">Choose Requester</option>
-                    </select>
+
                   </div>
 
                   <div class="CenterBar"></div>
 
                   <div class="rightHolder">
                     <h1 class="renterTxtH5">Note:</h1>
-                    <textarea class="txtArea" rows="8" cols="40" ng-model='selectedNote' type="text" placeholder="Add a note"></textarea>
+                    <textarea class="txtArea" rows="8" cols="40" ng-model='newSR.note' type="text" placeholder="Add a note"></textarea>
                   </div>
 
                 </div>
@@ -189,20 +196,20 @@
               <section class="serviceReqHolder">
                 <!-- this is where you will use the ng-repeat inside NoteHolder -->
                 <h1 class="subTitle">Submitted Requests</h1>
-                <div class="noteHolder">
+                <div ng-repeat="sr in servreqs | unique: request"class="noteHolder">
                   <div class="LeftHolder">
 
                     <h1 class="renterTxtH5">Date Submitted:</h1>
-                    <h2 class="renterTxtA">{10/24/87}</h2>
+                    <h2 class="renterTxtA">{{sr.submitted | date: 'medium'}}</h2>
 
                     <h1 class="renterTxtH5">Request:</h1>
-                    <p class="renterTxtA">{could you please get out door fixed}</p>
+                    <p class="renterTxtA">{{sr.request}}</p>
 
                     <h1 class="renterTxtH5">Type</h1>
-                    <h2 class="renterTxtA">{Electrical}</h2>
+                    <h2 class="renterTxtA">{{sr.type}}</h2>
 
                     <h1 class="renterTxtH5">Permissions</h1>
-                    <h2 class="renterTxtA">{24 Hour Notice}</h2>
+                    <h2 class="renterTxtA">{{sr.permissions}}</h2>
 
                   </div>
 
@@ -211,10 +218,10 @@
                   <div class="rightHolder">
 
                     <h1 class="renterTxtH5">Current Status:</h1>
-                    <h2 class="renterTxtA">{Not Seen}</h2>
+                    <h2 class="renterTxtA">{{sr.status}}</h2>
 
                     <h1 class="renterTxtH5">Note:</h1>
-                    <p class="renterTxtA" class="renterTxtA">{Note goes here}</p>
+                    <p class="renterTxtA" class="renterTxtA">{{sr.note}}</p>
                   </div>
 
                 </div>

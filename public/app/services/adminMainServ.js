@@ -108,13 +108,21 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     .then(function(response) {
       swal({
         type: "success",
-        title: "Apartment Successfully Created!",
+        title: "Apartment Created Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
         text: "Auto close in 2 seconds.",
         timer: 2000,
         showConfirmButton: false
       });
     });
-  }
+  };
 
   this.submitGroup = function(group) {
     return $http({
@@ -124,7 +132,15 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     }).then(function(response) {
       swal({
         type: "success",
-        title: "Created New Group Successfully!",
+        title: "Group Created Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
         text: "Auto close in 2 seconds.",
         timer: 2000,
         showConfirmButton: false
@@ -140,7 +156,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     }).then(function(response) {
       swal({
         type: "success",
-        title: "New Location Successfully Added!",
+        title: "New Location Created Successfully!",
         text: "Auto close in 2 seconds.",
         timer: 2000,
         showConfirmButton: false
@@ -154,7 +170,7 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
         showConfirmButton: false
       });
     });
-  }
+  };
 
   // UPDATE //
 
@@ -164,7 +180,21 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       url: "/api/groups/" + group.id,
       data: group
     }).then(function(response) {
-      return response;
+      swal({
+        type: "success",
+        title: "Group Updated Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
   // this.deleteCollection = function(id) {

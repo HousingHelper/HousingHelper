@@ -101,6 +101,7 @@
           <input ng-model='location.city'class="lBoxes" type="text" placeholder="Enter Location Name" required>
           <h1 class="formTxt">State</h1>
           <select class="lBoxes" ng-model='location.state' name="state">
+            <option value="">--Select State--</option>
             <option value="AL">AL</option>
             <option value="AK">AK</option>
             <option value="AZ">AZ</option>
@@ -194,7 +195,7 @@
                   <h5 class="mainTxtTitle">Renters:</h5>
                   <ul style="text-align: left;">
                     <li ng-repeat='renter in users | filter: {aptid: apt.id}'>
-                      <h5 class="mainTxtTitle">Name:<span class="mainTxtA">{{renter.firstname}} {{renter.lastname}} {{renter.title}}</span></h5>
+                      <h5 class="mainTxtTitle">Name:<span class="mainTxtA">{{renter.firstname}} {{renter.lastname}} </span></h5>
                       <h5 class="mainTxtTitle">Email: <span class="mainTxtA">{{renter.email}}</span></h5>
                       <br>
                     </li>

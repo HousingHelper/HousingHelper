@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
 
+
 // CONFIG //
 const config = require('./config');
 
@@ -29,6 +30,8 @@ var adminCtrl = require('./controllers/adminCtrl')
 var userCtrl = require('./controllers/userCtrl')
 var serviceRequestsCtrl = require('./controllers/serviceReqCtrl')
 var renterCtrl = require('./controllers/renterCtrl')
+const DevMtnPassportCtrl = require('./controllers/DevMtnPassportCtrl')
+
 
 // SERVICES //
 var passport = require('./services/passport');
@@ -88,7 +91,7 @@ app.get('/api/logout', function(req, res, next) {
 app.get('/api/me', isAuthed, userCtrl.me);
   // FAQ //
 app.get('/api/faq', isAuthed, adminCtrl.getAllFaqs)
-app.get('/api/faq/:id', isAuthed, adminCtrl.getFaqByFaqId)
+app.get('/api/faqById', isAuthed, adminCtrl.getFaqByFaqId)
   // HOME //
 app.get('/api/superuser/adminMain', isAuthed, adminCtrl.getSuperUserInfo)
 app.get('/api/admin/adminMain', isAuthed, adminCtrl.getAdminInfo)
@@ -148,6 +151,11 @@ app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 app.post('/api/renter',isAuthed, renterCtrl.createRenter)
 app.post('/api/fake', isAuthed, serviceRequestsCtrl.fakeMakeSvcRq);
+
+
+app.get('/auth/devmtn', passport.authenticate('devmtn'), function (req, res) {  });
+app.get('/auth/devmtn/callback', passport.authenticate('devmtn', DevMtnPassportCtrl.authFailure), DevMtnPassportCtrl.authSuccess)
+app.get('/auth/logout', DevMtnPassportCtrl.authLogout)
 
 // LISTEN //
 var port = config.PORT

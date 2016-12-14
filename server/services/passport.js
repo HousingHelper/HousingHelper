@@ -1,3 +1,10 @@
+// DEVMOUNTAIN AUTH //
+const Devmtn = require('devmtn-auth');
+const DevmtnStrategy = Devmtn.Strategy;
+const config = require('./../config')
+const DevMtnPassportCtrl = require('./../controllers/DevMtnPassportCtrl')
+
+
 // PASSPORT //
 var passport = require('passport');
 var LocalStrategy = require('passport-local')
@@ -14,6 +21,14 @@ var db = app.get('db');
 function verifyPassword(submitedPass, userPass) {
 	return bcrypt.compareSync(submitedPass, userPass);
 }
+
+// DevMtn Strategy //
+passport.use('devmtn', new DevmtnStrategy({
+	app:config.DM_APP,
+	client_token: config.DM_AUTH,
+	callbackURL: config.DM_CALLBACK,
+	jwtSecret: config.DM_SECRET
+}, DevMtnPassportCtrl.authLogin))
 
 // RUN WHEN LOGGING IN //
 passport.use(new LocalStrategy({
@@ -44,9 +59,11 @@ passport.use(new LocalStrategy({
 
 // Puts the user on the session
 passport.serializeUser(function(user, done) {
+	//console.log('passport ser: ', user);
 	done(null, user.id);
 });
 passport.deserializeUser(function(id, done) {
+	//console.log('pass deserid: ', id);
 	db.user_search_id([id], function(err, user) {
 		done(err, user[0]);
 	});

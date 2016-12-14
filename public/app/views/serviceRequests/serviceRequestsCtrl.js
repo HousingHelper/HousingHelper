@@ -1,10 +1,11 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs, notes, users, servReqServ) {
+angular.module("housinghelper").controller("serviceRequestsCtrl", function($scope, servreqs, notes, users, servReqServ, $state) {
   $( "#Create" ).hide();
   // VARIABLES
   // ============================================================
   $scope.servreqs = servreqs.data;
+  console.log('servreqs: ', $scope.servreqs);
   $scope.notes = notes.data;
   $scope.users = users.data;
   $scope.newSr;
@@ -19,9 +20,11 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
     sr.aptid = $scope.selectedUser.aptid;
     sr.renterid = $scope.selectedUser.id;
     $scope.srnote = $scope.selectedNote
-
-    console.log(sr, srnote);
     servReqServ.submitSR(sr, srnote)
+    .then(function(response) {
+      $( "#Create" ).hide();
+      $state.go('serviceRequests')
+    });
   }
 
   // this is scrolling the add button
