@@ -5,6 +5,7 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
   // VARIABLES
   // ============================================================
   $scope.servreqs = servreqs.data;
+  console.log('servreqs: ', $scope.servreqs);
   $scope.notes = notes.data;
   $scope.users = users.data;
   $scope.newSr;

@@ -168,14 +168,16 @@ module.exports = {
   },
 
   getAllFaqs: function(req, res) {
-    var user = req.user
-    // console.log('this is your user', user);
-    db.get_all_faqs(function(err, faqs) {
-      if (err) {
-        res.send("error: ", err)
-      }
-      res.status(200).send(faqs)
-    })
+    var admin = req.user
+    if (admin.issuperuser) {
+      db.get_all_faqs_by_superuser([admin.orgid], function (err, faqs) {
+        res.status(200).send(faqs)
+      })
+    } else if (admin.isadmin) {
+      db.get_all_faqs_by_admin([admin.citiesid], function (err, faqs) {
+        res.status(200).send(faqs)
+      })
+    }
   },
 
     // getAptsByAdminId: function(req, res) {
