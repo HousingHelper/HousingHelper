@@ -81,7 +81,7 @@ angular.module("housinghelper").service("renterServ", function($http) {
     .then(function(response) {
       swal({
         type: "success",
-        title: "Created Successfully!",
+        title: "Renter Created Successfully!",
         text: "Auto close in 2 seconds.",
         timer: 2000,
         showConfirmButton: false
@@ -97,15 +97,15 @@ angular.module("housinghelper").service("renterServ", function($http) {
     });
   };
 
-  this.createServReq = function (sr) {
+  this.createServReq = function (newSR) {
     return $http({
       method: 'POST',
       url: '/api/serviceRequests',
-      data: sr
+      data: newSR
     }).then(function(response) {
       swal({
         type: "success",
-        title: "Service Request Successfullly Sent!",
+        title: "Service Request Created Successfullly!",
         text: "Auto close in 2 seconds.",
         timer: 2000,
         showConfirmButton: false
@@ -127,6 +127,14 @@ angular.module("housinghelper").service("renterServ", function($http) {
       method: 'PUT',
       url: '/api/updateUserAccountInfo',
       data: userAccInfo
+    }).then(function(response) {
+      swal({
+        type: "success",
+        title: "Updated Account Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
       swal({
         type: "error",
@@ -135,7 +143,6 @@ angular.module("housinghelper").service("renterServ", function($http) {
         timer: 2000,
         showConfirmButton: false
       });
-      console.log('serv err: ',err);
     });
   };
 
@@ -170,7 +177,21 @@ angular.module("housinghelper").service("renterServ", function($http) {
       url: "/api/putuser/" + user.id,
       data: user
     }).then(function(response) {
-      return response;
+      swal({
+        type: "success",
+        title: "Updated Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
   // this.deleteCollection = function(id) {

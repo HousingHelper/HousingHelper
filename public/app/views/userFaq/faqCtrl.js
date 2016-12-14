@@ -9,10 +9,10 @@ angular.module("housinghelper").controller("faqCtrl", function($scope,faqServ, u
 
     // FUNCTIONS
     // ============================================================
-    $scope.getfaqInfo = function (user){
+    $scope.getfaqInfo = function (){
       faqServ.getFaqsById()
       .then(function(response){
         $scope.faqs = response.data
       })
-    }  (user);
+    }  ();
 });
