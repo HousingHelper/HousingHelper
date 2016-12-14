@@ -6,11 +6,11 @@
         <!-- this is where we start putting inputs left side -->
           <h1 class="inputTitle">Request:</h1>
           <p class="currentInfo">{{newSr.request}}</p>
-          <input ng-model="newSr.request" ng-value="sr.request" class="inputBox" type="text">
+          <input ng-model="newSr.request" ng-value="sr.request" class="inputBox" type="text" required>
         <!-- new input -->
           <h1 class="inputTitle">Permission:</h1>
           <p class="currentInfo">{{newSr.permissions}}</p>
-          <select ng-model="newSr.permissions" ng-options="sr.permissions as sr.permissions for sr in servreqs | unique: 'permissions'" class="inputBox">
+          <select ng-model="newSr.permissions" ng-options="sr.permissions as sr.permissions for sr in servreqs | unique: 'permissions'" class="inputBox" >
             <option value="">Select Permission</option>
           </select>
         <!-- this is where we end putting inputs left side -->
@@ -22,24 +22,25 @@
           <h1 class="inputTitle">Type</h1>
           <h1 class="currentInfo">{{newSr.type}}</h1>
         </div>
-        <select ng-model="newSr.type" class="inputBox" name="" ng-options="sr.type as sr.type for sr in servreqs | unique: 'type'">
+        <select ng-model="newSr.type" class="inputBox" ng-options="sr.type as sr.type for sr in servreqs | unique: 'type'">
           <option value="">Select Type</option>
-
         </select>
+
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Status</h1>
           <h1 class="currentInfo">{{newSr.status}}</h1>
         </div>
-        <select ng-model="newSr.status" class="inputBox" name=""ng-options="sr.status as sr.status for sr in servreqs | unique: 'status'">
+        <select ng-model="newSr.status" class="inputBox" name=""ng-options="sr.status as sr.status for sr in servreqs | unique: 'status'" required>
+
           <option value="">Select Status</option>
         </select>
 
-      </div>
-    </section>
-    <section class="btnHolder">
-      <button ui-sref="serviceRequests" type="reset" class="actionBtns" type="button" name="button">Cancel</button>
-      <button class="actionBtns" type="submit" name="button">Update</button>
-    </section>
-  </form>
+            </div>
+        </section>
+        <section class="btnHolder">
+            <button ui-sref="serviceRequests" type="reset" class="actionBtns" type="button" name="button">Cancel</button>
+            <button class="actionBtns" type="submit" name="button">Update</button>
+        </section>
+    </form>
 </section>

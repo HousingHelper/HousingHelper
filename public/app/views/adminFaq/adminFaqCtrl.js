@@ -1,10 +1,33 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("adminFaq", function($scope, faqServ, faqs) {
-  $scope.faqs = faqs.data;
-  $( "#Create" ).hide();
+angular.module("housinghelper").controller("adminFaq", function($scope, $state, faqServ, faqs) {
+
   // VARIABLES
   // ============================================================
+  $scope.faqs = faqs.data;
+  $( "#Create" ).hide();
+
+  // FUNCTIONS
+  // ============================================================
+
+  $scope.createFaq = function(faq){
+    // $scope.spin = true
+    faqServ.createFaq(faq)
+    .then(function(response) {
+      $( "#Create" ).hide();
+      $state.go('adminFaq')
+    });
+  };
+
+  $scope.deleteFaq = function (faq) {
+    if($scope.saAlert()) {
+      faqServ.deleteFaq(faq) //does not exist yet
+    }
+  }
+
+  //  JQUERY
+  // ============================================================
+
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();
     if(winScroll < 45){
@@ -26,13 +49,6 @@ angular.module("housinghelper").controller("adminFaq", function($scope, faqServ,
     return false;
   });
 
-  $scope.createFaq = function(faq){
-    if (!faq.question || !faq.answer){
-      return alert('please fullfill the form')
-    }
-    console.log(faq);
-    faqServ.createFaq(faq)
-  };
 
   $scope.saAlert = function (){
     swal({

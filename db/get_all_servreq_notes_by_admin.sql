@@ -1,2 +1,2 @@
 select * from servreq_notes
-where orgid = $1
+where citiesid = $1

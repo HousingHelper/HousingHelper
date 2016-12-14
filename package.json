@@ -21,6 +21,7 @@
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
+    "devmtn-auth": "=0.2.3",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "gulp": "^3.9.1",
@@ -32,7 +33,7 @@
     "gulp-watch": "^4.3.11",
     "massive": "^2.5.0",
     "nodemailer": "^2.6.4",
-    "passport": "^0.3.2",
+    "passport": "=0.3.0",
     "passport-local": "^1.0.0"
   }
 }

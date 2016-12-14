@@ -9,7 +9,7 @@
       <div class="loginTitle">
         <h1>Create New Group</h1>
       </div>
-      <form ng-submit='' class="loginInputs">
+      <form ng-submit="submitGroup(group)"class="loginInputs">
         <div class="iBoxHolder">
           <h1 class="formTxt">Group Title</h1>
           <input ng-model='group.title'class="lBoxes" type="text" placeholder="Enter a group's title" required>
@@ -29,7 +29,7 @@
         </div>
         <div class="BtnHolder">
           <button id="cancelBtn" type="reset" class="lBtns" ng-click="show= false">Cancel</button>
-          <button type="submit" class="lBtns" ng-click="submitGroup(group)">Create</button>
+          <button type="submit" class="lBtns">Create</button>
         </div>
       </form>
     </div>
@@ -72,13 +72,13 @@
                   <div class="groupInfo">
                     <h1 class="baseTxt titleTxt">First</h1>
                   </div>
-                  <div class="groupInfo">
+                  <div class="groupInfo backGrey">
                     <h1 class="baseTxt titleTxt">Last</h1>
                   </div>
                   <div class="groupInfo aptName">
                     <h1 class="baseTxt titleTxt">Apt Name</h1>
                   </div>
-                  <div class="groupInfo aptSize">
+                  <div class="groupInfo aptSize backGrey">
                     <h1 class="baseTxt titleTxt">Apt #</h1>
                   </div>
                 </section>
@@ -87,13 +87,13 @@
                   <div class="groupInfo">
                     <h1 class="baseTxt memberTxt">{{member.firstname}}</h1>
                   </div>
-                  <div class="groupInfo">
+                  <div class="groupInfo backGrey">
                     <h1 class="baseTxt memberTxt">{{member.lastname}}</h1>
                   </div>
                   <div class="groupInfo aptName">
                     <h1 class="baseTxt memberTxt">{{member.title}} </h1>
                   </div>
-                  <div class="groupInfo aptSize">
+                  <div class="groupInfo aptSize backGrey">
                     <h1 class="baseTxt memberTxt">{{member.apt_num}}</h1>
                   </div>
                 </section>

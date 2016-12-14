@@ -101,6 +101,7 @@
           <input ng-model='location.city'class="lBoxes" type="text" placeholder="Enter Location Name" required>
           <h1 class="formTxt">State</h1>
           <select class="lBoxes" ng-model='location.state' name="state">
+            <option value="">--Select State--</option>
             <option value="AL">AL</option>
             <option value="AK">AK</option>
             <option value="AZ">AZ</option>
@@ -185,7 +186,13 @@
             </div>
           <div ng-repeat='apt in apartments | filter: {city: location.city}' class="showData">
             <div style="text-align: center;margin-left:0px;" class="mainData">
-
+              <div class="btnHolder">
+                <div ng-click="saAlert()" id="delete" class="dataBtns">
+                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
+                  <div ui-sref="update.apt({id: {{apt.id}}})" id="edit" class="dataBtns">
+                      <h1 class="btnTxt">edit apartment</h1>
+                  </div>
+              </div>
               <h1 class="mainTxtTitle">{{apt.title}}, {{apt.apt_num}}</h1>
               <div>
                 <h5 class="mainTxtTitle">Address:<br> <span class="mainTxtA">{{apt.address}} {{apt.city}}, {{apt.state}} {{apt.zipcode}}</span></h5>
@@ -194,21 +201,21 @@
                   <h5 class="mainTxtTitle">Renters:</h5>
                   <ul style="text-align: left;">
                     <li ng-repeat='renter in users | filter: {aptid: apt.id}'>
-                      <h5 class="mainTxtTitle">Name:<span class="mainTxtA">{{renter.firstname}} {{renter.lastname}} {{renter.title}}</span></h5>
+                      <h5 class="mainTxtTitle">Name:<span class="mainTxtA">{{renter.firstname}} {{renter.lastname}} </span></h5>
                       <h5 class="mainTxtTitle">Email: <span class="mainTxtA">{{renter.email}}</span></h5>
                       <br>
                     </li>
                   </ul>
               </div>
             </div>
-            <div class="btnHolder">
+            <!-- <div class="btnHolder">
               <div ng-click="saAlert()" id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
 
                 <div ui-sref="update.apt({id: {{apt.id}}})" id="edit" class="dataBtns">
                     <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>a<br>p<br>a<br>r<br>t<br>m<br>e<br>n<br>t</h1></div>
 
-            </div>
+            </div> -->
           </div>
           </div>
         </div>
