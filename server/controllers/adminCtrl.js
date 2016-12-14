@@ -369,7 +369,7 @@ module.exports = {
           return res.status(401).send(err);
         }
         // delete admin.password;
-        res.status(200).send('FAQ Updated Successfully!');
+        res.status(200).send();
       });
     },
 
@@ -383,7 +383,7 @@ module.exports = {
         return res.status(401).send(err);
       }
       // delete admin.password;
-      res.status(200).send('Group Successfully Updated!');
+      res.status(200).send();
     });
     },
 
@@ -396,7 +396,7 @@ module.exports = {
           console.log("updateapt error",err);
           return res.status(401).send(err);
         }
-        res.status(200).send("Apartment Updated Successfully!");
+        res.status(200).send();
       });
     }
 

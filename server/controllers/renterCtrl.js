@@ -104,7 +104,7 @@ module.exports = {
         console.log("update user error",err);
         return res.status(401).send(err);
       }
-      res.status(200).json(user);
+      res.status(200).send();
     });
   },
 
@@ -119,7 +119,7 @@ module.exports = {
         return res.status(401).send(err);
       }
 			console.log('sr: ' ,sr);
-      res.status(200).send('Service Request Successfully Updated');
+      res.status(200).send();
     });
   },
 
@@ -130,7 +130,7 @@ module.exports = {
 		  if (err) {
 		  	console.log('err',err);
 		  }
-			res.status(200).send('User Account Information Successfully Updated!');
+			res.status(200).send();
 		})
 	},
 
@@ -140,7 +140,7 @@ module.exports = {
 		update.password = hashPassword(update.password);
 		db.update_user_password([update.password, user.id], function (err, result) {
 			if (err) console.log('err: ', err);
-			res.status(200).send('User Password Successfully Updated!');
+			res.status(200).send();
 		})
 	}
 
