@@ -12,12 +12,12 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
   // FUNCTIONS
   // ============================================================
   $scope.submitGroup = function(group) {
-    if(!group.title){
-      $state.go('groupList')
-    }
-    if (!group.citiesid) {
-      $state.go('groupList')
-    }
+    // if(!group.title){
+    //   $state.go('groupList')
+    // }
+    // if (!group.citiesid) {
+    //   $state.go('groupList')
+    // }
 
     adminMainServ.submitGroup(group)
     .then(function(response) {

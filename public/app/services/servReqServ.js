@@ -38,7 +38,21 @@ angular.module("housinghelper").service("servReqServ", function($http) {
            note: note
       }
     }).then(function(response) {
-      alert("Service Request Successfully Created!");
+      swal({
+        type: "success",
+        title: "Service Request Created Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
 
@@ -48,9 +62,21 @@ angular.module("housinghelper").service("servReqServ", function($http) {
       url: '/api/servRequest/' + sr.id,
       data: sr
     }).then(function(response) {
-      alert('Service Request Successfully Updated!')
+      swal({
+        type: "success",
+        title: "Service Request Successfully Edited!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     }).catch(function(err) {
-      console.log('err', err);
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
 

@@ -25,7 +25,7 @@ angular.module("housinghelper").service("faqServ", function($http ) {
     }).then(function(response) {
       swal({
         type: "success",
-        title: "Apartment Updated Successfully!",
+        title: "FAQ Created Successfully!",
         text: "Auto close in 2 seconds.",
         timer: 2000,
         showConfirmButton: false
@@ -48,7 +48,21 @@ angular.module("housinghelper").service("faqServ", function($http ) {
       url: "/api/putfaq/" + faq.id,
       data: faq
     }).then(function(response) {
-      return response;
+      swal({
+        type: "success",
+        title: "FAQ Updated Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
     });
   };
   // this.deleteCollection = function(id) {
