@@ -13,9 +13,9 @@ angular.module("housinghelper").controller("updateSerReq", function($scope, sr, 
     sr.id = $stateParams.id
     servReqServ.editSR(sr)
     .then(function(response) {
-      $state.go('serviceRequests');
+      $state.go('unassignedRenters');
     }).catch(function(err) {
-      console.log('updatesrctrl: ', err);
+      console.log('updateuser: ', err);
     });
   }
 });
