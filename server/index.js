@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const massive = require('massive');
 
+
 // CONFIG //
 const config = require('./config');
 
@@ -29,6 +30,8 @@ var adminCtrl = require('./controllers/adminCtrl')
 var userCtrl = require('./controllers/userCtrl')
 var serviceRequestsCtrl = require('./controllers/serviceReqCtrl')
 var renterCtrl = require('./controllers/renterCtrl')
+const DevMtnPassportCtrl = require('./controllers/DevMtnPassportCtrl')
+
 
 // SERVICES //
 var passport = require('./services/passport');
@@ -148,6 +151,11 @@ app.post('/api/apartments', isAuthed, adminCtrl.createApt)
 app.post('/api/createlocation', isAuthed, adminCtrl.createLocation)
 app.post('/api/renter',isAuthed, renterCtrl.createRenter)
 app.post('/api/fake', isAuthed, serviceRequestsCtrl.fakeMakeSvcRq);
+
+
+app.get('/auth/devmtn', passport.authenticate('devmtn'), function (req, res) {  });
+app.get('/auth/devmtn/callback', passport.authenticate('devmtn', DevMtnPassportCtrl.authFailure), DevMtnPassportCtrl.authSuccess)
+app.get('/auth/logout', DevMtnPassportCtrl.authLogout)
 
 // LISTEN //
 var port = config.PORT
