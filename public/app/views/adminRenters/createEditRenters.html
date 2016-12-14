@@ -119,7 +119,16 @@
             </div>
             <div ng-repeat="renter in users | filter: {groupid: group.id}" class="showData">
 
-              <div class="mainData" style="text-align:left;width:370px;">
+              <div class="mainData"
+               style="text-align:left;width:370px;">
+               <div class="btnHolder">
+                 <div ng-click="saAlert()" id="delete" class="dataBtns">
+                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
+                 </div>
+                 <div ui-sref="update.user({id: renter.id})" id="edit" class="dataBtns">
+                   <h1 class="btnTxt">edit user</h1>
+                 </div>
+               </div>
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Name:<span style="margin-left:10px;" class="mainTxtA">{{renter.firstname}}  {{renter.lastname}}</span></h1>
                 <h1 style="margin-left:20px;" class="mainTxtTitle">DOB:<span style="margin-left:10px;" class="mainTxtA"> {{renter.dob}}</span></h1>
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Gender:<span style="margin-left:10px;" class="mainTxtA"> {{renter.gender}}</span></h1>
@@ -133,13 +142,13 @@
                 <h1 style="margin-left:20px;" class="mainTxtTitle">Admin?<span style="margin-left:10px;" class="mainTxtA"> {{renter.isadmin?'Yes':'No'}}</span></h1>
 
               </div>
-              <div class="btnHolder">
+              <!-- <div class="btnHolder">
                 <div ng-click="saAlert()" id="delete" class="dataBtns">
                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
                   <div ui-sref="update.user({id: renter.id})" id="edit" class="dataBtns">
-                    <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>u<br>s<br>e<br>r</h1>
+                    <h1 class="btnTxt">edit user</h1>
                   </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

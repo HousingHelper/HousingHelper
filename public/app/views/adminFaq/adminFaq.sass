@@ -155,16 +155,14 @@
     display: flex
     flex-direction: row
     margin-bottom: 20px
-    background: red
+    // background: red
     .mainData
-      // padding: 10px
+      margin: 10px
       background: white
-      border: 1px solid #1B75BB
       border-right: none
-      border-top-left-radius: 10px
-      border-bottom-left-radius: 10px
+      border-radius: 10px
       min-height: 100px
-      width: 620px
+      width: 100%
       display: flex
       flex-direction: column
       justify-content: flex-start
@@ -179,22 +177,21 @@
         color: grey
         margin: 0px 20px
     .btnHolder
-      width: 30px
       // background: green
       display: flex
-      flex-direction: column
-      align-items: center
+      flex-direction: row
+      justify-content: center
       .dataBtns
-        width: 30px
         display: flex
         justify-content: center
         align-items: center
       #delete
-        border: 1px solid black
+        // border: 1px solid black
         height: 30px
+        width: 30px
         color: red
         background: #2A2A2A
-        border-top-right-radius: 10px
+        border-top-left-radius: 10px
         &:hover
           cursor: pointer
           background: red
@@ -202,12 +199,12 @@
         .trashCan
           font-size: 20px
       #edit
-        border: 1px solid #1B75BB
-        height: calc(100% - 30px)
-        border-bottom-right-radius: 10px
+        height: 30px
+        width: calc(100% - 30px)
+        // border: 1px solid #1B75BB
+        border-top-right-radius: 10px
         background: #2AABE2
         &:hover
-          // background: #1ebafd
           background: #11a5e5
           cursor: pointer
         .btnTxt
