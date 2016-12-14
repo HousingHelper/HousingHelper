@@ -12,24 +12,18 @@
     height: 200px
     width: 100%
   .mainCon
-    background: blue
+    // background: blue
     width: 100%
-    // min-height: 80vh
     min-height: calc(100vh - 200px)
     display: flex
     flex-direction: row
     justify-content: space-between
     .sNavDirCon
       background: #828282
-      // width: 15%
-      // min-width: 256px
       width: 256px
-      // height: 80vh
     .pageContent
       width: calc(100% - 256px)
-      // width: 85%
-      // height: 80vh
-      background: yellow
+      // background: yellow
 
   //((((((((((((((((((((((((((main styling for ng-repeat boxes))))))))))))))))))))))))))
   .dataHolder
@@ -37,56 +31,51 @@
     width: 95%
     display: flex
     justify-content: space-around
-    align-items: center
+    align-items: flex-start
     flex-direction: row
     flex-wrap: wrap
     // background: blue
     //where we are using the ng-repeat ~~~~~~~~~~~~~~~~~~~~~~~~~
     .showData
       margin-top: 5px
-      margin-bottom: 20px
+      // margin-bottom: 20px
       min-height: 170px
-      // width: 475px
       // background: yellow
       display: flex
-      flex-direction: row
+      flex-direction: column
       .mainData
-        // height: 250px
         width: 455px
-        border: 1px solid #1B75BB
-        border-right: none
-        border-top-left-radius: 10px
-        border-bottom-left-radius: 10px
+        padding-bottom: 10px
+        // border: 1px solid #1B75BB
+        border-radius: 10px
         background: white
+        margin: 10px
         .mainTxtA
           margin: 5px 0px 5px 10px
           font-size: 20px
           color: grey
           text-transform: capitalize
         .mainTxtTitle
-          // margin-left: 20px
           margin: 5px 0px 5px 20px
           font-size: 20px
           color: black
       .btnHolder
-        // height: 250px
-        width: 30px
         // background: green
+        margin-bottom: 15px
         display: flex
-        flex-direction: column
+        flex-direction: row
         align-items: center
-        // margin-left: 1px
+        justify-content: space-between
         .dataBtns
           width: 30px
           display: flex
           justify-content: center
           align-items: center
         #delete
-          border: 1px solid black
           height: 30px
           color: red
           background: #2A2A2A
-          border-top-right-radius: 10px
+          border-top-left-radius: 10px
           &:hover
             cursor: pointer
             background: red
@@ -94,9 +83,9 @@
           .trashCan
             font-size: 20px
         #edit
-          border: 1px solid #1B75BB
-          height: calc(100% - 30px)
-          border-bottom-right-radius: 10px
+          width: calc(100% - 30px)
+          height: 30px
+          border-top-right-radius: 10px
           background: #2AABE2
           &:hover
             // background: #1ebafd
@@ -109,6 +98,7 @@
             font-weight: bold
             line-height: 1
             text-transform: uppercase
+            letter-spacing: 2px
 
 
       //((((((((((((((((((((((((((dont change))))))))))))))))))))))))))

@@ -45,17 +45,25 @@
           <!-- the ng-repeat go inside of showFaqs -->
           <div class="showFaqs" ng-repeat='faq in faqs'>
             <div class="mainData">
+              <div class="btnHolder">
+                <div ng-click="saAlert()" id="delete" class="dataBtns">
+                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
+                </div>
+                  <div ui-sref="update.faq({id: faq.id})" id="edit" class="dataBtns">
+                    <h1 class="btnTxt">edit faq's</h1>
+                  </div>
+              </div>
               <h1 class="mdTxtH1">{{faq.question}}</h1>
               <p class="mdTxtP">{{faq.answer}}</p>
             </div>
-            <div class="btnHolder">
+            <!-- <div class="btnHolder">
               <div ng-click="saAlert()" id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
               </div>
                 <div ui-sref="update.faq({id: faq.id})" id="edit" class="dataBtns">
                   <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>f<br>a<br>q</h1>
                 </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
