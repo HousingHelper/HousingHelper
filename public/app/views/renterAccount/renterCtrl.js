@@ -10,9 +10,9 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     // this is add show service req vars above
     $scope.show = true
     $scope.user = user;
-    console.log('user', $scope.user);
+    // console.log('user', $scope.user);
     $scope.landlord = admin.data;
-    console.log('landlord: ', admin.data);
+    // console.log('landlord: ', admin.data);
     // $scope.apartments = apartments.data
     $('#existingLogin').hide();
 
@@ -63,7 +63,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
   };
 
   $scope.updateUserPassword = function (password) {
-    console.log('password:',password);
+    // console.log('password:',password);
     renterServ.updateUserPassword(password)
     .then(function(response) {
       $state.go('home');
@@ -91,7 +91,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     };
     // this is where i'm using an add show service req
     $scope.change = function() {
-      console.log($scope.toggle);
+      // console.log($scope.toggle);
       if(!$scope.toggle) {
         $scope.happy = 'Add New'
       }
