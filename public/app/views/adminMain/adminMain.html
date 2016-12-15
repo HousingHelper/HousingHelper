@@ -174,8 +174,8 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="adminMainView">
         <div class="addBtnHolder">
-          <div id="addLocation" class="addBtn locBtn">Add New Location</div>
-          <div id="addData" class="addBtn">Add New Apartment</div>
+          <div id="addLocation" class="addBtn locBtn">Add Location</div>
+          <div id="addData" class="addBtn">Add Apartment</div>
           <div ng-click="helpIcon()" class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
@@ -196,7 +196,7 @@
               <h1 class="mainTxtTitle">{{apt.title}}, {{apt.apt_num}}</h1>
               <div>
                 <h5 class="mainTxtTitle">Address:<br> <span class="mainTxtA">{{apt.address}} {{apt.city}}, {{apt.state}} {{apt.zipcode}}</span></h5>
-                  <h5 class="mainTxtTitle">Occupancy: {{apt.currentocc}} / {{apt.totalocc}}</h5>
+                  <!-- <h5 class="mainTxtTitle">Occupancy: {{apt.currentocc}} / {{apt.totalocc}}</h5> -->
                   <hr style="border: 0;height: 2px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0));">
                   <h5 class="mainTxtTitle">Renters:</h5>
                   <ul style="text-align: left;">
@@ -209,14 +209,12 @@
               </div>
             </div>
 
-                <!-- <div ui-sref="update.apt({id: {{apt.id}}})" id="edit" class="dataBtns">
-                    <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>a<br>p<br>a<br>r<br>t<br>m<br>e<br>n<br>t</h1></div> -->
+            </div>
 
-            </div> -->
           </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE ABOVE ~~~~~~~~~~~~~~~~~ -->
     </div>
   </div>
