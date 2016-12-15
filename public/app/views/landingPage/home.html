@@ -11,16 +11,15 @@
       </div>
       <form ng-submit='login(user)' class="loginInputs">
         <div class="iBoxHolder">
-          <h1 class="formTxt">Email</h1>
+          <h1 class="formTxt">Email:</h1>
           <input ng-model='user.email'class="lBoxes" type="text" placeholder="Enter Email">
-          <h1 class="formTxt">Password</h1>
+          <h1 class="formTxt">Password:</h1>
           <input ng-model='user.password' class="lBoxes" type="password" placeholder="Enter Password">
         </div>
         <div class="BtnHolder">
-          <button id="cancelL" type=reset class="lBtns" ng-click="show= false">Cancel</button>
-
-          <button type="submit" class="lBtns">Login</button>
-          <a href="/auth/devmtn">DevLogin</a>
+          <button class="lBtns"><a href="/auth/devmtn">DevLogin</a></button>
+          <button id="cancelL" type=reset class="lBtns smallLBtn" ng-click="show= false">Cancel</button>
+          <button type="submit" class="lBtns smallLBtn">Login</button>
         </div>
       </form>
     </div>
