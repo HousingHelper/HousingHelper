@@ -34,16 +34,28 @@
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
-      <form class="loginInputs">
-        <div ng-submit='login(user)' class="iBoxHolder">
+      <form ng-submit='register(user, organization)' class="loginInputs">
+        <div  class="iBoxHolder">
           <h1 class="formTxt">Email:</h1>
           <input ng-model="user.email" class="lBoxes" type="text" placeholder="Enter Email">
           <h1 class="formTxt">Create Password:</h1>
           <input ng-model="user.password" class="lBoxes" type="text" placeholder="Enter New Password">
           <h1 class="formTxt">Verify Password:</h1>
-          <input ng-model="user.password2"class="lBoxes" type="text" placeholder="Verify New Password">
+          <input class="lBoxes" type="text" placeholder="Verify New Password">
           <h1 class="formTxt">Organization Name:</h1>
           <input ng-model="organization.org_name"class="lBoxes" type="text" placeholder="Enter Organization name">
+          <!-- <h1 class="formTxt">Organization Address:</h1>
+          <input ng-model="organization.org_address"class="lBoxes" type="text" placeholder="Enter Organization address">
+          <h1 class="formTxt">Organization City:</h1>
+          <input ng-model="organization.org_city"class="lBoxes" type="text" placeholder="Enter Organization city">
+          <h1 class="formTxt">Organization State:</h1>
+          <input ng-model="organization.org_state"class="lBoxes" type="text" placeholder="Enter Organization state">
+          <h1 class="formTxt">Organization Zipcode:</h1>
+          <input ng-model="organization.org_zipcode"class="lBoxes" type="text" placeholder="Enter Organization zipcode"> -->
+          <h1 class="formTxt">Organization Phone:</h1>
+          <input ng-model="organization.org_phone"class="lBoxes" type="text" placeholder="Enter Organization phone">
+          <!-- <h1 class="formTxt">Organization Website:</h1>
+          <input ng-model="organization.org_website"class="lBoxes" type="text" placeholder="Enter Organization website"> -->
 
         </div>
         <div class="BtnHolder">

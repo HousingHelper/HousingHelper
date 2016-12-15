@@ -21,7 +21,7 @@ module.exports = {
 
       if(user.issuperuser) { //via checkboxes on front end
           var org = req.body.org;
-          db.create_organization([org.org_name, org.org_address, org.org_city, org.org_state, org.org_zipcode, org.org_phone, org.org_website], function (err, newOrg) {
+          db.create_organization([org.org_name, org.org_phone], function (err, newOrg) {
             db.user_register([user.email, user.password, user.isadmin, user.issuperuser, newOrg[0].id], function(err, newUser) {
               if (err) {
                 console.log("Registration err: ", err);

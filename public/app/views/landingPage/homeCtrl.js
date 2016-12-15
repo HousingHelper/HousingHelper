@@ -34,6 +34,17 @@ angular.module("housinghelper").controller("homeCtrl", function($scope, loginSer
       });
   };
 
+  $scope.register = function(user, org) {
+    loginServ.registerUser(user, org)
+    .then(function(response) {
+      if (!response.data){
+        $scope.spin = false
+        $scope.user.password = "";
+        $state.go('home')
+      }
+    })
+  };
+
 
   $(function() {
         // Select link by id and add click event`
