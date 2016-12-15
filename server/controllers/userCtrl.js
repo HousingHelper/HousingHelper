@@ -13,6 +13,7 @@ module.exports = {
 
   // REGISTER //
   register: function(req, res, next) {
+
     var user = req.body.user;
 
     user.password = hashPassword(user.password);
@@ -30,7 +31,7 @@ module.exports = {
             res.status(200).send('New user and organization created successfully!', newUser, newOrg);
           })
         })
-      }else{
+      }else if(user.isadmin){
         var admin = req.user //req.user admin.orgid
         db.user_register([user.password, user.email, user.isadmin, admin.orgid, user.issuperuser], function(err, newUser) {
 					if (err) {
@@ -40,6 +41,18 @@ module.exports = {
       res.status(200).send(newUser);
       })
     }
+		else{
+			var org = req.body.org;
+			db.create_organization([org.org_name, org.org_phone], function (err, newOrg) {
+				db.user_register([user.email, user.password, newOrg[0].id], function(err, newUser) {
+					if (err) {
+						console.log("Registration err: ", err);
+						return res.status(401).send(err);
+					}
+				res.status(200).send('New user and organization created successfully!', newUser, newOrg);
+			})
+		})
+		}
   },
 
   me: function(req, res, next) {

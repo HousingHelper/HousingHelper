@@ -41,7 +41,10 @@ angular.module("housinghelper").service("loginServ", function($http) {
     return $http({
       method: 'POST',
       url: '/api/register',
-      data: user, org
+      data: {
+        user: user,
+        org: org
+      }
     }).then(function(response) {
       return response;
     });

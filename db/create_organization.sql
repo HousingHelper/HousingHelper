@@ -1,14 +1,9 @@
 insert into organizations
 (
   org_name,
-  org_address,
-  org_city,
-  org_state,
-  org_zipcode,
-  org_phone,
-  org_website
+  org_phone
 )
  values
- ($1, $2, $3, $4, $5, $6, $7)
+ ($1, $2)
 
 returning id
