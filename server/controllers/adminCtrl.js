@@ -261,10 +261,12 @@ module.exports = {
   },
 
   getFaqByFaqId: function(req, res, next) {
-    db.faqs.find({id: req.users.id}, function(err, faq) {
+    // console.log('req.user: ', req.user);
+    db.run("select * from faqs where citiesid = $1",[req.user.citiesid], function(err, faq) {
       if (err) {
         res.status(500).send(err)
       }
+      // console.log('faq: ',faq);
       res.status(200).send(faq)
     })
   },

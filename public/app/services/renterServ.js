@@ -123,6 +123,7 @@ angular.module("housinghelper").service("renterServ", function($http) {
 
   // PUT (UPDATE) //
   this.updateUserAccountInfo = function (userAccInfo) {
+    console.log('serv:', userAccInfo);
     return $http({
       method: 'PUT',
       url: '/api/updateUserAccountInfo',
