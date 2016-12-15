@@ -153,6 +153,18 @@ app.post('/api/renter',isAuthed, renterCtrl.createRenter)
 app.post('/api/fake', isAuthed, serviceRequestsCtrl.fakeMakeSvcRq);
 
 
+        //// Delete ////
+
+app.delete('/api/delete/apartment/:id', adminCtrl.deleteApartment);
+// app.delete('/api/delete/faq', isAuthed, adminCtrl.deleteFaq);
+// app.delete('/api/delete/renter', isAuthed, adminCtrl.deleteRenter);
+// app.delete('/api/delete/serviceRequest', isAuthed, adminCtrl.deleteServiceRequest);
+// app.delete('/api/delete/group', isAuthed, adminCtrl.deleteGroup);
+// app.delete('/api/delete/location/:id', adminCtrl.deleteLocation);
+
+
+        //// DevMtn Passport ////
+
 app.get('/auth/devmtn', passport.authenticate('devmtn'), function (req, res) {  });
 app.get('/auth/devmtn/callback', passport.authenticate('devmtn', DevMtnPassportCtrl.authFailure), DevMtnPassportCtrl.authSuccess)
 app.get('/auth/logout', DevMtnPassportCtrl.authLogout)

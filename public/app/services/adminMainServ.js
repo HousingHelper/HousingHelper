@@ -197,14 +197,33 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
       });
     });
   };
-  // this.deleteCollection = function(id) {
-  //   return $http({
-  //     method: 'DELETE',
-  //     url: '/collection/' + id
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+
+        // DELETE //
+
+  this.deleteApartment= function(id, $state) {
+    console.log('serviceid: ', id);
+    return $http({
+      method: 'DELETE',
+      url: '/api/delete/apartment/' + id
+    }).then(function(response) {
+      swal({
+        type: "success",
+        title: "Apartment Deleted Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    });
+    $state.go('adminMain')
+  };
   // OTHER FUNCTIONS
   // ============================================================
 

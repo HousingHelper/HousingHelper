@@ -187,7 +187,7 @@
           <div ng-repeat='apt in apartments | filter: {city: location.city}' class="showData">
             <div style="text-align: center;margin-left:0px;" class="mainData">
               <div class="btnHolder">
-                <div ng-click="saAlert()" id="delete" class="dataBtns">
+                <div ng-click="saAlert(apt.id)" id="delete" class="dataBtns">
                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
                   <div ui-sref="update.apt({id: {{apt.id}}})" id="edit" class="dataBtns">
                       <h1 class="btnTxt">edit apartment</h1>
@@ -208,9 +208,6 @@
                   </ul>
               </div>
             </div>
-            <!-- <div class="btnHolder">
-              <div ng-click="saAlert()" id="delete" class="dataBtns">
-                <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
 
                 <div ui-sref="update.apt({id: {{apt.id}}})" id="edit" class="dataBtns">
                     <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>a<br>p<br>a<br>r<br>t<br>m<br>e<br>n<br>t</h1></div>
