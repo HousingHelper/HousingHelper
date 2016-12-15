@@ -69,7 +69,7 @@
           <div ng-click="helpIcon()" class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
-          <div  class="showData">
+          <div ng-repeat="sr in servreqs" class="showData">
             <div class="mainData">
               <div class="btnHolder">
                 <div ng-click="saAlert()" id="delete" class="dataBtns">
@@ -78,7 +78,7 @@
                     <h1 class="btnTxt">edit request</h1>
                   </div>
               </div>
-              <h1 class="mainTxtTitle">{{sr.request}}</h1>
+              <h1 class="mainTxtTitle header">{{sr.request}}</h1>
               <div>
                 <h5 class="mainTxtTitle">Submitted: <span class="mainTxtA">{{sr.submitted}}</span></h5>
                 <h5 class="mainTxtTitle">Type: <span class="mainTxtA">{{sr.type}}</span></h5>
