@@ -36,6 +36,21 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     });
   }
 
+  // $scope.deleteApartment = function  (apt) {
+  //   console.log('delteapt: ', apt);
+  //
+  //   if($scope.saAlert()) {
+  //     adminMainServ.deleteApartment(apt)
+  //     .then(function(response) {
+  //       $( "#createApartment" ).hide();
+  //       $state.go('adminMain')
+  //     }).catch(function(err) {
+  //       console.log('ctrl err: ', err);
+  //     });
+  //   }
+  //   $state.go('adminMain')
+  // }
+
   // $scope.updateApt = function(id) {
   //   apartmentsServ.editApt(id)
   // }
@@ -113,8 +128,8 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     return false;
     });
 
-    $scope.saAlert = function (){
-      swal({
+    $scope.saAlert = function (id){
+      swal( {
         title: "Are you sure?",
         text: "This Item Will Be Permanently Deleted!",
         type: "warning",
@@ -127,9 +142,15 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
       },
       function(isConfirm){
         if (isConfirm) {
-          swal("Deleted!", "This Item Has Been Deleted.", "success");
+          console.log('frontapt:', id)
+          adminMainServ.deleteApartment(id)
+          .then(function(response) {
+          swal("Deleted!", "This Item Has Been Deleted.", "success")
+          $state.go('adminMain')
+          });
         } else {
           swal("Cancelled", "This Item is safe :)", "error");
+          $state.go('adminMain')
         }
       });
     }

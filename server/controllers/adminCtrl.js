@@ -398,12 +398,31 @@ module.exports = {
         }
         res.status(200).send();
       });
-    }
+    },
 
 
 
 // ____________________ DELETE _______________________________//
 
+deleteApartment: function(req, res, next){
+  var id = req.params;
+  console.log(': ', id);
+  db.rooms.destroy({id: id.id}, function(err, apt){
+    if (err){
+      console.log("deleteapt error", err);
+      return res.status(401).send(err);
+    }
+    else{
+      db.apartments.destroy({id: id.id}, function (err, apt) {
+        if (err){
+          console.log("deleteapt2 error", err);
+          return res.status(401).send(err);
+        }
+        res.status(200).send();
+      })
+    }
+  });
+}
 
 
 }
