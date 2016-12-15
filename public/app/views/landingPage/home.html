@@ -34,21 +34,24 @@
       <div class="loginTitle">
         <h1>Login</h1>
       </div>
-      <form class="loginInputs">
-        <div ng-submit='login(user)' class="iBoxHolder">
+      <form ng-submit='register(user, organization)' class="loginInputs">
+        <div  class="iBoxHolder">
           <h1 class="formTxt">Email:</h1>
           <input ng-model="user.email" class="lBoxes" type="text" placeholder="Enter Email">
           <h1 class="formTxt">Create Password:</h1>
           <input ng-model="user.password" class="lBoxes" type="text" placeholder="Enter New Password">
           <h1 class="formTxt">Verify Password:</h1>
-          <input ng-model="user.password2"class="lBoxes" type="text" placeholder="Verify New Password">
+          <input class="lBoxes" type="text" placeholder="Verify New Password">
           <h1 class="formTxt">Organization Name:</h1>
           <input ng-model="organization.org_name"class="lBoxes" type="text" placeholder="Enter Organization name">
+          <h1 class="formTxt">Organization Phone:</h1>
+          <input ng-model="organization.org_phone"class="lBoxes" type="text" placeholder="Enter Organization phone">
+          
 
         </div>
         <div class="BtnHolder">
           <button type="reset" id="cancelR" class="lBtns" ng-click="hide= false">Cancel</button>
-          <button type='submit' class="lBtns">Register</button>
+          <button id="cancelR" type='submit' class="lBtns">Register</button>
         </div>
       </form>
     </div>
