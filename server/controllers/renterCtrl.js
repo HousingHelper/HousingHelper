@@ -126,6 +126,8 @@ module.exports = {
 	updateUserAccountInfo: function (req, res, next) {
 	  var update = req.body;
 		var user = req.user;
+		console.log('update: ', update);
+		console.log('user: ', user);
 		db.update_user_account_info([update.email, update.phone, update.carmake, update.carmodel, user.id], function (err, result) {
 		  if (err) {
 		  	console.log('err',err);

@@ -19,16 +19,16 @@
             <div class="iBoxHolder">
               <form class="formHolder" ng-submit='updateUserAccountInfo(userAccInfo)'>
                 <h1 class="renterTxtH5">Update Email:</h1>
-                <input class="editBoxes"ng-model='userAccInfo.email' type="input" name="email" placeholder="Enter New Email">
+                <input class="editBoxes" ng-model='userAccInfo.email' type="input" name="email" placeholder="Enter New Email">
                 <h1 class="renterTxtH5">Update Phone:</h1>
-                <input class="editBoxes"ng-model='userAccInfo.phone' type="input" name="password" placeholder="Enter New Phone Number">
+                <input class="editBoxes" ng-model='userAccInfo.phone' type="input" name="password" placeholder="Enter New Phone Number">
                 <div class="dropDown">
                   <h1 class="renterTxtH5">Update Car Info</h1>
                   <input class="editCheck" type="checkbox" ng-model="checked">
                 </div>
                 <div ng-if='checked'>
                   <h1 class="renterTxtH5">Update Car Make:</h1>
-                  <input class="editBoxes"ng-model='userAccInfo.carmake' type="input" name="carmake" placeholder="Enter Car Make">
+                  <input class="editBoxes" ng-model='userAccInfo.carmake' type="input" name="carmake" placeholder="Enter Car Make">
                   <h1 class="renterTxtH5">Update Car Model:</h1>
                   <input class="editBoxes"ng-model='userAccInfo.carmodel' type="input" name="carmodel" placeholder="Enter Car Model">
                 </div>
@@ -51,7 +51,7 @@
               <div class="accountInfo">
                 <div class="mainInfo">
                   <h5 class="renterTxtH5">Email: <span class="renterTxtA">{{user.email}}</span></h5>
-                  <h5 class="renterTxtH5">Phone: <span class="renterTxtA">{{user.phone}}</span></h5>
+                  <h5 ng-if="user.phone" class="renterTxtH5">Phone: <span class="renterTxtA">{{user.phone}}</span></h5>
                 </div>
                 <section class="carHolder" ng-if='user.carmake'>
                   <h1 class="subTitle">Car Information</h1>
@@ -113,7 +113,7 @@
         <div class="BottomBoxes">
           <h1 class="boxTitles">Apartment Information</h1><br>
           <section class="BottomData">
-            <section class="ApartmentInfo">
+            <section  ng-if='landlord[0].title' class="ApartmentInfo">
               <div class="aptSections">
                 <h1 class="subTitle">{{landlord[0].title}} {{landlord[0].apt_num}}</h1><br>
                 <div class="innerDiv">
@@ -127,7 +127,7 @@
               <div class="aptSections">
                 <h1 class="subTitle">Landlord</h1><br>
                 <div ng-repeat='ll in landlord' class="innerDiv">
-                  <h5>Lanlord:<span class="renterTxtA"><br> {{ll.firstname}} {{ll.lastname}}</span><br>
+                  <h5>Landlord:<span class="renterTxtA"><br> {{ll.firstname}} {{ll.lastname}}</span><br>
                   <h5>Contact Email:<span class="renterTxtA"><br> {{ll.email}}</span></h5><br>
                   <h5>Contact Phone:<span class="renterTxtA"> <br>{{ll.phone}}</span></h5><br>
                   <hr>
