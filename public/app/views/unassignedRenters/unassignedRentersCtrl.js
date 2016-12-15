@@ -28,14 +28,17 @@ angular.module("housinghelper").controller("unassignedRentersCtrl", function($sc
   //   $("span").draggable();
   // });
 
-  $scope.editUser = function(user) {
-    swal({
-      type: "error",
-      title: "Comming Soon!",
-      text: "Auto close in 2 seconds.",
-      timer: 2000,
-      showConfirmButton: false
-    });
+  $scope.editUser = function(user, aptIndx) {
+    // swal({
+    //   type: "error",
+    //   title: "Comming Soon!",
+    //   text: "Auto close in 2 seconds.",
+    //   timer: 2000,
+    //   showConfirmButton: false
+    // });
+    user.aptid=  availableRooms.data[aptIndx].aptid
+    user.roomid= availableRooms.data[aptIndx].roomid
+    renterServ.editUser(user)
   }
 
   //this is the window button scroll ~~~~~~~~~~~~~~~~~

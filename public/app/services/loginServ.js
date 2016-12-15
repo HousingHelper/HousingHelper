@@ -3,7 +3,7 @@
 angular.module("housinghelper").service("loginServ", function($http) {
   // AUTH FUNCTIONS
   // ============================================================
-  this.login = function(user) {
+  this.login = function(user, org) {
     return $http({
       method: 'post',
       url: '/api/login',
@@ -37,15 +37,18 @@ angular.module("housinghelper").service("loginServ", function($http) {
       return response;
     });
   };
-  // this.registerUser = function(user) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/register',
-  //     data: user
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+  this.registerUser = function(user, org) {
+    return $http({
+      method: 'POST',
+      url: '/api/register',
+      data: {
+        user: user,
+        org: org
+      }
+    }).then(function(response) {
+      return response;
+    });
+  };
   // this.editUser = function(id, user) {
   //   return $http({
   //     method: 'PUT',

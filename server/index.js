@@ -143,7 +143,7 @@ app.put('/api/updateUserPassword', isAuthed, renterCtrl.updateUserPassword)
 
         //// POST ////
 
-app.post('/api/register', isAuthed, userCtrl.register);
+app.post('/api/register', userCtrl.register);
 app.post('/api/createfaq', isAuthed, adminCtrl.createFaq)
 app.post('/api/creategroup', isAuthed, adminCtrl.createGroup)
 app.post('/api/serviceRequests', isAuthed, renterCtrl.createServiceRequest)

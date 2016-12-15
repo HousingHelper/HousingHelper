@@ -32,7 +32,7 @@
                   <h1 class="titles">Rooms Avalibale</h1>
                   <h2 class="titlesH2">Insert "<span style="color:grey;">ID</span>" Into Text Box</h2>
                   <!-- put the ng-repeat on roomBox -->
-                  <form ng-submit="editUser(user)" class="roomBox" ng-repeat="rooms in availableRooms">
+                  <form ng-submit="editUser(user, $index)" class="roomBox" ng-repeat="rooms in availableRooms">
                     <h1>{{rooms.title}} / #{{rooms.aptnum}}</h1>
                     <h1>room#:{{rooms.roomid}}</h1>
                     <div class="inputHolder">

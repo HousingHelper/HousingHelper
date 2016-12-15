@@ -25,20 +25,22 @@
         <select ng-model="newSr.type" class="inputBox" ng-options="sr.type as sr.type for sr in servreqs | unique: 'type'">
           <option value="">Select Type</option>
         </select>
+
         <!-- new input -->
         <div class="inputTitlesHolder">
           <h1 class="inputTitle">Status</h1>
           <h1 class="currentInfo">{{newSr.status}}</h1>
         </div>
         <select ng-model="newSr.status" class="inputBox" name=""ng-options="sr.status as sr.status for sr in servreqs | unique: 'status'" required>
+
           <option value="">Select Status</option>
         </select>
 
-      </div>
-    </section>
-    <section class="btnHolder">
-      <button ui-sref="serviceRequests" type="reset" class="actionBtns" type="button" name="button">Cancel</button>
-      <button class="actionBtns" type="submit" name="button">Update</button>
-    </section>
-  </form>
+            </div>
+        </section>
+        <section class="btnHolder">
+            <button ui-sref="serviceRequests" type="reset" class="actionBtns" type="button" name="button">Cancel</button>
+            <button class="actionBtns" type="submit" name="button">Update</button>
+        </section>
+    </form>
 </section>

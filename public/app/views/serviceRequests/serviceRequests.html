@@ -25,7 +25,7 @@
             <option >Housekeeping</option>
             <option >Other</option>
           </select>
-          <br>
+
 
           <h1 class="formTxt">Permissions</h1>
           <select class="lBoxes" ng-model='newSr.permissions'  required>
@@ -34,13 +34,13 @@
             <option >Less than 24 hour advance notice but more than 4 hours notice</option>
             <option >Less than 4 hour advance notice</option>
           </select>
-          <br>
+
 
           <h1 class="formTxt">User</h1>
           <select class="lBoxes" ng-model='selectedUser' ng-options='(user.firstname + " " + user.lastname) for user in users' required>
             <option value="">Choose Requester</option>
           </select>
-          <br>
+
 
           <h1 class="formTxt">Note</h1>
           <textarea class="txtArea" rows="8" cols="40" ng-model='selectedNote' type="text" placeholder="Add a note"></textarea>
@@ -71,7 +71,14 @@
         <div class="dataHolder">
           <div ng-repeat="sr in servreqs" class="showData">
             <div class="mainData">
-              <h1 class="mainTxtTitle">{{sr.request}}</h1>
+              <div class="btnHolder">
+                <div ng-click="saAlert()" id="delete" class="dataBtns">
+                  <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
+                  <div ui-sref="update.serreq({id: sr.id})" id="edit" class="dataBtns">
+                    <h1 class="btnTxt">edit request</h1>
+                  </div>
+              </div>
+              <h1 class="mainTxtTitle header">{{sr.request}}</h1>
               <div>
                 <h5 class="mainTxtTitle">Submitted: <span class="mainTxtA">{{sr.submitted}}</span></h5>
                 <h5 class="mainTxtTitle">Type: <span class="mainTxtA">{{sr.type}}</span></h5>
@@ -80,18 +87,18 @@
                 <h5 class="mainTxtTitle">Notes:</h5>
                 <ul>
                   <li ng-repeat="srnote in notes | filter: {servreqid: sr.id}"><h5 class="mainTxtA">{{srnote.note}}</h5>
-                    <br>
+
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="btnHolder">
+            <!-- <div class="btnHolder">
               <div ng-click="saAlert()" id="delete" class="dataBtns">
                 <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1></div>
                 <div ui-sref="update.serreq({id: sr.id})" id="edit" class="dataBtns">
-                  <h1 class="btnTxt">e<br>d<br>i<br>t<br><br>r<br>e<br>q<br>u<br>e<br>s<br>t</h1>
+                  <h1 class="btnTxt">edit request</h1>
                 </div>
-            </div>
+            </div> -->
           </div>
 
 
