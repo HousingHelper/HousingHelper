@@ -138,4 +138,7 @@ $(function() {
   return false;
   });
 
+  $scope.refresh = function () {
+    $( "#hideAdmin" ).fadeOut( "slow" );
+  }
 });
