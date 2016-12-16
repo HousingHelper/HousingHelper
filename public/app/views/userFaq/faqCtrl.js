@@ -1,12 +1,11 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("faqCtrl", function($scope,faqServ, user) {
+angular.module("housinghelper").controller("faqCtrl", function($scope, faqServ, user) {
   // VARIABLES
   // ============================================================
 
       $scope.show = true
-      $scope.user = user;
-      console.log('user', user);
+      $scope.users = user;
 
     // FUNCTIONS
     // ============================================================
