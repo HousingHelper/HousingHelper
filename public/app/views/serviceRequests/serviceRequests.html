@@ -65,7 +65,7 @@
       <!-- ~~~~~~~~~~~~~~~EDIT PAGE BELOW ~~~~~~~~~~~~~~~~~ -->
       <section class="serviceRequestsView">
         <div class="addBtnHolder">
-          <div id="addData" class="addBtn" ng-click="addDataClick()">Create Service Request</div>
+          <div id="addData" class="addBtn" ng-click="addDataClick()">Add Service Request</div>
           <div ng-click="helpIcon()" class="helpBtn"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
         </div>
         <div class="dataHolder">
@@ -79,13 +79,14 @@
                   </div>
               </div>
               <h1 class="mainTxtTitle header">{{sr.request}}</h1>
+              <hr>
               <div>
                 <h5 class="mainTxtTitle">Submitted: <span class="mainTxtA">{{sr.submitted}}</span></h5>
                 <h5 class="mainTxtTitle">Type: <span class="mainTxtA">{{sr.type}}</span></h5>
                 <h5 class="mainTxtTitle">Permissions: <span class="mainTxtA">{{sr.permissions}}</span></h5>
                 <h5 class="mainTxtTitle">Status: <span class="mainTxtA">{{sr.status}}</span></h5>
                 <h5 class="mainTxtTitle">Notes:</h5>
-                <ul>
+                <ul class="ulpadding">
                   <li ng-repeat="srnote in notes | filter: {servreqid: sr.id}"><h5 class="mainTxtA">{{srnote.note}}</h5>
 
                   </li>
