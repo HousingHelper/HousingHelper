@@ -10,8 +10,9 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     // this is add show service req vars above
     $scope.show = true
     $scope.user = user;
+    // console.log('user', $scope.user);
     $scope.landlord = admin.data;
-    console.log('landlord: ', admin.data);
+    // console.log('landlord: ', admin.data);
     // $scope.apartments = apartments.data
     $('#existingLogin').hide();
 
@@ -20,6 +21,13 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
       type: '',
       permissions: '',
       note: ''
+    }
+
+    $scope.userAccInfo = {
+      email: $scope.user.email,
+      phone: $scope.user.phone,
+      carmake: $scope.user.carmake,
+      carmodel: $scope.user.carmodel
     }
 
 
@@ -45,21 +53,9 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
   }  (user);
 
   $scope.updateUserAccountInfo = function (userAccInfo) {
-    if(!userAccInfo.email){
-      userAccInfo.email = $scope.user.email
-    }
-    if (!userAccInfo.phone) {
-      userAccInfo.phone = $scope.user.phone
-    }
-    if (!userAccInfo.carmake) {
-      userAccInfo.carmake = $scope.user.carmake
-    }
-    if (!userAccInfo.carmodel) {
-      userAccInfo.carmodel = $scope.user.carmodel
-    }
+    console.log('useraccinfo: ', userAccInfo);
     renterServ.updateUserAccountInfo(userAccInfo)
     .then(function(response) {
-      alert('Account Successfully Updated!');
       $state.go('renter');
     }).catch(function(err) {
       console.log('ctrl: ', err);
@@ -67,6 +63,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
   };
 
   $scope.updateUserPassword = function (password) {
+    // console.log('password:',password);
     renterServ.updateUserPassword(password)
     .then(function(response) {
       $state.go('home');
@@ -94,7 +91,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     };
     // this is where i'm using an add show service req
     $scope.change = function() {
-      console.log($scope.toggle);
+      // console.log($scope.toggle);
       if(!$scope.toggle) {
         $scope.happy = 'Add New'
       }
