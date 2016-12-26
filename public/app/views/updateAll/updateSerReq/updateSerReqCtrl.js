@@ -13,7 +13,7 @@ angular.module("housinghelper").controller("updateSerReq", function($scope, sr, 
     sr.id = $stateParams.id
     servReqServ.editSR(sr)
     .then(function(response) {
-      $state.go('unassignedRenters');
+      $state.go('serviceRequests', {}, { reload: true });
     }).catch(function(err) {
       console.log('updateuser: ', err);
     });

@@ -60,7 +60,7 @@
             <h1 class="groupTitle">{{group.title}}</h1>
             <div class="groupDataHolder">
               <div class="groupBtnHolder">
-                <div ng-click="saAlert()" id="delete" class="dataGroupBtns">
+                <div ng-click="deleteGroup(group.id)" id="delete" class="dataGroupBtns">
                   <h1 class="trashCan"><i class="fa fa-trash" aria-hidden="true"></i></h1>
                 </div>
                 <div ui-sref="update.group({id: group.id})" id="edit" class="dataGroupBtns">

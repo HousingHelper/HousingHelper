@@ -20,7 +20,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     adminMainServ.createApartment(apt)
     .then(function(response) {
       $( "#createApartment" ).hide();
-      $state.go('adminMain')
+      $state.go('adminMain', {}, { reload: true })
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });
@@ -30,7 +30,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     adminMainServ.createLocation(location)
     .then(function(response) {
       $( "#createLocation" ).hide();
-      $state.go('adminMain')
+      $state.go('adminMain', {}, { reload: true })
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });
@@ -131,7 +131,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     $scope.saAlert = function (id){
       swal( {
         title: "Are you sure?",
-        text: "This Item Will Be Permanently Deleted!",
+        text: "This Apartment Will Be Permanently Deleted!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#55AA55",
@@ -146,7 +146,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
           adminMainServ.deleteApartment(id)
           .then(function(response) {
           swal("Deleted!", "This Item Has Been Deleted.", "success")
-          $state.go('adminMain')
+          $state.go('adminMain', {}, { reload: true })
           });
         } else {
           swal("Cancelled", "This Item is safe :)", "error");

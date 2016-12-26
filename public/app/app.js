@@ -205,6 +205,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       controller: 'adminFaq',
       url: '/adminFaq',
       resolve:{
+        user: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        },
         faqs: function(faqServ) {
           return faqServ.getAllFaqs();
         }

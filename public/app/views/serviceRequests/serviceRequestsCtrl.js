@@ -23,7 +23,7 @@ angular.module("housinghelper").controller("serviceRequestsCtrl", function($scop
     servReqServ.submitSR(sr, srnote)
     .then(function(response) {
       $( "#Create" ).hide();
-      $state.go('serviceRequests')
+      $state.go('serviceRequests', {}, { reload: true })
     });
   }
 

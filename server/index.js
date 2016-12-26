@@ -155,11 +155,11 @@ app.post('/api/fake', isAuthed, serviceRequestsCtrl.fakeMakeSvcRq);
 
         //// Delete ////
 
-app.delete('/api/delete/apartment/:id', adminCtrl.deleteApartment);
-// app.delete('/api/delete/faq', isAuthed, adminCtrl.deleteFaq);
-// app.delete('/api/delete/renter', isAuthed, adminCtrl.deleteRenter);
-// app.delete('/api/delete/serviceRequest', isAuthed, adminCtrl.deleteServiceRequest);
-// app.delete('/api/delete/group', isAuthed, adminCtrl.deleteGroup);
+app.delete('/api/delete/apartment/:id',isAuthed, adminCtrl.deleteApartment);
+app.delete('/api/delete/faq/:id', isAuthed, adminCtrl.deleteFaq);
+// app.delete('/api/delete/renter/:id', isAuthed, adminCtrl.deleteRenter);
+// app.delete('/api/delete/serviceRequest/:id', isAuthed, adminCtrl.deleteServiceRequest);
+app.delete('/api/delete/group/:id', isAuthed, adminCtrl.deleteGroup);
 // app.delete('/api/delete/location/:id', adminCtrl.deleteLocation);
 
 
