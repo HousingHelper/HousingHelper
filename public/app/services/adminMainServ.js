@@ -224,6 +224,31 @@ angular.module("housinghelper").service("adminMainServ", function($http) {
     });
     $state.go('adminMain')
   };
+
+  this.deleteGroup= function(id, $state) {
+    console.log('serviceid: ', id);
+    return $http({
+      method: 'DELETE',
+      url: '/api/delete/group/' + id
+    }).then(function(response) {
+      swal({
+        type: "success",
+        title: "Group Deleted Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    });
+    $state.go('groupList', {}, { reload: true })
+  };
   // OTHER FUNCTIONS
   // ============================================================
 

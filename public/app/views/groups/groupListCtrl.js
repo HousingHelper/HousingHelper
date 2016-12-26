@@ -49,10 +49,10 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
     return false;
     });
 
-    $scope.saAlert = function (){
-      swal({
+    $scope.deleteGroup = function (id){
+      swal( {
         title: "Are you sure?",
-        text: "This Item Will Be Permanently Deleted!",
+        text: "This Group Will Be Permanently Deleted!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#55AA55",
@@ -63,9 +63,15 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
       },
       function(isConfirm){
         if (isConfirm) {
-          swal("Deleted!", "This Item Has Been Deleted.", "success");
-        } else {
-          swal("Cancelled", "This Item is safe :)", "error");
+          // console.log('frontgroup:', id)
+          adminMainServ.deleteGroup(id)
+          .then(function(response) {
+          swal("Deleted!", "This Group Has Been Deleted.", "success")
+          $state.go('groupList', {}, { reload: true })
+          });
+        }   else {
+          swal("Cancelled", "This Group is safe :)", "error");
+          $state.go('groupList', {}, { reload: true })
         }
       });
     }

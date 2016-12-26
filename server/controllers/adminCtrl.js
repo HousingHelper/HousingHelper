@@ -435,6 +435,17 @@ deleteFaq: function (req, res, next) {
     }
     res.status(200).send();
   })
+},
+
+deleteGroup: function (req, res, next) {
+  var id = req.params.id
+  db.groups.destroy({id: id}, function (err, group) {
+    if (err) {
+      console.log("delete Group Error: ", err);
+      return res.status(401).send(err);
+    }
+    res.status(200).send();
+  })
 }
 
 
