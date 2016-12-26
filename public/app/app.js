@@ -70,16 +70,16 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
       templateUrl: './app/views/adminRenters/createEditRenters.html',
       controller: 'createEditRentersCtrl',
       resolve: {
-        // admin: function (loginServ, $state) {
-        //   return loginServ.getCurrentUser()
-        //     .then(function(response) {
-        //       if(!response.data)
-        //       $state.go('home');
-        //       return response.data
-        //   }).catch(function(err) {
-        //     $state.go('home')
-        //   });
-        // },
+        admin: function (loginServ, $state) {
+          return loginServ.getCurrentUser()
+            .then(function(response) {
+              if(!response.data)
+              $state.go('home');
+              return response.data
+          }).catch(function(err) {
+            $state.go('home')
+          });
+        },
         users: function(adminMainServ) {
           return adminMainServ.sortUsersbyGroups()
         },
@@ -91,17 +91,17 @@ angular.module('housinghelper', ['ui.router', 'angular.filter'])
         },
         apartments: function (adminMainServ) {
           return adminMainServ.getAllApts()
-        },
-        admin: function (loginServ, $state) {
-          return loginServ.getCurrentUser()
-            .then(function(response) {
-              if(!response.data)
-              $state.go('home');
-              return response.data
-          }).catch(function(err) {
-            $state.go('home')
-          });
         }
+        // admin: function (loginServ, $state) {
+        //   return loginServ.getCurrentUser()
+        //     .then(function(response) {
+        //       if(!response.data)
+        //       $state.go('home');
+        //       return response.data
+        //   }).catch(function(err) {
+        //     $state.go('home')
+        //   });
+        // }
       }
     })
     // createEditRenters STATE

@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, $state, users, groups, rooms, apartments, renterServ) {
+angular.module("housinghelper").controller("createEditRentersCtrl", function($scope, $state, users, groups, rooms, apartments, renterServ, adminMainServ) {
   // VARIABLES
   // ============================================================
 
@@ -74,6 +74,35 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     });
   }
 
+  $scope.deleteRenter = function (id){
+    swal( {
+      title: "Are you sure?",
+      text: "This Renter Will Be Permanently Deleted!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#55AA55",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        console.log('frontrenter:', id)
+        adminMainServ.deleteRenter(id)
+        .then(function(response) {
+        swal("Deleted!", "This Renter Has Been Deleted.", "success")
+        $state.go('adminRenters', {}, { reload: true })
+        });
+      }   else {
+        swal("Cancelled", "This Renter is safe :)", "error");
+        $state.go('adminRenters', {}, { reload: true })
+      }
+    });
+  }
+
+// ===== jQuery === //
+
   // this is scrolling the add button
   $(window).scroll(function(){
    var winScroll = $(this).scrollTop();
@@ -116,26 +145,6 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
 
     });
 
-    $scope.saAlert = function (){
-      swal({
-        title: "Are you sure?",
-        text: "This Item Will Be Permanently Deleted!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#55AA55",
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
-        closeOnConfirm: false,
-        closeOnCancel: false
-      },
-      function(isConfirm){
-        if (isConfirm) {
-          swal("Deleted!", "This Item Has Been Deleted.", "success");
-        } else {
-          swal("Cancelled", "This Item is safe :)", "error");
-        }
-      });
-    }
     $scope.helpIcon = function(){
       swal({
         // type: "info",
