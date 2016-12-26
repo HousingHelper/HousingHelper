@@ -131,7 +131,7 @@ angular.module("housinghelper").controller("adminMainCtrl", function($scope, $st
     $scope.saAlert = function (id){
       swal( {
         title: "Are you sure?",
-        text: "This Item Will Be Permanently Deleted!",
+        text: "This Apartment Will Be Permanently Deleted!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#55AA55",

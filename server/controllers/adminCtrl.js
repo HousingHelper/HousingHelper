@@ -407,15 +407,15 @@ module.exports = {
 // ____________________ DELETE _______________________________//
 
 deleteApartment: function(req, res, next){
-  var id = req.params;
-  console.log(': ', id);
-  db.rooms.destroy({id: id.id}, function(err, apt){
+  var id = req.params.id;
+  // console.log(': ', id);
+  db.rooms.destroy({id: id}, function(err, apt){
     if (err){
       console.log("deleteapt error", err);
       return res.status(401).send(err);
     }
     else{
-      db.apartments.destroy({id: id.id}, function (err, apt) {
+      db.apartments.destroy({id: id}, function (err, apt) {
         if (err){
           console.log("deleteapt2 error", err);
           return res.status(401).send(err);
@@ -424,6 +424,17 @@ deleteApartment: function(req, res, next){
       })
     }
   });
+},
+
+deleteFaq: function (req, res, next) {
+  var id = req.params.id
+  db.faqs.destroy({id: id}, function (err, faq) {
+    if (err) {
+      console.log("delete FAQ Error: ", err);
+      return res.status(401).send(err);
+    }
+    res.status(200).send();
+  })
 }
 
 

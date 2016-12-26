@@ -5,6 +5,7 @@ angular.module("housinghelper").controller("adminFaq", function($scope, $state, 
   // VARIABLES
   // ============================================================
   $scope.faqs = faqs.data;
+  // console.log('faqs: ', $scope.faqs);
   $( "#Create" ).hide();
 
   // FUNCTIONS
@@ -19,10 +20,31 @@ angular.module("housinghelper").controller("adminFaq", function($scope, $state, 
     });
   };
 
-  $scope.deleteFaq = function (faq) {
-    if($scope.saAlert()) {
-      faqServ.deleteFaq(faq) //does not exist yet
-    }
+  $scope.deleteFaq = function (id){
+    swal( {
+      title: "Are you sure?",
+      text: "This FAQ Will Be Permanently Deleted!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#55AA55",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        // console.log('frontfaq:', id)
+        faqServ.deleteFaq(id)
+        .then(function(response) {
+        swal("Deleted!", "This FAQ Has Been Deleted.", "success")
+        $state.go('adminFaq', {}, { reload: true })
+        });
+      }   else {
+        swal("Cancelled", "This FAQ is safe :)", "error");
+        $state.go('adminFaq', {}, { reload: true })
+      }
+    });
   }
 
   //  JQUERY

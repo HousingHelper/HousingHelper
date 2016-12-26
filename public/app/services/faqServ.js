@@ -65,14 +65,32 @@ angular.module("housinghelper").service("faqServ", function($http ) {
       });
     });
   };
-  // this.deleteCollection = function(id) {
-  //   return $http({
-  //     method: 'DELETE',
-  //     url: '/collection/' + id
-  //   }).then(function(response) {
-  //     return response;
-  //   });
-  // };
+
+  this.deleteFaq= function(id, $state) {
+    console.log('serviceid: ', id);
+    return $http({
+      method: 'DELETE',
+      url: '/api/delete/faq/' + id
+    }).then(function(response) {
+      swal({
+        type: "success",
+        title: "FAQ Deleted Successfully!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }).catch(function(err) {
+      swal({
+        type: "error",
+        title: "Encountered Error!",
+        text: "Auto close in 2 seconds.",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    });
+    $state.go('adminFaq', {}, { reload: true })
+  };
+
   // OTHER FUNCTIONS
   // ============================================================
 
