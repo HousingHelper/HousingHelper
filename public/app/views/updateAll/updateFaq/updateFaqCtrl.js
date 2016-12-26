@@ -11,7 +11,7 @@ angular.module("housinghelper").controller("updateFaq", function($scope, faq, $s
     faq.id = $stateParams.id
     faqServ.editFaq(faq)
     .then(function(response) {
-      $state.go('adminFaq');
+      $state.go('adminFaq', {}, { reload: true });
     }).catch(function(err) {
       console.log('updatefaqctrl: ', err);
     });

@@ -68,7 +68,7 @@ angular.module("housinghelper").controller("createEditRentersCtrl", function($sc
     renterServ.createRenter(renter)
     .then(function(response) {
       $( "#Create" ).hide();
-      $state.go('adminRenters')
+      $state.go('adminRenters', {}, { reload: true })
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });

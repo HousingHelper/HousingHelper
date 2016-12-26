@@ -56,7 +56,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     console.log('useraccinfo: ', userAccInfo);
     renterServ.updateUserAccountInfo(userAccInfo)
     .then(function(response) {
-      $state.go('renter');
+      $state.go('renter', {}, { reload: true });
     }).catch(function(err) {
       console.log('ctrl: ', err);
     });
@@ -76,7 +76,7 @@ angular.module("housinghelper").controller("renterCtrl", function($scope, $state
     renterServ.createServReq(newSR)
     .then(function(response) {
       $('#existingLogin').hide();
-      $state.go('renter')
+      $state.go('renter', {}, { reload: true })
     }).catch(function(err) {
       console.log('ctrl err: ', err);
     });

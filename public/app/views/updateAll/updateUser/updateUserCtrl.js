@@ -14,7 +14,7 @@ angular.module("housinghelper").controller("updateUser", function($scope, user, 
     user.id = $stateParams.id
     renterServ.editUser(user)
     .then(function(response) {
-      $state.go('adminRenters');
+      $state.go('adminRenters', {}, { reload: true });
     }).catch(function(err) {
       console.log('ctrl: ', err);
     });

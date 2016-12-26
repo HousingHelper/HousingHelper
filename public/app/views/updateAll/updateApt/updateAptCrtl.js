@@ -14,7 +14,7 @@ angular.module("housinghelper").controller("updateApt", function($scope, apartme
     apartment.city = apartment.city.city
     apartmentsServ.editApt(apartment)
     .then(function(response) {
-      $state.go('adminMain');
+      $state.go('adminMain', {}, { reload: true });
     }).catch(function(err) {
       console.log('ctrl: ', err);
     });

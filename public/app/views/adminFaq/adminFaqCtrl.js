@@ -15,7 +15,7 @@ angular.module("housinghelper").controller("adminFaq", function($scope, $state, 
     faqServ.createFaq(faq)
     .then(function(response) {
       $( "#Create" ).hide();
-      $state.go('adminFaq')
+      $state.go('adminFaq', {}, { reload: true })
     });
   };
 

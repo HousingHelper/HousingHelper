@@ -22,7 +22,7 @@ angular.module("housinghelper").controller("groupListCtrl", function($scope, $st
     adminMainServ.submitGroup(group)
     .then(function(response) {
       $( "#Create" ).hide();
-      $state.go('groupList')
+      $state.go('groupList', {}, { reload: true })
     });
   };
 

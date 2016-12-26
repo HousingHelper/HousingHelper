@@ -30,7 +30,7 @@ angular.module("housinghelper").controller("updateGroup", function($scope, group
     group.id = $stateParams.id
     adminMainServ.editGroup(group)
     .then(function(response) {
-      $state.go('groupList');
+      $state.go('groupList', {}, { reload: true });
     }).catch(function(err) {
       console.log('updategroupctrl: ', err);
     });
