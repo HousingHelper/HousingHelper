@@ -446,6 +446,17 @@ deleteGroup: function (req, res, next) {
     }
     res.status(200).send();
   })
+},
+
+deleteRenter: function (req, res, next) {
+  var id = req.params.id
+  db.users.destroy({id: id}, function (err, group) {
+    if (err) {
+      console.log("delete Renter Error: ", err);
+      return res.status(401).send(err);
+    }
+    res.status(200).send();
+  })
 }
 
 
